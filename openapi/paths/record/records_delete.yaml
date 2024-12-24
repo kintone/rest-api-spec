@@ -1,0 +1,54 @@
+tags:
+  - Records
+summary: Delete records
+description: Delete multiple records from an app.
+operationId: deleteRecords
+requestBody:
+  description: Request payload for deleting records
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          app:
+            type:
+              - integer
+              - string
+            description: The ID of the app.
+          ids:
+            type: array
+            items:
+              type: integer
+            description: The IDs of the records to delete.
+          revisions:
+            type: array
+            items:
+              type: integer
+            description: The revision numbers of the records to delete.
+        required:
+          - app
+          - ids
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            revision:
+              type: string
+              description: The revision number of the app.
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'

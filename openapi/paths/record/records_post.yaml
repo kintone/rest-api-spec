@@ -1,0 +1,69 @@
+tags:
+  - Records
+summary: Add Records
+description: Adds multiple records to Kintone.
+operationId: addRecords
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          app:
+            type:
+              - integer
+              - string
+            description: The App ID.
+          records:
+            type: array
+            description: The records to add.
+            items:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  value:
+                    type: string
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+              description: The IDs of the added records.
+            revisions:
+              type: array
+              items:
+                type: string
+              description: The revision numbers of the added records.
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '401':
+    description: Unauthorized
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: App not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '500':
+    description: Internal server error
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
