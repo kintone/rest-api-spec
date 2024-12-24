@@ -1,0 +1,27 @@
+tags:
+  - Record
+summary: Delete a cursor
+description: Delete a cursor to stop retrieving records in batches.
+operationId: deleteCursor
+parameters:
+  - name: id
+    in: query
+    required: true
+    schema:
+      type: string
+    description: The cursor ID.
+responses:
+  '204':
+    description: No content, cursor deleted successfully
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'

@@ -1,0 +1,40 @@
+tags:
+  - Record
+summary: Get records by cursor
+description: Retrieve records using a cursor.
+operationId: getRecordsByCursor
+parameters:
+  - name: id
+    in: query
+    required: true
+    schema:
+      type: string
+    description: The cursor ID.
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            records:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+            next:
+              type: boolean
+              description: Indicates if there are more records to retrieve.
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'

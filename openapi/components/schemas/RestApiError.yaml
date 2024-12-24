@@ -1,0 +1,12 @@
+description: "The error response."
+type: object
+properties:
+  id:
+    type: string
+    description: "The ID of the error."
+  code:
+    type: string
+    description: "The code of the error, to specify the type of error it is."
+  message:
+    type: string
+    description: "The error message."

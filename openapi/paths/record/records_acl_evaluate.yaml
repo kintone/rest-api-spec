@@ -1,0 +1,91 @@
+tags:
+  - Record
+summary: Evaluate record permissions
+description: Evaluate the permissions of a specific record in Kintone.
+operationId: evaluateRecordPermissions
+parameters:
+  - name: app
+    in: query
+    required: true
+    schema:
+      type: integer
+    description: The ID of the app.
+  - name: ids
+    in: query
+    required: true
+    schema:
+      type: array
+      items:
+        type: integer
+    description: The IDs of the records.
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            rights:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: レコードID
+                  record:
+                    type: object
+                    properties:
+                      viewable:
+                        type: boolean
+                        description: >
+                          レコードの閲覧が可能かどうか
+                          true：閲覧できる
+                          false：閲覧できない
+                          メンテナンスモードの場合は、「false」が設定されます。
+                      editable:
+                        type: boolean
+                        description: >
+                          レコードの編集が可能かどうか
+                          true：編集できる
+                          false：編集できない
+                          メンテナンスモードの場合は、「false」が設定されます。
+                      deletable:
+                        type: boolean
+                        description: >
+                          レコードの削除が可能かどうか
+                          true：削除できる
+                          false：削除できない
+                          メンテナンスモードの場合は、「false」が設定されます。
+                  fields:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        viewable:
+                          type: boolean
+                          description: >
+                            フィールドの閲覧が可能かどうか
+                            true：閲覧できる
+                            false：閲覧できない
+                            メンテナンスモードの場合は、「false」が設定されます。
+                        editable:
+                          type: boolean
+                          description: >
+                            フィールドの編集が可能かどうか
+                            true：編集できる
+                            false：編集できない
+                            メンテナンスモードの場合は、「false」が設定されます。
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'

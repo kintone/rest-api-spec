@@ -1,0 +1,76 @@
+tags:
+  - Record
+summary: Update a Record
+description: Updates a record in Kintone.
+operationId: updateRecord
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          app:
+            type:
+              - integer
+              - string
+            description: The App ID.
+          id:
+            type:
+              - integer
+              - string
+            description: The Record ID.
+          updateKey:
+            type: object
+            description: The key to update the record.
+            properties:
+              field:
+                type: string
+              value:
+                type: string
+          record:
+            type: object
+            description: The record to update.
+            additionalProperties:
+              type: object
+              properties:
+                value:
+                  type: string
+          revision:
+            type: string
+            description: The expected revision number.
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            revision:
+              type: string
+              description: The revision number of the updated record.
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '401':
+    description: Unauthorized
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Record not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '500':
+    description: Internal server error
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'

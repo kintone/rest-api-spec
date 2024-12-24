@@ -1,0 +1,67 @@
+tags:
+  - Record
+summary: Update multiple record statuses
+description: Update the statuses of multiple records in Kintone.
+operationId: updateRecordStatuses
+requestBody:
+  description: Request payload for updating multiple record statuses
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          app:
+            type: integer
+            description: The ID of the app.
+          records:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: The ID of the record.
+                action:
+                  type: string
+                  description: The action to perform on the record.
+                assignee:
+                  type: string
+                  description: The assignee of the record.
+              required:
+                - id
+                - action
+        required:
+          - app
+          - records
+responses:
+  '200':
+    description: Successful response
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            records:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The ID of the record.
+                  revision:
+                    type: string
+                    description: The revision number of the record.
+  '400':
+    description: Bad request
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
+  '404':
+    description: Not found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/RestApiError.yaml'
