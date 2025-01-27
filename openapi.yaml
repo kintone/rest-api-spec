@@ -1,6 +1,14 @@
 openapi: 3.1.0
 servers:
   - url: https://sample.cybozu.com
+  - url: https://{domainId}.cybozu.com
+    variables:
+      domainId:
+        default: sample
+  - url: "{Custom URL}"
+    variables:
+      "Custom URL":
+        default: https://sample.cybozu.com
 info:
   version: 1.0.0
   title: Kintone REST API
