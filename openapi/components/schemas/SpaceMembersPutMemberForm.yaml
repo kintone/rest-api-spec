@@ -1,0 +1,26 @@
+---
+properties:
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        enum:
+        - "USER"
+        - "GROUP"
+        - "ORGANIZATION"
+        type: "string"
+    required:
+    - "code"
+    - "type"
+    type: "object"
+  includeSubs:
+    format: "boolean"
+    type: "boolean"
+  isAdmin:
+    format: "boolean"
+    type: "boolean"
+required:
+- "entity"
+type: "object"
+

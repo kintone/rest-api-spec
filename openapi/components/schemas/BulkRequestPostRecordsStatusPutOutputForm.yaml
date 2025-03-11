@@ -1,0 +1,8 @@
+---
+properties:
+  records:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutOutputFormRecord"
+    type: "array"
+type: "object"
+

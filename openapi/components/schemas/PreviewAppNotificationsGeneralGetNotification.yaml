@@ -1,0 +1,28 @@
+---
+properties:
+  commentAdded:
+    type: "boolean"
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        enum:
+        - "USER"
+        - "GROUP"
+        - "ORGANIZATION"
+        - "FIELD_ENTITY"
+        type: "string"
+    type: "object"
+  fileImported:
+    type: "boolean"
+  includeSubs:
+    type: "boolean"
+  recordAdded:
+    type: "boolean"
+  recordEdited:
+    type: "boolean"
+  statusChanged:
+    type: "boolean"
+type: "object"
+

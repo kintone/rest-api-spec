@@ -1,0 +1,12 @@
+---
+properties:
+  destField:
+    type: "string"
+  srcField:
+    type: "string"
+  srcType:
+    enum:
+    - "FIELD"
+    type: "string"
+type: "object"
+

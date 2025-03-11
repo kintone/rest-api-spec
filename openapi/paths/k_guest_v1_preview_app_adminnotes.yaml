@@ -1,0 +1,78 @@
+---
+put:
+  operationId: "putPreviewAppAdminNotesForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            content:
+              maxLength: 10000
+              type: "string"
+            includeInTemplateAndDuplicates:
+              type: "string"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          title: "putPreviewAppAdminNotesForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/adminNotes/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppAdminNotesForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppAdminNotesForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/adminNotes/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              content:
+                type: "string"
+              includeInTemplateAndDuplicates:
+                type: "boolean"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppAdminNotesForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

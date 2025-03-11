@@ -1,0 +1,20 @@
+---
+properties:
+  fields:
+    additionalProperties:
+      $ref: "../../openapi.yaml#/components/schemas/RecordsAclEvaluateGetField"
+    type: "object"
+  id:
+    format: "long"
+    type: "integer"
+  record:
+    properties:
+      deletable:
+        type: "boolean"
+      editable:
+        type: "boolean"
+      viewable:
+        type: "boolean"
+    type: "object"
+type: "object"
+

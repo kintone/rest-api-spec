@@ -1,0 +1,68 @@
+---
+put:
+  operationId: "putSpaceThread"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              maxLength: 65535
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+          required:
+          - "id"
+          title: "putSpaceThreadRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+post:
+  operationId: "postSpaceThread"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+            space:
+              format: "long"
+              type: "integer"
+          required:
+          - "name"
+          - "space"
+          title: "postSpaceThreadRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                format: "long"
+                type: "integer"
+            title: "postSpaceThreadResponse"
+            type: "object"
+  tags:
+  - "SPACE"
+

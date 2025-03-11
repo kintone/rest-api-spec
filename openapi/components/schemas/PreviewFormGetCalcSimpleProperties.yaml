@@ -1,0 +1,66 @@
+---
+properties:
+  code:
+    type: "string"
+  displayScale:
+    format: "long"
+    type: "integer"
+  expression:
+    type: "string"
+  format:
+    enum:
+    - "NUMBER"
+    - "NUMBER_DIGIT"
+    - "DATETIME"
+    - "DATE"
+    - "TIME"
+    - "HOUR_MINUTE"
+    - "DAY_HOUR_MINUTE"
+    type: "string"
+  hideExpression:
+    format: "boolean"
+    type: "boolean"
+  label:
+    type: "string"
+  noLabel:
+    format: "boolean"
+    type: "boolean"
+  required:
+    format: "boolean"
+    type: "boolean"
+  type:
+    enum:
+    - "LABEL"
+    - "SPACER"
+    - "HR"
+    - "CREATED_TIME"
+    - "CREATOR"
+    - "DATE"
+    - "DATETIME"
+    - "NUMBER"
+    - "CALC"
+    - "RICH_TEXT"
+    - "FILE"
+    - "UPDATED_TIME"
+    - "MODIFIER"
+    - "CHECK_BOX"
+    - "MULTI_LINE_TEXT"
+    - "MULTI_SELECT"
+    - "RECORD_NUMBER"
+    - "RADIO_BUTTON"
+    - "SINGLE_LINE_TEXT"
+    - "DROP_DOWN"
+    - "SUBTABLE"
+    - "TIME"
+    - "USER_SELECT"
+    - "ORGANIZATION_SELECT"
+    - "GROUP_SELECT"
+    - "REFERENCE_TABLE"
+    - "LINK"
+    type: "string"
+  unit:
+    type: "string"
+  unitPosition:
+    type: "string"
+type: "object"
+

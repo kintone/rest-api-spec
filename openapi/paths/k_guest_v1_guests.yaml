@@ -1,0 +1,58 @@
+---
+delete:
+  operationId: "deleteGuestsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "guests"
+    required: true
+    schema:
+      items:
+        format: "email"
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of guests/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "GUESTS"
+post:
+  operationId: "postGuestsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            guests:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/GuestsPostGuestUserForm"
+              type: "array"
+          required:
+          - "guests"
+          title: "postGuestsForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of guests/post"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "GUESTS"
+

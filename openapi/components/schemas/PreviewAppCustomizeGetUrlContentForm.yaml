@@ -1,0 +1,14 @@
+---
+properties:
+  type:
+    enum:
+    - "URL"
+    - "FILE"
+    type: "string"
+  url:
+    type: "string"
+required:
+- "type"
+- "url"
+type: "object"
+

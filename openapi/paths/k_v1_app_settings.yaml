@@ -1,0 +1,76 @@
+---
+get:
+  operationId: "getAppSettings"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/settings/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              description:
+                maxLength: 10000
+                type: "string"
+              enableBulkDeletion:
+                type: "boolean"
+              enableComments:
+                type: "boolean"
+              enableDuplicateRecord:
+                type: "boolean"
+              enableInlineRecordEditing:
+                type: "boolean"
+              enableThumbnails:
+                type: "boolean"
+              firstMonthOfFiscalYear:
+                type: "string"
+              icon:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/AppSettingsGetIconPresetForm"
+                - $ref: "../openapi.yaml#/components/schemas/AppSettingsGetIconFileForm"
+              name:
+                maxLength: 64
+                minLength: 1
+                type: "string"
+              numberPrecision:
+                $ref: "../openapi.yaml#/components/schemas/AppSettingsGetNumberPrecision"
+              revision:
+                format: "long"
+                type: "integer"
+              theme:
+                enum:
+                - "WHITE"
+                - "CLIPBOARD"
+                - "BINDER"
+                - "PENCIL"
+                - "CLIPS"
+                - "RED"
+                - "GREEN"
+                - "BLUE"
+                - "YELLOW"
+                - "BLACK"
+                type: "string"
+              titleField:
+                $ref: "../openapi.yaml#/components/schemas/AppSettingsGetTitleField"
+            title: "getAppSettingsResponse"
+            type: "object"
+  tags:
+  - "APP"
+

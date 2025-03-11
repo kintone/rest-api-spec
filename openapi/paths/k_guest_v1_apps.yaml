@@ -1,0 +1,67 @@
+---
+get:
+  operationId: "getAppsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "codes"
+    required: false
+    schema:
+      items:
+        type: "string"
+      type: "array"
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "name"
+    required: false
+    schema:
+      maxLength: 64
+      type: "string"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "ids"
+    required: false
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  - in: "query"
+    name: "spaceIds"
+    required: false
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of apps/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppsGetAppWithSpaceIdForm"
+                type: "array"
+            title: "getAppsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APPS"
+

@@ -1,0 +1,12 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  revision:
+    format: "long"
+    type: "integer"
+required:
+- "app"
+type: "object"
+

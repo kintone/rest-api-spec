@@ -1,0 +1,67 @@
+---
+put:
+  operationId: "putAppAcl"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/AppAclPutRight"
+              type: "array"
+          required:
+          - "app"
+          - "rights"
+          title: "putAppAclRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of app/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putAppAclResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getAppAcl"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of app/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppAclGetRight"
+                type: "array"
+            title: "getAppAclResponse"
+            type: "object"
+  tags:
+  - "APP"
+

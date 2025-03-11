@@ -1,0 +1,48 @@
+---
+get:
+  operationId: "getAppReportsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/reports/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              reports:
+                additionalProperties:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReport"
+                  - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReportWithChartMode"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppReportsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

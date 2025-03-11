@@ -1,0 +1,10 @@
+---
+properties:
+  type:
+    enum:
+    - "COUNT"
+    type: "string"
+required:
+- "type"
+type: "object"
+

@@ -1,0 +1,13 @@
+---
+properties:
+  code:
+    type: "string"
+  selectionMode:
+    enum:
+    - "AUTO"
+    - "MANUAL"
+    type: "string"
+required:
+- "selectionMode"
+type: "object"
+

@@ -1,0 +1,24 @@
+---
+properties:
+  accessibility:
+    enum:
+    - "WRITE"
+    - "READ"
+    - "NONE"
+    type: "string"
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        enum:
+        - "USER"
+        - "GROUP"
+        - "ORGANIZATION"
+        - "FIELD_ENTITY"
+        type: "string"
+    type: "object"
+  includeSubs:
+    type: "boolean"
+type: "object"
+

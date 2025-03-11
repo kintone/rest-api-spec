@@ -1,0 +1,25 @@
+---
+properties:
+  file:
+    properties:
+      contentType:
+        type: "string"
+      fileKey:
+        type: "string"
+      name:
+        type: "string"
+      size:
+        type: "string"
+    required:
+    - "fileKey"
+    type: "object"
+  type:
+    enum:
+    - "URL"
+    - "FILE"
+    type: "string"
+required:
+- "file"
+- "type"
+type: "object"
+

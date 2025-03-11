@@ -1,0 +1,81 @@
+---
+put:
+  operationId: "putFieldAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            id:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/FieldAclPutRight"
+              type: "array"
+          required:
+          - "rights"
+          title: "putFieldAclForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of field/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putFieldAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "FIELD"
+get:
+  operationId: "getFieldAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of field/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/FieldAclGetRight"
+                type: "array"
+            title: "getFieldAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "FIELD"
+

@@ -1,0 +1,44 @@
+---
+put:
+  operationId: "putRecordStatus"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            action:
+              type: "string"
+            app:
+              format: "long"
+              type: "integer"
+            assignee:
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "action"
+          - "id"
+          title: "putRecordStatusRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of record/status/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putRecordStatusResponse"
+            type: "object"
+  tags:
+  - "RECORD"
+

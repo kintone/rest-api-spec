@@ -1,0 +1,32 @@
+---
+get:
+  operationId: "getAppFormLayout"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of app/form/layout/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              layout:
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
+                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetGroupRow"
+                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetSubtableRow"
+                type: "array"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppFormLayoutResponse"
+            type: "object"
+  tags:
+  - "APP"
+

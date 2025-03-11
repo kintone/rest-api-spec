@@ -1,0 +1,32 @@
+---
+properties:
+  appEditable:
+    type: "boolean"
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        enum:
+        - "USER"
+        - "ORGANIZATION"
+        - "GROUP"
+        - "CREATOR"
+        type: "string"
+    type: "object"
+  includeSubs:
+    type: "boolean"
+  recordAddable:
+    type: "boolean"
+  recordDeletable:
+    type: "boolean"
+  recordEditable:
+    type: "boolean"
+  recordExportable:
+    type: "boolean"
+  recordImportable:
+    type: "boolean"
+  recordViewable:
+    type: "boolean"
+type: "object"
+

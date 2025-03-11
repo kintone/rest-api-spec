@@ -1,0 +1,32 @@
+---
+put:
+  operationId: "putSpaceGuests"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            guests:
+              items:
+                format: "email"
+                type: "string"
+              type: "array"
+            id:
+              format: "long"
+              type: "integer"
+          required:
+          - "guests"
+          - "id"
+          title: "putSpaceGuestsRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/guests/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+

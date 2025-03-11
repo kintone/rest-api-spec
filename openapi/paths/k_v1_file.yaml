@@ -1,0 +1,40 @@
+---
+get:
+  operationId: "getFile"
+  parameters:
+  - in: "query"
+    name: "fileKey"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of file/get"
+  tags:
+  - "FILE"
+post:
+  operationId: "postFile"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            file: {}
+          title: "postFileRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of file/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              fileKey:
+                type: "string"
+            title: "postFileResponse"
+            type: "object"
+  tags:
+  - "FILE"
+

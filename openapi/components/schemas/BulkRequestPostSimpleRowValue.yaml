@@ -1,0 +1,36 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  value:
+    additionalProperties:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostCalcSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostCategorySimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostDateSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostDatetimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostDecimalSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostEditorSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostFileSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostGroupSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostLinkSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostModifiedAtSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostModifierSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostMultipleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostMultipleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordIdSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostReferenceTableSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostSimpleTableValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostSingleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostSingleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostStatusSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostTimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostUserSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostOrganizationSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostGroupSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRevisionSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRawRecordIdSimpleValue"
+    type: "object"
+type: "object"
+

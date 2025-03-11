@@ -1,0 +1,58 @@
+---
+properties:
+  aggregations:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetRecordAggregation"
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetFieldAggregation"
+    type: "array"
+  chartType:
+    enum:
+    - "PIE"
+    - "LINE"
+    - "SPLINE"
+    - "TABLE"
+    - "PIVOT_TABLE"
+    - "BAR"
+    - "COLUMN"
+    - "AREA"
+    - "SPLINE_AREA"
+    type: "string"
+  filterCond:
+    format: "query"
+    type: "string"
+  groups:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroup"
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroupDateTime"
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroupDate"
+      - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroupTime"
+    type: "array"
+  id:
+    format: "long"
+    type: "integer"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    type: "string"
+  periodicReport:
+    properties:
+      active:
+        type: "boolean"
+      period:
+        anyOf:
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodYear"
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodQuarter"
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodMonth"
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodWeek"
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodDay"
+        - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodHour"
+    type: "object"
+  sorts:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/AppReportsGetSort"
+    type: "array"
+type: "object"
+

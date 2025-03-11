@@ -1,0 +1,20 @@
+---
+properties:
+  code:
+    maxLength: 128
+    type: "string"
+  layout:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
+    type: "array"
+  type:
+    enum:
+    - "ROW"
+    - "SUBTABLE"
+    - "GROUP"
+    type: "string"
+required:
+- "code"
+- "type"
+type: "object"
+

@@ -1,0 +1,10 @@
+---
+properties:
+  id:
+    type: "string"
+  isMarketPlugin:
+    type: "boolean"
+  name:
+    type: "string"
+type: "object"
+

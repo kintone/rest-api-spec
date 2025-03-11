@@ -1,0 +1,20 @@
+---
+properties:
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        enum:
+        - "USER"
+        - "GROUP"
+        - "ORGANIZATION"
+        - "FIELD_ENTITY"
+        - "CREATOR"
+        - "CUSTOM_FIELD"
+        type: "string"
+    type: "object"
+  includeSubs:
+    type: "boolean"
+type: "object"
+

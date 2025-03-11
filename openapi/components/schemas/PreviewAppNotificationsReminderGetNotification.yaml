@@ -1,0 +1,17 @@
+---
+properties:
+  filterCond:
+    format: "query"
+    type: "string"
+  targets:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetTarget"
+    type: "array"
+  timing:
+    anyOf:
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetTimingRelative"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetTimingAbsolute"
+  title:
+    type: "string"
+type: "object"
+

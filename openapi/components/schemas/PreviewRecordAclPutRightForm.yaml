@@ -1,0 +1,13 @@
+---
+properties:
+  entities:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewRecordAclPutEntityRightForm"
+    type: "array"
+  filterCond:
+    format: "query"
+    type: "string"
+required:
+- "entities"
+type: "object"
+

@@ -1,0 +1,19 @@
+---
+properties:
+  by:
+    enum:
+    - "TOTAL"
+    - "GROUP1"
+    - "GROUP2"
+    - "GROUP3"
+    type: "string"
+  order:
+    enum:
+    - "ASC"
+    - "DESC"
+    type: "string"
+required:
+- "by"
+- "order"
+type: "object"
+

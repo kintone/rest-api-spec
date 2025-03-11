@@ -1,0 +1,20 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  ids:
+    items:
+      format: "long"
+      type: "integer"
+    type: "array"
+  revisions:
+    items:
+      format: "long"
+      type: "integer"
+    type: "array"
+required:
+- "app"
+- "ids"
+type: "object"
+

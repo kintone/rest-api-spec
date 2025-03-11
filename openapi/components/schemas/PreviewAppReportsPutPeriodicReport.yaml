@@ -1,0 +1,15 @@
+---
+properties:
+  active:
+    format: "boolean"
+    type: "boolean"
+  period:
+    anyOf:
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodYear"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodQuarter"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodMonth"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodWeek"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodDay"
+    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodHour"
+type: "object"
+

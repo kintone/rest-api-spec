@@ -1,0 +1,10 @@
+---
+properties:
+  fileKey:
+    type: "string"
+  width:
+    type: "string"
+required:
+- "fileKey"
+type: "object"
+

@@ -1,0 +1,130 @@
+---
+put:
+  operationId: "putPreviewAppCustomize"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            desktop:
+              properties:
+                css:
+                  items:
+                    anyOf:
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                  type: "array"
+                js:
+                  items:
+                    anyOf:
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                  type: "array"
+              type: "object"
+            mobile:
+              properties:
+                css:
+                  items:
+                    anyOf:
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                  type: "array"
+                js:
+                  items:
+                    anyOf:
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                  type: "array"
+              type: "object"
+            revision:
+              format: "long"
+              type: "integer"
+            scope:
+              enum:
+              - "ALL"
+              - "ADMIN"
+              - "NONE"
+              type: "string"
+          required:
+          - "app"
+          title: "putPreviewAppCustomizeRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/customize/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppCustomizeResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppCustomize"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/customize/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              desktop:
+                properties:
+                  css:
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                  js:
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                type: "object"
+              mobile:
+                properties:
+                  css:
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                  js:
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+              scope:
+                enum:
+                - "ALL"
+                - "ADMIN"
+                - "NONE"
+                type: "string"
+            title: "getPreviewAppCustomizeResponse"
+            type: "object"
+  tags:
+  - "APP"
+

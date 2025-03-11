@@ -1,0 +1,12 @@
+---
+properties:
+  field:
+    type: "string"
+  value:
+    maxLength: 64
+    type: "string"
+required:
+- "field"
+- "value"
+type: "object"
+

@@ -1,0 +1,13 @@
+---
+properties:
+  index:
+    format: "long"
+    type: "integer"
+  label:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+required:
+- "index"
+type: "object"
+

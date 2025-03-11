@@ -1,0 +1,10 @@
+---
+properties:
+  code:
+    type: "string"
+  entities:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewFieldAclGetEntityRight"
+    type: "array"
+type: "object"
+

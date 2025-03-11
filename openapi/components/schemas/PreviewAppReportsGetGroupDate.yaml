@@ -1,0 +1,14 @@
+---
+properties:
+  code:
+    type: "string"
+  per:
+    enum:
+    - "YEAR"
+    - "QUARTER"
+    - "MONTH"
+    - "WEEK"
+    - "DAY"
+    type: "string"
+type: "object"
+

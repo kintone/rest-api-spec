@@ -1,0 +1,14 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  status:
+    enum:
+    - "PROCESSING"
+    - "SUCCESS"
+    - "FAIL"
+    - "CANCEL"
+    type: "string"
+type: "object"
+

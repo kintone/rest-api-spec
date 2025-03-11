@@ -1,0 +1,19 @@
+---
+properties:
+  every:
+    enum:
+    - "YEAR"
+    - "QUARTER"
+    - "MONTH"
+    - "WEEK"
+    - "DAY"
+    - "HOUR"
+    type: "string"
+  minute:
+    format: "long"
+    type: "integer"
+required:
+- "every"
+- "minute"
+type: "object"
+

@@ -1,0 +1,34 @@
+---
+get:
+  operationId: "getAppAdminNotesForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/adminNotes/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              content:
+                type: "string"
+              includeInTemplateAndDuplicates:
+                type: "boolean"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppAdminNotesForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

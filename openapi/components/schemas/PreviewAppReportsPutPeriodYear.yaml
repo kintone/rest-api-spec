@@ -1,0 +1,26 @@
+---
+properties:
+  dayOfMonth:
+    format: "long"
+    type: "integer"
+  every:
+    enum:
+    - "YEAR"
+    - "QUARTER"
+    - "MONTH"
+    - "WEEK"
+    - "DAY"
+    - "HOUR"
+    type: "string"
+  month:
+    format: "long"
+    type: "integer"
+  time:
+    type: "string"
+required:
+- "month"
+- "dayOfMonth"
+- "time"
+- "every"
+type: "object"
+

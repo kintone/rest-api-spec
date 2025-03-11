@@ -1,0 +1,49 @@
+---
+get:
+  operationId: "getAppNotificationsReminderForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/notifications/reminder/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              notifications:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppNotificationsReminderGetNotification"
+                type: "array"
+              revision:
+                format: "long"
+                type: "integer"
+              timezone:
+                format: "timezone"
+                type: "string"
+            title: "getAppNotificationsReminderForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

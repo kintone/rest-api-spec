@@ -1,0 +1,6 @@
+---
+properties:
+  code:
+    type: "string"
+type: "object"
+

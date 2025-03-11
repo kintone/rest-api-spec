@@ -1,0 +1,86 @@
+---
+put:
+  operationId: "putPreviewAppReports"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            reports:
+              additionalProperties:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReport"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportWithChartMode"
+              type: "object"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "reports"
+          title: "putPreviewAppReportsRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/reports/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              reports:
+                additionalProperties:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportResult"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppReportsResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppReports"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/reports/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              reports:
+                additionalProperties:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReport"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReportWithChartMode"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppReportsResponse"
+            type: "object"
+  tags:
+  - "APP"
+

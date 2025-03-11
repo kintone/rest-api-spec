@@ -1,0 +1,62 @@
+---
+properties:
+  appGroup:
+    type: "string"
+  createdAt:
+    format: "date-time"
+    type: "string"
+  creator:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  customized:
+    type: "boolean"
+  dailyRequestCount:
+    format: "long"
+    type: "integer"
+  fieldCount:
+    format: "long"
+    type: "integer"
+  id:
+    format: "long"
+    type: "integer"
+  modifiedAt:
+    format: "date-time"
+    type: "string"
+  modifier:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  name:
+    type: "string"
+  recordCount:
+    format: "long"
+    type: "integer"
+  recordUpdatedAt:
+    format: "date-time"
+    type: "string"
+  space:
+    properties:
+      id:
+        format: "long"
+        type: "integer"
+      name:
+        type: "string"
+    type: "object"
+  status:
+    enum:
+    - "NOT_ACTIVATED"
+    - "ACTIVATED"
+    - "CHANGED"
+    type: "string"
+  storageUsage:
+    format: "long"
+    type: "integer"
+type: "object"
+

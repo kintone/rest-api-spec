@@ -1,0 +1,43 @@
+---
+get:
+  operationId: "getPluginsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "ids"
+    required: false
+    schema:
+      items:
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of plugins/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              plugins:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PluginsGetPluginDto"
+                type: "array"
+            title: "getPluginsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "PLUGINS"
+

@@ -1,0 +1,36 @@
+---
+get:
+  operationId: "getAppsStatisticsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of apps/statistics/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppsStatisticsGetAppForm"
+                type: "array"
+            title: "getAppsStatisticsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APPS"
+

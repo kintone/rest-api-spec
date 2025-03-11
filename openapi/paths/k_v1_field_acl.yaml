@@ -1,0 +1,69 @@
+---
+put:
+  operationId: "putFieldAcl"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            id:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/FieldAclPutRight"
+              type: "array"
+          required:
+          - "rights"
+          title: "putFieldAclRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of field/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putFieldAclResponse"
+            type: "object"
+  tags:
+  - "FIELD"
+get:
+  operationId: "getFieldAcl"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of field/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/FieldAclGetRight"
+                type: "array"
+            title: "getFieldAclResponse"
+            type: "object"
+  tags:
+  - "FIELD"
+

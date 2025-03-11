@@ -1,0 +1,29 @@
+---
+properties:
+  dayOfWeek:
+    enum:
+    - "MONDAY"
+    - "TUESDAY"
+    - "WEDNESDAY"
+    - "THURSDAY"
+    - "FRIDAY"
+    - "SATURDAY"
+    - "SUNDAY"
+    type: "string"
+  every:
+    enum:
+    - "YEAR"
+    - "QUARTER"
+    - "MONTH"
+    - "WEEK"
+    - "DAY"
+    - "HOUR"
+    type: "string"
+  time:
+    type: "string"
+required:
+- "dayOfWeek"
+- "time"
+- "every"
+type: "object"
+

@@ -1,0 +1,57 @@
+---
+post:
+  operationId: "postSpaceThreadCommentForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            comment:
+              properties:
+                files:
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostFileForm"
+                  type: "array"
+                mentions:
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostMentionForm"
+                  type: "array"
+                text:
+                  maxLength: 65535
+                  type: "string"
+              type: "object"
+            space:
+              format: "long"
+              type: "integer"
+            thread:
+              format: "long"
+              type: "integer"
+          required:
+          - "comment"
+          - "thread"
+          - "space"
+          title: "postSpaceThreadCommentForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/comment/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                format: "long"
+                type: "integer"
+            title: "postSpaceThreadCommentForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "SPACE"
+

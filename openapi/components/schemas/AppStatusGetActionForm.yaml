@@ -1,0 +1,12 @@
+---
+properties:
+  filterCond:
+    type: "string"
+  from:
+    type: "string"
+  name:
+    type: "string"
+  to:
+    type: "string"
+type: "object"
+

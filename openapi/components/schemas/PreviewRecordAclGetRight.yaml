@@ -1,0 +1,10 @@
+---
+properties:
+  entities:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewRecordAclGetEntityRight"
+    type: "array"
+  filterCond:
+    type: "string"
+type: "object"
+

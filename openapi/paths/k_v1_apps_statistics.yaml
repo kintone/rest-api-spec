@@ -1,0 +1,30 @@
+---
+get:
+  operationId: "getAppsStatistics"
+  parameters:
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of apps/statistics/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppsStatisticsGetAppForm"
+                type: "array"
+            title: "getAppsStatisticsResponse"
+            type: "object"
+  tags:
+  - "APPS"
+
