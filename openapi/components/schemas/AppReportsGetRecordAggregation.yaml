@@ -1,0 +1,8 @@
+---
+properties:
+  type:
+    enum:
+    - "COUNT"
+    type: "string"
+type: "object"
+

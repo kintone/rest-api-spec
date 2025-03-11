@@ -1,0 +1,79 @@
+---
+delete:
+  operationId: "deleteRecordComment"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "record"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "comment"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of record/comment/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "RECORD"
+post:
+  operationId: "postRecordComment"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            comment:
+              properties:
+                mentions:
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordCommentPostMentionForm"
+                  type: "array"
+                text:
+                  maxLength: 65535
+                  minLength: 1
+                  type: "string"
+              required:
+              - "text"
+              type: "object"
+            record:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "record"
+          - "comment"
+          title: "postRecordCommentRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of record/comment/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                format: "long"
+                type: "integer"
+            title: "postRecordCommentResponse"
+            type: "object"
+  tags:
+  - "RECORD"
+

@@ -1,0 +1,58 @@
+---
+properties:
+  aggregations:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetRecordAggregation"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetFieldAggregation"
+    type: "array"
+  chartType:
+    enum:
+    - "PIE"
+    - "LINE"
+    - "SPLINE"
+    - "TABLE"
+    - "PIVOT_TABLE"
+    - "BAR"
+    - "COLUMN"
+    - "AREA"
+    - "SPLINE_AREA"
+    type: "string"
+  filterCond:
+    format: "query"
+    type: "string"
+  groups:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroup"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDateTime"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDate"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupTime"
+    type: "array"
+  id:
+    format: "long"
+    type: "integer"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    type: "string"
+  periodicReport:
+    properties:
+      active:
+        type: "boolean"
+      period:
+        anyOf:
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodYear"
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodQuarter"
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodMonth"
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodWeek"
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodDay"
+        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodHour"
+    type: "object"
+  sorts:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetSort"
+    type: "array"
+type: "object"
+

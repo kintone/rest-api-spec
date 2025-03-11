@@ -1,0 +1,79 @@
+---
+put:
+  operationId: "putAppAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/AppAclPutRight"
+              type: "array"
+          required:
+          - "app"
+          - "rights"
+          title: "putAppAclForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of app/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putAppAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getAppAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of app/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppAclGetRight"
+                type: "array"
+            title: "getAppAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

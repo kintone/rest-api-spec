@@ -1,0 +1,21 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  assignees:
+    items:
+      type: "string"
+    type: "array"
+  id:
+    format: "long"
+    type: "integer"
+  revision:
+    format: "long"
+    type: "integer"
+required:
+- "app"
+- "assignees"
+- "id"
+type: "object"
+

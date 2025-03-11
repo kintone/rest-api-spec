@@ -1,0 +1,36 @@
+---
+properties:
+  builtinType:
+    enum:
+    - "ASSIGNEE"
+    type: "string"
+  device:
+    enum:
+    - "DESKTOP"
+    - "ANY"
+    type: "string"
+  filterCond:
+    type: "string"
+  html:
+    type: "string"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    type: "string"
+  pager:
+    format: "boolean"
+    type: "boolean"
+  sort:
+    type: "string"
+  type:
+    enum:
+    - "LIST"
+    - "CALENDAR"
+    - "CUSTOM"
+    type: "string"
+required:
+- "index"
+- "type"
+type: "object"
+

@@ -1,0 +1,40 @@
+---
+get:
+  operationId: "getAppActions"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/actions/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              actions:
+                additionalProperties:
+                  $ref: "../openapi.yaml#/components/schemas/AppActionsGetAction"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppActionsResponse"
+            type: "object"
+  tags:
+  - "APP"
+

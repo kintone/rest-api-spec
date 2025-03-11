@@ -1,0 +1,81 @@
+---
+delete:
+  operationId: "deletePlugin"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "PLUGIN"
+put:
+  operationId: "putPlugin"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fileKey:
+              type: "string"
+            id:
+              type: "string"
+          required:
+          - "fileKey"
+          - "id"
+          title: "putPluginRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of plugin/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: "string"
+              version:
+                type: "string"
+            title: "putPluginResponse"
+            type: "object"
+  tags:
+  - "PLUGIN"
+post:
+  operationId: "postPlugin"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fileKey:
+              type: "string"
+          required:
+          - "fileKey"
+          title: "postPluginRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of plugin/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: "string"
+              version:
+                type: "string"
+            title: "postPluginResponse"
+            type: "object"
+  tags:
+  - "PLUGIN"
+

@@ -1,0 +1,16 @@
+---
+properties:
+  decimalPlaces:
+    format: "number"
+    type: "string"
+  digits:
+    format: "number"
+    type: "string"
+  roundingMode:
+    enum:
+    - "HALF_EVEN"
+    - "UP"
+    - "DOWN"
+    type: "string"
+type: "object"
+

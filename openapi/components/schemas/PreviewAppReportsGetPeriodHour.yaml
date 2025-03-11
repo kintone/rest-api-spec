@@ -1,0 +1,11 @@
+---
+properties:
+  every:
+    enum:
+    - "HOUR"
+    type: "string"
+  minute:
+    format: "long"
+    type: "integer"
+type: "object"
+

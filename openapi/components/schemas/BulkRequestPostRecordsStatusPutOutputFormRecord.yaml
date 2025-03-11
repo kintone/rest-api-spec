@@ -1,0 +1,10 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  revision:
+    format: "long"
+    type: "integer"
+type: "object"
+

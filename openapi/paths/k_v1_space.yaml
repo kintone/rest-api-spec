@@ -1,0 +1,165 @@
+---
+delete:
+  operationId: "deleteSpace"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of space/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+put:
+  operationId: "putSpace"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fixedMember:
+              format: "boolean"
+              type: "boolean"
+            id:
+              format: "long"
+              type: "integer"
+            isPrivate:
+              format: "boolean"
+              type: "boolean"
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+            permissions:
+              properties:
+                createApp:
+                  enum:
+                  - "EVERYONE"
+                  - "ADMIN"
+                  type: "string"
+              type: "object"
+            showAnnouncement:
+              format: "boolean"
+              type: "boolean"
+            showAppList:
+              format: "boolean"
+              type: "boolean"
+            showMemberList:
+              format: "boolean"
+              type: "boolean"
+            showRelatedLinkList:
+              format: "boolean"
+              type: "boolean"
+            showThreadList:
+              format: "boolean"
+              type: "boolean"
+            useMultiThread:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "id"
+          title: "putSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+get:
+  operationId: "getSpace"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of space/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              attachedApps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
+                type: "array"
+              body:
+                type: "string"
+              coverKey:
+                type: "string"
+              coverType:
+                enum:
+                - "BLOB"
+                - "PRESET"
+                type: "string"
+              coverUrl:
+                type: "string"
+              creator:
+                properties:
+                  code:
+                    type: "string"
+                  name:
+                    type: "string"
+                type: "object"
+              defaultThread:
+                format: "long"
+                type: "integer"
+              fixedMember:
+                type: "boolean"
+              id:
+                format: "long"
+                type: "integer"
+              isGuest:
+                type: "boolean"
+              isPrivate:
+                type: "boolean"
+              memberCount:
+                format: "long"
+                type: "integer"
+              modifier:
+                properties:
+                  code:
+                    type: "string"
+                  name:
+                    type: "string"
+                type: "object"
+              name:
+                type: "string"
+              permissions:
+                properties:
+                  createApp:
+                    enum:
+                    - "EVERYONE"
+                    - "ADMIN"
+                    type: "string"
+                type: "object"
+              showAnnouncement:
+                type: "boolean"
+              showAppList:
+                type: "boolean"
+              showMemberList:
+                type: "boolean"
+              showRelatedLinkList:
+                type: "boolean"
+              showThreadList:
+                type: "boolean"
+              useMultiThread:
+                type: "boolean"
+            title: "getSpaceResponse"
+            type: "object"
+  tags:
+  - "SPACE"
+

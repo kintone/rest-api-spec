@@ -1,0 +1,15 @@
+---
+properties:
+  code:
+    type: "string"
+  type:
+    enum:
+    - "USER"
+    - "ORGANIZATION"
+    - "GROUP"
+    type: "string"
+required:
+- "code"
+- "type"
+type: "object"
+

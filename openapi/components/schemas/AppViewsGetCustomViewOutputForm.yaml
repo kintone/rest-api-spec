@@ -1,0 +1,31 @@
+---
+properties:
+  device:
+    enum:
+    - "DESKTOP"
+    - "ANY"
+    type: "string"
+  filterCond:
+    type: "string"
+  html:
+    type: "string"
+  id:
+    format: "long"
+    type: "integer"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    type: "string"
+  pager:
+    type: "boolean"
+  sort:
+    type: "string"
+  type:
+    enum:
+    - "LIST"
+    - "CALENDAR"
+    - "CUSTOM"
+    type: "string"
+type: "object"
+

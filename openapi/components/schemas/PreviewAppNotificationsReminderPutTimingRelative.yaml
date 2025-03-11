@@ -1,0 +1,16 @@
+---
+properties:
+  code:
+    type: "string"
+  daysLater:
+    format: "long"
+    type: "integer"
+  hoursLater:
+    format: "long"
+    type: "integer"
+required:
+- "hoursLater"
+- "code"
+- "daysLater"
+type: "object"
+

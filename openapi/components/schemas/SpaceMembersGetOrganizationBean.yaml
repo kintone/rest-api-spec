@@ -1,0 +1,15 @@
+---
+properties:
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        type: "string"
+    type: "object"
+  includeSubs:
+    type: "boolean"
+  isAdmin:
+    type: "boolean"
+type: "object"
+

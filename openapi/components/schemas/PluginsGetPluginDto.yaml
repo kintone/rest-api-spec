@@ -1,0 +1,14 @@
+---
+properties:
+  description:
+    type: "string"
+  id:
+    type: "string"
+  isMarketPlugin:
+    type: "boolean"
+  name:
+    type: "string"
+  version:
+    type: "string"
+type: "object"
+

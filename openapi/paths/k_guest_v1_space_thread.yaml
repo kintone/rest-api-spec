@@ -1,0 +1,80 @@
+---
+put:
+  operationId: "putSpaceThreadForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              maxLength: 65535
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+          required:
+          - "id"
+          title: "putSpaceThreadForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+post:
+  operationId: "postSpaceThreadForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+            space:
+              format: "long"
+              type: "integer"
+          required:
+          - "name"
+          - "space"
+          title: "postSpaceThreadForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                format: "long"
+                type: "integer"
+            title: "postSpaceThreadForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "SPACE"
+

@@ -1,0 +1,13 @@
+---
+properties:
+  entity:
+    properties:
+      code:
+        type: "string"
+      type:
+        type: "string"
+    type: "object"
+  isAdmin:
+    type: "boolean"
+type: "object"
+

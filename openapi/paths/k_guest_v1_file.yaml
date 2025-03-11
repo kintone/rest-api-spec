@@ -1,0 +1,52 @@
+---
+get:
+  operationId: "getFileForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "fileKey"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of file/get"
+  tags:
+  - "FILE"
+post:
+  operationId: "postFileForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            file: {}
+          title: "postFileForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of file/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              fileKey:
+                type: "string"
+            title: "postFileForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "FILE"
+

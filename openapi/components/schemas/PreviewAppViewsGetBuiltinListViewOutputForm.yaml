@@ -1,0 +1,30 @@
+---
+properties:
+  builtinType:
+    enum:
+    - "ASSIGNEE"
+    type: "string"
+  fields:
+    items:
+      type: "string"
+    type: "array"
+  filterCond:
+    type: "string"
+  id:
+    format: "long"
+    type: "integer"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    type: "string"
+  sort:
+    type: "string"
+  type:
+    enum:
+    - "LIST"
+    - "CALENDAR"
+    - "CUSTOM"
+    type: "string"
+type: "object"
+

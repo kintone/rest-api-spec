@@ -1,0 +1,41 @@
+---
+properties:
+  type:
+    enum:
+    - "CATEGORY"
+    - "CREATED_TIME"
+    - "CREATOR"
+    - "DATE"
+    - "DATETIME"
+    - "NUMBER"
+    - "CALC"
+    - "RICH_TEXT"
+    - "FILE"
+    - "UPDATED_TIME"
+    - "MODIFIER"
+    - "CHECK_BOX"
+    - "MULTI_LINE_TEXT"
+    - "MULTI_SELECT"
+    - "RECORD_NUMBER"
+    - "RADIO_BUTTON"
+    - "SINGLE_LINE_TEXT"
+    - "DROP_DOWN"
+    - "STATUS"
+    - "STATUS_ASSIGNEE"
+    - "SUBTABLE"
+    - "TIME"
+    - "USER_SELECT"
+    - "ORGANIZATION_SELECT"
+    - "GROUP_SELECT"
+    - "LINK"
+    - "__REVISION__"
+    - "__ID__"
+    type: "string"
+  value:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/RecordPutOrganizationEntitySimpleValue"
+    type: "array"
+required:
+- "value"
+type: "object"
+

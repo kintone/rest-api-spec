@@ -1,0 +1,29 @@
+---
+post:
+  operationId: "postAppMove"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            space:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          title: "postAppMoveRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of app/move/post"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "APP"
+

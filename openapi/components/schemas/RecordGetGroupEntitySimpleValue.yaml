@@ -1,0 +1,10 @@
+---
+properties:
+  code:
+    type: "string"
+  name:
+    type: "string"
+required:
+- "code"
+type: "object"
+

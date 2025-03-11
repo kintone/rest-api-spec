@@ -1,0 +1,10 @@
+---
+properties:
+  destField:
+    type: "string"
+  srcType:
+    enum:
+    - "RECORD_URL"
+    type: "string"
+type: "object"
+

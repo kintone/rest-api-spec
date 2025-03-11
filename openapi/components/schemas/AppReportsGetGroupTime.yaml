@@ -1,0 +1,11 @@
+---
+properties:
+  code:
+    type: "string"
+  per:
+    enum:
+    - "HOUR"
+    - "MINUTE"
+    type: "string"
+type: "object"
+

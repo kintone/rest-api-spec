@@ -1,0 +1,79 @@
+---
+properties:
+  code:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+  fields:
+    additionalProperties:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostCalcFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostCategoryFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDateFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDatetimeFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDecimalFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEditorFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostFileFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostGroupFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostGroupSelectFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostLinkFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostLookupFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostModifiedAtFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostModifierFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleCheckFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleLineTextFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleSelectFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostOrganizationSelectFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostRecordIdFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostReferenceTableFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleCheckFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleLineTextFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleSelectFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostStatusAssigneeFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostStatusFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTableForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTimeFieldForm"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostUserSelectFieldForm"
+    type: "object"
+  label:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+  noLabel:
+    format: "boolean"
+    type: "boolean"
+  type:
+    enum:
+    - "CALC"
+    - "CATEGORY"
+    - "CHECK_BOX"
+    - "CREATED_TIME"
+    - "CREATOR"
+    - "DATE"
+    - "DATETIME"
+    - "DROP_DOWN"
+    - "FILE"
+    - "GROUP"
+    - "GROUP_SELECT"
+    - "LINK"
+    - "MODIFIER"
+    - "MULTI_LINE_TEXT"
+    - "MULTI_SELECT"
+    - "NUMBER"
+    - "ORGANIZATION_SELECT"
+    - "RADIO_BUTTON"
+    - "RECORD_NUMBER"
+    - "REFERENCE_TABLE"
+    - "RICH_TEXT"
+    - "SINGLE_LINE_TEXT"
+    - "STATUS"
+    - "STATUS_ASSIGNEE"
+    - "SUBTABLE"
+    - "TIME"
+    - "UPDATED_TIME"
+    - "USER_SELECT"
+    type: "string"
+required:
+- "type"
+type: "object"
+

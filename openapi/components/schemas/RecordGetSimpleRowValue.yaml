@@ -1,0 +1,36 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  value:
+    additionalProperties:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetCalcSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetCategorySimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetDateSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetDatetimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetDecimalSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetEditorSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetFileSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetGroupSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetLinkSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetModifiedAtSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetModifierSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetMultipleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetMultipleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetRecordIdSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetReferenceTableSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetSimpleTableValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetSingleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetSingleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetStatusSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetTimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetUserSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetOrganizationSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetGroupSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetRevisionSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordGetRawRecordIdSimpleValue"
+    type: "object"
+type: "object"
+

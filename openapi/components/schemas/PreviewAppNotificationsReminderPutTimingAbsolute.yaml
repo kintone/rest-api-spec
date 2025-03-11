@@ -1,0 +1,15 @@
+---
+properties:
+  code:
+    type: "string"
+  daysLater:
+    format: "long"
+    type: "integer"
+  time:
+    type: "string"
+required:
+- "code"
+- "time"
+- "daysLater"
+type: "object"
+

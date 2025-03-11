@@ -1,0 +1,7 @@
+---
+properties:
+  revision:
+    format: "long"
+    type: "integer"
+type: "object"
+

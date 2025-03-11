@@ -1,0 +1,16 @@
+---
+properties:
+  code:
+    type: "string"
+  type:
+    enum:
+    - "SUM"
+    - "AVERAGE"
+    - "MAX"
+    - "MIN"
+    type: "string"
+required:
+- "code"
+- "type"
+type: "object"
+

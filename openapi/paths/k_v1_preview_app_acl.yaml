@@ -1,0 +1,67 @@
+---
+put:
+  operationId: "putPreviewAppAcl"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppAclPutRight"
+              type: "array"
+          required:
+          - "app"
+          - "rights"
+          title: "putPreviewAppAclRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppAclResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppAcl"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppAclGetRight"
+                type: "array"
+            title: "getPreviewAppAclResponse"
+            type: "object"
+  tags:
+  - "APP"
+

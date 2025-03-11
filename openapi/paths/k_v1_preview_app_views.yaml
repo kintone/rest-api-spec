@@ -1,0 +1,90 @@
+---
+put:
+  operationId: "putPreviewAppViews"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            views:
+              additionalProperties:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutListViewForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCalendarViewForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCustomViewForm"
+              type: "object"
+          required:
+          - "app"
+          - "views"
+          title: "putPreviewAppViewsRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/views/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              views:
+                additionalProperties:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutResult"
+                type: "object"
+            title: "putPreviewAppViewsResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppViews"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/views/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              views:
+                additionalProperties:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinListViewOutputForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinCalendarViewOutputForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetListViewOutputForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCalendarViewOutputForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCustomViewOutputForm"
+                type: "object"
+            title: "getPreviewAppViewsResponse"
+            type: "object"
+  tags:
+  - "APP"
+

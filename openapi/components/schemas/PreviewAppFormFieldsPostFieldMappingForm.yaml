@@ -1,0 +1,8 @@
+---
+properties:
+  field:
+    type: "string"
+  relatedField:
+    type: "string"
+type: "object"
+

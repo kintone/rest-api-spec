@@ -1,0 +1,36 @@
+---
+put:
+  operationId: "putSpaceBodyForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              maxLength: 65535
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+          required:
+          - "id"
+          - "body"
+          title: "putSpaceBodyForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/body/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+

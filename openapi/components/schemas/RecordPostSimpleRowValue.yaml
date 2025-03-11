@@ -1,0 +1,36 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  value:
+    additionalProperties:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostCalcSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostCategorySimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostDateSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostDatetimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostDecimalSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostEditorSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostFileSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostGroupSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostLinkSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostModifiedAtSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostModifierSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostMultipleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostMultipleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostRecordIdSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostReferenceTableSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostSimpleTableValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostSingleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostSingleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostStatusSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostTimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostUserSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostOrganizationSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostGroupSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostRevisionSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordPostRawRecordIdSimpleValue"
+    type: "object"
+type: "object"
+

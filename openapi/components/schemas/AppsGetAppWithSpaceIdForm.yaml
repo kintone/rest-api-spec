@@ -1,0 +1,39 @@
+---
+properties:
+  appId:
+    format: "long"
+    type: "integer"
+  code:
+    type: "string"
+  createdAt:
+    format: "date-time"
+    type: "string"
+  creator:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  description:
+    type: "string"
+  modifiedAt:
+    format: "date-time"
+    type: "string"
+  modifier:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  name:
+    type: "string"
+  spaceId:
+    format: "long"
+    type: "integer"
+  threadId:
+    format: "long"
+    type: "integer"
+type: "object"
+

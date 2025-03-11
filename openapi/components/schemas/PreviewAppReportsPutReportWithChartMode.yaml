@@ -1,0 +1,52 @@
+---
+properties:
+  aggregations:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutRecordAggregation"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutFieldAggregation"
+    type: "array"
+  chartMode:
+    enum:
+    - "NORMAL"
+    - "STACKED"
+    - "PERCENTAGE"
+    type: "string"
+  chartType:
+    enum:
+    - "PIE"
+    - "LINE"
+    - "SPLINE"
+    - "TABLE"
+    - "PIVOT_TABLE"
+    - "BAR"
+    - "COLUMN"
+    - "AREA"
+    - "SPLINE_AREA"
+    type: "string"
+  filterCond:
+    format: "query"
+    type: "string"
+  groups:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutGroup"
+    type: "array"
+  index:
+    format: "long"
+    type: "integer"
+  name:
+    maxLength: 64
+    minLength: 1
+    type: "string"
+  periodicReport:
+    $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodicReport"
+  sorts:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutSort"
+    type: "array"
+required:
+- "chartType"
+- "index"
+- "chartMode"
+type: "object"
+

@@ -1,0 +1,14 @@
+---
+properties:
+  ids:
+    items:
+      format: "long"
+      type: "integer"
+    type: "array"
+  revisions:
+    items:
+      format: "long"
+      type: "integer"
+    type: "array"
+type: "object"
+

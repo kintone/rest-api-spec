@@ -1,0 +1,30 @@
+---
+put:
+  operationId: "putSpaceBody"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              maxLength: 65535
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+          required:
+          - "id"
+          - "body"
+          title: "putSpaceBodyRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/body/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+

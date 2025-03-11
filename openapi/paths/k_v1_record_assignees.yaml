@@ -1,0 +1,44 @@
+---
+put:
+  operationId: "putRecordAssignees"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            assignees:
+              items:
+                type: "string"
+              type: "array"
+            id:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "assignees"
+          - "id"
+          title: "putRecordAssigneesRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of record/assignees/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putRecordAssigneesResponse"
+            type: "object"
+  tags:
+  - "RECORD"
+

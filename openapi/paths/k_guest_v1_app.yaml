@@ -1,0 +1,63 @@
+---
+get:
+  operationId: "getAppForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of app/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              appId:
+                format: "long"
+                type: "integer"
+              code:
+                type: "string"
+              createdAt:
+                format: "date-time"
+                type: "string"
+              creator:
+                properties:
+                  code:
+                    type: "string"
+                  name:
+                    type: "string"
+                type: "object"
+              description:
+                type: "string"
+              modifiedAt:
+                format: "date-time"
+                type: "string"
+              modifier:
+                properties:
+                  code:
+                    type: "string"
+                  name:
+                    type: "string"
+                type: "object"
+              name:
+                type: "string"
+              spaceId:
+                format: "long"
+                type: "integer"
+              threadId:
+                format: "long"
+                type: "integer"
+            title: "getAppForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

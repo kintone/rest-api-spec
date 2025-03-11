@@ -1,0 +1,8 @@
+---
+properties:
+  editable:
+    type: "boolean"
+  viewable:
+    type: "boolean"
+type: "object"
+

@@ -1,0 +1,99 @@
+---
+delete:
+  operationId: "deletePluginForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "PLUGIN"
+put:
+  operationId: "putPluginForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fileKey:
+              type: "string"
+            id:
+              type: "string"
+          required:
+          - "fileKey"
+          - "id"
+          title: "putPluginForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of plugin/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: "string"
+              version:
+                type: "string"
+            title: "putPluginForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "PLUGIN"
+post:
+  operationId: "postPluginForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fileKey:
+              type: "string"
+          required:
+          - "fileKey"
+          title: "postPluginForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of plugin/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: "string"
+              version:
+                type: "string"
+            title: "postPluginForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "PLUGIN"
+

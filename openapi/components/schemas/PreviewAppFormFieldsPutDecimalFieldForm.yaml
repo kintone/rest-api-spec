@@ -1,0 +1,77 @@
+---
+properties:
+  code:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+  defaultValue:
+    maxLength: 1000
+    type: "string"
+  digit:
+    format: "boolean"
+    type: "boolean"
+  displayScale:
+    format: "long"
+    type: "integer"
+  label:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+  maxValue:
+    format: "long"
+    type: "integer"
+  minValue:
+    format: "long"
+    type: "integer"
+  noLabel:
+    format: "boolean"
+    type: "boolean"
+  required:
+    format: "boolean"
+    type: "boolean"
+  type:
+    enum:
+    - "CALC"
+    - "CATEGORY"
+    - "CHECK_BOX"
+    - "CREATED_TIME"
+    - "CREATOR"
+    - "DATE"
+    - "DATETIME"
+    - "DROP_DOWN"
+    - "FILE"
+    - "GROUP"
+    - "GROUP_SELECT"
+    - "LINK"
+    - "MODIFIER"
+    - "MULTI_LINE_TEXT"
+    - "MULTI_SELECT"
+    - "NUMBER"
+    - "ORGANIZATION_SELECT"
+    - "RADIO_BUTTON"
+    - "RECORD_NUMBER"
+    - "REFERENCE_TABLE"
+    - "RICH_TEXT"
+    - "SINGLE_LINE_TEXT"
+    - "STATUS"
+    - "STATUS_ASSIGNEE"
+    - "SUBTABLE"
+    - "TIME"
+    - "UPDATED_TIME"
+    - "USER_SELECT"
+    type: "string"
+  unique:
+    format: "boolean"
+    type: "boolean"
+  unit:
+    maxLength: 128
+    type: "string"
+  unitPosition:
+    enum:
+    - "BEFORE"
+    - "AFTER"
+    type: "string"
+required:
+- "type"
+type: "object"
+

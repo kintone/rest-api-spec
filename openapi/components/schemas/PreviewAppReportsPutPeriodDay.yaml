@@ -1,0 +1,18 @@
+---
+properties:
+  every:
+    enum:
+    - "YEAR"
+    - "QUARTER"
+    - "MONTH"
+    - "WEEK"
+    - "DAY"
+    - "HOUR"
+    type: "string"
+  time:
+    type: "string"
+required:
+- "time"
+- "every"
+type: "object"
+

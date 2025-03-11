@@ -1,0 +1,17 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  records:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordForm"
+    type: "array"
+  upsert:
+    format: "boolean"
+    type: "boolean"
+required:
+- "app"
+- "records"
+type: "object"
+

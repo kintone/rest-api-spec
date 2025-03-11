@@ -1,0 +1,17 @@
+---
+properties:
+  action:
+    type: "string"
+  assignee:
+    type: "string"
+  id:
+    format: "long"
+    type: "integer"
+  revision:
+    format: "long"
+    type: "integer"
+required:
+- "action"
+- "id"
+type: "object"
+

@@ -1,0 +1,46 @@
+---
+properties:
+  callto:
+    maxLength: 256
+    type: "string"
+  code:
+    format: "email"
+    type: "string"
+  company:
+    maxLength: 100
+    type: "string"
+  division:
+    maxLength: 100
+    type: "string"
+  givenNameReading:
+    maxLength: 64
+    type: "string"
+  image:
+    type: "string"
+  locale:
+    format: "locale"
+    type: "string"
+  name:
+    maxLength: 128
+    minLength: 1
+    type: "string"
+  password:
+    maxLength: 64
+    minLength: 3
+    type: "string"
+  phone:
+    maxLength: 100
+    type: "string"
+  surNameReading:
+    maxLength: 64
+    type: "string"
+  timezone:
+    format: "timezone"
+    type: "string"
+required:
+- "password"
+- "code"
+- "timezone"
+- "name"
+type: "object"
+

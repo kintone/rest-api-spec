@@ -1,0 +1,22 @@
+---
+properties:
+  filterCond:
+    type: "string"
+  from:
+    maxLength: 64
+    minLength: 1
+    type: "string"
+  name:
+    maxLength: 64
+    minLength: 1
+    type: "string"
+  to:
+    maxLength: 64
+    minLength: 1
+    type: "string"
+required:
+- "name"
+- "from"
+- "to"
+type: "object"
+

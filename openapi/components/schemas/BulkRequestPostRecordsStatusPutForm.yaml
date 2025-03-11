@@ -1,0 +1,14 @@
+---
+properties:
+  app:
+    format: "long"
+    type: "integer"
+  records:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutFormRecord"
+    type: "array"
+required:
+- "app"
+- "records"
+type: "object"
+

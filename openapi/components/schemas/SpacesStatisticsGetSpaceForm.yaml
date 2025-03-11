@@ -1,0 +1,39 @@
+---
+properties:
+  administratorCount:
+    format: "long"
+    type: "integer"
+  createdAt:
+    format: "date-time"
+    type: "string"
+  creator:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  id:
+    format: "long"
+    type: "integer"
+  isGuest:
+    type: "boolean"
+  isPrivate:
+    type: "boolean"
+  memberCount:
+    format: "long"
+    type: "integer"
+  modifiedAt:
+    format: "date-time"
+    type: "string"
+  modifier:
+    properties:
+      code:
+        type: "string"
+      name:
+        type: "string"
+    type: "object"
+  name:
+    type: "string"
+type: "object"
+
