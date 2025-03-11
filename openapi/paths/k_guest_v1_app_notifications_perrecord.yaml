@@ -34,7 +34,7 @@ get:
             properties:
               notifications:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppNotificationsPerRecordGetNotification"
+                  $ref: "../../openapi.yaml#/components/schemas/AppNotificationsPerRecordGetNotification"
                 type: "array"
               revision:
                 format: "long"

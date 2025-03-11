@@ -32,7 +32,7 @@ get:
             properties:
               apps:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PluginAppsGetAppDto"
+                  $ref: "../../openapi.yaml#/components/schemas/PluginAppsGetAppDto"
                 type: "array"
             title: "getPluginAppsForGuestSpaceResponse"
             type: "object"

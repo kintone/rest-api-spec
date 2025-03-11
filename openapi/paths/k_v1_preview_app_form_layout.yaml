@@ -14,9 +14,9 @@ put:
             layout:
               items:
                 anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutRow"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutGroupRow"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutSubtableRow"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutRow"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutGroupRow"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutSubtableRow"
               type: "array"
             revision:
               format: "long"
@@ -59,9 +59,9 @@ get:
               layout:
                 items:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
                 type: "array"
               revision:
                 format: "long"

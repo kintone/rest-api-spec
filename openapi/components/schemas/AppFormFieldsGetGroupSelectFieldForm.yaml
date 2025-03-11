@@ -6,11 +6,11 @@ properties:
     type: "string"
   defaultValue:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/AppFormFieldsGetEntityForm"
+      $ref: "../../../openapi.yaml#/components/schemas/AppFormFieldsGetEntityForm"
     type: "array"
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/AppFormFieldsGetEntityForm"
+      $ref: "../../../openapi.yaml#/components/schemas/AppFormFieldsGetEntityForm"
     type: "array"
   label:
     maxLength: 128

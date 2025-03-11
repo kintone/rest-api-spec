@@ -32,11 +32,11 @@ get:
               views:
                 additionalProperties:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/AppViewsGetBuiltinListViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/AppViewsGetBuiltinCalendarViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/AppViewsGetListViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/AppViewsGetCalendarViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/AppViewsGetCustomViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppViewsGetBuiltinListViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppViewsGetBuiltinCalendarViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppViewsGetListViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppViewsGetCalendarViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppViewsGetCustomViewOutputForm"
                 type: "object"
             title: "getAppViewsResponse"
             type: "object"

@@ -12,7 +12,7 @@ properties:
     properties:
       fieldMappings:
         items:
-          $ref: "../../openapi.yaml#/components/schemas/AppFormFieldsGetFieldMappingForm"
+          $ref: "../../../openapi.yaml#/components/schemas/AppFormFieldsGetFieldMappingForm"
         type: "array"
       filterCond:
         type: "string"

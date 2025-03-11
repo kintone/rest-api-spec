@@ -19,7 +19,7 @@ put:
               type: "integer"
             records:
               items:
-                $ref: "../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutFormRecord"
+                $ref: "../../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutFormRecord"
               type: "array"
           required:
           - "app"
@@ -35,7 +35,7 @@ put:
             properties:
               records:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutOutputFormRecord"
+                  $ref: "../../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutOutputFormRecord"
                 type: "array"
             title: "putRecordsStatusForGuestSpaceResponse"
             type: "object"

@@ -28,7 +28,7 @@ get:
             properties:
               actions:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppStatusGetActionForm"
+                  $ref: "../../openapi.yaml#/components/schemas/AppStatusGetActionForm"
                 type: "array"
               enable:
                 type: "boolean"
@@ -37,7 +37,7 @@ get:
                 type: "integer"
               states:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/AppStatusGetStateForm"
+                  $ref: "../../openapi.yaml#/components/schemas/AppStatusGetStateForm"
                 type: "object"
             title: "getAppStatusResponse"
             type: "object"

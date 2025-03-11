@@ -33,7 +33,7 @@ properties:
     type: "string"
   value:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetGroupEntitySimpleValue"
+      $ref: "../../../openapi.yaml#/components/schemas/RecordsCursorGetGroupEntitySimpleValue"
     type: "array"
 required:
 - "value"

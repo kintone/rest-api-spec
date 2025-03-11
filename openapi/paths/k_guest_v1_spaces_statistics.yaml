@@ -27,7 +27,7 @@ get:
             properties:
               spaces:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/SpacesStatisticsGetSpaceForm"
+                  $ref: "../../openapi.yaml#/components/schemas/SpacesStatisticsGetSpaceForm"
                 type: "array"
             title: "getSpacesStatisticsForGuestSpaceResponse"
             type: "object"

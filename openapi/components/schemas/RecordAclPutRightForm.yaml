@@ -2,7 +2,7 @@
 properties:
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/RecordAclPutEntityRightForm"
+      $ref: "../../../openapi.yaml#/components/schemas/RecordAclPutEntityRightForm"
     type: "array"
   filterCond:
     format: "query"

@@ -27,7 +27,7 @@ get:
             properties:
               apps:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppsStatisticsGetAppForm"
+                  $ref: "../../openapi.yaml#/components/schemas/AppsStatisticsGetAppForm"
                 type: "array"
             title: "getAppsStatisticsForGuestSpaceResponse"
             type: "object"

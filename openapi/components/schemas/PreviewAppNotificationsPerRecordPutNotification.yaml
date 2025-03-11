@@ -5,7 +5,7 @@ properties:
     type: "string"
   targets:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutTarget"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutTarget"
     type: "array"
   title:
     maxLength: 100

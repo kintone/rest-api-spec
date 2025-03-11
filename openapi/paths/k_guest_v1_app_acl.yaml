@@ -22,7 +22,7 @@ put:
               type: "integer"
             rights:
               items:
-                $ref: "../openapi.yaml#/components/schemas/AppAclPutRight"
+                $ref: "../../openapi.yaml#/components/schemas/AppAclPutRight"
               type: "array"
           required:
           - "app"
@@ -70,7 +70,7 @@ get:
                 type: "integer"
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppAclGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/AppAclGetRight"
                 type: "array"
             title: "getAppAclForGuestSpaceResponse"
             type: "object"

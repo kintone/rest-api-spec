@@ -19,7 +19,7 @@ get:
             properties:
               apps:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
                 type: "array"
             title: "getPreviewAppDeployResponse"
             type: "object"
@@ -36,7 +36,7 @@ post:
           properties:
             apps:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
               type: "array"
             revert:
               format: "boolean"

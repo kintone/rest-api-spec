@@ -22,7 +22,7 @@ properties:
     type: "boolean"
   options:
     additionalProperties:
-      $ref: "../../openapi.yaml#/components/schemas/AppFormFieldsGetOptionForm"
+      $ref: "../../../openapi.yaml#/components/schemas/AppFormFieldsGetOptionForm"
     type: "object"
   required:
     format: "boolean"

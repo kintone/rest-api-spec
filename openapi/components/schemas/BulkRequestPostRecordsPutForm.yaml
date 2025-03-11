@@ -5,7 +5,7 @@ properties:
     type: "integer"
   records:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordForm"
+      $ref: "../../../openapi.yaml#/components/schemas/BulkRequestPostRecordForm"
     type: "array"
   upsert:
     format: "boolean"

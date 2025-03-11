@@ -17,7 +17,7 @@ properties:
     type: "boolean"
   options:
     additionalProperties:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostOptionForm"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostOptionForm"
     type: "object"
   required:
     format: "boolean"

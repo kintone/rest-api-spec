@@ -19,7 +19,7 @@ put:
               type: "integer"
             rights:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewRecordAclPutRightForm"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewRecordAclPutRightForm"
               type: "array"
           required:
           - "rights"
@@ -71,7 +71,7 @@ get:
                 type: "integer"
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewRecordAclGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewRecordAclGetRight"
                 type: "array"
             title: "getPreviewRecordAclResponse"
             type: "object"

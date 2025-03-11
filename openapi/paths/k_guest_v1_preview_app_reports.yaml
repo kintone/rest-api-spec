@@ -20,8 +20,8 @@ put:
             reports:
               additionalProperties:
                 anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReport"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportWithChartMode"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutReport"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutReportWithChartMode"
               type: "object"
             revision:
               format: "long"
@@ -40,7 +40,7 @@ put:
             properties:
               reports:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportResult"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutReportResult"
                 type: "object"
               revision:
                 format: "long"
@@ -85,8 +85,8 @@ get:
               reports:
                 additionalProperties:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReport"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReportWithChartMode"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetReport"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetReportWithChartMode"
                 type: "object"
               revision:
                 format: "long"

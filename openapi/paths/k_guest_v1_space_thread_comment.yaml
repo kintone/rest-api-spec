@@ -18,11 +18,11 @@ post:
               properties:
                 files:
                   items:
-                    $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostFileForm"
+                    $ref: "../../openapi.yaml#/components/schemas/SpaceThreadCommentPostFileForm"
                   type: "array"
                 mentions:
                   items:
-                    $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostMentionForm"
+                    $ref: "../../openapi.yaml#/components/schemas/SpaceThreadCommentPostMentionForm"
                   type: "array"
                 text:
                   maxLength: 65535

@@ -94,7 +94,7 @@ get:
             properties:
               attachedApps:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
+                  $ref: "../../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
                 type: "array"
               body:
                 type: "string"

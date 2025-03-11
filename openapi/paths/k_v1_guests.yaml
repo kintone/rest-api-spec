@@ -29,7 +29,7 @@ post:
           properties:
             guests:
               items:
-                $ref: "../openapi.yaml#/components/schemas/GuestsPostGuestUserForm"
+                $ref: "../../openapi.yaml#/components/schemas/GuestsPostGuestUserForm"
               type: "array"
           required:
           - "guests"

@@ -19,7 +19,7 @@ put:
               type: "integer"
             rights:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclPutRight"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewFieldAclPutRight"
               type: "array"
           required:
           - "rights"
@@ -60,7 +60,7 @@ get:
                 type: "integer"
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewFieldAclGetRight"
                 type: "array"
             title: "getPreviewFieldAclResponse"
             type: "object"

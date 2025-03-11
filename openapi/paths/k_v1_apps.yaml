@@ -52,7 +52,7 @@ get:
             properties:
               apps:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppsGetAppWithSpaceIdForm"
+                  $ref: "../../openapi.yaml#/components/schemas/AppsGetAppWithSpaceIdForm"
                 type: "array"
             title: "getAppsResponse"
             type: "object"

@@ -33,7 +33,7 @@ properties:
     type: "string"
   value:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostOrganizationEntitySimpleValue"
+      $ref: "../../../openapi.yaml#/components/schemas/BulkRequestPostOrganizationEntitySimpleValue"
     type: "array"
 required:
 - "value"

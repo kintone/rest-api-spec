@@ -3,8 +3,8 @@ properties:
   aggregations:
     items:
       anyOf:
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetRecordAggregation"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetFieldAggregation"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetRecordAggregation"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetFieldAggregation"
     type: "array"
   chartMode:
     enum:
@@ -30,10 +30,10 @@ properties:
   groups:
     items:
       anyOf:
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroup"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDateTime"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDate"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupTime"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroup"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDateTime"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupDate"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetGroupTime"
     type: "array"
   id:
     format: "long"
@@ -49,16 +49,16 @@ properties:
         type: "boolean"
       period:
         anyOf:
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodYear"
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodQuarter"
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodMonth"
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodWeek"
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodDay"
-        - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodHour"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodYear"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodQuarter"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodMonth"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodWeek"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodDay"
+        - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetPeriodHour"
     type: "object"
   sorts:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsGetSort"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsGetSort"
     type: "array"
 type: "object"
 

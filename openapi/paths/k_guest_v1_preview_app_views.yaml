@@ -23,9 +23,9 @@ put:
             views:
               additionalProperties:
                 anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutListViewForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCalendarViewForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCustomViewForm"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsPutListViewForm"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsPutCalendarViewForm"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsPutCustomViewForm"
               type: "object"
           required:
           - "app"
@@ -44,7 +44,7 @@ put:
                 type: "integer"
               views:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutResult"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsPutResult"
                 type: "object"
             title: "putPreviewAppViewsForGuestSpaceResponse"
             type: "object"
@@ -89,11 +89,11 @@ get:
               views:
                 additionalProperties:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinListViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinCalendarViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetListViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCalendarViewOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCustomViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinListViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsGetBuiltinCalendarViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsGetListViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsGetCalendarViewOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/PreviewAppViewsGetCustomViewOutputForm"
                 type: "object"
             title: "getPreviewAppViewsForGuestSpaceResponse"
             type: "object"

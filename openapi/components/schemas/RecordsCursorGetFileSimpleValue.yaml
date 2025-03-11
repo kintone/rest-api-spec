@@ -33,7 +33,7 @@ properties:
     type: "string"
   value:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetSingleFileSimpleValue"
+      $ref: "../../../openapi.yaml#/components/schemas/RecordsCursorGetSingleFileSimpleValue"
     type: "array"
 required:
 - "value"

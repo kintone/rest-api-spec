@@ -29,8 +29,8 @@ get:
               reports:
                 additionalProperties:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReport"
-                  - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReportWithChartMode"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetReport"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetReportWithChartMode"
                 type: "object"
               revision:
                 format: "long"

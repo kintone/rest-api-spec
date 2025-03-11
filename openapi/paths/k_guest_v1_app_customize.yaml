@@ -26,14 +26,14 @@ get:
                   css:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                   js:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                 type: "object"
               mobile:
@@ -41,14 +41,14 @@ get:
                   css:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                   js:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                 type: "object"
               revision:

@@ -19,7 +19,7 @@ put:
               type: "integer"
             notifications:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutNotification"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutNotification"
               type: "array"
             revision:
               format: "long"
@@ -78,7 +78,7 @@ get:
             properties:
               notifications:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordGetNotification"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordGetNotification"
                 type: "array"
               revision:
                 format: "long"

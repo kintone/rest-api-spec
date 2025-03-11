@@ -10,7 +10,7 @@ put:
           properties:
             actions:
               additionalProperties:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsPutAction"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutAction"
               type: "object"
             app:
               format: "long"
@@ -32,7 +32,7 @@ put:
             properties:
               actions:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsPutActionResult"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutActionResult"
                 type: "object"
               revision:
                 format: "long"
@@ -70,7 +70,7 @@ get:
             properties:
               actions:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsGetAction"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetAction"
                 type: "object"
               revision:
                 format: "long"

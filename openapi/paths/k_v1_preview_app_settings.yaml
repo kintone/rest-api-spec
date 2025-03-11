@@ -28,14 +28,14 @@ put:
               type: "string"
             icon:
               anyOf:
-              - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconPresetForm"
-              - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconFileForm"
+              - $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconPresetForm"
+              - $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconFileForm"
             name:
               maxLength: 64
               minLength: 1
               type: "string"
             numberPrecision:
-              $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutNumberPrecision"
+              $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsPutNumberPrecision"
             revision:
               format: "long"
               type: "integer"
@@ -53,7 +53,7 @@ put:
               - "BLACK"
               type: "string"
             titleField:
-              $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutTitleField"
+              $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsPutTitleField"
           required:
           - "app"
           title: "putPreviewAppSettingsRequest"
@@ -116,14 +116,14 @@ get:
                 type: "string"
               icon:
                 anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconPresetForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconFileForm"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconPresetForm"
+                - $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconFileForm"
               name:
                 maxLength: 64
                 minLength: 1
                 type: "string"
               numberPrecision:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetNumberPrecision"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsGetNumberPrecision"
               revision:
                 format: "long"
                 type: "integer"
@@ -141,7 +141,7 @@ get:
                 - "BLACK"
                 type: "string"
               titleField:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetTitleField"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppSettingsGetTitleField"
             title: "getPreviewAppSettingsResponse"
             type: "object"
   tags:

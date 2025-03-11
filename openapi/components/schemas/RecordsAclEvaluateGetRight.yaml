@@ -2,7 +2,7 @@
 properties:
   fields:
     additionalProperties:
-      $ref: "../../openapi.yaml#/components/schemas/RecordsAclEvaluateGetField"
+      $ref: "../../../openapi.yaml#/components/schemas/RecordsAclEvaluateGetField"
     type: "object"
   id:
     format: "long"

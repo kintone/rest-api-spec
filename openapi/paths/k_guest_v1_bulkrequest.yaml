@@ -16,7 +16,7 @@ post:
           properties:
             requests:
               items:
-                $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRequestForm"
+                $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRequestForm"
               type: "array"
           required:
           - "requests"
@@ -32,14 +32,14 @@ post:
               results:
                 items:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordPostOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordPutOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordStatusPutOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordAssigneesPutOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordsDeleteOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordsPostOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordsPutOutputForm"
-                  - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordPostOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordPutOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordStatusPutOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordAssigneesPutOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsDeleteOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsPostOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsPutOutputForm"
+                  - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutOutputForm"
                 type: "array"
             title: "postBulkRequestForGuestSpaceResponse"
             type: "object"

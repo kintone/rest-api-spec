@@ -34,7 +34,7 @@ get:
             properties:
               actions:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/AppActionsGetAction"
+                  $ref: "../../openapi.yaml#/components/schemas/AppActionsGetAction"
                 type: "object"
               revision:
                 format: "long"

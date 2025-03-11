@@ -10,7 +10,7 @@ properties:
     type: "object"
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/AppActionsGetEntity"
+      $ref: "../../../openapi.yaml#/components/schemas/AppActionsGetEntity"
     type: "array"
   id:
     format: "long"
@@ -21,8 +21,8 @@ properties:
   mappings:
     items:
       anyOf:
-      - $ref: "../../openapi.yaml#/components/schemas/AppActionsGetUrlMapping"
-      - $ref: "../../openapi.yaml#/components/schemas/AppActionsGetFieldMapping"
+      - $ref: "../../../openapi.yaml#/components/schemas/AppActionsGetUrlMapping"
+      - $ref: "../../../openapi.yaml#/components/schemas/AppActionsGetFieldMapping"
     type: "array"
   name:
     type: "string"

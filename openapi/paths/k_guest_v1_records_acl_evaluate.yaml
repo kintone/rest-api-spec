@@ -31,7 +31,7 @@ get:
             properties:
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/RecordsAclEvaluateGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/RecordsAclEvaluateGetRight"
                 type: "array"
             title: "getRecordsAclEvaluateForGuestSpaceResponse"
             type: "object"

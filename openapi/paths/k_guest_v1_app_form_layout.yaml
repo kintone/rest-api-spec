@@ -24,9 +24,9 @@ get:
               layout:
                 items:
                   anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
-                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetGroupRow"
-                  - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetSubtableRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppFormLayoutGetGroupRow"
+                  - $ref: "../../openapi.yaml#/components/schemas/AppFormLayoutGetSubtableRow"
                 type: "array"
               revision:
                 format: "long"

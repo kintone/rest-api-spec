@@ -3,8 +3,8 @@ properties:
   aggregations:
     items:
       anyOf:
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutRecordAggregation"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutFieldAggregation"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsPutRecordAggregation"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsPutFieldAggregation"
     type: "array"
   chartType:
     enum:
@@ -23,7 +23,7 @@ properties:
     type: "string"
   groups:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutGroup"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsPutGroup"
     type: "array"
   index:
     format: "long"
@@ -33,10 +33,10 @@ properties:
     minLength: 1
     type: "string"
   periodicReport:
-    $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodicReport"
+    $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodicReport"
   sorts:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutSort"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppReportsPutSort"
     type: "array"
 required:
 - "chartType"

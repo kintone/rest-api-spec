@@ -28,7 +28,7 @@ post:
               type: "boolean"
             members:
               items:
-                $ref: "../openapi.yaml#/components/schemas/TemplateSpacePostMemberForm"
+                $ref: "../../openapi.yaml#/components/schemas/TemplateSpacePostMemberForm"
               type: "array"
             name:
               maxLength: 128

@@ -33,7 +33,7 @@ properties:
     type: "string"
   value:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/RecordsPutGroupEntitySimpleValue"
+      $ref: "../../../openapi.yaml#/components/schemas/RecordsPutGroupEntitySimpleValue"
     type: "array"
 required:
 - "value"

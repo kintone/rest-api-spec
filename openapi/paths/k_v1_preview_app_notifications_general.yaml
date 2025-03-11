@@ -13,7 +13,7 @@ put:
               type: "integer"
             notifications:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralPutNotification"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralPutNotification"
               type: "array"
             notifyToCommenter:
               format: "boolean"
@@ -57,7 +57,7 @@ get:
             properties:
               notifications:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
                 type: "array"
               notifyToCommenter:
                 type: "boolean"

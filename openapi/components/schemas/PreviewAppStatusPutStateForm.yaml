@@ -4,7 +4,7 @@ properties:
     properties:
       entities:
         items:
-          $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusPutAssigneeEntityForm"
+          $ref: "../../../openapi.yaml#/components/schemas/PreviewAppStatusPutAssigneeEntityForm"
         type: "array"
       type:
         enum:

@@ -10,7 +10,7 @@ put:
           properties:
             actions:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusPutActionForm"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusPutActionForm"
               type: "array"
             app:
               format: "long"
@@ -23,7 +23,7 @@ put:
               type: "integer"
             states:
               additionalProperties:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusPutStateForm"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusPutStateForm"
               type: "object"
           required:
           - "app"
@@ -72,7 +72,7 @@ get:
             properties:
               actions:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusGetActionForm"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusGetActionForm"
                 type: "array"
               enable:
                 type: "boolean"
@@ -81,7 +81,7 @@ get:
                 type: "integer"
               states:
                 additionalProperties:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusGetStateForm"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusGetStateForm"
                 type: "object"
             title: "getPreviewAppStatusResponse"
             type: "object"

@@ -16,7 +16,7 @@ put:
               type: "integer"
             rights:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppAclPutRight"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppAclPutRight"
               type: "array"
           required:
           - "app"
@@ -58,7 +58,7 @@ get:
                 type: "integer"
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppAclGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppAclGetRight"
                 type: "array"
             title: "getPreviewAppAclResponse"
             type: "object"

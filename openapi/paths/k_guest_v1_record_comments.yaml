@@ -49,7 +49,7 @@ get:
             properties:
               comments:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/RecordCommentsGetCommentOutputForm"
+                  $ref: "../../openapi.yaml#/components/schemas/RecordCommentsGetCommentOutputForm"
                 type: "array"
               newer:
                 type: "boolean"

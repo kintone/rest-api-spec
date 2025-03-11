@@ -27,7 +27,7 @@ get:
             properties:
               plugins:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppPluginsGetPluginForm"
+                  $ref: "../../openapi.yaml#/components/schemas/AppPluginsGetPluginForm"
                 type: "array"
               revision:
                 format: "long"

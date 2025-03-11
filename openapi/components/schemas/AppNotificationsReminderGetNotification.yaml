@@ -5,12 +5,12 @@ properties:
     type: "string"
   targets:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTarget"
+      $ref: "../../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTarget"
     type: "array"
   timing:
     anyOf:
-    - $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingRelative"
-    - $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingAbsolute"
+    - $ref: "../../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingRelative"
+    - $ref: "../../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingAbsolute"
   title:
     type: "string"
 type: "object"

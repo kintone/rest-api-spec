@@ -16,14 +16,14 @@ put:
                 css:
                   items:
                     anyOf:
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
                 js:
                   items:
                     anyOf:
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
               type: "object"
             mobile:
@@ -31,14 +31,14 @@ put:
                 css:
                   items:
                     anyOf:
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
                 js:
                   items:
                     anyOf:
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
-                    - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
+                    - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
               type: "object"
             revision:
@@ -89,14 +89,14 @@ get:
                   css:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
                     type: "array"
                   js:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
                     type: "array"
                 type: "object"
               mobile:
@@ -104,14 +104,14 @@ get:
                   css:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
                     type: "array"
                   js:
                     items:
                       anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
                     type: "array"
                 type: "object"
               revision:

@@ -6,11 +6,11 @@ properties:
     type: "string"
   defaultValue:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEntityForm"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEntityForm"
     type: "array"
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEntityForm"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEntityForm"
     type: "array"
   label:
     maxLength: 128

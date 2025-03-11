@@ -17,7 +17,7 @@ get:
             properties:
               notifications:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/AppNotificationsGeneralGetNotification"
+                  $ref: "../../openapi.yaml#/components/schemas/AppNotificationsGeneralGetNotification"
                 type: "array"
               notifyToCommenter:
                 type: "boolean"

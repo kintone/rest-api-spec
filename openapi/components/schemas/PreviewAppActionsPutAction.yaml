@@ -10,7 +10,7 @@ properties:
     type: "object"
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutEntity"
+      $ref: "../../../openapi.yaml#/components/schemas/PreviewAppActionsPutEntity"
     type: "array"
   index:
     format: "long"
@@ -18,8 +18,8 @@ properties:
   mappings:
     items:
       anyOf:
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutFieldMapping"
-      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutUrlMapping"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppActionsPutFieldMapping"
+      - $ref: "../../../openapi.yaml#/components/schemas/PreviewAppActionsPutUrlMapping"
     type: "array"
   name:
     maxLength: 32

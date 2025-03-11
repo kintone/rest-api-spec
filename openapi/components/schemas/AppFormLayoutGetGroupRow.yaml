@@ -5,7 +5,7 @@ properties:
     type: "string"
   layout:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
+      $ref: "../../../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
     type: "array"
   type:
     enum:

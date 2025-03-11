@@ -27,7 +27,7 @@ get:
             properties:
               plugins:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PluginsRequiredGetPluginDto"
+                  $ref: "../../openapi.yaml#/components/schemas/PluginsRequiredGetPluginDto"
                 type: "array"
             title: "getPluginsRequiredForGuestSpaceResponse"
             type: "object"

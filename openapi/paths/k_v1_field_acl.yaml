@@ -19,7 +19,7 @@ put:
               type: "integer"
             rights:
               items:
-                $ref: "../openapi.yaml#/components/schemas/FieldAclPutRight"
+                $ref: "../../openapi.yaml#/components/schemas/FieldAclPutRight"
               type: "array"
           required:
           - "rights"
@@ -60,7 +60,7 @@ get:
                 type: "integer"
               rights:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/FieldAclGetRight"
+                  $ref: "../../openapi.yaml#/components/schemas/FieldAclGetRight"
                 type: "array"
             title: "getFieldAclResponse"
             type: "object"

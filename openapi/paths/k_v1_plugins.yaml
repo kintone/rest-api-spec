@@ -28,7 +28,7 @@ get:
             properties:
               plugins:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PluginsGetPluginDto"
+                  $ref: "../../openapi.yaml#/components/schemas/PluginsGetPluginDto"
                 type: "array"
             title: "getPluginsResponse"
             type: "object"

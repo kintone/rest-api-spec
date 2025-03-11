@@ -49,14 +49,14 @@ get:
                 type: "string"
               icon:
                 anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/AppSettingsGetIconPresetForm"
-                - $ref: "../openapi.yaml#/components/schemas/AppSettingsGetIconFileForm"
+                - $ref: "../../openapi.yaml#/components/schemas/AppSettingsGetIconPresetForm"
+                - $ref: "../../openapi.yaml#/components/schemas/AppSettingsGetIconFileForm"
               name:
                 maxLength: 64
                 minLength: 1
                 type: "string"
               numberPrecision:
-                $ref: "../openapi.yaml#/components/schemas/AppSettingsGetNumberPrecision"
+                $ref: "../../openapi.yaml#/components/schemas/AppSettingsGetNumberPrecision"
               revision:
                 format: "long"
                 type: "integer"
@@ -74,7 +74,7 @@ get:
                 - "BLACK"
                 type: "string"
               titleField:
-                $ref: "../openapi.yaml#/components/schemas/AppSettingsGetTitleField"
+                $ref: "../../openapi.yaml#/components/schemas/AppSettingsGetTitleField"
             title: "getAppSettingsForGuestSpaceResponse"
             type: "object"
   tags:

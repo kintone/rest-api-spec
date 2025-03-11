@@ -33,7 +33,7 @@ get:
             properties:
               plugins:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppPluginsGetPluginForm"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppPluginsGetPluginForm"
                 type: "array"
               revision:
                 format: "long"

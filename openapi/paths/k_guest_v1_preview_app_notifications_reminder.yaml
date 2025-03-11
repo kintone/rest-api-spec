@@ -19,7 +19,7 @@ put:
               type: "integer"
             notifications:
               items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutNotification"
+                $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutNotification"
               type: "array"
             revision:
               format: "long"
@@ -80,7 +80,7 @@ get:
             properties:
               notifications:
                 items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetNotification"
+                  $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetNotification"
                 type: "array"
               revision:
                 format: "long"

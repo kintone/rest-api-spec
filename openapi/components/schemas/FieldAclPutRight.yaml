@@ -4,7 +4,7 @@ properties:
     type: "string"
   entities:
     items:
-      $ref: "../../openapi.yaml#/components/schemas/FieldAclPutFieldRightEntity"
+      $ref: "../../../openapi.yaml#/components/schemas/FieldAclPutFieldRightEntity"
     type: "array"
 required:
 - "code"
