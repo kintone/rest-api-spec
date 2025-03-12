@@ -1,0 +1,36 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  value:
+    additionalProperties:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetCalcSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetCategorySimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetDateSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetDatetimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetDecimalSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetEditorSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetFileSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetGroupSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetLinkSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetModifiedAtSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetModifierSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetMultipleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetMultipleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetRecordIdSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetReferenceTableSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetSimpleTableValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetSingleLineTextSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetSingleSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetStatusSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetTimeSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetUserSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetOrganizationSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetGroupSelectSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetRevisionSimpleValue"
+      - $ref: "../../openapi.yaml#/components/schemas/RecordsCursorGetRawRecordIdSimpleValue"
+    type: "object"
+type: "object"
+

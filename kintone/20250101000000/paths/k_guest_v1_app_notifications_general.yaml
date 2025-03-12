@@ -1,0 +1,37 @@
+---
+get:
+  operationId: "getAppNotificationsGeneralForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of app/notifications/general/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              notifications:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppNotificationsGeneralGetNotification"
+                type: "array"
+              notifyToCommenter:
+                type: "boolean"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppNotificationsGeneralForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

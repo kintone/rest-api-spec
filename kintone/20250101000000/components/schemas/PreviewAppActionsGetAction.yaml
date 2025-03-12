@@ -1,0 +1,30 @@
+---
+properties:
+  destApp:
+    properties:
+      app:
+        format: "long"
+        type: "integer"
+      code:
+        type: "string"
+    type: "object"
+  entities:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetEntity"
+    type: "array"
+  id:
+    format: "long"
+    type: "integer"
+  index:
+    format: "long"
+    type: "integer"
+  mappings:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetUrlMapping"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetFieldMapping"
+    type: "array"
+  name:
+    type: "string"
+type: "object"
+

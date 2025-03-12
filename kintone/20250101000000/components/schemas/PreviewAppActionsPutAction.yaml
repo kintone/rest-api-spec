@@ -1,0 +1,31 @@
+---
+properties:
+  destApp:
+    properties:
+      app:
+        format: "long"
+        type: "integer"
+      code:
+        type: "string"
+    type: "object"
+  entities:
+    items:
+      $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutEntity"
+    type: "array"
+  index:
+    format: "long"
+    type: "integer"
+  mappings:
+    items:
+      anyOf:
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutFieldMapping"
+      - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutUrlMapping"
+    type: "array"
+  name:
+    maxLength: 32
+    minLength: 1
+    type: "string"
+required:
+- "index"
+type: "object"
+

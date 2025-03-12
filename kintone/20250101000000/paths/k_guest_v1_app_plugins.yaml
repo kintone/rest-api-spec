@@ -1,0 +1,45 @@
+---
+get:
+  operationId: "getAppPluginsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "JA"
+      - "EN"
+      - "ZH"
+      - "ES"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of app/plugins/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              plugins:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/AppPluginsGetPluginForm"
+                type: "array"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getAppPluginsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

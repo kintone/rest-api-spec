@@ -1,0 +1,10 @@
+---
+properties:
+  records:
+    items:
+      additionalProperties:
+        $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordBean"
+      type: "object"
+    type: "array"
+type: "object"
+

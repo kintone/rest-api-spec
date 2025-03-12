@@ -1,0 +1,56 @@
+---
+get:
+  operationId: "getPreviewAppDeploy"
+  parameters:
+  - in: "query"
+    name: "apps"
+    required: true
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of preview/app/deploy/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
+                type: "array"
+            title: "getPreviewAppDeployResponse"
+            type: "object"
+  tags:
+  - "APP"
+post:
+  operationId: "postPreviewAppDeploy"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            apps:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
+              type: "array"
+            revert:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "apps"
+          title: "postPreviewAppDeployRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/deploy/post"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "APP"
+

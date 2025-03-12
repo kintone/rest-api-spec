@@ -1,0 +1,57 @@
+---
+put:
+  operationId: "putSpaceMembers"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            id:
+              format: "long"
+              type: "integer"
+            members:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/SpaceMembersPutMemberForm"
+              type: "array"
+          required:
+          - "id"
+          title: "putSpaceMembersRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/members/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACE"
+get:
+  operationId: "getSpaceMembers"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of space/members/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              members:
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetUserBean"
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetOrganizationBean"
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetGroupBean"
+                type: "array"
+            title: "getSpaceMembersResponse"
+            type: "object"
+  tags:
+  - "SPACE"
+

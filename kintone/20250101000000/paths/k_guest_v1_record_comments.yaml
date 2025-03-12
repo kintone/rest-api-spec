@@ -1,0 +1,62 @@
+---
+get:
+  operationId: "getRecordCommentsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "record"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "order"
+    required: false
+    schema:
+      enum:
+      - "ASC"
+      - "DESC"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of record/comments/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              comments:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/RecordCommentsGetCommentOutputForm"
+                type: "array"
+              newer:
+                type: "boolean"
+              older:
+                type: "boolean"
+            title: "getRecordCommentsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "RECORD"
+

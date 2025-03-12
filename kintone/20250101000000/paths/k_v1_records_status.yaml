@@ -1,0 +1,38 @@
+---
+put:
+  operationId: "putRecordsStatus"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            records:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutFormRecord"
+              type: "array"
+          required:
+          - "app"
+          - "records"
+          title: "putRecordsStatusRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of records/status/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              records:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/RecordsStatusPutRecordsStatusPutOutputFormRecord"
+                type: "array"
+            title: "putRecordsStatusResponse"
+            type: "object"
+  tags:
+  - "RECORDS"
+

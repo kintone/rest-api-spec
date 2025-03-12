@@ -1,0 +1,79 @@
+---
+put:
+  operationId: "putPreviewAppAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            revision:
+              format: "long"
+              type: "integer"
+            rights:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppAclPutRight"
+              type: "array"
+          required:
+          - "app"
+          - "rights"
+          title: "putPreviewAppAclForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppAclForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+              rights:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppAclGetRight"
+                type: "array"
+            title: "getPreviewAppAclForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

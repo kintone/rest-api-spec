@@ -1,0 +1,71 @@
+---
+put:
+  operationId: "putPreviewAppNotificationsGeneral"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            notifications:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralPutNotification"
+              type: "array"
+            notifyToCommenter:
+              format: "boolean"
+              type: "boolean"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          title: "putPreviewAppNotificationsGeneralRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/notifications/general/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppNotificationsGeneralResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppNotificationsGeneral"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/notifications/general/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              notifications:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
+                type: "array"
+              notifyToCommenter:
+                type: "boolean"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppNotificationsGeneralResponse"
+            type: "object"
+  tags:
+  - "APP"
+

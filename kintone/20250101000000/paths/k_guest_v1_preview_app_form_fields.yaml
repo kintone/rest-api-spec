@@ -1,0 +1,257 @@
+---
+delete:
+  operationId: "deletePreviewAppFormFieldsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "fields"
+    required: true
+    schema:
+      items:
+        type: "string"
+      type: "array"
+  - in: "query"
+    name: "revision"
+    required: false
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/form/fields/delete"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "deletePreviewAppFormFieldsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+put:
+  operationId: "putPreviewAppFormFieldsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            properties:
+              additionalProperties:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDateFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutFileFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTableForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm"
+              type: "object"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "properties"
+          title: "putPreviewAppFormFieldsForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/form/fields/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppFormFieldsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+get:
+  operationId: "getPreviewAppFormFieldsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "lang"
+    required: false
+    schema:
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/form/fields/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              properties:
+                additionalProperties:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetCalcFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetCategoryFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetDateFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetDatetimeFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetDecimalFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetEditorFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetFileFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetGroupFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetGroupSelectFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetLinkFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetLookupFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetModifiedAtFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetModifierFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetMultipleCheckFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetMultipleLineTextFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetMultipleSelectFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetOrganizationSelectFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetRecordIdFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetReferenceTableFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetSingleCheckFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetSingleLineTextFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetSingleSelectFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetStatusAssigneeFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetStatusFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetTableForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetTimeFieldForm"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetUserSelectFieldForm"
+                type: "object"
+              revision:
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppFormFieldsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+post:
+  operationId: "postPreviewAppFormFieldsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            properties:
+              additionalProperties:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostCalcFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostCategoryFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDateFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDatetimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostDecimalFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostEditorFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostFileFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostGroupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostGroupSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostLinkFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostLookupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostModifiedAtFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostModifierFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostMultipleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostOrganizationSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostRecordIdFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostReferenceTableFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostSingleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostStatusAssigneeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostStatusFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTableForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostUserSelectFieldForm"
+              type: "object"
+            revision:
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "properties"
+          title: "postPreviewAppFormFieldsForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/form/fields/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                format: "long"
+                type: "integer"
+            title: "postPreviewAppFormFieldsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
+

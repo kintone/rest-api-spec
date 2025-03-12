@@ -1,0 +1,22 @@
+---
+properties:
+  api:
+    type: "string"
+  method:
+    type: "string"
+  payload:
+    anyOf:
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordPostForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordPutForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordStatusPutForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordAssigneesPutForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsDeleteForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsPostForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsPutForm"
+    - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutForm"
+required:
+- "method"
+- "payload"
+- "api"
+type: "object"
+

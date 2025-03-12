@@ -1,0 +1,48 @@
+---
+get:
+  operationId: "getForm"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of form/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              properties:
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetLayoutProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetLabelProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetBultinProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetCalcSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetDateSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetDatetimeSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetDecimalSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetEditorSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetFileSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetLinkSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetMultipleLineTextSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetMultipleSelectSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetSingleLineTextSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetSingleSelectSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetTimeSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetUserSelectSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetOrganizationSelectSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetGroupSelectSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetLookupSimpleProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetReferenceTableLayoutProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetSubTableLayoutProperties"
+                  - $ref: "../openapi.yaml#/components/schemas/FormGetSpacerProperties"
+                type: "array"
+            title: "getFormResponse"
+            type: "object"
+  tags:
+  - "FORM"
+

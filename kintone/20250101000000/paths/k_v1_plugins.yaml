@@ -1,0 +1,37 @@
+---
+get:
+  operationId: "getPlugins"
+  parameters:
+  - in: "query"
+    name: "offset"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "limit"
+    required: false
+    schema:
+      type: "string"
+  - in: "query"
+    name: "ids"
+    required: false
+    schema:
+      items:
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of plugins/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              plugins:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PluginsGetPluginDto"
+                type: "array"
+            title: "getPluginsResponse"
+            type: "object"
+  tags:
+  - "PLUGINS"
+
