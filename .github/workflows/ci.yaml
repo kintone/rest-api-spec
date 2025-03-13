@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           pip install openapi-spec-validator
-          openapi-spec-validator openapi.yaml
+          find ./kintone -name "openapi.yaml" -type f | xargs openapi-spec-validator
   pages:
     runs-on: ubuntu-latest
     steps:
