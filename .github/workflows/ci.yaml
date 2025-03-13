@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          pip install openapi-spec-validator
+          openapi-spec-validator openapi.yaml
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: main
+      - name: Checkout swagger-api/swagger-ui
+        uses: actions/checkout@v4
+        with:
+          repository: swagger-api/swagger-ui
+          ref: "v5.18.2"
+          path: swagger-ui
+      - name: Inject Swagger static files
+        run: cp -n swagger-ui/dist/* main/swagger-ui/
+      - name: Merge OAD files
+        run: |
+          npm install -g swagger-merger@v1.5.4
+          swagger-merger -i main/openapi.yaml -o main/swagger-ui/openapi.yaml
