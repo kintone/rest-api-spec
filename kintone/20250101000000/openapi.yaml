@@ -2,7 +2,7 @@
 openapi: "3.1.0"
 info:
   title: "REST API SPEC"
-  version: "1.0.0"
+  version: "20250101000000"
 servers: []
 paths:
   /k/guest/{guestSpaceId}/v1/app.json:
