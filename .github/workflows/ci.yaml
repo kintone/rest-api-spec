@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install openapi-spec-validator
+      - run: find ./kintone -name "openapi.yaml" -type f | xargs openapi-spec-validator
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge OAD files
+        run: npx @redocly/cli@1.33.1 bundle ./kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o /tmp/merged.yaml
