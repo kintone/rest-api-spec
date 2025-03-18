@@ -16,19 +16,8 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          path: main
-      - name: Checkout swagger-api/swagger-ui
-        uses: actions/checkout@v4
-        with:
-          repository: swagger-api/swagger-ui
-          ref: "v5.18.2"
-          path: swagger-ui
-      - name: Inject Swagger static files
-        run: cp -n swagger-ui/dist/* main/swagger-ui/
+      - uses: actions/checkout@v4
       - name: Merge OAD files
         run: |
           npm install -g swagger-merger@v1.5.4
-          swagger-merger -i main/openapi.yaml -o main/swagger-ui/openapi.yaml
+          swagger-merger -i ./openapi.yaml -o ./openapi-merged.yaml
