@@ -20,4 +20,4 @@ jobs:
       - name: Merge OAD files
         run: |
           npm install -g swagger-merger@v1.5.4
-          swagger-merger -i ./openapi.yaml -o ./openapi-merged.yaml
+          swagger-merger -i ./$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o /tmp/openapi-merged.yaml
