@@ -34,9 +34,7 @@ jobs:
       - name: Inject Swagger static files
         run: cp -n swagger-ui/dist/* main/swagger-ui/
       - name: Merge OAD files
-        run: |
-          npm install -g swagger-merger@v1.5.4
-          redocly bundle main/kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o main/swagger-ui/openapi.yaml
+        run: redocly bundle main/kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o main/swagger-ui/openapi.yaml
       - name: Setup Pages Configuration
         uses: actions/configure-pages@v5
       - name: Upload artifact
