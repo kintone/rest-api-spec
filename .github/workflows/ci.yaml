@@ -18,6 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Merge OAD files
-        run: |
-          npm install -g swagger-merger@v1.5.4
-          swagger-merger -i ./kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o /tmp/openapi-merged.yaml
+        run: npx @redocly/cli@1.33.1 bundle ./kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o /tmp/merged.yaml

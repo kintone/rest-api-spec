@@ -36,7 +36,7 @@ jobs:
       - name: Merge OAD files
         run: |
           npm install -g swagger-merger@v1.5.4
-          swagger-merger -i main/openapi.yaml -o main/swagger-ui/openapi.yaml
+          redocly bundle main/kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o main/swagger-ui/openapi.yaml
       - name: Setup Pages Configuration
         uses: actions/configure-pages@v5
       - name: Upload artifact
