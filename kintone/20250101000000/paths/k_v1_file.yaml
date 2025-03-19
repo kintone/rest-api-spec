@@ -18,7 +18,7 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      multipart/form-data:
         schema:
           properties:
             file: {}
