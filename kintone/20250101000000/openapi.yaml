@@ -3,7 +3,16 @@ openapi: "3.1.0"
 info:
   title: "REST API SPEC"
   version: "20250101000000"
-servers: []
+servers:
+  #  - url: https://sample.cybozu.com
+  - url: https://{domainId}.cybozu.com
+    variables:
+      domainId:
+        default: sample
+  - url: "{Custom URL}"
+    variables:
+      "Custom URL":
+        default: https://sample.cybozu.com
 paths:
   /k/guest/{guestSpaceId}/v1/app.json:
     $ref: "./paths/k_guest_v1_app.yaml"
