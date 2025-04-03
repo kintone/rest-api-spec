@@ -7,6 +7,8 @@ delete:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   - in: "query"
     name: "app"
@@ -46,6 +48,8 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   - in: "query"
     name: "app"
@@ -125,6 +129,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -155,11 +161,13 @@ put:
           schema:
             properties:
               records:
-                items:
-                  additionalProperties:
+                oneOf:
+                - type: "array"
+                  items:
                     $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
-                  type: "object"
-                type: "array"
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
             title: "putRecordsForGuestSpaceResponse"
             type: "object"
   tags:
@@ -172,6 +180,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true

@@ -137,11 +137,13 @@ put:
           schema:
             properties:
               records:
-                items:
-                  additionalProperties:
+                oneOf:
+                - type: "array"
+                  items:
                     $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
-                  type: "object"
-                type: "array"
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
             title: "putRecordsResponse"
             type: "object"
   tags:
