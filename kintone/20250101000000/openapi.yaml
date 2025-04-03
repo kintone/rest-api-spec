@@ -2,17 +2,8 @@
 openapi: "3.1.0"
 info:
   title: "REST API SPEC"
-  version: "20250101000000"
-servers:
-  #  - url: https://sample.cybozu.com
-  - url: https://{domainId}.cybozu.com
-    variables:
-      domainId:
-        default: sample
-  - url: "{Custom URL}"
-    variables:
-      "Custom URL":
-        default: https://sample.cybozu.com
+  version: "1.0.0"
+servers: []
 paths:
   /k/guest/{guestSpaceId}/v1/app.json:
     $ref: "./paths/k_guest_v1_app.yaml"
@@ -578,6 +569,8 @@ components:
       $ref: "./components/schemas/BulkRequestPostTimeSimpleValue.yaml"
     BulkRequestPostUpdateKey:
       $ref: "./components/schemas/BulkRequestPostUpdateKey.yaml"
+    BulkRequestPostUpsertRecordBean:
+      $ref: "./components/schemas/BulkRequestPostUpsertRecordBean.yaml"
     BulkRequestPostUserEntitySimpleValue:
       $ref: "./components/schemas/BulkRequestPostUserEntitySimpleValue.yaml"
     BulkRequestPostUserSelectSimpleValue:
@@ -1604,6 +1597,8 @@ components:
       $ref: "./components/schemas/RecordsPutTimeSimpleValue.yaml"
     RecordsPutUpdateKey:
       $ref: "./components/schemas/RecordsPutUpdateKey.yaml"
+    RecordsPutUpsertRecordBean:
+      $ref: "./components/schemas/RecordsPutUpsertRecordBean.yaml"
     RecordsPutUserEntitySimpleValue:
       $ref: "./components/schemas/RecordsPutUserEntitySimpleValue.yaml"
     RecordsPutUserSelectSimpleValue:

@@ -110,8 +110,12 @@ get:
               creator:
                 properties:
                   code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                   name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                 type: "object"
               defaultThread:
@@ -132,8 +136,12 @@ get:
               modifier:
                 properties:
                   code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                   name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                 type: "object"
               name:
