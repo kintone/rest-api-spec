@@ -3,17 +3,34 @@ properties:
   fields:
     additionalProperties:
       $ref: "../../openapi.yaml#/components/schemas/RecordsAclEvaluateGetField"
+    description: "    \tAn object consisting of field permissions of the specified\
+      \ record ID.\n        The following are also included in the response:\n   \
+      \     - fields that the user has no permissions to view\n        - fields that\
+      \ have no permission settings set on them\n        - fields that do not allow\
+      \ permissions to be set\n        - fields set in tables\n"
     type: "object"
   id:
+    description: "    The record ID.\n"
     format: "long"
     type: "integer"
   record:
+    description: "    An object consisting of record permissions of the specified\
+      \ record ID.\n"
     properties:
       deletable:
+        description: "        The delete permissions of the specified record ID.\n\
+          \        If the Kintone App is in maintenance mode, the returned value is\
+          \ `false`.\n"
         type: "boolean"
       editable:
+        description: "        The edit permissions of the specified record ID.\n \
+          \       If the Kintone App is in maintenance mode, the returned value is\
+          \ `false`.\n"
         type: "boolean"
       viewable:
+        description: "        The view permissions of the specified record ID.\n \
+          \       If the Kintone App is in maintenance mode, the returned value is\
+          \ `false`.\n"
         type: "boolean"
     type: "object"
 type: "object"

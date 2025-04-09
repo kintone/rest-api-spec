@@ -1,16 +1,31 @@
 ---
 properties:
   deletable:
+    description: "The delete permission of the entity.\n- true: Grant delete permission\n\
+      - false: Deny delete permission\nIf ignored, the value is false.\n"
     format: "boolean"
     type: "boolean"
   editable:
+    description: "The edit permission of the entity.\n- true: Grant edit permission\n\
+      - false: Deny edit permission\nIf ignored, the value is false.\n"
     format: "boolean"
     type: "boolean"
   entity:
+    description: "An object containing data of the entity the permissions are granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\nTo specify\
+          \ guest space users, add the string \"guest/\" before the guest's log in\
+          \ name.\nIf the \"Everyone\" group is not specified, the \"Everyone\" group\
+          \ will have no permissions to view/edit/delete.\nIf \"CREATOR\" is specified\
+          \ for the rights[].entity.type parameter, ignore this parameter. Otherwise,\
+          \ this parameter is required.\n"
         type: "string"
       type:
+        description: "The type of the entity the permissions are granted to.\n   -\
+          \ USER: User\n   - GROUP: Group\n   - ORGANIZATION: Department\n   - FIELD_ENTITY:\
+          \ User field\n"
         enum:
         - "USER"
         - "GROUP"
@@ -21,9 +36,14 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permissions\
+      \ are granted to.\n- true: Permissions are inherited.\n- false: Permissions\
+      \ are not inherited.\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   viewable:
+    description: "The view permission of the entity.\n- true: Grant view permission\n\
+      - false: Deny view permission\nIf ignored, the value is false.\n"
     format: "boolean"
     type: "boolean"
 required:

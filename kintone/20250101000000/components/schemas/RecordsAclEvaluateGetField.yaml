@@ -1,8 +1,14 @@
 ---
 properties:
   editable:
+    description: "        The edit permissions of the field of the specified record\
+      \ ID.\n        If the Kintone App is in maintenance mode,\n        the returned\
+      \ value is `false`.\n"
     type: "boolean"
   viewable:
+    description: "        The view permissions of the field of the specified record\
+      \ ID.\n        If the user has no view permissions of the record or the Kintone\
+      \ App is in maintenance mode,\n        the returned value is `false`.\n"
     type: "boolean"
 type: "object"
 

@@ -1,33 +1,63 @@
 ---
 properties:
   align:
+    description: "    The layout of the options.\n    - `HORIZONTAL`: The options\
+      \ are listed horizontally.\n    - `VERTICAL`: The options are listed vertically.\n"
     enum:
     - "HORIZONTAL"
     - "VERTICAL"
     type: "string"
   code:
+    description: "    The field code of the field.\n    Field codes have the following\
+      \ limitations:\n    - The maximum character limit is 128\n    - Duplicate field\
+      \ codes cannot exist\n    - _ is the only symbol that can be used\n    - Numbers\
+      \ cannot be used to start a field code\n"
     maxLength: 128
     minLength: 1
     type: "string"
   defaultValue:
+    description: "    The default value.\n    For fields that can set multiple default\
+      \ values, specify the value as an array.\n    The defaultNowValue will take\
+      \ priority if it also specified.\n    For User/Group/Department fields, an array\
+      \ of objects that include code and type are required.\n    - properties.{fieldcode}.defaultValue[].code\n\
+      \      State the code of the User/Group/Department, or the function \"LOGINUSER()\"\
+      .Departments cannot be specified for Apps in Guest spaces.\n    - properties.{fieldcode}.defaultValue[].type\n\
+      \      State the type of the default value\n        - USER: User\n        -\
+      \ GROUP: Group\n        - ORGANIZATION: Department\n        - FUNCTION: Function\n"
     items:
       type: "string"
     type: "array"
   label:
+    description: "    The field name.\n"
     maxLength: 128
     minLength: 1
     type: "string"
   noLabel:
+    description: "    The \"Hide field name\" option.\n    - true: The field's name\
+      \ will be hidden.\n    - false: The field's name will be displayed.\n"
     format: "boolean"
     type: "boolean"
   options:
     additionalProperties:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutOptionForm"
+    description: "    An object including data of the field's options.\n"
     type: "object"
   required:
+    description: "    The \"Required field\" option.\n    - true: The field will be\
+      \ a required field.\n    - false: The field will not be a required field.\n"
     format: "boolean"
     type: "boolean"
   type:
+    description: "  The field type.\n  - GROUP: Group\n  - GROUP_SELECT: Group selection\n\
+      \  - CALC: Calculated\n  - CHECK_BOX: Check box\n  - DATE: Date\n  - DATETIME:\
+      \ Date and time\n  - DROP_DOWN: Drop-down\n  - FILE: Attachment\n  - LINK: Link\n\
+      \  - MULTI_LINE_TEXT: Text Area\n  - MULTI_SELECT: Multi-choice\n  - NUMBER:\
+      \ Number\n  - ORGANIZATION_SELECT: Department selection\n  - RADIO_BUTTON: Radio\
+      \ button\n  - RECORD_NUMBER: Record number\n  - REFERENCE_TABLE: Related Records\n\
+      \  - RICH_TEXT: Rich text\n  - SINGLE_LINE_TEXT: Text\n  - SUBTABLE: Table\n\
+      \  - TIME: Time\n  - USER_SELECT: User selection\n\n  For Lookup fields, specify\
+      \ either SINGLE_LINE_TEXT or NUMBER,\n  depending on the type of the Key field\
+      \ it's looking up.\n"
     enum:
     - "CALC"
     - "CATEGORY"

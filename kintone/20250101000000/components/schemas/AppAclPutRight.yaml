@@ -1,13 +1,27 @@
 ---
 properties:
   appEditable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be accessible.\n    - false: The App's settings will not\
+      \ be accessible.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   entity:
+    description: "An object containing data of the entity the permission is granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\nTo specify\
+          \ guest space users, add the string \"guest/\" before the guest's log in\
+          \ name.\nIf the \"Everyone\" group is not specified, the \"Everyone\" group\
+          \ will have no permissions to view/edit/delete.\nIf \"CREATOR\" is specified\
+          \ for the rights[].entity.type parameter, ignore this parameter. Otherwise,\
+          \ this parameter is required.\n"
         type: "string"
       type:
+        description: "    The type of the entity the permission will be granted to.\n\
+          \    - USER: User\n    - GROUP: Group\n    - ORGANIZATION: Department\n\
+          \    - CREATOR: The creator of the App\n"
         enum:
         - "USER"
         - "ORGANIZATION"
@@ -18,24 +32,46 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to. This parameter is available if \"ORGANIZATION\" is specified\
+      \ for the rights[].entity.type parameter.\n- true: Permissions will be inherited.\n\
+      - false: Permissions will not be inherited.\n\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordAddable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be added.\n    - false: The App's settings will not be\
+      \ added.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordDeletable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be deletable.\n    - false: The App's settings will not\
+      \ be deletable.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordEditable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be editable.\n    - false: The App's settings will not\
+      \ be editable.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordExportable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be exportable.\n    - false: The App's settings will not\
+      \ be exportable.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordImportable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be importable.\n    - false: The App's settings will not\
+      \ be importable.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordViewable:
+    description: "    The App management permission of the entity.\n    - true: The\
+      \ App's settings will be viewable.\n    - false: The App's settings will not\
+      \ be viewable.\n\n    If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
 required:

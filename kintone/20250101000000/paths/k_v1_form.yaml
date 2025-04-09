@@ -1,11 +1,14 @@
 ---
 get:
+  description: "Retrieves the form details of an App.\n"
   operationId: "getForm"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
   responses:

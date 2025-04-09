@@ -1,16 +1,26 @@
 ---
 properties:
   filterCond:
+    description: "The branch criteria of the action, specified as a query.\nThe Status\
+      \ field cannot be included in the query.\n"
     type: "string"
   from:
+    description: "The Status name before taking action.\nIf a Status name that you\
+      \ want to specify has been changed, place the changed value for this parameter.\n\
+      Required, if setting the actions parameter.\n"
     maxLength: 64
     minLength: 1
     type: "string"
   name:
+    description: "The Action name.\nThe maximum length is 64 characters.\nRequired,\
+      \ if setting the actions parameter.\n"
     maxLength: 64
     minLength: 1
     type: "string"
   to:
+    description: "The Status name after taking action.\nIf a Status name that you\
+      \ want to specify has been changed, place the changed value for this parameter.\n\
+      Required, if setting the actions parameter.\n"
     maxLength: 64
     minLength: 1
     type: "string"

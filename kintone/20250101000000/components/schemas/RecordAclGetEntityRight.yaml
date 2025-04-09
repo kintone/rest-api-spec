@@ -1,14 +1,24 @@
 ---
 properties:
   deletable:
+    description: "    The delete permission of the entity.\n    - true: The record\
+      \ is deletable.\n    - false: The record is not deletable.\n"
     type: "boolean"
   editable:
+    description: "    The edit permission of the entity.\n    - true: The record is\
+      \ editable.\n    - false: The record is not editable.\n"
     type: "boolean"
   entity:
+    description: "An object containing data of the entity the permission is granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\n"
         type: "string"
       type:
+        description: "The type of the entity the permission is granted to.\n - USER:\
+          \ User\n - GROUP: Group\n - ORGANIZATION: Department\n - FIELD_ENTITY: User\
+          \ field\n"
         enum:
         - "USER"
         - "GROUP"
@@ -17,8 +27,13 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to.\n- true: Permissions are inherited.\n- false: Permissions are\
+      \ not inherited.\n"
     type: "boolean"
   viewable:
+    description: "    The view permission of the entity.\n    - true: The record is\
+      \ viewable.\n    - false: The record is not viewable.\n"
     type: "boolean"
 type: "object"
 

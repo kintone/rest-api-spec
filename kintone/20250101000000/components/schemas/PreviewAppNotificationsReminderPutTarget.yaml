@@ -1,10 +1,23 @@
 ---
 properties:
   entity:
+    description: "An object containing entity details per recipient of the Reminder\
+      \ Notification.\nRequired when specifying the notifications[].targets parameter.\n"
     properties:
       code:
+        description: "\tThe code of the entity the Reminder Notification settings\
+          \ are configured to.\nSpecify the field code if the notifications[].targets[].entity.type\
+          \ parameter is specified as FIELD_ENTITY.\nFor guest users, the login name\
+          \ is preceded by guest/.\nRequired when specifying the notifications[].targets[].entity\
+          \ parameter.\n"
         type: "string"
       type:
+        description: "\tThe type of the entity the Reminder Notification settings\
+          \ are configured to.\n- USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n\
+          - FIELD_ENTITY: Created By, Updated By, User Selection, Group Selection,\
+          \ and Department Selection Fields\n\nFor Apps in a guest space, specifying\
+          \ a Department will result in an error.\nRequired when specifying the notifications[].targets[].entity\
+          \ parameter.\n"
         enum:
         - "USER"
         - "GROUP"
@@ -16,6 +29,12 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The \"Include affiliated departments\" setting of the Department.\
+      \ This parameter is available if notifications[].targets[].entity.type parameter\
+      \ is specified to ORGANIZATION or FIELD_ENTITY.\n- true: Affiliated departments\
+      \ do inherit the Reminder Notification settings\n- false: Affiliated departments\
+      \ do not inherit the Reminder Notification settings\n\nIf ignored, this value\
+      \ is false.\n"
     format: "boolean"
     type: "boolean"
 required:

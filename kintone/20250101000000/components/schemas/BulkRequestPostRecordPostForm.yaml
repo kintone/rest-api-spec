@@ -1,6 +1,7 @@
 ---
 properties:
   app:
+    description: "    The App ID.\n"
     format: "long"
     type: "integer"
   record:
@@ -31,6 +32,9 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostGroupSelectSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRevisionSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRawRecordIdSimpleValue"
+    description: "    Field codes and values are specified in this object.\n    If\
+      \ ignored, the record will be added with default field values.\n    If field\
+      \ codes that don't exist are specified, these will be ignored.\n"
     type: "object"
 required:
 - "app"

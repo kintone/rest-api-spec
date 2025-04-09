@@ -1,12 +1,19 @@
 ---
 properties:
   assignee:
+    description: "An object containing data of the Assignee settings.\n"
     properties:
       entities:
+        description: "An array listing data of the Assignees.\nRequired, if setting\
+          \ the {status_name}.assignee parameter.\n"
         items:
           $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusPutAssigneeEntityForm"
         type: "array"
       type:
+        description: "\tThe Assignee List type of the Status.\n- ONE : User chooses\
+          \ one assignee from the list to take action\n- ALL : All Assignees in the\
+          \ list must take action\n- ANY : One assignee in the list must take action\n\
+          \nRequired, if setting the {status_name}.assignee parameter.\n"
         enum:
         - "ONE"
         - "ALL"
@@ -17,9 +24,14 @@ properties:
     - "type"
     type: "object"
   index:
+    description: "The display order (ascending from 0) of the Status, when listed\
+      \ with the other statuses.\n"
     format: "long"
     type: "integer"
   name:
+    description: "    The status name.\n    The maximum length is 64 characters.\n\
+      \    Required, if stating a new status for states.{status_name}.\n    In this\
+      \ case, state the same value used for states.{status_name}.\n"
     maxLength: 64
     minLength: 1
     type: "string"

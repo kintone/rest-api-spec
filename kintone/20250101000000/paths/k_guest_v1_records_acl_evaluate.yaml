@@ -1,5 +1,7 @@
 ---
 get:
+  description: "    Evaluates the API user's permissions for records and fields within\
+    \ an App.\n"
   operationId: "getRecordsAclEvaluateForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,16 +12,22 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "    The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "    The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "    An array of record IDs that will be evaluated.\n    The maximum\
+      \ limit is 100 IDs.\n"
+    in: "query"
     name: "ids"
     required: true
     schema:
+      description: "    An array of record IDs that will be evaluated.\n    The maximum\
+        \ limit is 100 IDs.\n"
       items:
         format: "long"
         type: "integer"
@@ -32,6 +40,8 @@ get:
           schema:
             properties:
               rights:
+                description: "    An array of objects that contain permission settings\
+                  \ of the specified records.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/RecordsAclEvaluateGetRight"
                 type: "array"

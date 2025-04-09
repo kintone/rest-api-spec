@@ -1,13 +1,17 @@
 ---
 properties:
   filterCond:
+    description: "The record's filter condition in query string format.\n"
     format: "query"
     type: "string"
   targets:
+    description: "An array of objects containing the recipients of the Per Record\
+      \ Notification.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/AppNotificationsPerRecordGetTarget"
     type: "array"
   title:
+    description: "The notification subject that is saved under Summary.\n"
     type: "string"
 type: "object"
 

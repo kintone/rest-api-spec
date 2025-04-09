@@ -1,6 +1,7 @@
 ---
 properties:
   records:
+    description: ""
     oneOf:
     - type: "array"
       items:

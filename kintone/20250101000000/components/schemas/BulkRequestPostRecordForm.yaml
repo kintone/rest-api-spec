@@ -1,6 +1,11 @@
 ---
 properties:
   id:
+    description: "    The Record ID of the record to be updated. Required, if `updateKey`\
+      \ will not be specified.\n\n    If `upsert` is set to `true`:\n    - If the\
+      \ record exists, the record will be updated\n    - If the record does not exist,\
+      \ it will be added as a new record. The specified ID will be ignored, and a\
+      \ new ID will be set to the new record.\n"
     format: "long"
     type: "integer"
   record:
@@ -31,8 +36,13 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostGroupSelectSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRevisionSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRawRecordIdSimpleValue"
+    description: "    Field codes and values are specified in this object.\n    If\
+      \ ignored, the record will not be updated.\n"
     type: "object"
   revision:
+    description: "    The expected revision number.\n    If the value does not match,\
+      \ an error will occur and all records will not be updated.\n    If the value\
+      \ is not specified or is -1, the revision number will not be checked.\n"
     format: "long"
     type: "integer"
   updateKey:

@@ -1,27 +1,46 @@
 ---
 properties:
   destApp:
+    description: "\tAn object containing the Target option that specifies the destination\
+      \ App where data is to be copied.\n\nRequired when creating a new Action.\n"
     properties:
       app:
+        description: "     The App ID.\n"
         format: "long"
         type: "integer"
       code:
+        description: "    The App Code.\n"
         type: "string"
     type: "object"
   entities:
+    description: "An array of objects containing the entities the Action is granted\
+      \ to.\nThis reflects the \"Available To\" options.\nIf the array is empty, the\
+      \ Action will not be available to any users/departments/groups.\n\nRequired\
+      \ when creating a new Action.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutEntity"
     type: "array"
   index:
+    description: "The order of the Actions.\nThe Action is sorted in ascending order,\
+      \ starting from 0.\nThe request will fail if there are duplicate values.\n\n\
+      Required when updating an existing Action, or creating a new Action.\n"
     format: "long"
     type: "integer"
   mappings:
+    description: "An array of objects containing the \"Field Mappings\" options.\n\
+      If the array is empty, the Action will not have \"Field Mappings\" options set.\n\
+      \nRequired when specifying the actions.{actionname}.destApp parameter, or creating\
+      \ a new Action.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutFieldMapping"
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsPutUrlMapping"
     type: "array"
   name:
+    description: "The name of the Action.\n1 to 32 characters can be specified.\n\
+      When creating a new Action, the request will fail if this parameter's value\
+      \ is not the same as actions.{actionname}.\n\nRequired when updating an existing\
+      \ Action, or creating a new Action.\n"
     maxLength: 32
     minLength: 1
     type: "string"

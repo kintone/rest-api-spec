@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the description, name, icon, revision and color theme of an\
+    \ App.\n\nThis API updates the pre-live settings.\nAfter using this API, use the\
+    \ Deploy App Settings API to deploy the settings to the live App:\n"
   operationId: "putPreviewAppSettings"
   parameters: []
   requestBody:
@@ -9,37 +12,55 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             description:
+              description: "The App description.\nThe maximum character limit is 10,000.\
+                \ HTML tags can be used.\n"
               maxLength: 10000
               type: "string"
             enableBulkDeletion:
+              description: "\tThe Enable bulk deletion of records setting.\n"
               type: "string"
             enableComments:
+              description: "\tThe Enable comments setting.\n"
               type: "string"
             enableDuplicateRecord:
+              description: "\tThe Enable the feature to \"duplicate record\" setting.\n"
               type: "string"
             enableInlineRecordEditing:
+              description: "\tThe Enable the feature to \"Inline record editing on\
+                \ record list views\" setting.\n"
               type: "string"
             enableThumbnails:
+              description: "\tThe Show thumbnails setting.\n"
               type: "string"
             firstMonthOfFiscalYear:
+              description: " The First month of Fiscal Year setting. Specify the number\
+                \ of the month.\n"
               type: "string"
             icon:
               anyOf:
               - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconPresetForm"
               - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutIconFileForm"
             name:
+              description: "The App name.\nThe maximum character limit is 64.\n"
               maxLength: 64
               minLength: 1
               type: "string"
             numberPrecision:
               $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsPutNumberPrecision"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
             theme:
+              description: "The color theme.\n- WHITE\n- RED\n- BLUE\n- GREEN\n- YELLOW\n\
+                - BLACK\n"
               enum:
               - "WHITE"
               - "CLIPBOARD"
@@ -66,6 +87,7 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppSettingsResponse"
@@ -73,18 +95,33 @@ put:
   tags:
   - "APP"
 get:
+  description: "Gets the description, name, icon, revision and color theme of an App.\n"
   operationId: "getPreviewAppSettings"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names, in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names, in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -100,34 +137,49 @@ get:
           schema:
             properties:
               description:
+                description: "The app description in HTML format.\n"
                 maxLength: 10000
                 type: "string"
               enableBulkDeletion:
+                description: "\tThe Enable bulk deletion of records setting.\n"
                 type: "boolean"
               enableComments:
+                description: "\tThe Enable comments setting.\n"
                 type: "boolean"
               enableDuplicateRecord:
+                description: "\tThe Enable the feature to \"duplicate record\" setting.\n"
                 type: "boolean"
               enableInlineRecordEditing:
+                description: "\tThe Enable the feature to \"Inline record editing\
+                  \ on record list views\" setting.\n"
                 type: "boolean"
               enableThumbnails:
+                description: "\tThe Show thumbnails setting.\n"
                 type: "boolean"
               firstMonthOfFiscalYear:
+                description: " The First month of Fiscal Year setting. The number\
+                  \ of the month will be returned.\n"
                 type: "string"
               icon:
                 anyOf:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconPresetForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetIconFileForm"
               name:
+                description: "The App name.\n"
                 maxLength: 64
                 minLength: 1
                 type: "string"
               numberPrecision:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetNumberPrecision"
               revision:
+                description: " The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               theme:
+                description: "The color theme.\n- WHITE\n- RED\n- BLUE\n- GREEN\n\
+                  - YELLOW\n- BLACK\n\nApps created before February 2017 may respond\
+                  \ with the following classic themes:\nCLIPBOARD, BINDER, PENCIL,\
+                  \ CLIPS.\n"
                 enum:
                 - "WHITE"
                 - "CLIPBOARD"

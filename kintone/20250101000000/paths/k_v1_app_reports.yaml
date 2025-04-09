@@ -1,17 +1,33 @@
 ---
 get:
+  description: "    Gets the Graph settings of the App.\n"
   operationId: "getAppReports"
   parameters:
-  - in: "query"
+  - description: "    The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "    The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "    The localized language to retrieve the data in:\n        - default:\
+      \ retrieves the default names\n        - en: retrieves the localized English\
+      \ names\n        - zh: retrieves the localized Chinese names\n        - ja:\
+      \ retrieves the localized Japanese names\n        - user: retrieves the localized\
+      \ names, in the same language as the language setting* set on the user used\
+      \ for the authentication.\n\n        If ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "    The localized language to retrieve the data in:\n        -\
+        \ default: retrieves the default names\n        - en: retrieves the localized\
+        \ English names\n        - zh: retrieves the localized Chinese names\n   \
+        \     - ja: retrieves the localized Japanese names\n        - user: retrieves\
+        \ the localized names, in the same language as the language setting* set on\
+        \ the user used for the authentication.\n\n        If ignored, the default\
+        \ names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -31,8 +47,14 @@ get:
                   anyOf:
                   - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReport"
                   - $ref: "../openapi.yaml#/components/schemas/AppReportsGetReportWithChartMode"
+                description: "\tAn object of Graph settings data.\nThe key of the\
+                  \ object is the graph's unique identifier, which is set as the graph's\
+                  \ name in its default language settings (this is regardless of the\
+                  \ lang request parameter's value).\nThe values of the key are the\
+                  \ various graph settings associated with that graph.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getAppReportsResponse"

@@ -1,5 +1,6 @@
 ---
 post:
+  description: "Changes the Space to which an App belongs.\n"
   operationId: "postAppMove"
   parameters: []
   requestBody:
@@ -9,9 +10,12 @@ post:
         schema:
           properties:
             app:
+              description: "    The App ID.\n"
               format: "long"
               type: "integer"
             space:
+              description: "    The Space ID of where the App will be moved to.\n\
+                \    To remove an App from its current space, null can be specified.\n"
               format: "long"
               type: "integer"
           required:

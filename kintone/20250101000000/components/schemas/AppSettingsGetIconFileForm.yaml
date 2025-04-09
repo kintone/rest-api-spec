@@ -1,19 +1,26 @@
 ---
 properties:
   file:
+    description: "An object containing data of uploaded icon files.\n"
     properties:
       contentType:
+        description: "The MIME type of the uploaded file.\n"
         type: "string"
       fileKey:
+        description: "The fileKey of the uploaded file.\n"
         type: "string"
       name:
+        description: "The file name of the uploaded file.\n"
         type: "string"
       size:
+        description: "The byte size of the uploaded file.\n"
         type: "string"
     required:
     - "fileKey"
     type: "object"
   type:
+    description: "The icon type:\n- FILE: An uploaded image.\n- PRESET: A preset icon\
+      \ within Kintone.\n"
     enum:
     - "FILE"
     - "PRESET"

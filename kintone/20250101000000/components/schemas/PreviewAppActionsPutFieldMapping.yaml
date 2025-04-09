@@ -1,10 +1,19 @@
 ---
 properties:
   destField:
+    description: "The field code of the field specified in the \"Field Mappings\"\
+      \ options as the destination.\nRequired when specifying the actions.{actionname}.mappings\
+      \ parameter.\n"
     type: "string"
   srcField:
+    description: "The field code of the field specified in the \"Field Mappings\"\
+      \ options as the source.\nRequired when the actions.{actionname}.mappings[].srcType\
+      \ is set to FIELD.\n"
     type: "string"
   srcType:
+    description: "The type of source data that is to be copied.\n- FIELD: Data stored\
+      \ in the source App's field\n- RECORD_URL: The Record's permalink\n\nRequired\
+      \ when specifying the actions.{actionname}.mappings parameter.\n"
     enum:
     - "FIELD"
     type: "string"

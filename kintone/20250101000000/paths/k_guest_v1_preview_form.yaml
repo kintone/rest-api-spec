@@ -1,5 +1,6 @@
 ---
 get:
+  description: "Retrieves the form details of an App.\n"
   operationId: "getPreviewFormForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,10 +11,12 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
   responses:

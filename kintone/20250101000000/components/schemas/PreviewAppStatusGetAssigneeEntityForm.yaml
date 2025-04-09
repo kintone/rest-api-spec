@@ -1,10 +1,21 @@
 ---
 properties:
   entity:
+    description: "        An object containing user data of the Assignees.\n     \
+      \   Inactive users, deleted users/departments/groups and deleted custom fields\
+      \ will not be included in the response. \n"
     properties:
       code:
+        description: "The code of the Assignee.\nThe following entities will return\
+          \ the following values:\n- FIELD_ENTITY: The field code of the field\n-\
+          \ CREATOR: null\n- CUSTOM_FIELD: The field code of the Custom Fields.\n\n\
+          To specify guest space users, add the string such as, guest/ before the\
+          \ guest's log in name.\n"
         type: "string"
       type:
+        description: "The entity type of the Assignee.\n- USER: User\n- GROUP: Group\n\
+          - ORGANIZATION: Department\n- FIELD_ENTITY: User/Group/Department selection\
+          \ field\n- CREATOR: Created by field\n- CUSTOM_FIELD: Custom Fields\n"
         enum:
         - "USER"
         - "GROUP"
@@ -15,6 +26,9 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
+    description: "The Include affiliated departments settings of the department.\n\
+      \   - true: Affiliated departments are included as Assignees\n   - false: Affiliated\
+      \ departments are not included as Assignees\n"
     type: "boolean"
 type: "object"
 

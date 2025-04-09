@@ -1,5 +1,7 @@
 ---
 get:
+  description: "    Gets general information of an App, including the name, description,\
+    \ related Space, creator and updater information.\n"
   operationId: "getApp"
   parameters:
   - description: "The App ID"

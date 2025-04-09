@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the General Notification settings of the App.\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "putPreviewAppNotificationsGeneral"
   parameters: []
   requestBody:
@@ -9,9 +12,14 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             notifications:
+              description: "An array of objects consisting of \"Recipients and Conditions\"\
+                \ options.\nIf an empty array is sent, all the recipients will be\
+                \ removed.\nIf this parameter is ignored, no changes will be made\
+                \ to the \"Recipients and Conditions\" options.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralPutNotification"
               type: "array"
@@ -40,12 +48,15 @@ put:
   tags:
   - "APP"
 get:
+  description: "    Gets the General Notification settings of the App.\n"
   operationId: "getPreviewAppNotificationsGeneral"
   parameters:
-  - in: "query"
+  - description: "    The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "    The App ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -56,12 +67,21 @@ get:
           schema:
             properties:
               notifications:
+                description: "    An array of objects consisting of \"Recipients and\
+                  \ Conditions\" options.\n    These options define who will receive\
+                  \ the notifications.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
                 type: "array"
               notifyToCommenter:
+                description: "Option to notify all commenters of a record when a comment\
+                  \ is posted on that record.\nThis reflects the \"Send updated comment\
+                  \ notifications to all commenters\" checkbox.\n- true: Notify all\
+                  \ commenters of the record when a comment is posted\n- false: Do\
+                  \ not notify all commenters of the record when a comment is posted\n"
                 type: "boolean"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getPreviewAppNotificationsGeneralResponse"

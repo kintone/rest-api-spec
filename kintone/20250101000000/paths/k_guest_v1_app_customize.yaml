@@ -1,5 +1,6 @@
 ---
 get:
+  description: "Gets the JavaScript and CSS Customization settings of an App.\n"
   operationId: "getAppCustomizeForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,10 +11,12 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -24,14 +27,18 @@ get:
           schema:
             properties:
               desktop:
+                description: "An object containing data of JavaScript and CSS files\
+                  \ for the desktop.\n"
                 properties:
                   css:
+                    description: "An array listing data of CSS files for desktop.\n"
                     items:
                       anyOf:
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                   js:
+                    description: "An array listing data of JavaScript files.\n"
                     items:
                       anyOf:
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
@@ -39,14 +46,18 @@ get:
                     type: "array"
                 type: "object"
               mobile:
+                description: "An object containing data of JavaScript and CSS files\
+                  \ for the mobile.\n"
                 properties:
                   css:
+                    description: "An array listing data of CSS files for mobile.\n"
                     items:
                       anyOf:
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetFileContentForm"
                     type: "array"
                   js:
+                    description: "An array listing data of JavaScript files for mobile.\n"
                     items:
                       anyOf:
                       - $ref: "../openapi.yaml#/components/schemas/AppCustomizeGetUrlContentForm"
@@ -54,9 +65,12 @@ get:
                     type: "array"
                 type: "object"
               revision:
+                description: "The revision number of the app settings.\n"
                 format: "long"
                 type: "integer"
               scope:
+                description: "The scope of customization\n- ALL: Affect all users\n\
+                  - ADMIN: Affect only app administrators\n- NONE: Disable\n"
                 enum:
                 - "ALL"
                 - "ADMIN"

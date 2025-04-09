@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the process management settings of an App.\n\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "putPreviewAppStatusForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -17,21 +20,31 @@ put:
         schema:
           properties:
             actions:
+              description: "An array containing data of the Actions.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusPutActionForm"
               type: "array"
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             enable:
+              description: "    The on/off settings of the process management settings.\n\
+                \    - true: The process management settings is enabled.\n    - false:\
+                \ The process management settings is disabled.\n"
               format: "boolean"
               type: "boolean"
             revision:
+              description: "    Specify the revision number of the settings that will\
+                \ be deployed.\n    The request will fail if the revision number is\
+                \ not the latest revision.\n    The revision will not be checked if\
+                \ this parameter is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
             states:
               additionalProperties:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusPutStateForm"
+              description: "An object containing data of the process management statuses.\n"
               type: "object"
           required:
           - "app"
@@ -45,6 +58,7 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppStatusForGuestSpaceResponse"
@@ -52,6 +66,7 @@ put:
   tags:
   - "APP"
 get:
+  description: "Gets the process management settings of an App.\n"
   operationId: "getPreviewAppStatusForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -62,16 +77,30 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "    The localized language to retrieve the data in:\n    - default:\
+      \ retrieves the default names\n    - en: retrieves the localized English names\n\
+      \    - zh: retrieves the localized Chinese names\n    - ja: retrieves the localized\
+      \ Japanese names\n    - user: retrieves the localized names, in the same language\
+      \ as the language setting* set on the user used for the authentication.\n\n\
+      \    If ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "    The localized language to retrieve the data in:\n    - default:\
+        \ retrieves the default names\n    - en: retrieves the localized English names\n\
+        \    - zh: retrieves the localized Chinese names\n    - ja: retrieves the\
+        \ localized Japanese names\n    - user: retrieves the localized names, in\
+        \ the same language as the language setting* set on the user used for the\
+        \ authentication.\n\n    If ignored, the default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -87,17 +116,27 @@ get:
           schema:
             properties:
               actions:
+                description: "An array containing data of the Actions. They are listed\
+                  \ in the same order as in the GUI.\n`null` is returned for Apps\
+                  \ that have never enabled the process management settings before.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusGetActionForm"
                 type: "array"
               enable:
+                description: "    The on/off settings of the process management settings.\n\
+                  \    - true: The process management settings is enabled.\n    -\
+                  \ false: The process management settings is disabled.\n"
                 type: "boolean"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               states:
                 additionalProperties:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusGetStateForm"
+                description: "An object containing data of the process management\
+                  \ statuses.\n`null` is returned for Apps that have never enabled\
+                  \ the process management settings before.\n"
                 type: "object"
             title: "getPreviewAppStatusForGuestSpaceResponse"
             type: "object"

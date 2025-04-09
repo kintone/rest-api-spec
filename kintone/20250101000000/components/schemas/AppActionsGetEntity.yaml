@@ -1,8 +1,12 @@
 ---
 properties:
   code:
+    description: "               The code of the entity the Action is granted to.\n\
+      For guest users, the login name is preceded by `guest/`.\n"
     type: "string"
   type:
+    description: "               The type of the entity the Action is granted to.\n\
+      - USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n"
     enum:
     - "USER"
     - "GROUP"

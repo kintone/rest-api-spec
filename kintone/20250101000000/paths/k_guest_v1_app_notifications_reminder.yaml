@@ -1,5 +1,6 @@
 ---
 get:
+  description: "    Gets the Reminder Notification settings of the App.\n"
   operationId: "getAppNotificationsReminderForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,16 +11,36 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "    The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "    The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "                    \tSet this parameter if there are fields that\
+      \ contain multiple options, and the Localization Settings have been set for\
+      \ those option names. For more information, refer to the following article:\n\
+      Setting Localized Names (External link)\nThe localized language to retrieve\
+      \ the data in:\n- default: retrieves the default names\n- en: retrieves the\
+      \ localized English names\n- zh: retrieves the localized Chinese names\n- ja:\
+      \ retrieves the localized Japanese names\n- user: retrieves the localized names,\
+      \ in the same language as the language setting* set on the user used for the\
+      \ authentication.\n\nIf ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "                    \tSet this parameter if there are fields that\
+        \ contain multiple options, and the Localization Settings have been set for\
+        \ those option names. For more information, refer to the following article:\n\
+        Setting Localized Names (External link)\nThe localized language to retrieve\
+        \ the data in:\n- default: retrieves the default names\n- en: retrieves the\
+        \ localized English names\n- zh: retrieves the localized Chinese names\n-\
+        \ ja: retrieves the localized Japanese names\n- user: retrieves the localized\
+        \ names, in the same language as the language setting* set on the user used\
+        \ for the authentication.\n\nIf ignored, the default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -35,13 +56,21 @@ get:
           schema:
             properties:
               notifications:
+                description: "    An array of objects consisting of Notification Trigger\
+                  \ options.\n    These options define when the notifications will\
+                  \ be sent out, under what conditions, and the recipients.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/AppNotificationsReminderGetNotification"
                 type: "array"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               timezone:
+                description: "    The timezone that determines the Reminder notification's\
+                  \ timing. This reflects the Reminder Time Zone dropdown option.\n\
+                  If the App's Reminder Notification settings have never been configured,\
+                  \ null will be returned.\n"
                 format: "timezone"
                 type: "string"
             title: "getAppNotificationsReminderForGuestSpaceResponse"

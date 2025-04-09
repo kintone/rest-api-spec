@@ -1,11 +1,25 @@
 ---
 properties:
   code:
+    description: "The field code of the field used to determine the Reminder notification's\
+      \ timing.\nThe field code of the following fields can be used:\n- Created datetime\n\
+      - Updated datetime\n- Date\n- Date and time\n\nRequired when specifying the\
+      \ notifications[].timing parameter.\n"
     type: "string"
   daysLater:
+    description: "\tThe number of days after the notifications[].timing.code date/datetime\
+      \ when the Reminder notification is sent.\nInput a negative value for the number\
+      \ of days before the notifications[].timing.code date/datetime.\nThe value must\
+      \ be between -10000 and 10000.\nRequired when specifying the notifications[].timing\
+      \ parameter.\n"
     format: "long"
     type: "integer"
   hoursLater:
+    description: "The number of hours after the notifications[].timing.code datetime\
+      \ shifted by daysLater when the Reminder notification is sent.\nInput a negative\
+      \ value for the number of hours before the notifications[].timing.code datetime.\n\
+      The value must be between -10000 and 10000.\nRequired when specifying the notifications[].timing\
+      \ parameter and not specifying the notifications[].timing.time parameter.\n"
     format: "long"
     type: "integer"
 required:

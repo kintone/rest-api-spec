@@ -1,16 +1,30 @@
 ---
 properties:
   accessibility:
+    description: "The permission to grant to the entity.\n- READ: Permissions to view\
+      \ only.\n- WRITE: Permissions to view and edit.\n- NONE: No permissions to view\
+      \ and edit\n"
     enum:
     - "WRITE"
     - "READ"
     - "NONE"
     type: "string"
   entity:
+    description: "An object containing data of the entity the permission is granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\nTo specify\
+          \ guest space users, add the string \"guest/\" before the guest's log in\
+          \ name.\nIf the \"Everyone\" group is not specified, the \"Everyone\" group\
+          \ will have no permissions to view/edit/delete.\nIf \"CREATOR\" is specified\
+          \ for the rights[].entity.type parameter, ignore this parameter. Otherwise,\
+          \ this parameter is required.\n"
         type: "string"
       type:
+        description: "The type of the entity the permission is granted to.\n- USER:\
+          \ User\n- GROUP: Group\n- ORGANIZATION: Department\n- FIELD_ENTITY: User\
+          \ field\n"
         enum:
         - "USER"
         - "GROUP"
@@ -21,6 +35,9 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permissions\
+      \ are granted to.\n- true: Permissions are inherited.\n- false: Permissions\
+      \ are not inherited.\n\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
 required:

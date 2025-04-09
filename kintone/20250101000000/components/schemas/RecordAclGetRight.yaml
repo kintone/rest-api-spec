@@ -1,10 +1,13 @@
 ---
 properties:
   entities:
+    description: "An array listing the entities the permissions are granted to, in\
+      \ order of priority.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/RecordAclGetEntityRight"
     type: "array"
   filterCond:
+    description: "The filter condition of the record permission.\n"
     type: "string"
 type: "object"
 

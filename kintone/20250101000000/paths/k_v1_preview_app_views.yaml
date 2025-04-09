@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the View settings of an App.\nThis API updates the pre-live\
+    \ settings.\nAfter using this API, use the Deploy App Settings API to deploy the\
+    \ settings to the live App.\n"
   operationId: "putPreviewAppViews"
   parameters: []
   requestBody:
@@ -9,9 +12,14 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             revision:
+              description: "\tSpecify the revision number of the settings that will\
+                \ be deployed.\n The request will fail if the revision number is not\
+                \ the latest revision.\n The revision will not be checked if this\
+                \ parameter is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
             views:
@@ -20,6 +28,7 @@ put:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutListViewForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCalendarViewForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutCustomViewForm"
+              description: "\tAn object of data of Views.\n"
               type: "object"
           required:
           - "app"
@@ -34,29 +43,46 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               views:
                 additionalProperties:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsPutResult"
+                description: "An object containing data of the Views.\n"
                 type: "object"
             title: "putPreviewAppViewsResponse"
             type: "object"
   tags:
   - "APP"
 get:
+  description: "Gets the View settings of an App.\n"
   operationId: "getPreviewAppViews"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names, in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names, in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -72,6 +98,7 @@ get:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               views:
@@ -82,6 +109,7 @@ get:
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetListViewOutputForm"
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCalendarViewOutputForm"
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppViewsGetCustomViewOutputForm"
+                description: "An object listing View information.\n"
                 type: "object"
             title: "getPreviewAppViewsResponse"
             type: "object"

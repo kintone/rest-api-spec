@@ -1,15 +1,27 @@
 ---
 properties:
   code:
+    description: "    The field code of the field.\n    Field codes have the following\
+      \ limitations:\n    - The maximum character limit is 128\n    - Duplicate field\
+      \ codes cannot exist\n    - _ is the only symbol that can be used\n    - Numbers\
+      \ cannot be used to start a field code\n"
     maxLength: 128
     minLength: 1
     type: "string"
   displayScale:
+    description: "    The number of decimal places to display for the field.\n"
     format: "long"
     type: "integer"
   expression:
+    description: "    The formula expression used in the field.\n"
     type: "string"
   format:
+    description: "    The display format for fields with calculations:\n    - NUMBER:\
+      \ Number (1000)\n    - NUMBER_DIGIT: Number with thousands separator (1,000)\n\
+      \    - DATETIME: Date & time (Aug 06, 2012 2:03 PM)\n    - DATE: Date (Aug 06,\
+      \ 2012)\n    - TIME: Time (2:03 PM)\n    - HOUR_MINUTE: Hours & minutes (29\
+      \ hours 47 minutes)\n    - DAY_HOUR_MINUTE: Days & hours & minutes (1 day 5\
+      \ hours 47 minutes)\n"
     enum:
     - "NUMBER"
     - "NUMBER_DIGIT"
@@ -20,19 +32,36 @@ properties:
     - "DAY_HOUR_MINUTE"
     type: "string"
   hideExpression:
+    description: "    The \"Hide formula\" settings for the field.\n    - true: The\
+      \ formula will be hidden.\n    - false: The formula will be displayed.\n"
     format: "boolean"
     type: "boolean"
   label:
+    description: "    The field name.\n"
     maxLength: 128
     minLength: 1
     type: "string"
   noLabel:
+    description: "    The \"Hide field name\" option.\n    - true: The field's name\
+      \ will be hidden.\n    - false: The field's name will be displayed.\n"
     format: "boolean"
     type: "boolean"
   required:
+    description: "    The \"Required field\" option.\n    - true: The field will be\
+      \ a required field.\n    - false: The field will not be a required field.\n"
     format: "boolean"
     type: "boolean"
   type:
+    description: "  The field type.\n  - GROUP: Group\n  - GROUP_SELECT: Group selection\n\
+      \  - CALC: Calculated\n  - CHECK_BOX: Check box\n  - DATE: Date\n  - DATETIME:\
+      \ Date and time\n  - DROP_DOWN: Drop-down\n  - FILE: Attachment\n  - LINK: Link\n\
+      \  - MULTI_LINE_TEXT: Text Area\n  - MULTI_SELECT: Multi-choice\n  - NUMBER:\
+      \ Number\n  - ORGANIZATION_SELECT: Department selection\n  - RADIO_BUTTON: Radio\
+      \ button\n  - RECORD_NUMBER: Record number\n  - REFERENCE_TABLE: Related Records\n\
+      \  - RICH_TEXT: Rich text\n  - SINGLE_LINE_TEXT: Text\n  - SUBTABLE: Table\n\
+      \  - TIME: Time\n  - USER_SELECT: User selection\n\n  For Lookup fields, specify\
+      \ either SINGLE_LINE_TEXT or NUMBER,\n  depending on the type of the Key field\
+      \ it's looking up.\n"
     enum:
     - "CALC"
     - "CATEGORY"
@@ -64,9 +93,13 @@ properties:
     - "USER_SELECT"
     type: "string"
   unit:
+    description: "    The Currency settings of the field.\n"
     maxLength: 128
     type: "string"
   unitPosition:
+    description: "    The display position of the Currency.\n    - BEFORE: The currency\
+      \ will be displayed before the field value.\n    - AFTER: The currency will\
+      \ be displayed after the field value.\n"
     enum:
     - "BEFORE"
     - "AFTER"

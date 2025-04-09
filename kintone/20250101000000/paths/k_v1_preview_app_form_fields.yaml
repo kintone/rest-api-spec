@@ -1,24 +1,41 @@
 ---
 delete:
+  description: "   Deletes fields from a form of an App.\n   This API updates the\
+    \ pre-live settings.\n   After using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "deletePreviewAppFormFields"
   parameters:
-  - in: "query"
+  - description: "   The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "   The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "   The list of field codes of the fields to delete.\n   Up to 100\
+      \ field codes can be specified.\n"
+    in: "query"
     name: "fields"
     required: true
     schema:
+      description: "   The list of field codes of the fields to delete.\n   Up to\
+        \ 100 field codes can be specified.\n"
       items:
         type: "string"
       type: "array"
-  - in: "query"
+  - description: "    Specify the revision number of the settings that will be deployed.\n\
+      \    The request will fail if the revision number is not the latest revision.\n\
+      \    The revision will not be checked if this parameter is ignored, or -1 is\
+      \ specified.\n"
+    in: "query"
     name: "revision"
     required: false
     schema:
+      description: "    Specify the revision number of the settings that will be deployed.\n\
+        \    The request will fail if the revision number is not the latest revision.\n\
+        \    The revision will not be checked if this parameter is ignored, or -1\
+        \ is specified.\n"
       format: "long"
       type: "integer"
   responses:
@@ -29,6 +46,7 @@ delete:
           schema:
             properties:
               revision:
+                description: "   The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "deletePreviewAppFormFieldsResponse"
@@ -36,6 +54,9 @@ delete:
   tags:
   - "APP"
 put:
+  description: "   Updates the field settings of fields in a form of an App.\n   This\
+    \ API updates the pre-live settings.\n   After using this API, use the Deploy\
+    \ App Settings API to deploy the settings to the live App.\n"
   operationId: "putPreviewAppFormFields"
   parameters: []
   requestBody:
@@ -45,6 +66,7 @@ put:
         schema:
           properties:
             app:
+              description: "   The App ID.\n"
               format: "long"
               type: "integer"
             properties:
@@ -77,8 +99,13 @@ put:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTableForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm"
+              description: "   An object with data of the field settings.\n"
               type: "object"
             revision:
+              description: "    Specify the revision number of the settings that will\
+                \ be deployed.\n    The request will fail if the revision number is\
+                \ not the latest revision.\n    The revision will not be checked if\
+                \ this parameter is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -94,6 +121,7 @@ put:
           schema:
             properties:
               revision:
+                description: "   The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppFormFieldsResponse"
@@ -101,18 +129,33 @@ put:
   tags:
   - "APP"
 get:
+  description: "    Gets the list of fields and field settings of an App.\n"
   operationId: "getPreviewAppFormFields"
   parameters:
-  - in: "query"
+  - description: "   The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "   The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "   The localized language to retrieve the data in:\n   - default:\
+      \ retrieves the default names\n   - en: retrieves the localized English names\n\
+      \   - zh: retrieves the localized Chinese names\n   - ja: retrieves the localized\
+      \ Japanese names\n   - user: retrieves the localized names,\n     in the same\
+      \ language as the language setting* set on the user used for the authentication.\n\
+      \n   If ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "   The localized language to retrieve the data in:\n   - default:\
+        \ retrieves the default names\n   - en: retrieves the localized English names\n\
+        \   - zh: retrieves the localized Chinese names\n   - ja: retrieves the localized\
+        \ Japanese names\n   - user: retrieves the localized names,\n     in the same\
+        \ language as the language setting* set on the user used for the authentication.\n\
+        \n   If ignored, the default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -157,8 +200,10 @@ get:
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetTableForm"
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetTimeFieldForm"
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsGetUserSelectFieldForm"
+                description: "    An object with data of the field settings.\n"
                 type: "object"
               revision:
+                description: "    The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getPreviewAppFormFieldsResponse"
@@ -166,6 +211,9 @@ get:
   tags:
   - "APP"
 post:
+  description: "   Adds fields to a form of an App.\n   This API updates the pre-live\
+    \ settings.\n   After using this API, use the Deploy App Settings API to deploy\
+    \ the settings to the live App.\n"
   operationId: "postPreviewAppFormFields"
   parameters: []
   requestBody:
@@ -175,6 +223,7 @@ post:
         schema:
           properties:
             app:
+              description: "   The App ID.\n"
               format: "long"
               type: "integer"
             properties:
@@ -207,8 +256,13 @@ post:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTableForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostTimeFieldForm"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostUserSelectFieldForm"
+              description: "   An object with data of the field settings.\n"
               type: "object"
             revision:
+              description: "    Specify the revision number of the settings that will\
+                \ be deployed.\n    The request will fail if the revision number is\
+                \ not the latest revision.\n    The revision will not be checked if\
+                \ this parameter is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -224,6 +278,7 @@ post:
           schema:
             properties:
               revision:
+                description: "   The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "postPreviewAppFormFieldsResponse"

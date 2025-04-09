@@ -1,9 +1,16 @@
 ---
 properties:
   filterCond:
+    description: "\tThe record's filter condition in query string format.\nThe following\
+      \ cases will have the same result:\n- \"All records\" is specified.\n- \"null\"\
+      \ is specified.\n- An empty string is specified.\n- The parameter is ignored.\n\
+      \nThe request will fail if a deleted User, Group, or Organization is specified\
+      \ in the filter condition.\n"
     format: "query"
     type: "string"
   targets:
+    description: "\tAn array of objects containing the recipients of the Reminder\
+      \ Notification.\nRequired when specifying the notifications parameter.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutTarget"
     type: "array"
@@ -12,6 +19,9 @@ properties:
     - $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutTimingRelative"
     - $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutTimingAbsolute"
   title:
+    description: "The notification subject that is saved under \"Summary\".\nThe maximum\
+      \ limit is 100 characters.\nIf ignored, the notification subject will be an\
+      \ empty string.\n"
     maxLength: 100
     type: "string"
 required:
