@@ -1,7 +1,7 @@
 ---
 properties:
   code:
-    description: "    The code of the user/group/department.Required, if the entities\
+    description: "    The code of the user/group/department. Required, if the entities\
       \ parameter is specified.\n"
     type: "string"
   type:
