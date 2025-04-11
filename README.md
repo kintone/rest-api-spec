@@ -2,11 +2,11 @@
 
 [![CI](https://github.com/kintone/rest-api-spec/actions/workflows/ci.yaml/badge.svg)](https://github.com/kintone/rest-api-spec/actions/workflows/ci.yaml)
 
-> [OpenAPI](https://www.openapis.org/) Description for kintone REST API
+[OpenAPI](https://www.openapis.org/) Description for kintone REST API
 
 ## Concept
 
-This repository provides [OpenAPI](https://www.openapis.org/) Description for [kintone REST API](https://kintone.dev/en/docs/kintone/rest-api/).
+This repository provides [OpenAPI](https://www.openapis.org/) Description (OAD) for [kintone REST API](https://kintone.dev/en/docs/kintone/rest-api/).
 
 OpenAPI is a standard for defining API interfaces, which is easy to understand for both humans and computers.
 
@@ -14,17 +14,17 @@ OpenAPI is widely supported by API related services and tools to make your API e
 
 ## Usage
 
-We provide our API specification in two formats, website for humans and yaml files for computers.
+We provide our API specification in two formats, OAD files for computers and website for humans.
+
+### OpenAPI Description (OAD)
+
+OAD files can be found in the `kintone/${timestamp}` directory. The `${timestamp}` is the date and time of publication.
 
 ### Website
 
 We host interactive API specification at https://stunning-adventure-6kmjr8r.pages.github.io/ .
 
 You can browse the list of kintone REST APIs, API Request and Responses. You can also try calling APIs By setting authorization header.
-
-### YAML files
-
-
 
 ## Limitations
 
