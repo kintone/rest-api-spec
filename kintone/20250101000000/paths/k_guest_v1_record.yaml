@@ -1,7 +1,5 @@
 ---
 put:
-  description: "Updates details of 1 record in an App by specifying its record number,\
-    \ or a different unique key.\n"
   operationId: "putRecordForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -19,12 +17,9 @@ put:
         schema:
           properties:
             app:
-              description: "    The App ID.\n"
               format: "long"
               type: "integer"
             id:
-              description: "\tThe Record ID of the record to be updated.\n\tRequired,\
-                \ if updateKey will not be specified.\n"
               format: "long"
               type: "integer"
             record:
@@ -55,14 +50,8 @@ put:
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutGroupSelectSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutRevisionSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutRawRecordIdSimpleValue"
-              description: "    Field codes and values are specified in this object.\n\
-                \    If ignored, the record will not be updated.\n"
               type: "object"
             revision:
-              description: "\tThe expected revision number.\n\tIf the value does not\
-                \ match, an error will occur and the record will not be updated.\n\
-                \tIf the value is not specified or is -1, the revision number will\
-                \ not be checked.\n"
               format: "long"
               type: "integer"
             updateKey:
@@ -86,8 +75,6 @@ put:
   tags:
   - "RECORD"
 get:
-  description: "Retrieves details of 1 record from an App by specifying the App ID\
-    \ and Record ID.\n"
   operationId: "getRecordForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -98,20 +85,16 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - description: "    The App ID.\n"
-    in: "query"
+  - in: "query"
     name: "app"
     required: true
     schema:
-      description: "    The App ID.\n"
       format: "long"
       type: "integer"
-  - description: "    The Record ID.\n"
-    in: "query"
+  - in: "query"
     name: "id"
     required: true
     schema:
-      description: "    The Record ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -149,15 +132,12 @@ get:
                   - $ref: "../openapi.yaml#/components/schemas/RecordGetGroupSelectSimpleValue"
                   - $ref: "../openapi.yaml#/components/schemas/RecordGetRevisionSimpleValue"
                   - $ref: "../openapi.yaml#/components/schemas/RecordGetRawRecordIdSimpleValue"
-                description: "    The type and value of all fields within the record\
-                  \ are included in the object.\n"
                 type: "object"
             title: "getRecordForGuestSpaceResponse"
             type: "object"
   tags:
   - "RECORD"
 post:
-  description: "Adds 1 record to an App.\n"
   operationId: "postRecordForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -175,7 +155,6 @@ post:
         schema:
           properties:
             app:
-              description: "    The App ID.\n"
               format: "long"
               type: "integer"
             record:
@@ -206,10 +185,6 @@ post:
                 - $ref: "../openapi.yaml#/components/schemas/RecordPostGroupSelectSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPostRevisionSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPostRawRecordIdSimpleValue"
-              description: "    Field codes and values are specified in this object.\n\
-                \    If ignored, the record will be added with default field values.\n\
-                \    If field codes that don't exist are specified, these will be\
-                \ ignored.\n"
               type: "object"
           required:
           - "app"
@@ -224,11 +199,9 @@ post:
           schema:
             properties:
               id:
-                description: "    The Record ID of the created Record.\n"
                 format: "long"
                 type: "integer"
               revision:
-                description: "    The revision number of the Record.\n"
                 format: "long"
                 type: "integer"
             title: "postRecordForGuestSpaceResponse"

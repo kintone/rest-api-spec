@@ -1,72 +1,72 @@
 ---
 get:
-  description: "    Gets general information of multiple Apps, including the name,\
-    \ description, related Space, creator and updater information.\n"
+  description: "Gets general information of multiple Apps, including the name, description,\
+    \ related Space, creator and updater information.\n"
   operationId: "getApps"
   parameters:
-  - description: "    The App Code.\n    Up to 100 App Codes can be specified.\n \
-      \   Each App Code must be between 1 to 64 characters.\n    An exact match search\
-      \ will be used, and will be case sensitive.\n"
+  - description: "The App Code.\nUp to 100 App Codes can be specified.\nEach App Code\
+      \ must be between 1 to 64 characters.\nAn exact match search will be used, and\
+      \ will be case sensitive.\n"
     in: "query"
     name: "codes"
     required: false
     schema:
-      description: "    The App Code.\n    Up to 100 App Codes can be specified.\n\
-        \    Each App Code must be between 1 to 64 characters.\n    An exact match\
-        \ search will be used, and will be case sensitive.\n"
+      description: "The App Code.\nUp to 100 App Codes can be specified.\nEach App\
+        \ Code must be between 1 to 64 characters.\nAn exact match search will be\
+        \ used, and will be case sensitive.\n"
       items:
         type: "string"
       type: "array"
-  - description: "    The number of retrievals that will be skipped.\n    Must be\
-      \ between 0 and 2147483647. If nothing is specified, it will default to 0.\n"
+  - description: "The number of retrievals that will be skipped.\nMust be between\
+      \ 0 and 2147483647. If nothing is specified, it will default to 0.\n"
     in: "query"
     name: "offset"
     required: false
     schema:
-      description: "    The number of retrievals that will be skipped.\n    Must be\
-        \ between 0 and 2147483647. If nothing is specified, it will default to 0.\n"
+      description: "The number of retrievals that will be skipped.\nMust be between\
+        \ 0 and 2147483647. If nothing is specified, it will default to 0.\n"
       format: "long"
       type: "integer"
-  - description: "    The App Name.\n    A partial search will be used, and the search\
-      \ will be case insensitive.\n    The localized name of the App in the user's\
-      \ locale will also be included in the search.\n"
+  - description: "The App Name.\nA partial search will be used, and the search will\
+      \ be case insensitive.\nThe localized name of the App in the user's locale will\
+      \ also be included in the search.\n"
     in: "query"
     name: "name"
     required: false
     schema:
-      description: "    The App Name.\n    A partial search will be used, and the\
-        \ search will be case insensitive.\n    The localized name of the App in the\
-        \ user's locale will also be included in the search.\n"
+      description: "The App Name.\nA partial search will be used, and the search will\
+        \ be case insensitive.\nThe localized name of the App in the user's locale\
+        \ will also be included in the search.\n"
       maxLength: 64
       type: "string"
-  - description: "    The number of Apps to retrieve.\n    Must be between 1 and 100.\n\
-      \    If nothing is specified, it will default to 100.\n"
+  - description: "The number of Apps to retrieve.\nMust be between 1 and 100.\nIf\
+      \ nothing is specified, it will default to 100.\n"
     in: "query"
     name: "limit"
     required: false
     schema:
-      description: "    The number of Apps to retrieve.\n    Must be between 1 and\
-        \ 100.\n    If nothing is specified, it will default to 100.\n"
+      description: "The number of Apps to retrieve.\nMust be between 1 and 100.\n\
+        If nothing is specified, it will default to 100.\n"
       format: "long"
       type: "integer"
-  - description: "   The App IDs.\n   Up to 100 IDs can be specified.\n"
+  - description: "The App IDs.\nUp to 100 IDs can be specified.\n"
     in: "query"
     name: "ids"
     required: false
     schema:
-      description: "   The App IDs.\n   Up to 100 IDs can be specified.\n"
+      description: "The App IDs.\nUp to 100 IDs can be specified.\n"
       items:
         format: "long"
         type: "integer"
       type: "array"
-  - description: "    The Space ID of where the App resides in.\n    Up to 100 IDs\
-      \ can be specified.\n"
+  - description: "The Space ID of where the App resides in.\nUp to 100 IDs can be\
+      \ specified.\n"
     in: "query"
     name: "spaceIds"
     required: false
     schema:
-      description: "    The Space ID of where the App resides in.\n    Up to 100 IDs\
-        \ can be specified.\n"
+      description: "The Space ID of where the App resides in.\nUp to 100 IDs can be\
+        \ specified.\n"
       items:
         format: "long"
         type: "integer"
@@ -79,7 +79,7 @@ get:
           schema:
             properties:
               apps:
-                description: "    An array of objects that contain general information\
+                description: "An array of objects that contain general information\
                   \ of Apps.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/AppsGetAppWithSpaceIdForm"

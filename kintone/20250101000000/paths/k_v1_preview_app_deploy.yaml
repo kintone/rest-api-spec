@@ -1,46 +1,12 @@
 ---
-get:
-  description: "    Gets the deployment status of the App settings for multiple Apps.\n"
-  operationId: "getPreviewAppDeploy"
-  parameters:
-  - description: "    The list of Apps to check the deploy statuses of.\n    The Maximum\
-      \ limit is 300.\n    If Apps in Guest Spaces are specified,\n    all Apps specified\
-      \ in the request must belong to that Guest Space.\n"
-    in: "query"
-    name: "apps"
-    required: true
-    schema:
-      description: "    The list of Apps to check the deploy statuses of.\n    The\
-        \ Maximum limit is 300.\n    If Apps in Guest Spaces are specified,\n    all\
-        \ Apps specified in the request must belong to that Guest Space.\n"
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of preview/app/deploy/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              apps:
-                description: "    A list of objects with data of deploy statuses.\n"
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
-                type: "array"
-            title: "getPreviewAppDeployResponse"
-            type: "object"
-  tags:
-  - "APP"
 post:
-  description: "    Updates the settings of a pre-live App to the live App.\n    Using\
-    \ this API gives the same results as when users click on \"Update App\" or \"\
-    Discard Changes\" on the App's settings page.\n    If multiple apps are specified\
-    \ in this API, and one of the updates to an App fails, all of the specified Apps\
-    \ will rollback to the state before this API was run.\n    If the record/field\
-    \ permissions of Apps are changed, the updated settings will be applied to the\
-    \ concerned records/fields sequentially, within each App.\n"
+  description: "Updates the settings of a pre-live App to the live App.\nUsing this\
+    \ API gives the same results as when users click on \"Update App\" or \"Discard\
+    \ Changes\" on the App's settings page.\nIf multiple apps are specified in this\
+    \ API, and one of the updates to an App fails, all of the specified Apps will\
+    \ rollback to the state before this API was run.\nIf the record/field permissions\
+    \ of Apps are changed, the updated settings will be applied to the concerned records/fields\
+    \ sequentially, within each App.\n"
   operationId: "deployApp"
   parameters: []
   requestBody:
@@ -50,17 +16,16 @@ post:
         schema:
           properties:
             apps:
-              description: "    The list of Apps to deploy the pre-live settings to\
-                \ the live Apps.\n    The Maximum limit is 300.\n    If Apps are being\
-                \ deployed to Guest Spaces,\n    Apps can only be deployed to the\
-                \ same Guest Space.\n"
+              description: "The list of Apps to deploy the pre-live settings to the\
+                \ live Apps.\nThe Maximum limit is 300.\nIf Apps are being deployed\
+                \ to Guest Spaces,\nApps can only be deployed to the same Guest Space.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
               type: "array"
             revert:
-              description: "    Specify `true` to cancel all changes made to the pre-live\
-                \ settings.\n    The pre-live settings will be reverted back to the\
-                \ current settings of the live app.\n"
+              description: "Specify `true` to cancel all changes made to the pre-live\
+                \ settings.\nThe pre-live settings will be reverted back to the current\
+                \ settings of the live app.\n"
               format: "boolean"
               type: "boolean"
           required:
@@ -73,6 +38,40 @@ post:
       content:
         application/json:
           schema: {}
+  tags:
+  - "APP"
+get:
+  description: "Gets the deployment status of the App settings for multiple Apps.\n"
+  operationId: "getPreviewAppDeploy"
+  parameters:
+  - description: "The list of Apps to check the deploy statuses of.\nThe Maximum limit\
+      \ is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified in the\
+      \ request must belong to that Guest Space.\n"
+    in: "query"
+    name: "apps"
+    required: true
+    schema:
+      description: "The list of Apps to check the deploy statuses of.\nThe Maximum\
+        \ limit is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified\
+        \ in the request must belong to that Guest Space.\n"
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of preview/app/deploy/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                description: "A list of objects with data of deploy statuses.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
+                type: "array"
+            title: "getPreviewAppDeployResponse"
+            type: "object"
   tags:
   - "APP"
 

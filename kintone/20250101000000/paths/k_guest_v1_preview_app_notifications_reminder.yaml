@@ -1,8 +1,86 @@
 ---
+get:
+  description: "Gets the Reminder Notification settings of the App.\n"
+  operationId: "getPreviewAppNotificationsReminderForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  - description: "Set this parameter if there are fields that contain multiple options,\
+      \ and the Localization Settings have been set for those option names. For more\
+      \ information, refer to the following article:\nSetting Localized Names (External\
+      \ link)\nThe localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names, in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
+    in: "query"
+    name: "lang"
+    required: false
+    schema:
+      description: "Set this parameter if there are fields that contain multiple options,\
+        \ and the Localization Settings have been set for those option names. For\
+        \ more information, refer to the following article:\nSetting Localized Names\
+        \ (External link)\nThe localized language to retrieve the data in:\n- default:\
+        \ retrieves the default names\n- en: retrieves the localized English names\n\
+        - zh: retrieves the localized Chinese names\n- ja: retrieves the localized\
+        \ Japanese names\n- user: retrieves the localized names, in the same language\
+        \ as the language setting* set on the user used for the authentication.\n\n\
+        If ignored, the default names will be retrieved.\n"
+      enum:
+      - "default"
+      - "user"
+      - "ja"
+      - "en"
+      - "zh"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/notifications/reminder/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              notifications:
+                description: "An array of objects consisting of Notification Trigger\
+                  \ options.\nThese options define when the notifications will be\
+                  \ sent out, under what conditions, and the recipients.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetNotification"
+                type: "array"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+              timezone:
+                description: "The timezone that determines the Reminder notification's\
+                  \ timing. This reflects the Reminder Time Zone dropdown option.\n\
+                  If the App's Reminder Notification settings have never been configured,\
+                  \ null will be returned.\n"
+                format: "timezone"
+                type: "string"
+            title: "getPreviewAppNotificationsReminderForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
 put:
-  description: "        Updates the Reminder Notification settings of the App.\nThis\
-    \ API updates the pre-live settings.\nAfter using this API, use the Deploy App\
-    \ Settings API to deploy the settings to the live App.\n"
+  description: "Updates the Reminder Notification settings of the App.\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "putPreviewAppNotificationsReminderForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -63,84 +141,6 @@ put:
                 format: "long"
                 type: "integer"
             title: "putPreviewAppNotificationsReminderForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
-get:
-  description: "    Gets the Reminder Notification settings of the App.\n"
-  operationId: "getPreviewAppNotificationsReminderForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - description: "    The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "    The App ID.\n"
-      format: "long"
-      type: "integer"
-  - description: "                    \tSet this parameter if there are fields that\
-      \ contain multiple options, and the Localization Settings have been set for\
-      \ those option names. For more information, refer to the following article:\n\
-      Setting Localized Names (External link)\nThe localized language to retrieve\
-      \ the data in:\n- default: retrieves the default names\n- en: retrieves the\
-      \ localized English names\n- zh: retrieves the localized Chinese names\n- ja:\
-      \ retrieves the localized Japanese names\n- user: retrieves the localized names,\
-      \ in the same language as the language setting* set on the user used for the\
-      \ authentication.\n\nIf ignored, the default names will be retrieved.\n"
-    in: "query"
-    name: "lang"
-    required: false
-    schema:
-      description: "                    \tSet this parameter if there are fields that\
-        \ contain multiple options, and the Localization Settings have been set for\
-        \ those option names. For more information, refer to the following article:\n\
-        Setting Localized Names (External link)\nThe localized language to retrieve\
-        \ the data in:\n- default: retrieves the default names\n- en: retrieves the\
-        \ localized English names\n- zh: retrieves the localized Chinese names\n-\
-        \ ja: retrieves the localized Japanese names\n- user: retrieves the localized\
-        \ names, in the same language as the language setting* set on the user used\
-        \ for the authentication.\n\nIf ignored, the default names will be retrieved.\n"
-      enum:
-      - "default"
-      - "user"
-      - "ja"
-      - "en"
-      - "zh"
-      type: "string"
-  responses:
-    "200":
-      description: "success case of preview/app/notifications/reminder/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              notifications:
-                description: "    An array of objects consisting of Notification Trigger\
-                  \ options.\n    These options define when the notifications will\
-                  \ be sent out, under what conditions, and the recipients.\n"
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderGetNotification"
-                type: "array"
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-              timezone:
-                description: "    The timezone that determines the Reminder notification's\
-                  \ timing. This reflects the Reminder Time Zone dropdown option.\n\
-                  If the App's Reminder Notification settings have never been configured,\
-                  \ null will be returned.\n"
-                format: "timezone"
-                type: "string"
-            title: "getPreviewAppNotificationsReminderForGuestSpaceResponse"
             type: "object"
   tags:
   - "APP"

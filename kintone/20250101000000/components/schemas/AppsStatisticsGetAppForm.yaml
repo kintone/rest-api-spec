@@ -1,11 +1,14 @@
 ---
 properties:
   appGroup:
+    description: "The App Group.\n"
     type: "string"
   createdAt:
+    description: "The date the App was created.\n"
     format: "date-time"
     type: "string"
   creator:
+    description: "The information of the App creator.\n"
     properties:
       code:
         description: "The log in name of the creator.\nAn empty string is returned\
@@ -17,20 +20,28 @@ properties:
         type: "string"
     type: "object"
   customized:
+    description: "Whether the app is customized or not.\nReturns `true` if any of\
+      \ the following apply:\n- Customization by JavaScript / CSS\n- Customization\
+      \ by plugins\n- A list of \"customization\" formats exists\n"
     type: "boolean"
   dailyRequestCount:
+    description: "The number of daily API requests.\n"
     format: "long"
     type: "integer"
   fieldCount:
+    description: "The number of fields in the App.\n"
     format: "long"
     type: "integer"
   id:
+    description: "The App ID\n"
     format: "long"
     type: "integer"
   modifiedAt:
+    description: "The date the App was last modified.\n"
     format: "date-time"
     type: "string"
   modifier:
+    description: "The information of the user who last updated the App.\n"
     properties:
       code:
         description: "The log in name of the creator.\nAn empty string is returned\
@@ -42,28 +53,42 @@ properties:
         type: "string"
     type: "object"
   name:
+    description: "The name of the App.\nIf Localization settings are enabled, the\
+      \ localized name will be returned.\nThe localization language will be dependent\
+      \ on the language settings of the Kintone user authenticating this API.\n"
     type: "string"
   recordCount:
+    description: "The number of records in the App.\n"
     format: "long"
     type: "integer"
   recordUpdatedAt:
+    description: "Date of last record added or edited.\nFor apps that were created\
+      \ before the January 2021 update and have never had a record added or edited,\n\
+      the app creation date is returned.\n"
     format: "date-time"
     type: "string"
   space:
+    description: "The object that contains the information of the Space.\nIf the App\
+      \ was not created inside a Space, null is returned.\n"
     properties:
       id:
+        description: "The Space ID\n"
         format: "long"
         type: "integer"
       name:
+        description: "The name of the Space.\n"
         type: "string"
     type: "object"
   status:
+    description: "The App status.\n"
     enum:
     - "NOT_ACTIVATED"
     - "ACTIVATED"
     - "CHANGED"
     type: "string"
   storageUsage:
+    description: "Total size of files attached in the Attachment field.\nUnits are\
+      \ in Bytes.\n"
     format: "long"
     type: "integer"
 type: "object"

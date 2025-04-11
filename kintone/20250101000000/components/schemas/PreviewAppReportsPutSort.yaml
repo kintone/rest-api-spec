@@ -1,8 +1,8 @@
 ---
 properties:
   by:
-    description: "        How the graph is sorted.\n- TOTAL: Total\n- GROUP1: Level\
-      \ 1\n- GROUP2: Level 2\n- GROUP3: Level 3\n\nRequired when specifying the reports.{graphname}.sorts\
+    description: "How the graph is sorted.\n- TOTAL: Total\n- GROUP1: Level 1\n- GROUP2:\
+      \ Level 2\n- GROUP3: Level 3\n\nRequired when specifying the reports.{graphname}.sorts\
       \ parameter.\n"
     enum:
     - "TOTAL"
@@ -11,7 +11,7 @@ properties:
     - "GROUP3"
     type: "string"
   order:
-    description: "       The order of sorting.\n- ASC: Ascending order\n- DESC: Descending\
+    description: "The order of sorting.\n- ASC: Ascending order\n- DESC: Descending\
       \ order\n\nRequired when specifying the reports.{graphname}.sorts parameter.\n"
     enum:
     - "ASC"

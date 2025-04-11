@@ -1,8 +1,7 @@
 ---
 properties:
   date:
-    description: "    The field code set for the Date Field.\n    Responded for Calendar\
-      \ Views.\n"
+    description: "The field code set for the Date Field.\nResponded for Calendar Views.\n"
     type: "string"
   filterCond:
     description: "The filter condition as a query.\n"
@@ -23,7 +22,7 @@ properties:
     description: "The sort order as a query.\n"
     type: "string"
   title:
-    description: "    The field code set for the Title Field.\n    Responded for Calendar\
+    description: "The field code set for the Title Field.\nResponded for Calendar\
       \ Views.\n"
     type: "string"
   type:

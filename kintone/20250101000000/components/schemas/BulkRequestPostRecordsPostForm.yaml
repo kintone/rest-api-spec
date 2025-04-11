@@ -1,14 +1,9 @@
 ---
 properties:
   app:
-    description: "    The App ID.\n"
     format: "long"
     type: "integer"
   records:
-    description: "    Holds an array of record objects, that contains field codes\
-      \ and their values.\n\n    Fields that are not included in the objects are added\
-      \ with their default value.\n    Objects containing field codes that do not\
-      \ exist are ignored.\n"
     items:
       additionalProperties:
         anyOf:

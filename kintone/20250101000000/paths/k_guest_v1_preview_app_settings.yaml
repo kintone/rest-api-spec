@@ -29,23 +29,23 @@ put:
               maxLength: 10000
               type: "string"
             enableBulkDeletion:
-              description: "\tThe Enable bulk deletion of records setting.\n"
+              description: "The Enable bulk deletion of records setting.\n"
               type: "string"
             enableComments:
-              description: "\tThe Enable comments setting.\n"
+              description: "The Enable comments setting.\n"
               type: "string"
             enableDuplicateRecord:
-              description: "\tThe Enable the feature to \"duplicate record\" setting.\n"
+              description: "The Enable the feature to \"duplicate record\" setting.\n"
               type: "string"
             enableInlineRecordEditing:
-              description: "\tThe Enable the feature to \"Inline record editing on\
-                \ record list views\" setting.\n"
+              description: "The Enable the feature to \"Inline record editing on record\
+                \ list views\" setting.\n"
               type: "string"
             enableThumbnails:
-              description: "\tThe Show thumbnails setting.\n"
+              description: "The Show thumbnails setting.\n"
               type: "string"
             firstMonthOfFiscalYear:
-              description: " The First month of Fiscal Year setting. Specify the number\
+              description: "The First month of Fiscal Year setting. Specify the number\
                 \ of the month.\n"
               type: "string"
             icon:
@@ -157,24 +157,24 @@ get:
                 maxLength: 10000
                 type: "string"
               enableBulkDeletion:
-                description: "\tThe Enable bulk deletion of records setting.\n"
+                description: "The Enable bulk deletion of records setting.\n"
                 type: "boolean"
               enableComments:
-                description: "\tThe Enable comments setting.\n"
+                description: "The Enable comments setting.\n"
                 type: "boolean"
               enableDuplicateRecord:
-                description: "\tThe Enable the feature to \"duplicate record\" setting.\n"
+                description: "The Enable the feature to \"duplicate record\" setting.\n"
                 type: "boolean"
               enableInlineRecordEditing:
-                description: "\tThe Enable the feature to \"Inline record editing\
-                  \ on record list views\" setting.\n"
+                description: "The Enable the feature to \"Inline record editing on\
+                  \ record list views\" setting.\n"
                 type: "boolean"
               enableThumbnails:
-                description: "\tThe Show thumbnails setting.\n"
+                description: "The Show thumbnails setting.\n"
                 type: "boolean"
               firstMonthOfFiscalYear:
-                description: " The First month of Fiscal Year setting. The number\
-                  \ of the month will be returned.\n"
+                description: "The First month of Fiscal Year setting. The number of\
+                  \ the month will be returned.\n"
                 type: "string"
               icon:
                 anyOf:
@@ -188,7 +188,7 @@ get:
               numberPrecision:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppSettingsGetNumberPrecision"
               revision:
-                description: " The revision number of the App settings.\n"
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
               theme:

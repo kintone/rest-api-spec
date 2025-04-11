@@ -24,7 +24,7 @@ put:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutNotification"
               type: "array"
             revision:
-              description: "\tSpecify the revision number of the settings that will\
+              description: "Specify the revision number of the settings that will\
                 \ be deployed.\nThe request will fail if the revision number is not\
                 \ the latest revision.\nThe revision will not be checked if this parameter\
                 \ is ignored or -1 is specified.\n"

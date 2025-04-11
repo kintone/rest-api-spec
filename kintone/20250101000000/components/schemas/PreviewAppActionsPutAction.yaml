@@ -1,15 +1,15 @@
 ---
 properties:
   destApp:
-    description: "\tAn object containing the Target option that specifies the destination\
+    description: "An object containing the Target option that specifies the destination\
       \ App where data is to be copied.\n\nRequired when creating a new Action.\n"
     properties:
       app:
-        description: "     The App ID.\n"
+        description: " The App ID.\n"
         format: "long"
         type: "integer"
       code:
-        description: "    The App Code.\n"
+        description: "The App Code.\n"
         type: "string"
     type: "object"
   entities:

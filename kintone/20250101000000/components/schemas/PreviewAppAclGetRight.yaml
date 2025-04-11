@@ -1,13 +1,12 @@
 ---
 properties:
   appEditable:
-    description: "    The App management permission of the entity.\n    Entities with\
-      \ this permission are able to access and edit the App's settings.\n    - true:\
-      \ The App's settings are accessible.\n    - false: The App's settings are not\
-      \ accessible.\n"
+    description: "The App management permission of the entity.\nEntities with this\
+      \ permission are able to access and edit the App's settings.\n- true: The App's\
+      \ settings are accessible.\n- false: The App's settings are not accessible.\n"
     type: "boolean"
   entity:
-    description: "An object containing data of the entity the permission is granted\
+    description: " An object containing data of the entity the permission is granted\
       \ to.\n"
     properties:
       code:
@@ -25,9 +24,9 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
-    description: "    The permission inheritance settings of the department the permission\
-      \ is granted to.\n    - true: Permissions are inherited.\n    - false: Permissions\
-      \ are not inherited.\n"
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to.\n- true: Permissions are inherited.\n- false: Permissions are\
+      \ not inherited.\n"
     type: "boolean"
   recordAddable:
     description: "The record add permission of the entity\n- true: Records can be\

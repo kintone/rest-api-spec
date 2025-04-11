@@ -10,12 +10,12 @@ post:
         schema:
           properties:
             app:
-              description: "    The App ID.\n"
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             space:
-              description: "    The Space ID of where the App will be moved to.\n\
-                \    To remove an App from its current space, null can be specified.\n"
+              description: "The Space ID of where the App will be moved to.\nTo remove\
+                \ an App from its current space, null can be specified.\n"
               format: "long"
               type: "integer"
           required:

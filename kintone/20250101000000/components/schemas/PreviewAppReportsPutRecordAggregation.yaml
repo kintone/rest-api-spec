@@ -1,10 +1,9 @@
 ---
 properties:
   type:
-    description: "        The type of the \"Function\" option.\n        - COUNT: number\
-      \ of records\n        - SUM: Total\n        - AVERAGE: Average\n        - MAX:\
-      \ Maximum\n        - MIN: Minimum\n\n        Required when specifying the reports.{graphname}.aggregations\
-      \ parameter.\n"
+    description: "The type of the \"Function\" option.\n- COUNT: number of records\n\
+      - SUM: Total\n- AVERAGE: Average\n- MAX: Maximum\n- MIN: Minimum\n\nRequired\
+      \ when specifying the reports.{graphname}.aggregations parameter.\n"
     enum:
     - "COUNT"
     type: "string"

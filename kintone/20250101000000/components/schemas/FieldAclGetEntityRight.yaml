@@ -1,9 +1,9 @@
 ---
 properties:
   accessibility:
-    description: "    The permission granted to the entity.\n    - READ: Permissions\
-      \ to view only.\n    - WRITE: Permissions to view and edit.\n    - NONE: No\
-      \ permissions to view or edit.\n"
+    description: "The permission granted to the entity.\n- READ: Permissions to view\
+      \ only.\n- WRITE: Permissions to view and edit.\n- NONE: No permissions to view\
+      \ or edit.\n"
     enum:
     - "WRITE"
     - "READ"
@@ -28,9 +28,9 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
-    description: "    The permission inheritance settings of the department the permission\
-      \ is granted to.\n    - true: Permissions are inherited.\n    - false: Permissions\
-      \ are not inherited.\n"
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to.\n- true: Permissions are inherited.\n- false: Permissions are\
+      \ not inherited.\n"
     type: "boolean"
 type: "object"
 

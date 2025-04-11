@@ -1,11 +1,11 @@
 ---
 properties:
   destField:
-    description: "\tThe field code of the field specified in the Field Mappings options\
+    description: "The field code of the field specified in the Field Mappings options\
       \ as the destination.\n"
     type: "string"
   srcField:
-    description: "\tThe field code of the field specified in the Field Mappings options\
+    description: "The field code of the field specified in the Field Mappings options\
       \ as the source.\n\nThis parameter is returned only if the actions.{actionname}.mappings[].srcType\
       \ parameter is set to FIELD.\n"
     type: "string"

@@ -1,31 +1,29 @@
 ---
 properties:
   label:
-    description: "   The text set in the Label field.\n   Only returned for Label\
-      \ fields.\n"
+    description: "The text set in the Label field.\nOnly returned for Label fields.\n"
     type: "string"
   size:
     description: "An object with data of the field's size.\n"
     properties:
       width:
-        description: "    The width of the field in pixels.\n"
+        description: "The width of the field in pixels.\n"
         format: "long"
         type: "integer"
     type: "object"
   type:
-    description: "    The type of field.\n    - CALC: Calculated\n    - CATEGORY:\
-      \ Category\n    - CHECK_BOX: Check box\n    - CREATED_TIME: Created datetime\n\
-      \    - CREATOR: Created by\n    - DATE: Date\n    - DATETIME: Date and time\n\
-      \    - DROP_DOWN: Drop-down\n    - FILE: Attachment\n    - HR: Border\n    -\
-      \ LABEL: Label\n    - LINK: Link\n    - MODIFIER: Updated by\n    - MULTI_LINE_TEXT:\
-      \ Text Area\n    - MULTI_SELECT: Multi-choice\n    - NUMBER: Number, or Look-up*\n\
-      \    - RADIO_BUTTON: Radio button\n    - RECORD_NUMBER: Record number\n    -\
-      \ REFERENCE_TABLE: Related Records\n    - RICH_TEXT: Rich text\n    - SINGLE_LINE_TEXT:\
-      \ Text, or Look-up*\n    - SPACER: Blank space\n    - STATUS: Process management\
-      \ status\n    - STATUS_ASSIGNEE: Assignee of the Process Management status\n\
-      \    - SUBTABLE: Table\n    - TIME: Time\n    - UPDATED_TIME: Updated datetime\n\
-      \    - USER_SELECT: User selection\n\n    *The type of the Look-up field will\
-      \ be the same type as the Key field it's looking up.\n"
+    description: "The type of field.\n- CALC: Calculated\n- CATEGORY: Category\n-\
+      \ CHECK_BOX: Check box\n- CREATED_TIME: Created datetime\n- CREATOR: Created\
+      \ by\n- DATE: Date\n- DATETIME: Date and time\n- DROP_DOWN: Drop-down\n- FILE:\
+      \ Attachment\n- HR: Border\n- LABEL: Label\n- LINK: Link\n- MODIFIER: Updated\
+      \ by\n- MULTI_LINE_TEXT: Text Area\n- MULTI_SELECT: Multi-choice\n- NUMBER:\
+      \ Number, or Look-up*\n- RADIO_BUTTON: Radio button\n- RECORD_NUMBER: Record\
+      \ number\n- REFERENCE_TABLE: Related Records\n- RICH_TEXT: Rich text\n- SINGLE_LINE_TEXT:\
+      \ Text, or Look-up*\n- SPACER: Blank space\n- STATUS: Process management status\n\
+      - STATUS_ASSIGNEE: Assignee of the Process Management status\n- SUBTABLE: Table\n\
+      - TIME: Time\n- UPDATED_TIME: Updated datetime\n- USER_SELECT: User selection\n\
+      \n*The type of the Look-up field will be the same type as the Key field it's\
+      \ looking up.\n"
     enum:
     - "CALC"
     - "CHECK_BOX"

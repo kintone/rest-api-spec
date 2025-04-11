@@ -1,11 +1,10 @@
 ---
 properties:
   field:
-    description: "    The field code of the field selected for Field in this app.\n"
+    description: "The field code of the field selected for Field in this app.\n"
     type: "string"
   relatedField:
-    description: "    The field code of the field selected for Field in datasource\
-      \ app.\n"
+    description: "The field code of the field selected for Field in datasource app.\n"
     type: "string"
 type: "object"
 

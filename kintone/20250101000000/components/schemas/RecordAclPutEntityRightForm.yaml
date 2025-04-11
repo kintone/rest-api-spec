@@ -23,9 +23,9 @@ properties:
           \ this parameter is required.\n"
         type: "string"
       type:
-        description: "The type of the entity the permissions are granted to.\n   -\
-          \ USER: User\n   - GROUP: Group\n   - ORGANIZATION: Department\n   - FIELD_ENTITY:\
-          \ User field\n"
+        description: "The type of the entity the permissions are granted to.\n- USER:\
+          \ User\n- GROUP: Group\n- ORGANIZATION: Department\n- FIELD_ENTITY: User\
+          \ field\n"
         enum:
         - "USER"
         - "GROUP"

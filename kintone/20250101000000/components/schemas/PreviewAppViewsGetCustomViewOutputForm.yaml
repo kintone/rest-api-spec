@@ -1,8 +1,8 @@
 ---
 properties:
   device:
-    description: "\tThe scope of where the view is displayed.\n- DESKTOP: Display\
-      \ only on desktop\n- ANY: Display on both desktop and mobile\n"
+    description: "The scope of where the view is displayed.\n- DESKTOP: Display only\
+      \ on desktop\n- ANY: Display on both desktop and mobile\n"
     enum:
     - "DESKTOP"
     - "ANY"
@@ -11,7 +11,7 @@ properties:
     description: "The filter condition as a query.\n"
     type: "string"
   html:
-    description: "\tThe HTML code set for the View.\nResponded for Custom Views.\n"
+    description: "The HTML code set for the View.\n   Responded for Custom Views.\n"
     type: "string"
   id:
     description: "The View ID.\n"

@@ -1,7 +1,7 @@
 ---
 properties:
   fields:
-    description: "    A list of fields in the row.\n"
+    description: "A list of fields in the row.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutLabelField"
@@ -31,8 +31,8 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutModifiedAtField"
     type: "array"
   type:
-    description: "    The type of row\n    - ROW: A normal row of fields.\n    - SUBTABLE:\
-      \ A Table.\n    - GROUP: A Group field.\n"
+    description: "The type of row\n- ROW: A normal row of fields.\n- SUBTABLE: A Table.\n\
+      - GROUP: A Group field.\n"
     enum:
     - "ROW"
     - "SUBTABLE"

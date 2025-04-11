@@ -1,20 +1,4 @@
 ---
-delete:
-  operationId: "deletePlugin"
-  parameters:
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of plugin/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "PLUGIN"
 put:
   operationId: "putPlugin"
   parameters: []
@@ -46,6 +30,22 @@ put:
                 type: "string"
             title: "putPluginResponse"
             type: "object"
+  tags:
+  - "PLUGIN"
+delete:
+  operationId: "deletePlugin"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/delete"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "PLUGIN"
 post:

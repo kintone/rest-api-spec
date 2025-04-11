@@ -9,23 +9,23 @@ properties:
         format: "long"
         type: "integer"
       code:
-        description: "\tThe App Code of the copy destination app.\nAn empty string\
-          \ is returned if an App Code is not set in the destination app's settings.\n"
+        description: "The App Code of the copy destination app.\nAn empty string is\
+          \ returned if an App Code is not set in the destination app's settings.\n"
         type: "string"
     type: "object"
   entities:
-    description: "                An array of objects containing the entities the\
-      \ Action is granted to. This reflects the Available To options.\nInactive users\
-      \ and deleted users/departments/groups will not be included in the response.\n"
+    description: "An array of objects containing the entities the Action is granted\
+      \ to. This reflects the Available To options.\nInactive users and deleted users/departments/groups\
+      \ will not be included in the response.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/AppActionsGetEntity"
     type: "array"
   id:
-    description: "\tThe ID of the Action.\n"
+    description: "The ID of the Action.\n"
     format: "long"
     type: "integer"
   index:
-    description: "\tThe order of the Action, starting from 0.\n"
+    description: "The order of the Action, starting from 0.\n"
     format: "long"
     type: "integer"
   mappings:

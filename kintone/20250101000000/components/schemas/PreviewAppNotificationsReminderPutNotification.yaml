@@ -1,7 +1,7 @@
 ---
 properties:
   filterCond:
-    description: "\tThe record's filter condition in query string format.\nThe following\
+    description: "The record's filter condition in query string format.\nThe following\
       \ cases will have the same result:\n- \"All records\" is specified.\n- \"null\"\
       \ is specified.\n- An empty string is specified.\n- The parameter is ignored.\n\
       \nThe request will fail if a deleted User, Group, or Organization is specified\
@@ -9,8 +9,8 @@ properties:
     format: "query"
     type: "string"
   targets:
-    description: "\tAn array of objects containing the recipients of the Reminder\
-      \ Notification.\nRequired when specifying the notifications parameter.\n"
+    description: "An array of objects containing the recipients of the Reminder Notification.\n\
+      Required when specifying the notifications parameter.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutTarget"
     type: "array"

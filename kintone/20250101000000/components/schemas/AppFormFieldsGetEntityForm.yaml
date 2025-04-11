@@ -1,12 +1,12 @@
 ---
 properties:
   code:
-    description: "    The code of the user/group/department. Required, if the entities\
+    description: "The code of the user/group/department.Required, if the entities\
       \ parameter is specified.\n"
     type: "string"
   type:
-    description: "    The entity type.\n    - USER: User\n    - GROUP: Group\n   \
-      \ - ORGANIZATION: Department\n\n    Required, if the entities parameter is specified.\n"
+    description: "The entity type.\n- USER: User\n- GROUP: Group\n- ORGANIZATION:\
+      \ Department\n\nRequired, if the entities parameter is specified.\n"
     enum:
     - "USER"
     - "ORGANIZATION"

@@ -1,11 +1,10 @@
 ---
 properties:
   dayOfWeek:
-    description: "        The day of the week when the Periodic Report will be generated.\n\
-      \        - SUNDAY\n        - MONDAY\n        - TUESDAY\n        - WEDNESDAY\n\
-      \        - THURSDAY\n        - FRIDAY\n        - SATURDAY\n\n        Required\
-      \ when the reports.{graphname}.periodicReport.period.every parameter is set\
-      \ to WEEK.\n"
+    description: "The day of the week when the Periodic Report will be generated.\n\
+      - SUNDAY\n- MONDAY\n- TUESDAY\n- WEDNESDAY\n- THURSDAY\n- FRIDAY\n- SATURDAY\n\
+      \nRequired when the reports.{graphname}.periodicReport.period.every parameter\
+      \ is set to WEEK.\n"
     enum:
     - "MONDAY"
     - "TUESDAY"
@@ -16,10 +15,9 @@ properties:
     - "SUNDAY"
     type: "string"
   every:
-    description: "        \tThe time interval type used to determine when to generate\
-      \ the Periodic Reports.\n        - YEAR: by the year\n        - QUARTER: by\
-      \ the quarter\n        - MONTH: by the month\n        - WEEK: by the week\n\
-      \        - DAY: by the day\n        - HOUR: by the hour\n\n        Required\
+    description: "The time interval type used to determine when to generate the Periodic\
+      \ Reports.\n- YEAR: by the year\n- QUARTER: by the quarter\n- MONTH: by the\
+      \ month\n- WEEK: by the week\n- DAY: by the day\n- HOUR: by the hour\n\nRequired\
       \ when specifying the reports.{graphname}.periodicReport.period parameter.\n"
     enum:
     - "YEAR"
@@ -30,8 +28,8 @@ properties:
     - "HOUR"
     type: "string"
   time:
-    description: "        The time when the Periodic Report will be generated.\n \
-      \       Input the time in HH:MM format.\n        Required when the reports.{graphname}.periodicReport.period.every\
+    description: "The time when the Periodic Report will be generated.\nInput the\
+      \ time in HH:MM format.\nRequired when the reports.{graphname}.periodicReport.period.every\
       \ parameter is set to YEAR, QUARTER, MONTH, WEEK, or DAY.\n"
     type: "string"
 required:

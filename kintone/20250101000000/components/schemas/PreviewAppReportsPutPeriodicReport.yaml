@@ -1,9 +1,9 @@
 ---
 properties:
   active:
-    description: "       \tThe activation status of the \"Periodic Reports\" option.\n\
-      - true: Active\n- false: Inactive\n\nIf this parameter is ignored when creating\
-      \ a new Periodic Report, this value is set to true.\nIf this parameter is ignored\
+    description: "The activation status of the \"Periodic Reports\" option.\n- true:\
+      \ Active\n- false: Inactive\n\nIf this parameter is ignored when creating a\
+      \ new Periodic Report, this value is set to true.\nIf this parameter is ignored\
       \ when updating an existing Periodic Report, this value is not updated.\n"
     format: "boolean"
     type: "boolean"

@@ -1,43 +1,4 @@
 ---
-put:
-  operationId: "putSpaceThreadForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            body:
-              maxLength: 65535
-              type: "string"
-            id:
-              format: "long"
-              type: "integer"
-            name:
-              maxLength: 128
-              minLength: 1
-              type: "string"
-          required:
-          - "id"
-          title: "putSpaceThreadForGuestSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of space/thread/put"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "SPACE"
 post:
   operationId: "postSpaceThreadForGuestSpace"
   parameters:
@@ -79,6 +40,45 @@ post:
                 type: "integer"
             title: "postSpaceThreadForGuestSpaceResponse"
             type: "object"
+  tags:
+  - "SPACE"
+put:
+  operationId: "putSpaceThreadForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              maxLength: 65535
+              type: "string"
+            id:
+              format: "long"
+              type: "integer"
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+          required:
+          - "id"
+          title: "putSpaceThreadForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/put"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "SPACE"
 

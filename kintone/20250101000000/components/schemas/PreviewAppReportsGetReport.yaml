@@ -25,7 +25,7 @@ properties:
     - "SPLINE_AREA"
     type: "string"
   filterCond:
-    description: "\tThe record's filter condition in query string format that reflects\
+    description: "The record's filter condition in query string format that reflects\
       \ the Filter option.\nThe request will fail if a deleted User, Group, or Organization\
       \ is specified in the filter condition.\n"
     format: "query"
@@ -60,7 +60,7 @@ properties:
       \ reports periodically option have never been configured, null will be returned.\n"
     properties:
       active:
-        description: "\tThe activation status of the Periodic Reports option.\n- true:\
+        description: "The activation status of the Periodic Reports option.\n- true:\
           \ Active\n- false: Inactive\n"
         type: "boolean"
       period:

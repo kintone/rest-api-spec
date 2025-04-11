@@ -1,15 +1,15 @@
 ---
 properties:
   app:
-    description: "    The App ID.\n"
+    description: "The App ID.\n"
     format: "long"
     type: "integer"
   status:
-    description: "   The status of the deployment of App settings.\n    - PROCESSING:\
-      \ The App settings are being deployed.\n    - SUCCESS: The App settings have\
-      \ been deployed.\n    - FAIL: An error occurred, and the deployment of App settings\
-      \ failed.\n    - CANCEL: The deployment of App settings was canceled, due to\
-      \ the deployment of other App settings failing.\n"
+    description: "The status of the deployment of App settings.\n- PROCESSING: The\
+      \ App settings are being deployed.\n- SUCCESS: The App settings have been deployed.\n\
+      - FAIL: An error occurred, and the deployment of App settings failed.\n- CANCEL:\
+      \ The deployment of App settings was canceled, due to the deployment of other\
+      \ App settings failing.\n"
     enum:
     - "PROCESSING"
     - "SUCCESS"

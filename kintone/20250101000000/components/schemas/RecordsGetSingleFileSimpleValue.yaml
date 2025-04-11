@@ -10,7 +10,7 @@ properties:
     description: "The file name of the uploaded file.\n"
     type: "string"
   size:
-    description: "The byte size of the uploaded file.\n"
+    description: " The byte size of the uploaded file.\n"
     type: "string"
 required:
 - "fileKey"

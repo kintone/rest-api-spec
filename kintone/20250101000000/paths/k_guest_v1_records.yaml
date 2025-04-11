@@ -1,7 +1,6 @@
 ---
-delete:
-  description: "Deletes multiple records in an app.\n"
-  operationId: "deleteRecordsForGuestSpace"
+put:
+  operationId: "putRecordsForGuestSpace"
   parameters:
   - description: "guest space id"
     in: "path"
@@ -11,57 +10,47 @@ delete:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - description: "\tThe app ID.\n"
-    in: "query"
-    name: "app"
+  requestBody:
     required: true
-    schema:
-      description: "\tThe app ID.\n"
-      format: "long"
-      type: "integer"
-  - description: "    Array of record IDs that will be deleted.\n    Up to 100 records\
-      \ can be specified.\n"
-    in: "query"
-    name: "ids"
-    required: true
-    schema:
-      description: "    Array of record IDs that will be deleted.\n    Up to 100 records\
-        \ can be specified.\n"
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  - description: "    The Expected revision number.\n    The first id number will\
-      \ correspond to the first revision number in the array, the second id to the\
-      \ second revision number, and so on.\n    If the revision number does not match,\
-      \ an error will occur and no records will be deleted.\n    If the revision number\
-      \ is left blank or is -1, the revision number will not be checked for the corresponding\
-      \ record ID.\n"
-    in: "query"
-    name: "revisions"
-    required: false
-    schema:
-      description: "    The Expected revision number.\n    The first id number will\
-        \ correspond to the first revision number in the array, the second id to the\
-        \ second revision number, and so on.\n    If the revision number does not\
-        \ match, an error will occur and no records will be deleted.\n    If the revision\
-        \ number is left blank or is -1, the revision number will not be checked for\
-        \ the corresponding record ID.\n"
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            records:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
+              type: "array"
+            upsert:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "app"
+          - "records"
+          title: "putRecordsForGuestSpaceRequest"
+          type: "object"
   responses:
     "200":
-      description: "success case of records/delete"
+      description: "success case of records/put"
       content:
         application/json:
-          schema: {}
+          schema:
+            properties:
+              records:
+                oneOf:
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
+            title: "putRecordsForGuestSpaceResponse"
+            type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 get:
-  description: "Retrieves details of multiple records from an App by specifying the\
-    \ App ID and a query string.\n"
   operationId: "getRecordsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -72,47 +61,29 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - description: "    The App ID.\n"
-    in: "query"
+  - in: "query"
     name: "app"
     required: true
     schema:
-      description: "    The App ID.\n"
       format: "long"
       type: "integer"
-  - description: "    The query string that specifies what records to include in the\
-      \ response.\n    Ignoring this parameter will return all accessible records\
-      \ from the App.\n"
-    in: "query"
+  - in: "query"
     name: "query"
     required: false
     schema:
-      description: "    The query string that specifies what records to include in\
-        \ the response.\n    Ignoring this parameter will return all accessible records\
-        \ from the App.\n"
       format: "query"
       type: "string"
-  - description: "    The field codes to be included in the response.\n    Ignoring\
-      \ this parameter will return all accessible fields that exist in the App.\n"
-    in: "query"
+  - in: "query"
     name: "fields"
     required: false
     schema:
-      description: "    The field codes to be included in the response.\n    Ignoring\
-        \ this parameter will return all accessible fields that exist in the App.\n"
       items:
         type: "string"
       type: "array"
-  - description: "    If set to true, the total count of records that match the query\
-      \ conditions will be included in the response.\n    If ignored, null is returned\
-      \ for the totalCount value.\n"
-    in: "query"
+  - in: "query"
     name: "totalCount"
     required: false
     schema:
-      description: "    If set to true, the total count of records that match the\
-        \ query conditions will be included in the response.\n    If ignored, null\
-        \ is returned for the totalCount value.\n"
       format: "boolean"
       type: "boolean"
   responses:
@@ -123,8 +94,6 @@ get:
           schema:
             properties:
               records:
-                description: "    An array of objects, including field types and field\
-                  \ values within the matching records.\n"
                 items:
                   additionalProperties:
                     anyOf:
@@ -156,77 +125,13 @@ get:
                   type: "object"
                 type: "array"
               totalCount:
-                description: "    The total count of records that match the query\
-                  \ conditions.\n    If the totalCount parameter is ignored or is\
-                  \ set as `false` in the request, `null` is returned.\n"
                 format: "long"
                 type: "integer"
             title: "getRecordsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
-put:
-  description: "Updates details of multiple records in an App, by specifying their\
-    \ record numbers, or their unique keys.\nIf the upsert parameter is set to true,\
-    \ it also adds new records to the App.\n"
-  operationId: "putRecordsForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              description: "\tThe App ID.\n"
-              format: "long"
-              type: "integer"
-            records:
-              description: "    Holds an array of objects that include id/updateKey,\
-                \ revision and record objects.\n"
-              items:
-                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
-              type: "array"
-            upsert:
-              description: "    A mode where adding and updating records can be processed\
-                \ at the same time.\n"
-              format: "boolean"
-              type: "boolean"
-          required:
-          - "app"
-          - "records"
-          title: "putRecordsForGuestSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of records/put"
-      content:
-        application/json:
-          schema:
-            properties:
-              records:
-                description: ""
-                oneOf:
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
-            title: "putRecordsForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "RECORD"
+  - "RECORDS"
 post:
-  description: "Adds multiple records to an App.\n"
   operationId: "postRecordsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -244,14 +149,9 @@ post:
         schema:
           properties:
             app:
-              description: "    The App ID.\n"
               format: "long"
               type: "integer"
             records:
-              description: "    Holds an array of record objects, that contains field\
-                \ codes and their values.\n\n    Fields that are not included in the\
-                \ objects are added with their default value.\n    Objects containing\
-                \ field codes that do not exist are ignored.\n"
               items:
                 additionalProperties:
                   anyOf:
@@ -295,13 +195,11 @@ post:
           schema:
             properties:
               ids:
-                description: "    The Record IDs of the created records.\n"
                 items:
                   format: "long"
                   type: "integer"
                 type: "array"
               revisions:
-                description: "    The revision numbers of the records.\n"
                 items:
                   format: "long"
                   type: "integer"
@@ -309,5 +207,46 @@ post:
             title: "postRecordsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
+delete:
+  operationId: "deleteRecordsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "ids"
+    required: true
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  - in: "query"
+    name: "revisions"
+    required: false
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of records/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "RECORDS"
 

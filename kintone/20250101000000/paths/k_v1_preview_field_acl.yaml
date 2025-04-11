@@ -1,59 +1,6 @@
 ---
-put:
-  description: "Updates the Field permission settings of an App.\nAll settings of\
-    \ the pre-live App (not just the permission settings) will be deployed to the\
-    \ live App by using this API.\n\nWhen the permissions settings of fields in an\
-    \ App are changed, the updated settings will be applied to the concerned fields\
-    \ sequentially in order of completion.\n"
-  operationId: "putPreviewFieldAcl"
-  parameters: []
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              description: "    The App ID.\n"
-              format: "long"
-              type: "integer"
-            id:
-              format: "long"
-              type: "integer"
-            revision:
-              description: "Specify the revision number of the settings that will\
-                \ be deployed.\nThe request will fail if the revision number is not\
-                \ the latest revision.\nThe revision will not be checked if this parameter\
-                \ is ignored, or -1 is specified.\n"
-              format: "long"
-              type: "integer"
-            rights:
-              description: "    An array listing data of field permissions. List in\
-                \ order of priority.\n"
-              items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclPutRight"
-              type: "array"
-          required:
-          - "rights"
-          title: "putPreviewFieldAclRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of preview/field/acl/put"
-      content:
-        application/json:
-          schema:
-            properties:
-              revision:
-                description: "    The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "putPreviewFieldAclResponse"
-            type: "object"
-  tags:
-  - "FIELD"
 get:
-  description: "    Gets the Field permission settings of an App.\n"
+  description: "Gets the Field permission settings of an App.\n"
   operationId: "getPreviewFieldAcl"
   parameters:
   - description: "The App ID.\n"
@@ -82,6 +29,59 @@ get:
                   $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclGetRight"
                 type: "array"
             title: "getPreviewFieldAclResponse"
+            type: "object"
+  tags:
+  - "FIELD"
+put:
+  description: "Updates the Field permission settings of an App.\nAll settings of\
+    \ the pre-live App (not just the permission settings) will be deployed to the\
+    \ live App by using this API.\n\nWhen the permissions settings of fields in an\
+    \ App are changed, the updated settings will be applied to the concerned fields\
+    \ sequentially in order of completion.\n"
+  operationId: "putPreviewFieldAcl"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              description: "The App ID.\n"
+              format: "long"
+              type: "integer"
+            id:
+              format: "long"
+              type: "integer"
+            revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
+              format: "long"
+              type: "integer"
+            rights:
+              description: "An array listing data of field permissions. List in order\
+                \ of priority.\n"
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclPutRight"
+              type: "array"
+          required:
+          - "rights"
+          title: "putPreviewFieldAclRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/field/acl/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "putPreviewFieldAclResponse"
             type: "object"
   tags:
   - "FIELD"

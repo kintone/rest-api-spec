@@ -1,17 +1,4 @@
 ---
-get:
-  operationId: "getFile"
-  parameters:
-  - in: "query"
-    name: "fileKey"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of file/get"
-  tags:
-  - "FILE"
 post:
   operationId: "postFile"
   parameters: []
@@ -35,6 +22,19 @@ post:
                 type: "string"
             title: "postFileResponse"
             type: "object"
+  tags:
+  - "FILE"
+get:
+  operationId: "getFile"
+  parameters:
+  - in: "query"
+    name: "fileKey"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of file/get"
   tags:
   - "FILE"
 

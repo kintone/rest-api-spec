@@ -27,7 +27,7 @@ properties:
     - "type"
     type: "object"
   includeSubs:
-    description: "\tThe \"Include affiliated departments\" setting of the Department.\
+    description: "The \"Include affiliated departments\" setting of the Department.\
       \ This parameter is available if notifications[].targets[].entity.type parameter\
       \ is specified to ORGANIZATION or FIELD_ENTITY.\n- true: Affiliated departments\
       \ do inherit the Per Record Notification settings\n- false: Affiliated departments\

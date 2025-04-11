@@ -1,11 +1,9 @@
 ---
 properties:
   id:
-    description: "    The Record IDs of the updated/created Records.\n"
     format: "long"
     type: "integer"
   revision:
-    description: "    The revision numbers of the Records.\n"
     format: "long"
     type: "integer"
 type: "object"

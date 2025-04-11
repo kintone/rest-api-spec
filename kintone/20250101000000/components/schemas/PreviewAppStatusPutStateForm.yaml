@@ -10,7 +10,7 @@ properties:
           $ref: "../../openapi.yaml#/components/schemas/PreviewAppStatusPutAssigneeEntityForm"
         type: "array"
       type:
-        description: "\tThe Assignee List type of the Status.\n- ONE : User chooses\
+        description: "The Assignee List type of the Status.\n- ONE : User chooses\
           \ one assignee from the list to take action\n- ALL : All Assignees in the\
           \ list must take action\n- ANY : One assignee in the list must take action\n\
           \nRequired, if setting the {status_name}.assignee parameter.\n"
@@ -29,9 +29,9 @@ properties:
     format: "long"
     type: "integer"
   name:
-    description: "    The status name.\n    The maximum length is 64 characters.\n\
-      \    Required, if stating a new status for states.{status_name}.\n    In this\
-      \ case, state the same value used for states.{status_name}.\n"
+    description: "The status name.\nThe maximum length is 64 characters.\nRequired,\
+      \ if stating a new status for states.{status_name}.\nIn this case, state the\
+      \ same value used for states.{status_name}.\n"
     maxLength: 64
     minLength: 1
     type: "string"

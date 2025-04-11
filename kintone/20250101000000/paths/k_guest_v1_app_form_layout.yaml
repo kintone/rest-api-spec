@@ -1,6 +1,6 @@
 ---
 get:
-  description: "   Gets the field layout info of a form in an App.\n"
+  description: "Gets the field layout info of a form in an App.\n"
   operationId: "getAppFormLayoutForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -11,12 +11,12 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - description: "   The App ID.\n"
+  - description: "The App ID.\n"
     in: "query"
     name: "app"
     required: true
     schema:
-      description: "   The App ID.\n"
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -27,7 +27,7 @@ get:
           schema:
             properties:
               layout:
-                description: "    A list of field layouts for each row.\n"
+                description: "A list of field layouts for each row.\n"
                 items:
                   anyOf:
                   - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetRow"
@@ -35,7 +35,7 @@ get:
                   - $ref: "../openapi.yaml#/components/schemas/AppFormLayoutGetSubtableRow"
                 type: "array"
               revision:
-                description: "   The revision number of the App settings.\n"
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getAppFormLayoutForGuestSpaceResponse"

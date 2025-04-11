@@ -1,6 +1,6 @@
 ---
 get:
-  description: "    Gets the General Notification settings of the App.\n"
+  description: "Gets the General Notification settings of the App.\n"
   operationId: "getAppNotificationsGeneralForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -11,12 +11,12 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - description: "    The App ID.\n"
+  - description: "The App ID.\n"
     in: "query"
     name: "app"
     required: true
     schema:
-      description: "    The App ID.\n"
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -27,9 +27,8 @@ get:
           schema:
             properties:
               notifications:
-                description: "    An array of objects consisting of \"Recipients and\
-                  \ Conditions\" options.\n    These options define who will receive\
-                  \ the notifications.\n"
+                description: "An array of objects consisting of \"Recipients and Conditions\"\
+                  \ options.\nThese options define who will receive the notifications.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/AppNotificationsGeneralGetNotification"
                 type: "array"

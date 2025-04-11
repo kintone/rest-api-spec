@@ -1,11 +1,11 @@
 ---
 properties:
   decimalPlaces:
-    description: " The Number of Decimal Places to Round setting.\n"
+    description: "The Number of Decimal Places to Round setting.\n"
     format: "number"
     type: "string"
   digits:
-    description: " The Total Number of Digits setting.\n"
+    description: "The Total Number of Digits setting.\n"
     format: "number"
     type: "string"
   roundingMode:

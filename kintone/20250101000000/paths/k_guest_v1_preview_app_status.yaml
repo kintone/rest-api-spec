@@ -29,16 +29,16 @@ put:
               format: "long"
               type: "integer"
             enable:
-              description: "    The on/off settings of the process management settings.\n\
-                \    - true: The process management settings is enabled.\n    - false:\
-                \ The process management settings is disabled.\n"
+              description: "The on/off settings of the process management settings.\n\
+                - true: The process management settings is enabled.\n- false: The\
+                \ process management settings is disabled.\n"
               format: "boolean"
               type: "boolean"
             revision:
-              description: "    Specify the revision number of the settings that will\
-                \ be deployed.\n    The request will fail if the revision number is\
-                \ not the latest revision.\n    The revision will not be checked if\
-                \ this parameter is ignored, or -1 is specified.\n"
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
             states:
@@ -85,22 +85,22 @@ get:
       description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - description: "    The localized language to retrieve the data in:\n    - default:\
-      \ retrieves the default names\n    - en: retrieves the localized English names\n\
-      \    - zh: retrieves the localized Chinese names\n    - ja: retrieves the localized\
-      \ Japanese names\n    - user: retrieves the localized names, in the same language\
-      \ as the language setting* set on the user used for the authentication.\n\n\
-      \    If ignored, the default names will be retrieved.\n"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names, in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
     in: "query"
     name: "lang"
     required: false
     schema:
-      description: "    The localized language to retrieve the data in:\n    - default:\
-        \ retrieves the default names\n    - en: retrieves the localized English names\n\
-        \    - zh: retrieves the localized Chinese names\n    - ja: retrieves the\
-        \ localized Japanese names\n    - user: retrieves the localized names, in\
-        \ the same language as the language setting* set on the user used for the\
-        \ authentication.\n\n    If ignored, the default names will be retrieved.\n"
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names, in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -123,9 +123,9 @@ get:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppStatusGetActionForm"
                 type: "array"
               enable:
-                description: "    The on/off settings of the process management settings.\n\
-                  \    - true: The process management settings is enabled.\n    -\
-                  \ false: The process management settings is disabled.\n"
+                description: "The on/off settings of the process management settings.\n\
+                  - true: The process management settings is enabled.\n- false: The\
+                  \ process management settings is disabled.\n"
                 type: "boolean"
               revision:
                 description: "The revision number of the App settings.\n"

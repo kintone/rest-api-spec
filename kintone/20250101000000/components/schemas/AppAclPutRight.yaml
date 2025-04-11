@@ -1,9 +1,9 @@
 ---
 properties:
   appEditable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be accessible.\n    - false: The App's settings will not\
-      \ be accessible.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be accessible.\n- false: The App's settings will not be accessible.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   entity:
@@ -19,9 +19,9 @@ properties:
           \ this parameter is required.\n"
         type: "string"
       type:
-        description: "    The type of the entity the permission will be granted to.\n\
-          \    - USER: User\n    - GROUP: Group\n    - ORGANIZATION: Department\n\
-          \    - CREATOR: The creator of the App\n"
+        description: "The type of the entity the permission will be granted to.\n\
+          - USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n- CREATOR: The\
+          \ creator of the App\n"
         enum:
         - "USER"
         - "ORGANIZATION"
@@ -39,39 +39,39 @@ properties:
     format: "boolean"
     type: "boolean"
   recordAddable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be added.\n    - false: The App's settings will not be\
-      \ added.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be added.\n- false: The App's settings will not be added.\n\n\
+      If ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordDeletable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be deletable.\n    - false: The App's settings will not\
-      \ be deletable.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be deletable.\n- false: The App's settings will not be deletable.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordEditable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be editable.\n    - false: The App's settings will not\
-      \ be editable.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be editable.\n- false: The App's settings will not be editable.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordExportable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be exportable.\n    - false: The App's settings will not\
-      \ be exportable.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be exportable.\n- false: The App's settings will not be exportable.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordImportable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be importable.\n    - false: The App's settings will not\
-      \ be importable.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be importable.\n- false: The App's settings will not be importable.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   recordViewable:
-    description: "    The App management permission of the entity.\n    - true: The\
-      \ App's settings will be viewable.\n    - false: The App's settings will not\
-      \ be viewable.\n\n    If ignored, this value is false.\n"
+    description: "The App management permission of the entity.\n- true: The App's\
+      \ settings will be viewable.\n- false: The App's settings will not be viewable.\n\
+      \nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
 required:

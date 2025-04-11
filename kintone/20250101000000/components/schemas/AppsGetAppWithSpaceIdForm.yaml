@@ -51,15 +51,15 @@ properties:
       \ on the language settings of the Kintone user authenticating this API.\n"
     type: "string"
   spaceId:
-    description: "    If the App was created inside a Space,\n    it will return the\
-      \ Space ID. If not, null is returned.\n"
+    description: "If the App was created inside a Space,\nit will return the Space\
+      \ ID. If not, null is returned.\n"
     format: "long"
     type: "integer"
   threadId:
-    description: "    If the App was created inside a Space,\n    it will return the\
-      \ Thread ID of the Thread of the space it belongs to.\n    Apps that are created\
-      \ inside Spaces using the GUI will be automatically allocated to the default\
-      \ Thread.\n    If the App was not created in a Space, null is returned.\n"
+    description: "If the App was created inside a Space,\nit will return the Thread\
+      \ ID of the Thread of the space it belongs to.\nApps that are created inside\
+      \ Spaces using the GUI will be automatically allocated to the default Thread.\n\
+      If the App was not created in a Space, null is returned.\n"
     format: "long"
     type: "integer"
 type: "object"

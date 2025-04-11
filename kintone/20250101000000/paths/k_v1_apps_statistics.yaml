@@ -1,16 +1,25 @@
 ---
 get:
+  description: "Gets a list of the usage status of Apps.\n"
   operationId: "getAppsStatistics"
   parameters:
-  - in: "query"
+  - description: "The number of retrievals that will be skipped.\nMust be between\
+      \ 0 and 2147483647. If nothing is specified, it will default to 0.\n"
+    in: "query"
     name: "offset"
     required: false
     schema:
+      description: "The number of retrievals that will be skipped.\nMust be between\
+        \ 0 and 2147483647. If nothing is specified, it will default to 0.\n"
       type: "string"
-  - in: "query"
+  - description: "The number of Apps to retrieve.\nMust be between 1 and 100.\nIf\
+      \ nothing is specified, it will default to 100.\n"
+    in: "query"
     name: "limit"
     required: false
     schema:
+      description: "The number of Apps to retrieve.\nMust be between 1 and 100.\n\
+        If nothing is specified, it will default to 100.\n"
       type: "string"
   responses:
     "200":
@@ -20,11 +29,13 @@ get:
           schema:
             properties:
               apps:
+                description: "An array of objects that contain the information of\
+                  \ Apps.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/AppsStatisticsGetAppForm"
                 type: "array"
             title: "getAppsStatisticsResponse"
             type: "object"
   tags:
-  - "APPS"
+  - "APP"
 

@@ -1,9 +1,9 @@
 ---
 properties:
   entity:
-    description: "        An object containing user data of the Assignees.\n     \
-      \   Inactive users, deleted users/departments/groups and deleted custom fields\
-      \ will not be included in the response. \n"
+    description: "An object containing user data of the Assignees.\nInactive users,\
+      \ deleted users/departments/groups and deleted custom fields will not be included\
+      \ in the response. \n"
     properties:
       code:
         description: "The code of the Assignee.\nThe following entities will return\
@@ -27,7 +27,7 @@ properties:
     type: "object"
   includeSubs:
     description: "The Include affiliated departments settings of the department.\n\
-      \   - true: Affiliated departments are included as Assignees\n   - false: Affiliated\
+      - true: Affiliated departments are included as Assignees\n- false: Affiliated\
       \ departments are not included as Assignees\n"
     type: "boolean"
 type: "object"

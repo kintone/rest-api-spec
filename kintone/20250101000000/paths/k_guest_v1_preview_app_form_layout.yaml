@@ -1,8 +1,51 @@
 ---
+get:
+  description: "Gets the field layout info of a form in an App.\n"
+  operationId: "getPreviewAppFormLayoutForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/form/layout/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              layout:
+                description: "A list of field layouts for each row.\n"
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
+                type: "array"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppFormLayoutForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
 put:
-  description: "   Updates the field layout info of a form in an App.\n   This API\
-    \ updates the pre-live settings.\n   After using this API, use the Deploy App\
-    \ Settings API to deploy the settings to the live App.\n"
+  description: "Updates the field layout info of a form in an App.\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "putPreviewAppFormLayoutForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -55,49 +98,6 @@ put:
                 format: "long"
                 type: "integer"
             title: "putPreviewAppFormLayoutForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
-get:
-  description: "   Gets the field layout info of a form in an App.\n"
-  operationId: "getPreviewAppFormLayoutForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - description: "   The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "   The App ID.\n"
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/app/form/layout/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              layout:
-                description: "    A list of field layouts for each row.\n"
-                items:
-                  anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
-                type: "array"
-              revision:
-                description: "   The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppFormLayoutForGuestSpaceResponse"
             type: "object"
   tags:
   - "APP"

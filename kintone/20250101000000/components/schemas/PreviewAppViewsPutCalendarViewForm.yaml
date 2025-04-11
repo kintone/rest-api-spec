@@ -9,16 +9,16 @@ properties:
     - "ASSIGNEE"
     type: "string"
   date:
-    description: "Used for Calendar Views.\n   The field to be used as the \"Date\
-      \ Field\" of the Calendar View.\n   Specify a date type field by their field\
-      \ code.\n   If ignored, the Created datetime field will be set.\n"
+    description: "Used for Calendar Views.\nThe field to be used as the \"Date Field\"\
+      \ of the Calendar View.\nSpecify a date type field by their field code.\nIf\
+      \ ignored, the Created datetime field will be set.\n"
     type: "string"
   filterCond:
     description: "The filter condition in a query format.\n"
     type: "string"
   index:
-    description: "\tThe display order of the View, in the list of views, specified\
-      \ with a number.\n\tThe list of views will be displayed in ascending order.\n"
+    description: "The display order of the View, in the list of views, specified with\
+      \ a number.\nThe list of views will be displayed in ascending order.\n"
     format: "long"
     type: "integer"
   name:
@@ -27,7 +27,7 @@ properties:
       \ name for this parameter.\n"
     type: "string"
   sort:
-    description: "\tThe sort order in a query format.\n"
+    description: "The sort order in a query format.\n"
     type: "string"
   title:
     description: "Used for Calendar views.\nThe field to be used as the \"Title Field\"\

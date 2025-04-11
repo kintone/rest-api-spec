@@ -1,12 +1,11 @@
 ---
 properties:
   dayOfMonth:
-    description: "        The day when the Periodic Report will be generated.\n  \
-      \      The day is returned as an integer, ranging from 1 to 31, or set as END_OF_MONTH*.\n\
-      \        *Only for graphs where the reports.{graphname}.periodicReport.period.every\
-      \ parameter is set to QUARTER or MONTH.\n\n        This parameter is returned\
-      \ only if the reports.{graphname}.periodicReport.period.every parameter is set\
-      \ to YEAR, QUARTER, or MONTH.\n"
+    description: "The day when the Periodic Report will be generated.\nThe day is\
+      \ returned as an integer, ranging from 1 to 31, or set as END_OF_MONTH*.\n*Only\
+      \ for graphs where the reports.{graphname}.periodicReport.period.every parameter\
+      \ is set to QUARTER or MONTH.\n\nThis parameter is returned only if the reports.{graphname}.periodicReport.period.every\
+      \ parameter is set to YEAR, QUARTER, or MONTH.\n"
     type: "string"
   every:
     description: "The time interval type used to determine when to generate the Periodic\

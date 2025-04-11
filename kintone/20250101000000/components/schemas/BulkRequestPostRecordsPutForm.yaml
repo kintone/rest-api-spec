@@ -1,18 +1,13 @@
 ---
 properties:
   app:
-    description: "\tThe App ID.\n"
     format: "long"
     type: "integer"
   records:
-    description: "    Holds an array of objects that include id/updateKey, revision\
-      \ and record objects.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordForm"
     type: "array"
   upsert:
-    description: "    A mode where adding and updating records can be processed at\
-      \ the same time.\n"
     format: "boolean"
     type: "boolean"
 required:
