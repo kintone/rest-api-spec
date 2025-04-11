@@ -1,9 +1,16 @@
 # kintone/rest-api-spec
 
+[![CI](https://github.com/kintone/rest-api-spec/actions/workflows/ci.yaml/badge.svg)](https://github.com/kintone/rest-api-spec/actions/workflows/ci.yaml)
+
 > [OpenAPI](https://www.openapis.org/) Description for kintone REST API
 
-> [!WARNING]
-> Experimental: This repository is still under early development.
+
+## Concept
+
+
+## Usage
+
+
 
 ## License
 
