@@ -4,13 +4,31 @@
 
 > [OpenAPI](https://www.openapis.org/) Description for kintone REST API
 
-
 ## Concept
 
+This repository provides [OpenAPI](https://www.openapis.org/) Description for [kintone REST API](https://kintone.dev/en/docs/kintone/rest-api/).
+
+OpenAPI is a standard for defining API interfaces, which is easy to understand for both humans and computers.
+
+OpenAPI is widely supported by API related services and tools to make your API experience better, for example inspecting API using Postman, automatically generate API clients, etc.
 
 ## Usage
 
+We provide our API specification in two formats, website for humans and yaml files for computers.
 
+### Website
+
+We host interactive API specification at https://stunning-adventure-6kmjr8r.pages.github.io/ .
+
+You can browse the list of kintone REST APIs, API Request and Responses. You can also try calling APIs By setting authorization header.
+
+### YAML files
+
+
+
+## Limitations
+
+- The interface is based on the kintone REST API in [Current Channel](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html#new_feature_new_feature_overview_10) with all [Update Options](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html) are unselected.
 
 ## License
 
