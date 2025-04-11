@@ -1,0 +1,21 @@
+{
+  "name": "@kintone/rest-api-spec-website",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "merge": "redocly bundle ../kintone/$(ls ../kintone | sort | tail -n 1)/openapi.yaml -o /tmp/merged.yaml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@kintone/rest-api-spec": "workspace:^"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^1.34.2"
+  }
+}
