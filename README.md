@@ -26,6 +26,11 @@ We host interactive API specification at https://stunning-adventure-6kmjr8r.page
 
 You can browse the list of kintone REST APIs, API Request and Responses. You can also try calling APIs By setting authorization header.
 
+## Releases
+
+- The version for the next month will be released half month before.
+- Versions that are outdated will be removed.
+
 ## Limitations
 
 - The interface is based on the kintone REST API in [Current Channel](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html#new_feature_new_feature_overview_10) with all [Update Options](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html) are unselected.
