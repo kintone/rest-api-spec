@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the Graph settings of the App.\n\nThis API updates the pre-live\
+    \ settings.\nAfter using this API, use the Deploy App Settings API to deploy the\
+    \ settings to the live App:\n"
   operationId: "putPreviewAppReports"
   parameters: []
   requestBody:
@@ -9,6 +12,7 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             reports:
@@ -16,8 +20,16 @@ put:
                 anyOf:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReport"
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportWithChartMode"
+              description: "An object listing Graph information.\nThe key of the object\
+                \ is the graph's unique identifier,\nwhich is equal to the name of\
+                \ the graph in its default language settings.\nThe values of the key\
+                \ are the various graph settings associated with that graph.\n"
               type: "object"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -35,8 +47,10 @@ put:
               reports:
                 additionalProperties:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsPutReportResult"
+                description: "An object listing Graph information.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppReportsResponse"
@@ -44,18 +58,33 @@ put:
   tags:
   - "APP"
 get:
+  description: "Gets the Graph settings of the App.\n"
   operationId: "getPreviewAppReports"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names, in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names, in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -75,8 +104,14 @@ get:
                   anyOf:
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReport"
                   - $ref: "../openapi.yaml#/components/schemas/PreviewAppReportsGetReportWithChartMode"
+                description: "An object of Graph settings data.\n   The key of the\
+                  \ object is the graph's unique identifier, which is set as the graph's\
+                  \ name in its default language settings (this is regardless of the\
+                  \ lang request parameter's value).\n   The values of the key are\
+                  \ the various graph settings associated with that graph.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getPreviewAppReportsResponse"

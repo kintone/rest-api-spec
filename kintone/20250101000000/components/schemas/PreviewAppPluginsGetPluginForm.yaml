@@ -1,10 +1,14 @@
 ---
 properties:
   enabled:
+    description: "The status of the plugin.\n`true` for active plugins, and `false`\
+      \ for inactive plugins.\n"
     type: "boolean"
   id:
+    description: "The Plugin ID.\n"
     type: "string"
   name:
+    description: "The name of the Plugin.\n"
     type: "string"
 type: "object"
 

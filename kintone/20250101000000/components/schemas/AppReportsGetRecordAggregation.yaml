@@ -1,6 +1,8 @@
 ---
 properties:
   type:
+    description: "The type of the Function option.\n- COUNT: Number of records\n-\
+      \ SUM: Total\n- AVERAGE: Average\n- MAX: Maximum\n- MIN: Minimum\n"
     enum:
     - "COUNT"
     type: "string"

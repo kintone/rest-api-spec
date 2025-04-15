@@ -1,5 +1,6 @@
 ---
 get:
+  description: "Gets the list of Plug-ins added to an App.\n"
   operationId: "getPreviewAppPluginsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,17 +8,29 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- en: retrieves\
+      \ the localized English names\n- zh: retrieves the localized Chinese names\n\
+      - ja: retrieves the localized Japanese names\n- es: retrieves the localized\
+      \ Spanish names\n\nIf ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- en: retrieves\
+        \ the localized English names\n- zh: retrieves the localized Chinese names\n\
+        - ja: retrieves the localized Japanese names\n- es: retrieves the localized\
+        \ Spanish names\n\nIf ignored, the default names will be retrieved.\n"
       enum:
       - "JA"
       - "EN"
@@ -32,10 +45,12 @@ get:
           schema:
             properties:
               plugins:
+                description: "A list of Plug-ins added to the App.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppPluginsGetPluginForm"
                 type: "array"
               revision:
+                description: "The revision number of the App.\n"
                 format: "long"
                 type: "integer"
             title: "getPreviewAppPluginsForGuestSpaceResponse"
@@ -43,6 +58,7 @@ get:
   tags:
   - "APP"
 post:
+  description: "Adds Plug-ins to an App.\n"
   operationId: "postPreviewAppPluginsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -50,6 +66,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -58,13 +76,19 @@ post:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             ids:
+              description: "The Plug-in IDs that will be added to the App.\n"
               items:
                 type: "string"
               type: "array"
             revision:
+              description: "Specify the expected current revision number for the App.\n\
+                The request will fail if the stated revision number is not the latest\
+                \ revision.\nThe revision will not be checked if this parameter is\
+                \ ignored or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -80,6 +104,7 @@ post:
           schema:
             properties:
               revision:
+                description: "The updated revision number of the App.\n"
                 format: "long"
                 type: "integer"
             title: "postPreviewAppPluginsForGuestSpaceResponse"

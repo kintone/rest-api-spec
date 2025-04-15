@@ -1,8 +1,15 @@
 ---
 properties:
   code:
+    description: "The code of the entity the Action is granted to.\nFor guest users,\
+      \ add guest/ before the login name.\nRequired when specifying the actions.{actionname}.entities\
+      \ parameter.\n"
     type: "string"
   type:
+    description: "The type of the entity the Action is granted to.\n- USER: User\n\
+      - GROUP: Group\n- ORGANIZATION: Department\n\nFor Apps in a guest space, specifying\
+      \ a Department will result in an error.\nRequired when specifying the actions.{actionname}.entities\
+      \ parameter.\n"
     enum:
     - "USER"
     - "GROUP"

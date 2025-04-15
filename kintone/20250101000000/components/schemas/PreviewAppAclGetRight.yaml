@@ -1,12 +1,21 @@
 ---
 properties:
   appEditable:
+    description: "The App management permission of the entity.\nEntities with this\
+      \ permission are able to access and edit the App's settings.\n- true: The App's\
+      \ settings are accessible.\n- false: The App's settings are not accessible.\n"
     type: "boolean"
   entity:
+    description: " An object containing data of the entity the permission is granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\n"
         type: "string"
       type:
+        description: "The type of the entity the permission is granted to.\n- USER:\
+          \ User\n- GROUP: Group\n- ORGANIZATION: Department\n- CREATOR: The creator\
+          \ of the App\n"
         enum:
         - "USER"
         - "ORGANIZATION"
@@ -15,18 +24,33 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to.\n- true: Permissions are inherited.\n- false: Permissions are\
+      \ not inherited.\n"
     type: "boolean"
   recordAddable:
+    description: "The record add permission of the entity\n- true: Records can be\
+      \ added.\n- false: Records cannot be added.\n"
     type: "boolean"
   recordDeletable:
+    description: "The record delete permission of the entity\n- true: Records are\
+      \ deletable.\n- false: Records are not deletable.\n"
     type: "boolean"
   recordEditable:
+    description: "The record edit permission of the entity\n- true: Records are editable.\n\
+      - false: Records are not editable.\n"
     type: "boolean"
   recordExportable:
+    description: "The record export permission of the entity\n- true: Records are\
+      \ exportable.\n- false: Records are not exportable.\n"
     type: "boolean"
   recordImportable:
+    description: "The record import permission of the entity\n- true: Records are\
+      \ importable.\n- false: Records are not importable.\n"
     type: "boolean"
   recordViewable:
+    description: "The record view permission of the entity.\n- true: Records are viewable.\n\
+      - false: Records are not viewable.\n"
     type: "boolean"
 type: "object"
 

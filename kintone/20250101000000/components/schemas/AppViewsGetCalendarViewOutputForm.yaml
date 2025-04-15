@@ -1,22 +1,33 @@
 ---
 properties:
   date:
+    description: "The field code set for the Date Field.\nResponded for Calendar Views.\n"
     type: "string"
   filterCond:
+    description: "The filter condition as a query.\n"
     type: "string"
   id:
+    description: "The View ID.\n"
     format: "long"
     type: "integer"
   index:
+    description: "The display order (ascending) of the View, when listed with other\
+      \ views.\n"
     format: "long"
     type: "integer"
   name:
+    description: "The name of the View.\n"
     type: "string"
   sort:
+    description: "The sort order as a query.\n"
     type: "string"
   title:
+    description: "The field code set for the Title Field.\nResponded for Calendar\
+      \ Views.\n"
     type: "string"
   type:
+    description: "The type of View.\n - LIST: List View\n - CALENDAR: Calendar View\n\
+      \ - CUSTOM: Custom View\n"
     enum:
     - "LIST"
     - "CALENDAR"

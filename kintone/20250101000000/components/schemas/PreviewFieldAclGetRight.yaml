@@ -1,8 +1,11 @@
 ---
 properties:
   code:
+    description: "The field code of a field that has permission settings.\n"
     type: "string"
   entities:
+    description: "An array listing the entities the permissions are granted to, in\
+      \ order of priority.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewFieldAclGetEntityRight"
     type: "array"

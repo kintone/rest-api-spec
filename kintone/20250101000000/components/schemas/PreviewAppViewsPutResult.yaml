@@ -1,6 +1,7 @@
 ---
 properties:
   id:
+    description: "The View ID.\n"
     format: "long"
     type: "integer"
 type: "object"

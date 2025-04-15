@@ -1,18 +1,31 @@
 ---
 properties:
   aggregations:
+    description: "An array of objects containing the Function options.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetRecordAggregation"
       - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetFieldAggregation"
     type: "array"
   chartMode:
+    description: "The display mode of the graph.\n- NORMAL: Clustered graph or Non-stacked\
+      \ graph\n- STACKED: Stacked graph\n- PERCENTAGE: 100% stacked graph\n\nIf the\
+      \ reports.{graphname}.chartType parameter is set to BAR or COLUMN, then NORMAL\
+      \ refers to Clustered graph display mode.\nIf the reports.{graphname}.chartType\
+      \ parameter is set to AREA or SPLINE\\_AREA, then NORMAL refers to Non-stacked\
+      \ graph display mode.\nThis parameter is returned only if the reports.{graphname}.chartType\
+      \ parameter is set to BAR, COLUMN, AREA, or SPLINE\\_AREA.\n"
     enum:
     - "NORMAL"
     - "STACKED"
     - "PERCENTAGE"
     type: "string"
   chartType:
+    description: "The chart type of the graph. For more information, refer to the\
+      \ following article:\nChart Types and Their Usage (External link)\n- BAR: Bar\
+      \ chart\n- COLUMN: Column chart\n- PIE: Pie chart\n- LINE: Line chart\n- PIVOT_TABLE:\
+      \ Pivot Table\n- TABLE: Table\n- AREA: Area chart\n- SPLINE: Spline chart\n\
+      - SPLINE_AREA: Spline area chart\n"
     enum:
     - "PIE"
     - "LINE"
@@ -25,9 +38,16 @@ properties:
     - "SPLINE_AREA"
     type: "string"
   filterCond:
+    description: "The record's filter condition in query string format that reflects\
+      \ the Filter option.\nThe request will fail if a deleted User, Group, or Organization\
+      \ is specified in the filter condition.\n"
     format: "query"
     type: "string"
   groups:
+    description: "An array of objects containing the Group by options.\nThe order\
+      \ of the objects are in the order of Level 1, Level 2, and Level 3.\nLevels\
+      \ that are not set will not be included in the array.\n\nThis parameter is returned\
+      \ only if the Group by option is configured.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroup"
@@ -36,16 +56,25 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetGroupTime"
     type: "array"
   id:
+    description: "The ID of the graph.\n"
     format: "long"
     type: "integer"
   index:
+    description: "The order of the graphs, starting from 0.\n"
     format: "long"
     type: "integer"
   name:
+    description: "The name of the graph.\nThe maximum limit is 64 characters.\nWhen\
+      \ the lang request parameter is specified, the graph's name in that language\
+      \ will be returned.\n"
     type: "string"
   periodicReport:
+    description: "An objects containing the Periodic Reports options.\nIf the Generate\
+      \ reports periodically option have never been configured, null will be returned.\n"
     properties:
       active:
+        description: "The activation status of the Periodic Reports option.\n- true:\
+          \ Active\n- false: Inactive\n"
         type: "boolean"
       period:
         anyOf:
@@ -57,6 +86,7 @@ properties:
         - $ref: "../../openapi.yaml#/components/schemas/AppReportsGetPeriodHour"
     type: "object"
   sorts:
+    description: "An array of objects containing the Sort by options.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/AppReportsGetSort"
     type: "array"

@@ -1,19 +1,26 @@
 ---
 properties:
   file:
+    description: " An Object containing data of an uploaded file.\n"
     properties:
       contentType:
+        description: "The MIME type of the uploaded file.\n"
         type: "string"
       fileKey:
+        description: "The fileKey of the uploaded file.\n"
         type: "string"
       name:
+        description: "The file name of the uploaded file.\n"
         type: "string"
       size:
+        description: " The byte size of the uploaded file.\n"
         type: "string"
     required:
     - "fileKey"
     type: "object"
   type:
+    description: "The end-point type of the file:\n- URL: the file is specified with\
+      \ a URL.\n- FILE: the file is uploaded to the app.\n"
     enum:
     - "URL"
     - "FILE"

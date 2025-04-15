@@ -1,16 +1,25 @@
 ---
 properties:
   accessibility:
+    description: "The permission granted to the entity.\n- READ: Permissions to view\
+      \ only.\n- WRITE: Permissions to view and edit.\n- NONE: No permissions to view\
+      \ or edit.\n"
     enum:
     - "WRITE"
     - "READ"
     - "NONE"
     type: "string"
   entity:
+    description: "An object containing data of the entity the permission is granted\
+      \ to.\n"
     properties:
       code:
+        description: "The code of the entity the permission is granted to.\n"
         type: "string"
       type:
+        description: "The type of the entity the permission is granted to.\n- USER:\
+          \ User\n- GROUP: Group\n- ORGANIZATION: Department\n- FIELD_ENTITY: User\
+          \ field\n"
         enum:
         - "USER"
         - "GROUP"
@@ -19,6 +28,9 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
+    description: "The permission inheritance settings of the department the permission\
+      \ is granted to.\n- true: Permissions are inherited.\n- false: Permissions are\
+      \ not inherited.\n"
     type: "boolean"
 type: "object"
 

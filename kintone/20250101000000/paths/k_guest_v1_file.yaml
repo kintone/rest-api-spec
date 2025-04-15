@@ -1,23 +1,4 @@
 ---
-get:
-  operationId: "getFileForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "fileKey"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of file/get"
-  tags:
-  - "FILE"
 post:
   operationId: "postFileForGuestSpace"
   parameters:
@@ -26,6 +7,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -47,6 +30,27 @@ post:
                 type: "string"
             title: "postFileForGuestSpaceResponse"
             type: "object"
+  tags:
+  - "FILE"
+get:
+  operationId: "getFileForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "fileKey"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of file/get"
   tags:
   - "FILE"
 

@@ -1,39 +1,4 @@
 ---
-delete:
-  operationId: "deleteRecordCommentForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "record"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "comment"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of record/comment/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "RECORD"
 post:
   operationId: "postRecordCommentForGuestSpace"
   parameters:
@@ -42,6 +7,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -86,6 +53,43 @@ post:
                 type: "integer"
             title: "postRecordCommentForGuestSpaceResponse"
             type: "object"
+  tags:
+  - "RECORD"
+delete:
+  operationId: "deleteRecordCommentForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "record"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "comment"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of record/comment/delete"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "RECORD"
 

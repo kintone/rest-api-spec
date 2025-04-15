@@ -1,5 +1,89 @@
 ---
+get:
+  description: "Gets the JavaScript and CSS Customization settings of an App.\n"
+  operationId: "getPreviewAppCustomizeForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/customize/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              desktop:
+                description: "An object containing data of JavaScript and CSS files\
+                  \ for the desktop.\n"
+                properties:
+                  css:
+                    description: "An array listing data of CSS files for desktop.\n"
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                  js:
+                    description: "An array listing data of JavaScript files.\n"
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                type: "object"
+              mobile:
+                description: "An object containing data of JavaScript and CSS files\
+                  \ for the mobile.\n"
+                properties:
+                  css:
+                    description: "An array listing data of CSS files for mobile.\n"
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                  js:
+                    description: "An array listing data of JavaScript files for mobile.\n"
+                    items:
+                      anyOf:
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
+                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
+                    type: "array"
+                type: "object"
+              revision:
+                description: "The revision number of the app settings.\n"
+                format: "long"
+                type: "integer"
+              scope:
+                description: "The scope of customization\n- ALL: Affect all users\n\
+                  - ADMIN: Affect only app administrators\n- NONE: Disable\n"
+                enum:
+                - "ALL"
+                - "ADMIN"
+                - "NONE"
+                type: "string"
+            title: "getPreviewAppCustomizeForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
 put:
+  description: "Updates the JavaScript and CSS Customization settings of an App.\n\
+    This API updates the pre-live settings. After using this API, use the Deploy App\
+    \ Settings API to deploy the settings to the live App.\n"
   operationId: "putPreviewAppCustomizeForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,6 +91,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -15,17 +101,22 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             desktop:
+              description: "An object containing data of JavaScript and CSS files\
+                \ for the desktop.\n"
               properties:
                 css:
+                  description: "An array listing data of CSS files for desktop.\n"
                   items:
                     anyOf:
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
                 js:
+                  description: "An array listing data of JavaScript files.\n"
                   items:
                     anyOf:
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
@@ -33,14 +124,18 @@ put:
                   type: "array"
               type: "object"
             mobile:
+              description: "An object containing data of JavaScript and CSS files\
+                \ for the mobile.\n"
               properties:
                 css:
+                  description: "An array listing data of CSS files for mobile.\n"
                   items:
                     anyOf:
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutFileContentForm"
                   type: "array"
                 js:
+                  description: "An array listing data of JavaScript files for mobile.\n"
                   items:
                     anyOf:
                     - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizePutUrlContentForm"
@@ -48,9 +143,15 @@ put:
                   type: "array"
               type: "object"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
             scope:
+              description: "The scope of customization\n- ALL: Affect all users\n\
+                - ADMIN: Affect only app administrators\n- NONE: Disable\n"
               enum:
               - "ALL"
               - "ADMIN"
@@ -71,71 +172,6 @@ put:
                 format: "long"
                 type: "integer"
             title: "putPreviewAppCustomizeForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
-get:
-  operationId: "getPreviewAppCustomizeForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/app/customize/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              desktop:
-                properties:
-                  css:
-                    items:
-                      anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
-                    type: "array"
-                  js:
-                    items:
-                      anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
-                    type: "array"
-                type: "object"
-              mobile:
-                properties:
-                  css:
-                    items:
-                      anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
-                    type: "array"
-                  js:
-                    items:
-                      anyOf:
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetUrlContentForm"
-                      - $ref: "../openapi.yaml#/components/schemas/PreviewAppCustomizeGetFileContentForm"
-                    type: "array"
-                type: "object"
-              revision:
-                format: "long"
-                type: "integer"
-              scope:
-                enum:
-                - "ALL"
-                - "ADMIN"
-                - "NONE"
-                type: "string"
-            title: "getPreviewAppCustomizeForGuestSpaceResponse"
             type: "object"
   tags:
   - "APP"

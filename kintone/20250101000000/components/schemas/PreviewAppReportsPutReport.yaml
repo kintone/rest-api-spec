@@ -1,12 +1,21 @@
 ---
 properties:
   aggregations:
+    description: "An array of objects containing the \"Function\" options.\nThe maximum\
+      \ limit is 10 elements in the array.\n\nIf the reports.{graphname}.chartType\
+      \ parameter is set to PIVOT_TABLE, only 1 element can be set in the array.\n\
+      \nRequired when adding a new graph.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutRecordAggregation"
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutFieldAggregation"
     type: "array"
   chartType:
+    description: "The chart type of the graph.\n- BAR: Bar chart\n- COLUMN: Column\
+      \ chart\n- PIE: Pie chart\n- LINE: Line chart\n- PIVOT_TABLE: Pivot Table\n\
+      - TABLE: Table\n- AREA: Area chart\n- SPLINE: Spline chart\n- SPLINE_AREA: Spline\
+      \ area chart\n\nRequired when updating an existing graph, or creating a new\
+      \ graph.\n"
     enum:
     - "PIE"
     - "LINE"
@@ -19,22 +28,41 @@ properties:
     - "SPLINE_AREA"
     type: "string"
   filterCond:
+    description: "The record's filter condition in query string format that reflects\
+      \ the \"Filter\" option.\nIf this parameter is ignored for a new graph, it is\
+      \ the same as when \"All records\" is specified.\nIf this parameter is ignored\
+      \ for an existing graph, the filter setting will not be changed.\nThe request\
+      \ will fail if a deleted User, Group, or Organization is specified in the filter\
+      \ condition.\n"
     format: "query"
     type: "string"
   groups:
+    description: "An array of objects containing the \"Group by\" options.\nThe order\
+      \ of the objects are in the order of \"Level 1\", \"Level 2\", and \"Level 3\"\
+      .\n\nThe request will fail if the reports.{graphname}.chartType parameter is\
+      \ set to PIVOT_TABLE and reports.{graphname}.groups has less than one object.\n\
+      \nRequired when adding a new graph.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutGroup"
     type: "array"
   index:
+    description: "The order of the graphs.\nThe graph is sorted in ascending order,\
+      \ starting from 0.\nThe request will fail if there are duplicate values.\n\n\
+      Required when updating an existing graph, or creating a new graph.\n"
     format: "long"
     type: "integer"
   name:
+    description: "The name of the graph.\n1 to 64 characters can be specified.\n\n\
+      When adding a new graph, the request will fail if the value of this parameter\
+      \ is not the same as reports.{graphname}.\n\nRequired when adding a new graph.\n"
     maxLength: 64
     minLength: 1
     type: "string"
   periodicReport:
     $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutPeriodicReport"
   sorts:
+    description: "An array of objects containing the \"Sort by\" options.\nThe maximum\
+      \ limit is 3 elements in the array.\n\nRequired when adding a new graph.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppReportsPutSort"
     type: "array"

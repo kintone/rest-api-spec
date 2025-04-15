@@ -578,6 +578,8 @@ components:
       $ref: "./components/schemas/BulkRequestPostTimeSimpleValue.yaml"
     BulkRequestPostUpdateKey:
       $ref: "./components/schemas/BulkRequestPostUpdateKey.yaml"
+    BulkRequestPostUpsertRecordBean:
+      $ref: "./components/schemas/BulkRequestPostUpsertRecordBean.yaml"
     BulkRequestPostUserEntitySimpleValue:
       $ref: "./components/schemas/BulkRequestPostUserEntitySimpleValue.yaml"
     BulkRequestPostUserSelectSimpleValue:
@@ -1604,6 +1606,8 @@ components:
       $ref: "./components/schemas/RecordsPutTimeSimpleValue.yaml"
     RecordsPutUpdateKey:
       $ref: "./components/schemas/RecordsPutUpdateKey.yaml"
+    RecordsPutUpsertRecordBean:
+      $ref: "./components/schemas/RecordsPutUpsertRecordBean.yaml"
     RecordsPutUserEntitySimpleValue:
       $ref: "./components/schemas/RecordsPutUserEntitySimpleValue.yaml"
     RecordsPutUserSelectSimpleValue:

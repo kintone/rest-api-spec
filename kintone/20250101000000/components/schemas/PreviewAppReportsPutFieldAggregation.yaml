@@ -1,8 +1,27 @@
 ---
 properties:
   code:
+    description: "The field code of the field to be used in the \"Function\" option.\n\
+      \nElements with type set to SUM or AVERAGE can specify the following fields:\n\
+      - Number fields\n- Calculated fields (Number)\n- Calculated fields (Number with\
+      \ thousands separator)\n- Calculated fields (Hours & minutes) within tables\n\
+      - Calculated fields (Days & hours & minutes) within tables\n- Lookup fields\
+      \ with the Key Field set as a Number field\n\nElements with type set to MAX\
+      \ or MIN can specify the following fields:\n- Number field\n- Calculated fields\
+      \ (Number)\n- Calculated fields (Number with thousands separator)\n- Calculated\
+      \ fields (Date & time) within tables\n- Calculated fields (Date) within tables\n\
+      - Calculated fields (Time) within tables\n- Calculated fields (Hours & minutes)\
+      \ within tables\n- Calculated fields (Days & hours & minutes) within tables\n\
+      - Date fields within tables\n- Date and time fields within tables\n- Time fields\
+      \ within tables\n- Created datetime fields within tables\n- Updated datetime\
+      \ fields within tables\n- Lookup fields with the Key Field set as a Number field\n\
+      \nRequired for each element of the reports.{graphname}.aggregations parameter,\
+      \ except for elements with type set to COUNT.\n"
     type: "string"
   type:
+    description: "The type of the \"Function\" option.\n- COUNT: number of records\n\
+      - SUM: Total\n- AVERAGE: Average\n- MAX: Maximum\n- MIN: Minimum\n\nRequired\
+      \ when specifying the reports.{graphname}.aggregations parameter.\n"
     enum:
     - "SUM"
     - "AVERAGE"

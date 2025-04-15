@@ -1,17 +1,28 @@
 ---
 get:
+  description: "Gets the list of Plug-ins added to an App.\n"
   operationId: "getAppPlugins"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- en: retrieves\
+      \ the localized English names\n- zh: retrieves the localized Chinese names\n\
+      - ja: retrieves the localized Japanese names\n- es: retrieves the localized\
+      \ Spanish names\n\nIf ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- en: retrieves\
+        \ the localized English names\n- zh: retrieves the localized Chinese names\n\
+        - ja: retrieves the localized Japanese names\n- es: retrieves the localized\
+        \ Spanish names\n\nIf ignored, the default names will be retrieved.\n"
       enum:
       - "JA"
       - "EN"
@@ -26,10 +37,12 @@ get:
           schema:
             properties:
               plugins:
+                description: "A list of Plug-ins added to the App.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/AppPluginsGetPluginForm"
                 type: "array"
               revision:
+                description: "The revision number of the App.\n"
                 format: "long"
                 type: "integer"
             title: "getAppPluginsResponse"

@@ -1,8 +1,12 @@
 ---
 properties:
   code:
+    description: "The field code of the field used in the Function option.\nThis parameter\
+      \ is not returned if the reports.{graphname}.aggregations[].type is set to COUNT.\n"
     type: "string"
   type:
+    description: "The type of the Function option.\n- COUNT: Number of records\n-\
+      \ SUM: Total\n- AVERAGE: Average\n- MAX: Maximum\n- MIN: Minimum\n"
     enum:
     - "SUM"
     - "AVERAGE"

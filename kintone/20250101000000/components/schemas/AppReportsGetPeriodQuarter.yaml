@@ -1,18 +1,34 @@
 ---
 properties:
   dayOfMonth:
+    description: "The day when the Periodic Report will be generated.\nThe day is\
+      \ returned as an integer, ranging from 1 to 31, or set as END_OF_MONTH*.\n*Only\
+      \ for graphs where the reports.{graphname}.periodicReport.period.every parameter\
+      \ is set to QUARTER or MONTH.\n\nThis parameter is returned only if the reports.{graphname}.periodicReport.period.every\
+      \ parameter is set to YEAR, QUARTER, or MONTH.\n"
     type: "string"
   every:
+    description: "The time interval type used to determine when to generate the Periodic\
+      \ Reports.\n- YEAR: by the year\n- QUARTER: by the quarter\n- MONTH: by the\
+      \ month\n- WEEK: by the week\n- DAY: by the day\n- HOUR: by the hour\n"
     enum:
     - "QUARTER"
     type: "string"
   pattern:
+    description: "The months when the quarterly Periodic Report will be generated.\n\
+      - JAN_APR_JUL_OCT: January, April, July, October\n- FEB_MAY_AUG_NOV: February,\
+      \ May, August, November\n- MAR_JUN_SEP_DEC: March, June, September, December\n\
+      \nThis parameter is returned only if the reports.{graphname}.periodicReport.period.every\
+      \ parameter is set to QUARTER.\n"
     enum:
     - "JAN_APR_JUL_OCT"
     - "FEB_MAY_AUG_NOV"
     - "MAR_JUN_SEP_DEC"
     type: "string"
   time:
+    description: "The time when the Periodic Report will be generated.\nFormat: HH:MM\n\
+      This parameter is returned only if the reports.{graphname}.periodicReport.period.every\
+      \ parameter is set to YEAR, QUARTER, MONTH, WEEK, or DAY.\n"
     type: "string"
 type: "object"
 

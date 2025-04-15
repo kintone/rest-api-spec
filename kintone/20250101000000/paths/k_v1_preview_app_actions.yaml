@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the Action settings of the App.\nThis API updates the pre-live\
+    \ settings. After using this API, use the Deploy App Settings API to deploy the\
+    \ settings to the live App.\n"
   operationId: "putPreviewAppActions"
   parameters: []
   requestBody:
@@ -11,11 +14,20 @@ put:
             actions:
               additionalProperties:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsPutAction"
+              description: "An object listing Action settings.\nThe object's key is\
+                \ the Action's unique identifier, which is equal to the Action's name\
+                \ in its default language settings.\nThe values of the key are the\
+                \ various Action settings associated with that Action.\n"
               type: "object"
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -33,8 +45,10 @@ put:
               actions:
                 additionalProperties:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsPutActionResult"
+                description: "An object listing Action settings.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppActionsResponse"
@@ -42,18 +56,33 @@ put:
   tags:
   - "APP"
 get:
+  description: "Gets the Action Settings of the App.\n"
   operationId: "getPreviewAppActions"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names in the same language as the language setting*\
+      \ set on the user used for the authentication.\n\nIf ignored, the default names\
+      \ will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -71,8 +100,14 @@ get:
               actions:
                 additionalProperties:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppActionsGetAction"
+                description: "An object of Action settings.\nThe object's key is the\
+                  \ Action's unique identifier, which is set as the Action's name\
+                  \ in its default language settings (this is regardless of the lang\
+                  \ request parameter's value).\nThe values of the key are the various\
+                  \ Action settings associated with that Action.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getPreviewAppActionsResponse"

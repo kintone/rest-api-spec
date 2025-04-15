@@ -1,10 +1,21 @@
 ---
 properties:
   entity:
+    description: "An object containing entity details per recipient of the Per Record\
+      \ Notification.\n"
     properties:
       code:
+        description: "The code of the entity the Per Record Notification settings\
+          \ are configured to. The following entities will return the following values:\n\
+          - FIELD_ENTITY: The field code of the field\n- For all other entities: The\
+          \ code of the User, Group, or Department\n\nFor guest users, the login name\
+          \ is preceded by `guest/`.\n"
         type: "string"
       type:
+        description: "The type of the entity the Per Record Notification settings\
+          \ are configured to.\n- USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n\
+          - FIELD_ENTITY: Created By, Updated By, User Selection, Group Selection,\
+          \ and Department Selection Fields\n"
         enum:
         - "USER"
         - "GROUP"
@@ -13,6 +24,8 @@ properties:
         type: "string"
     type: "object"
   includeSubs:
+    description: "An array of objects containing the recipients of the Per Record\
+      \ Notification.\n"
     type: "boolean"
 type: "object"
 

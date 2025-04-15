@@ -1,8 +1,11 @@
 ---
 properties:
   code:
+    description: "The field code of the field used as the title of the record.\n"
     type: "string"
   selectionMode:
+    description: "The option of The field to be used as the record title settings.\n\
+      - AUTO: The Set automatically option.\n- MANUAL: The Set manually option.\n"
     enum:
     - "AUTO"
     - "MANUAL"

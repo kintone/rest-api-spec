@@ -1,5 +1,48 @@
 ---
+get:
+  description: "Gets notes for app administrators and their settings.\n"
+  operationId: "getPreviewAppAdminNotesForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/adminNotes/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              content:
+                description: "The content of the notes. If not set, an empty string\
+                  \ is returned.\n"
+                type: "string"
+              includeInTemplateAndDuplicates:
+                description: "The permission settings to include this note in app\
+                  \ templates or duplicates\n- true: include\n- false: do not include\n"
+                type: "boolean"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppAdminNotesForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APP"
 put:
+  description: "Updates the notes for App administrators and their settings.\n"
   operationId: "putPreviewAppAdminNotesForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,6 +50,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -15,14 +60,25 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             content:
+              description: "The permission settings to include this note in app templates\
+                \ or duplicates\n- true: include\n- false: do not include\n\nIf the\
+                \ parameter is omitted, the content will not change.\n"
               maxLength: 10000
               type: "string"
             includeInTemplateAndDuplicates:
+              description: "The revision number of the App settings.\nIf the parameter\
+                \ does not match the actual revision number, it will be considered\
+                \ an error, and the content will not be updated.\nThe revision will\
+                \ not be checked if this parameter is ignored or -1 is specified.\n"
               type: "string"
             revision:
+              description: "The content of the notes.\nThe content must be between\
+                \ 0 to 10000 characters.\nIf the parameter is omitted, the content\
+                \ will not change.\n"
               format: "long"
               type: "integer"
           required:
@@ -37,41 +93,10 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number after changing the app settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppAdminNotesForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
-get:
-  operationId: "getPreviewAppAdminNotesForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of preview/app/adminNotes/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              content:
-                type: "string"
-              includeInTemplateAndDuplicates:
-                type: "boolean"
-              revision:
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppAdminNotesForGuestSpaceResponse"
             type: "object"
   tags:
   - "APP"

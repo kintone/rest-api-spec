@@ -1,5 +1,8 @@
 ---
 post:
+  description: "Creates a preview App.\nThis API updates the pre-live settings.\n\
+    After using this API, use the Deploy App Settings API to deploy the settings to\
+    \ the live App.\n"
   operationId: "postPreviewAppForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,6 +10,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -15,11 +20,20 @@ post:
         schema:
           properties:
             name:
+              description: "The App name.\nThe maximum length is 64 characters.\n"
               type: "string"
             space:
+              description: "The Space ID of where the App will be created.\n"
               format: "long"
               type: "integer"
             thread:
+              description: "The Thread ID of the thread in the Space where the App\
+                \ will be created.\n*It is recommended to ignore this parameter so\
+                \ that Apps are created in the default thread.\nThere is currently\
+                \ no helpful reason to create Apps in threads other than the default\
+                \ thread,\nas there are no visual representations in Kintone of Apps\
+                \ being related to threads.\nThere are only visual representations\
+                \ of Apps being related to Spaces.\n"
               format: "long"
               type: "integer"
           required:
@@ -34,9 +48,11 @@ post:
           schema:
             properties:
               app:
+                description: "The App ID of the created preview App.\n"
                 format: "long"
                 type: "integer"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "postPreviewAppForGuestSpaceResponse"

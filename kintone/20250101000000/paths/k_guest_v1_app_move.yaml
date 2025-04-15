@@ -1,5 +1,6 @@
 ---
 post:
+  description: "Changes the Space to which an App belongs.\n"
   operationId: "postAppMoveForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,6 +8,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -15,9 +18,12 @@ post:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             space:
+              description: "The Space ID of where the App will be moved to.\nTo remove\
+                \ an App from its current space, null can be specified.\n"
               format: "long"
               type: "integer"
           required:

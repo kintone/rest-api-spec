@@ -1,33 +1,4 @@
 ---
-delete:
-  operationId: "deleteRecordComment"
-  parameters:
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "record"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "comment"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of record/comment/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "RECORD"
 post:
   operationId: "postRecordComment"
   parameters: []
@@ -74,6 +45,35 @@ post:
                 type: "integer"
             title: "postRecordCommentResponse"
             type: "object"
+  tags:
+  - "RECORD"
+delete:
+  operationId: "deleteRecordComment"
+  parameters:
+  - in: "query"
+    name: "app"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "record"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "comment"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of record/comment/delete"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "RECORD"
 
