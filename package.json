@@ -10,7 +10,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "./scripts/bundle.js"
+    "bundle": "./scripts/bundle.js",
+    "doc:build": "pnpm --filter ./website build",
+    "doc:dev": "pnpm --filter ./website dev",
+    "doc:preview": "pnpm --filter ./website preview"
   },
   "keywords": [],
   "author": "",
