@@ -1,5 +1,9 @@
 # Ignore artifacts:
 /lib
+/dist
+
+# Ignore symlink
+/public/kintone
 
 # Ignore tsconfig file
 tsconfig.json
