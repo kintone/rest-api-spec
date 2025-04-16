@@ -57,5 +57,5 @@ get:
             title: "getAppActionsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

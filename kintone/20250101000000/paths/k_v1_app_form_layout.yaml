@@ -33,5 +33,5 @@ get:
             title: "getAppFormLayoutResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

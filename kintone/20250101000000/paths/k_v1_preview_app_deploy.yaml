@@ -1,4 +1,38 @@
 ---
+get:
+  description: "Gets the deployment status of the App settings for multiple Apps.\n"
+  operationId: "getPreviewAppDeploy"
+  parameters:
+  - description: "The list of Apps to check the deploy statuses of.\nThe Maximum limit\
+      \ is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified in the\
+      \ request must belong to that Guest Space.\n"
+    in: "query"
+    name: "apps"
+    required: true
+    schema:
+      description: "The list of Apps to check the deploy statuses of.\nThe Maximum\
+        \ limit is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified\
+        \ in the request must belong to that Guest Space.\n"
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of preview/app/deploy/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                description: "A list of objects with data of deploy statuses.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
+                type: "array"
+            title: "getPreviewAppDeployResponse"
+            type: "object"
+  tags:
+  - "APPS"
 post:
   description: "Updates the settings of a pre-live App to the live App.\nUsing this\
     \ API gives the same results as when users click on \"Update App\" or \"Discard\
@@ -39,39 +73,5 @@ post:
         application/json:
           schema: {}
   tags:
-  - "APP"
-get:
-  description: "Gets the deployment status of the App settings for multiple Apps.\n"
-  operationId: "getPreviewAppDeploy"
-  parameters:
-  - description: "The list of Apps to check the deploy statuses of.\nThe Maximum limit\
-      \ is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified in the\
-      \ request must belong to that Guest Space.\n"
-    in: "query"
-    name: "apps"
-    required: true
-    schema:
-      description: "The list of Apps to check the deploy statuses of.\nThe Maximum\
-        \ limit is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified\
-        \ in the request must belong to that Guest Space.\n"
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of preview/app/deploy/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              apps:
-                description: "A list of objects with data of deploy statuses.\n"
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
-                type: "array"
-            title: "getPreviewAppDeployResponse"
-            type: "object"
-  tags:
-  - "APP"
+  - "APPS"
 

@@ -1,4 +1,71 @@
 ---
+put:
+  description: "Updates the Reminder Notification settings of the App.\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
+  operationId: "putPreviewAppNotificationsReminderForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              description: "The App ID.\n"
+              format: "long"
+              type: "integer"
+            notifications:
+              description: "An array of objects consisting of \"Notification Trigger\"\
+                \ options. These options define when the notifications will be sent\
+                \ out, under what conditions, and the recipients.\nIf an empty array\
+                \ is sent, all the recipients will be removed.\nIf this parameter\
+                \ is ignored, no changes will be made to the \"Notification Trigger\"\
+                \ options.\n"
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutNotification"
+              type: "array"
+            revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored or -1 is specified.\n"
+              format: "long"
+              type: "integer"
+            timezone:
+              description: "The timezone that determines the Reminder notification's\
+                \ timing. This reflects the \"Reminder Time Zone\" dropdown option.\n\
+                If the App's Reminder Notification settings have never been configured,\
+                \ the API executing user's timezone will be used.\n"
+              format: "timezone"
+              type: "string"
+          required:
+          - "app"
+          title: "putPreviewAppNotificationsReminderForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/notifications/reminder/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppNotificationsReminderForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APPS"
 get:
   description: "Gets the Reminder Notification settings of the App.\n"
   operationId: "getPreviewAppNotificationsReminderForGuestSpace"
@@ -76,72 +143,5 @@ get:
             title: "getPreviewAppNotificationsReminderForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
-put:
-  description: "Updates the Reminder Notification settings of the App.\nThis API updates\
-    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
-    \ to deploy the settings to the live App.\n"
-  operationId: "putPreviewAppNotificationsReminderForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              description: "The App ID.\n"
-              format: "long"
-              type: "integer"
-            notifications:
-              description: "An array of objects consisting of \"Notification Trigger\"\
-                \ options. These options define when the notifications will be sent\
-                \ out, under what conditions, and the recipients.\nIf an empty array\
-                \ is sent, all the recipients will be removed.\nIf this parameter\
-                \ is ignored, no changes will be made to the \"Notification Trigger\"\
-                \ options.\n"
-              items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsReminderPutNotification"
-              type: "array"
-            revision:
-              description: "Specify the revision number of the settings that will\
-                \ be deployed.\nThe request will fail if the revision number is not\
-                \ the latest revision.\nThe revision will not be checked if this parameter\
-                \ is ignored or -1 is specified.\n"
-              format: "long"
-              type: "integer"
-            timezone:
-              description: "The timezone that determines the Reminder notification's\
-                \ timing. This reflects the \"Reminder Time Zone\" dropdown option.\n\
-                If the App's Reminder Notification settings have never been configured,\
-                \ the API executing user's timezone will be used.\n"
-              format: "timezone"
-              type: "string"
-          required:
-          - "app"
-          title: "putPreviewAppNotificationsReminderForGuestSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of preview/app/notifications/reminder/put"
-      content:
-        application/json:
-          schema:
-            properties:
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "putPreviewAppNotificationsReminderForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
+  - "APPS"
 

@@ -1,4 +1,20 @@
 ---
+delete:
+  operationId: "deletePlugin"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "PLUGINS"
 put:
   operationId: "putPlugin"
   parameters: []
@@ -31,23 +47,7 @@ put:
             title: "putPluginResponse"
             type: "object"
   tags:
-  - "PLUGIN"
-delete:
-  operationId: "deletePlugin"
-  parameters:
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of plugin/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "PLUGIN"
+  - "PLUGINS"
 post:
   operationId: "postPlugin"
   parameters: []
@@ -77,5 +77,5 @@ post:
             title: "postPluginResponse"
             type: "object"
   tags:
-  - "PLUGIN"
+  - "PLUGINS"
 

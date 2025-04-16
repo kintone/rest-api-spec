@@ -58,5 +58,5 @@ get:
             title: "getAppNotificationsPerRecordResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

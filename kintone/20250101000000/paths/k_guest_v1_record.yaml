@@ -73,7 +73,7 @@ put:
             title: "putRecordForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 get:
   operationId: "getRecordForGuestSpace"
   parameters:
@@ -136,7 +136,7 @@ get:
             title: "getRecordForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 post:
   operationId: "postRecordForGuestSpace"
   parameters:
@@ -207,5 +207,5 @@ post:
             title: "postRecordForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

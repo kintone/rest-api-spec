@@ -38,5 +38,5 @@ post:
             title: "postBulkRequestResponse"
             type: "object"
   tags:
-  - "BULKREQUEST"
+  - "BULKREQUESTS"
 

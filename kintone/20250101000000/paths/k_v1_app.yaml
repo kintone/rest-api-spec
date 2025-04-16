@@ -87,5 +87,5 @@ get:
             title: "getAppResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

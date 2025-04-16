@@ -64,7 +64,7 @@ put:
             title: "putPreviewAppStatusForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the process management settings of an App.\n"
   operationId: "getPreviewAppStatusForGuestSpace"
@@ -141,5 +141,5 @@ get:
             title: "getPreviewAppStatusForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

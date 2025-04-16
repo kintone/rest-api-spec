@@ -62,7 +62,7 @@ put:
             title: "putPreviewAppActionsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the Action Settings of the App.\n"
   operationId: "getPreviewAppActionsForGuestSpace"
@@ -129,5 +129,5 @@ get:
             title: "getPreviewAppActionsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

@@ -48,7 +48,7 @@ put:
             title: "putPreviewAppAclResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the App permissions of an App.\n"
   operationId: "getPreviewAppAcl"
@@ -81,5 +81,5 @@ get:
             title: "getPreviewAppAclResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

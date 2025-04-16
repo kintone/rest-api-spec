@@ -1,39 +1,4 @@
 ---
-get:
-  description: "Gets the field layout info of a form in an App.\n"
-  operationId: "getPreviewAppFormLayout"
-  parameters:
-  - description: "The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "The App ID.\n"
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/app/form/layout/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              layout:
-                description: "A list of field layouts for each row.\n"
-                items:
-                  anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
-                type: "array"
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppFormLayoutResponse"
-            type: "object"
-  tags:
-  - "APP"
 put:
   description: "Updates the field layout info of a form in an App.\nThis API updates\
     \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
@@ -84,5 +49,40 @@ put:
             title: "putPreviewAppFormLayoutResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
+get:
+  description: "Gets the field layout info of a form in an App.\n"
+  operationId: "getPreviewAppFormLayout"
+  parameters:
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/form/layout/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              layout:
+                description: "A list of field layouts for each row.\n"
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
+                type: "array"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppFormLayoutResponse"
+            type: "object"
+  tags:
+  - "APPS"
 

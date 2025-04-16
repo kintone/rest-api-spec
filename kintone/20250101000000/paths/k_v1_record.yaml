@@ -65,7 +65,7 @@ put:
             title: "putRecordResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 get:
   operationId: "getRecord"
   parameters:
@@ -120,7 +120,7 @@ get:
             title: "getRecordResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 post:
   operationId: "postRecord"
   parameters: []
@@ -183,5 +183,5 @@ post:
             title: "postRecordResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

@@ -48,5 +48,5 @@ get:
             title: "getAppPluginsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

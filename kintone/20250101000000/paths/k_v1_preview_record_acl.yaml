@@ -51,7 +51,7 @@ put:
             title: "putPreviewRecordAclResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 get:
   description: "Gets the Record permission settings of an App.\n"
   operationId: "getPreviewRecordAcl"
@@ -107,5 +107,5 @@ get:
             title: "getPreviewRecordAclResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

@@ -68,5 +68,5 @@ get:
             title: "getAppNotificationsReminderResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

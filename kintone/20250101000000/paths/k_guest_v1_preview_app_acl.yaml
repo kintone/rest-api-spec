@@ -56,7 +56,7 @@ put:
             title: "putPreviewAppAclForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the App permissions of an App.\n"
   operationId: "getPreviewAppAclForGuestSpace"
@@ -97,5 +97,5 @@ get:
             title: "getPreviewAppAclForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

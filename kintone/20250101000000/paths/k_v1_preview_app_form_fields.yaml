@@ -50,7 +50,82 @@ delete:
             title: "deletePreviewAppFormFieldsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
+put:
+  description: "Updates the field settings of fields in a form of an App.\nThis API\
+    \ updates the pre-live settings.\nAfter using this API, use the Deploy App Settings\
+    \ API to deploy the settings to the live App.\n"
+  operationId: "putPreviewAppFormFields"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              description: "The App ID.\n"
+              format: "long"
+              type: "integer"
+            properties:
+              additionalProperties:
+                anyOf:
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDateFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutFileFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTableForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm"
+                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm"
+              description: "An object with data of the field settings.\n"
+              type: "object"
+            revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
+              format: "long"
+              type: "integer"
+          required:
+          - "app"
+          - "properties"
+          title: "putPreviewAppFormFieldsRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/form/fields/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "putPreviewAppFormFieldsResponse"
+            type: "object"
+  tags:
+  - "APPS"
 get:
   description: "Gets the list of fields and field settings of an App.\n"
   operationId: "getPreviewAppFormFields"
@@ -132,7 +207,7 @@ get:
             title: "getPreviewAppFormFieldsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 post:
   description: "Adds fields to a form of an App.\nThis API updates the pre-live settings.\n\
     After using this API, use the Deploy App Settings API to deploy the settings to\
@@ -207,80 +282,5 @@ post:
             title: "postPreviewAppFormFieldsResponse"
             type: "object"
   tags:
-  - "APP"
-put:
-  description: "Updates the field settings of fields in a form of an App.\nThis API\
-    \ updates the pre-live settings.\nAfter using this API, use the Deploy App Settings\
-    \ API to deploy the settings to the live App.\n"
-  operationId: "putPreviewAppFormFields"
-  parameters: []
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              description: "The App ID.\n"
-              format: "long"
-              type: "integer"
-            properties:
-              additionalProperties:
-                anyOf:
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDateFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutFileFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTableForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm"
-                - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm"
-              description: "An object with data of the field settings.\n"
-              type: "object"
-            revision:
-              description: "Specify the revision number of the settings that will\
-                \ be deployed.\nThe request will fail if the revision number is not\
-                \ the latest revision.\nThe revision will not be checked if this parameter\
-                \ is ignored, or -1 is specified.\n"
-              format: "long"
-              type: "integer"
-          required:
-          - "app"
-          - "properties"
-          title: "putPreviewAppFormFieldsRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of preview/app/form/fields/put"
-      content:
-        application/json:
-          schema:
-            properties:
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "putPreviewAppFormFieldsResponse"
-            type: "object"
-  tags:
-  - "APP"
+  - "APPS"
 

@@ -56,7 +56,7 @@ get:
             title: "getPreviewAppPluginsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 post:
   description: "Adds Plug-ins to an App.\n"
   operationId: "postPreviewAppPluginsForGuestSpace"
@@ -110,5 +110,5 @@ post:
             title: "postPreviewAppPluginsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

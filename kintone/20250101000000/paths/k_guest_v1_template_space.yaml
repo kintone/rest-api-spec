@@ -54,5 +54,5 @@ post:
             title: "postTemplateSpaceForGuestSpaceResponse"
             type: "object"
   tags:
-  - "TEMPLATE"
+  - "TEMPLATES"
 

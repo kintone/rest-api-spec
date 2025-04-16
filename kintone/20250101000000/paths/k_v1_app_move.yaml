@@ -29,5 +29,5 @@ post:
         application/json:
           schema: {}
   tags:
-  - "APP"
+  - "APPS"
 

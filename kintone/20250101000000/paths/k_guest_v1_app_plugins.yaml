@@ -56,5 +56,5 @@ get:
             title: "getAppPluginsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

@@ -58,5 +58,5 @@ get:
             title: "getAppViewsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

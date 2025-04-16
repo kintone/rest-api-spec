@@ -60,5 +60,5 @@ get:
             title: "getRecordCommentsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 
