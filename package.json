@@ -2,10 +2,11 @@
   "name": "@kintone/rest-api-spec",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "keywords": [],
   "license": "Apache-2.0",
-  "author": "",
+  "author": {
+    "name": "Cybozu, Inc.",
+    "url": "https://cybozu.co.jp"
+  },
   "type": "module",
   "exports": {
     "*": "./kintone/*"
@@ -24,6 +25,9 @@
     "@redocly/cli": "^1.34.2",
     "glob": "^11.0.1",
     "zx": "^8.5.2"
+  },
+  "publishConfig": {
+    "access": "restricted"
   },
   "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
 }

@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "license": "Apache-2.0",
+  "author": {
+    "name": "Cybozu, Inc.",
+    "url": "https://cybozu.co.jp"
+  },
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
@@ -29,5 +33,8 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
