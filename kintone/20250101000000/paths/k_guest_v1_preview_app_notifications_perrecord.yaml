@@ -1,5 +1,8 @@
 ---
 put:
+  description: "Updates the Per Record Notification settings of the App.\n\nThis API\
+    \ updates the pre-live settings.\nAfter using this API, use the Deploy App Settings\
+    \ API to deploy the settings to the live App.\n"
   operationId: "putPreviewAppNotificationsPerRecordForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,6 +10,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -15,13 +20,22 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             notifications:
+              description: "An array of objects containing data of the Per Record\
+                \ Notification settings.\nIf the array is empty, all of the Per Record\
+                \ Notification settings will be deleted.\nIf ignored, this setting\
+                \ will not be changed.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutNotification"
               type: "array"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -37,6 +51,7 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppNotificationsPerRecordForGuestSpaceResponse"
@@ -44,6 +59,7 @@ put:
   tags:
   - "APP"
 get:
+  description: "Gets the Per Record Notification settings of the App.\n"
   operationId: "getPreviewAppNotificationsPerRecordForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -51,17 +67,38 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "Set this parameter if there are fields that contain multiple options,\
+      \ and the Localization Settings have been set for those option names.\nThe response\
+      \ parameter notifications[].filterCond will include the localized option names\
+      \ in the query string.\n- default: retrieves the default names\n- en: retrieves\
+      \ the localized English names\n- zh: retrieves the localized Chinese names\n\
+      - ja: retrieves the localized Japanese names\n- user: retrieves the localized\
+      \ names, in the same language as the language setting* set on the user used\
+      \ for the authentication.\n\nIf ignored, the default names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "Set this parameter if there are fields that contain multiple options,\
+        \ and the Localization Settings have been set for those option names.\nThe\
+        \ response parameter notifications[].filterCond will include the localized\
+        \ option names in the query string.\n- default: retrieves the default names\n\
+        - en: retrieves the localized English names\n- zh: retrieves the localized\
+        \ Chinese names\n- ja: retrieves the localized Japanese names\n- user: retrieves\
+        \ the localized names, in the same language as the language setting* set on\
+        \ the user used for the authentication.\n\nIf ignored, the default names will\
+        \ be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -77,6 +114,8 @@ get:
           schema:
             properties:
               notifications:
+                description: "An array of objects containing data of the Per Record\
+                  \ Notification settings.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordGetNotification"
                 type: "array"

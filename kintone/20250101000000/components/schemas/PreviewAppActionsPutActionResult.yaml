@@ -1,6 +1,7 @@
 ---
 properties:
   id:
+    description: "The ID of the Action.\n"
     format: "long"
     type: "integer"
 type: "object"

@@ -1,6 +1,7 @@
 ---
 properties:
   key:
+    description: "The key identifier of the icon.\n"
     enum:
     - "APP1"
     - "APP2"
@@ -94,6 +95,8 @@ properties:
     - "APP90"
     type: "string"
   type:
+    description: "The icon type:\n- FILE: An uploaded image.\n- PRESET: A preset icon\
+      \ within Kintone.\n"
     enum:
     - "FILE"
     - "PRESET"

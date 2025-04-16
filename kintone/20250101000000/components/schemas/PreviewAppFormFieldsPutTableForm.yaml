@@ -1,6 +1,10 @@
 ---
 properties:
   code:
+    description: "The field code of the field.\nField codes have the following limitations:\n\
+      - The maximum character limit is 128\n- Duplicate field codes cannot exist\n\
+      - _ is the only symbol that can be used\n- Numbers cannot be used to start a\
+      \ field code\n"
     maxLength: 128
     minLength: 1
     type: "string"
@@ -34,15 +38,29 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTableForm"
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm"
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm"
+    description: "An object containing data of fields in a table.\nThe parameters\
+      \ of this object are the same as the properties parameter.\n"
     type: "object"
   label:
+    description: "The field name.\n"
     maxLength: 128
     minLength: 1
     type: "string"
   noLabel:
+    description: "The \"Hide field name\" option.\n- true: The field's name will be\
+      \ hidden.\n- false: The field's name will be displayed.\n"
     format: "boolean"
     type: "boolean"
   type:
+    description: "The field type.\n- GROUP: Group\n- GROUP_SELECT: Group selection\n\
+      - CALC: Calculated\n- CHECK_BOX: Check box\n- DATE: Date\n- DATETIME: Date and\
+      \ time\n- DROP_DOWN: Drop-down\n- FILE: Attachment\n- LINK: Link\n- MULTI_LINE_TEXT:\
+      \ Text Area\n- MULTI_SELECT: Multi-choice\n- NUMBER: Number\n- ORGANIZATION_SELECT:\
+      \ Department selection\n- RADIO_BUTTON: Radio button\n- RECORD_NUMBER: Record\
+      \ number\n- REFERENCE_TABLE: Related Records\n- RICH_TEXT: Rich text\n- SINGLE_LINE_TEXT:\
+      \ Text\n- SUBTABLE: Table\n- TIME: Time\n- USER_SELECT: User selection\n\nFor\
+      \ Lookup fields, specify either SINGLE_LINE_TEXT or NUMBER,\ndepending on the\
+      \ type of the Key field it's looking up.\n"
     enum:
     - "CALC"
     - "CATEGORY"

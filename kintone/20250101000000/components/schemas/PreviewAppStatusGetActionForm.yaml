@@ -1,12 +1,16 @@
 ---
 properties:
   filterCond:
+    description: "The branch criteria of the action.\n"
     type: "string"
   from:
+    description: "The status before taking action.\n"
     type: "string"
   name:
+    description: "The Action name.\n"
     type: "string"
   to:
+    description: "The status after taking action.\n"
     type: "string"
 type: "object"
 

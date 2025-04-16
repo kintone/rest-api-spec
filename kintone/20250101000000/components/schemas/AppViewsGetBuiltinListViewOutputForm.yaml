@@ -1,26 +1,40 @@
 ---
 properties:
   builtinType:
+    description: "The type of the built-in View.\n- ASSIGNEE: The \"Assigned to me\"\
+      \ View.\n(This list is automatically created if the Process Management settings\
+      \ have been enabled in the app.\n\nCurrently, there are no other types of built-in\
+      \ Views.\n"
     enum:
     - "ASSIGNEE"
     type: "string"
   fields:
+    description: "The list of field codes for the fields displayed in the View.\n\
+      Responded for List Views.\n"
     items:
       type: "string"
     type: "array"
   filterCond:
+    description: "The filter condition as a query.\n"
     type: "string"
   id:
+    description: "The View ID.\n"
     format: "long"
     type: "integer"
   index:
+    description: "The display order (ascending) of the View, when listed with other\
+      \ views.\n"
     format: "long"
     type: "integer"
   name:
+    description: "The name of the View.\n"
     type: "string"
   sort:
+    description: "The sort order as a query.\n"
     type: "string"
   type:
+    description: "The type of View.\n - LIST: List View\n - CALENDAR: Calendar View\n\
+      \ - CUSTOM: Custom View\n"
     enum:
     - "LIST"
     - "CALENDAR"

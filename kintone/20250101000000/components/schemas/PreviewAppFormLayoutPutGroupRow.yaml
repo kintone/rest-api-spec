@@ -1,13 +1,18 @@
 ---
 properties:
   code:
+    description: "The field code of the Table or Group field.\nThis parameter will\
+      \ not be returned for other row types.\n"
     maxLength: 128
     type: "string"
   layout:
+    description: "A list of field layouts for each row inside a Group field.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutRow"
     type: "array"
   type:
+    description: "The type of row\n- ROW: A normal row of fields.\n- SUBTABLE: A Table.\n\
+      - GROUP: A Group field.\n"
     enum:
     - "ROW"
     - "SUBTABLE"

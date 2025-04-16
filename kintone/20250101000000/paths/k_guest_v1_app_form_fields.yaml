@@ -1,5 +1,6 @@
 ---
 get:
+  description: "Gets the list of fields and field settings of an App.\n"
   operationId: "getAppFormFieldsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,17 +8,33 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The localized language to retrieve the data in:\n- default: retrieves\
+      \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+      \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+      - user: retrieves the localized names,\n  in the same language as the language\
+      \ setting* set on the user used for the authentication.\n\nIf ignored, the default\
+      \ names will be retrieved.\n"
+    in: "query"
     name: "lang"
     required: false
     schema:
+      description: "The localized language to retrieve the data in:\n- default: retrieves\
+        \ the default names\n- en: retrieves the localized English names\n- zh: retrieves\
+        \ the localized Chinese names\n- ja: retrieves the localized Japanese names\n\
+        - user: retrieves the localized names,\n  in the same language as the language\
+        \ setting* set on the user used for the authentication.\n\nIf ignored, the\
+        \ default names will be retrieved.\n"
       enum:
       - "default"
       - "user"
@@ -62,8 +79,10 @@ get:
                   - $ref: "../openapi.yaml#/components/schemas/AppFormFieldsGetTableForm"
                   - $ref: "../openapi.yaml#/components/schemas/AppFormFieldsGetTimeFieldForm"
                   - $ref: "../openapi.yaml#/components/schemas/AppFormFieldsGetUserSelectFieldForm"
+                description: "An object with data of the field settings.\n"
                 type: "object"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getAppFormFieldsForGuestSpaceResponse"

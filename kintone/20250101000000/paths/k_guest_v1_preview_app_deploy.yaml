@@ -1,5 +1,55 @@
 ---
+post:
+  description: "Updates the settings of a pre-live App to the live App.\nUsing this\
+    \ API gives the same results as when users click on \"Update App\" or \"Discard\
+    \ Changes\" on the App's settings page.\nIf multiple apps are specified in this\
+    \ API, and one of the updates to an App fails, all of the specified Apps will\
+    \ rollback to the state before this API was run.\nIf the record/field permissions\
+    \ of Apps are changed, the updated settings will be applied to the concerned records/fields\
+    \ sequentially, within each App.\n"
+  operationId: "deployAppForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            apps:
+              description: "The list of Apps to deploy the pre-live settings to the\
+                \ live Apps.\nThe Maximum limit is 300.\nIf Apps are being deployed\
+                \ to Guest Spaces,\nApps can only be deployed to the same Guest Space.\n"
+              items:
+                $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
+              type: "array"
+            revert:
+              description: "Specify `true` to cancel all changes made to the pre-live\
+                \ settings.\nThe pre-live settings will be reverted back to the current\
+                \ settings of the live app.\n"
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "apps"
+          title: "deployAppForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of preview/app/deploy/post"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "APP"
 get:
+  description: "Gets the deployment status of the App settings for multiple Apps.\n"
   operationId: "getPreviewAppDeployForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -7,11 +57,19 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The list of Apps to check the deploy statuses of.\nThe Maximum limit\
+      \ is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified in the\
+      \ request must belong to that Guest Space.\n"
+    in: "query"
     name: "apps"
     required: true
     schema:
+      description: "The list of Apps to check the deploy statuses of.\nThe Maximum\
+        \ limit is 300.\nIf Apps in Guest Spaces are specified,\nall Apps specified\
+        \ in the request must belong to that Guest Space.\n"
       items:
         format: "long"
         type: "integer"
@@ -24,45 +82,12 @@ get:
           schema:
             properties:
               apps:
+                description: "A list of objects with data of deploy statuses.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployGetAppForm"
                 type: "array"
             title: "getPreviewAppDeployForGuestSpaceResponse"
             type: "object"
-  tags:
-  - "APP"
-post:
-  operationId: "postPreviewAppDeployForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            apps:
-              items:
-                $ref: "../openapi.yaml#/components/schemas/PreviewAppDeployPostAppForm"
-              type: "array"
-            revert:
-              format: "boolean"
-              type: "boolean"
-          required:
-          - "apps"
-          title: "postPreviewAppDeployForGuestSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of preview/app/deploy/post"
-      content:
-        application/json:
-          schema: {}
   tags:
   - "APP"
 

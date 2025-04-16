@@ -1,11 +1,14 @@
 ---
 get:
+  description: "Gets notes for app administrators and their settings.\n"
   operationId: "getAppAdminNotes"
   parameters:
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       type: "string"
   responses:
     "200":
@@ -15,10 +18,15 @@ get:
           schema:
             properties:
               content:
+                description: "The content of the notes. If not set, an empty string\
+                  \ is returned.\n"
                 type: "string"
               includeInTemplateAndDuplicates:
+                description: "The permission settings to include this note in app\
+                  \ templates or duplicates\n- true: include\n- false: do not include\n"
                 type: "boolean"
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "getAppAdminNotesResponse"

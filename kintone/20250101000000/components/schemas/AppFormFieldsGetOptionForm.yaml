@@ -1,9 +1,12 @@
 ---
 properties:
   index:
+    description: "The display order (ascending) of the option, when listed with the\
+      \ other options.\n"
     format: "long"
     type: "integer"
   label:
+    description: "The name of the option.\n"
     maxLength: 128
     minLength: 1
     type: "string"

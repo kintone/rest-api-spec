@@ -1,26 +1,4 @@
 ---
-delete:
-  operationId: "deleteRecordsCursorForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of records/cursor/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "RECORDS"
 get:
   operationId: "getRecordsCursorForGuestSpace"
   parameters:
@@ -29,6 +7,8 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   - in: "query"
     name: "id"
@@ -87,6 +67,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -125,6 +107,30 @@ post:
                 type: "integer"
             title: "postRecordsCursorForGuestSpaceResponse"
             type: "object"
+  tags:
+  - "RECORDS"
+delete:
+  operationId: "deleteRecordsCursorForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of records/cursor/delete"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "RECORDS"
 

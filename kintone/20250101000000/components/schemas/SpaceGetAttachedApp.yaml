@@ -1,33 +1,54 @@
 ---
 properties:
   appId:
+    description: "The App ID\n"
     format: "long"
     type: "integer"
   code:
+    description: "The App Code of the App.\nAn empty string is returned if an App\
+      \ Code is not set in the App's settings.\n"
     type: "string"
   createdAt:
+    description: "The date of when the App was created.\n"
     format: "date-time"
     type: "string"
   creator:
+    description: "The information of the user who created the App.\n"
     properties:
       code:
+        description: "The log in name of the creator.\nAn empty string is returned\
+          \ for inactive users and deleted users.\n"
         type: "string"
       name:
+        description: "The display name of the creator.\nAn empty string is returned\
+          \ for inactive users and deleted users.\n"
         type: "string"
     type: "object"
   description:
+    description: "The description of the App.\nIf Localization settings are enabled,\
+      \ the localized name will be returned.\nThe localization language will be dependent\
+      \ on the language settings of the Kintone user authenticating this API.\n"
     type: "string"
   modifiedAt:
+    description: "The date of when the App was last modified.\n"
     format: "date-time"
     type: "string"
   modifier:
+    description: "The information of the user who last updated the App.\n"
     properties:
       code:
+        description: "The log in name of the creator.\nAn empty string is returned\
+          \ for inactive users and deleted users.\n"
         type: "string"
       name:
+        description: "The display name of the creator.\nAn empty string is returned\
+          \ for inactive users and deleted users.\n"
         type: "string"
     type: "object"
   name:
+    description: "The name of the App.\nIf Localization settings are enabled, the\
+      \ localized name will be returned.\nThe localization language will be dependent\
+      \ on the language settings of the Kintone user authenticating this API.\n"
     type: "string"
   threadId:
     format: "long"

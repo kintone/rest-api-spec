@@ -1,12 +1,16 @@
 ---
 properties:
   decimalPlaces:
+    description: "The Number of Decimal Places to Round setting.\n"
     format: "number"
     type: "string"
   digits:
+    description: "The Total Number of Digits setting.\n"
     format: "number"
     type: "string"
   roundingMode:
+    description: "The Rounding setting\n- HALF_EVEN: Round to nearest even number\n\
+      - UP: Round up\n- DOWN: Round down\n"
     enum:
     - "HALF_EVEN"
     - "UP"

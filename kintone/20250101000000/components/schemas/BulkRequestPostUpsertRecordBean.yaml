@@ -1,0 +1,15 @@
+---
+properties:
+  id:
+    format: "long"
+    type: "integer"
+  operation:
+    enum:
+    - "INSERT"
+    - "UPDATE"
+    type: "string"
+  revision:
+    format: "long"
+    type: "integer"
+type: "object"
+

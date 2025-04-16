@@ -1,45 +1,73 @@
 ---
 properties:
   code:
+    description: "The field code of the field.\nField codes have the following limitations:\n\
+      - The maximum character limit is 128\n- Duplicate field codes cannot exist\n\
+      - _ is the only symbol that can be used\n- Numbers cannot be used to start a\
+      \ field code\n"
     maxLength: 128
     minLength: 1
     type: "string"
   label:
+    description: "The field name.\n"
     maxLength: 128
     minLength: 1
     type: "string"
   lookup:
+    description: "An object containing the settings of the Lookup field.\n"
     properties:
       fieldMappings:
+        description: "An object containing the settings of the Lookup field.\n"
         items:
           $ref: "../../openapi.yaml#/components/schemas/PreviewAppFormFieldsPostFieldMappingForm"
         type: "array"
       filterCond:
+        description: "An object containing the settings of the Lookup field.\n"
         type: "string"
       lookupPickerFields:
+        description: "An object containing the settings of the Lookup field.\n"
         items:
           type: "string"
         type: "array"
       relatedApp:
+        description: "An object containing the settings of the related App of the\
+          \ Lookup field.\nRequired, if setting the `lookup` parameter.\n"
         properties:
           app:
+            description: " The App ID.\n"
             format: "long"
             type: "integer"
           code:
+            description: "The App Code.\n"
             type: "string"
         type: "object"
       relatedKeyField:
+        description: "An object containing the settings of the Lookup field.\n"
         type: "string"
       sort:
+        description: "An object containing the settings of the Lookup field.\n"
         type: "string"
     type: "object"
   noLabel:
+    description: "The \"Hide field name\" option.\n- true: The field's name will be\
+      \ hidden.\n- false: The field's name will be displayed.\n"
     format: "boolean"
     type: "boolean"
   required:
+    description: "The \"Required field\" option.\n- true: The field will be a required\
+      \ field.\n- false: The field will not be a required field.\n"
     format: "boolean"
     type: "boolean"
   type:
+    description: "The field type.\n- GROUP: Group\n- GROUP_SELECT: Group selection\n\
+      - CALC: Calculated\n- CHECK_BOX: Check box\n- DATE: Date\n- DATETIME: Date and\
+      \ time\n- DROP_DOWN: Drop-down\n- FILE: Attachment\n- LINK: Link\n- MULTI_LINE_TEXT:\
+      \ Text Area\n- MULTI_SELECT: Multi-choice\n- NUMBER: Number\n- ORGANIZATION_SELECT:\
+      \ Department selection\n- RADIO_BUTTON: Radio button\n- RECORD_NUMBER: Record\
+      \ number\n- REFERENCE_TABLE: Related Records\n- RICH_TEXT: Rich text\n- SINGLE_LINE_TEXT:\
+      \ Text\n- SUBTABLE: Table\n- TIME: Time\n- USER_SELECT: User selection\n\nFor\
+      \ Lookup fields, specify either SINGLE_LINE_TEXT or NUMBER,\ndepending on the\
+      \ type of the Key field it's looking up.\n"
     enum:
     - "CALC"
     - "CATEGORY"

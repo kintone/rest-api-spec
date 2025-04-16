@@ -1,9 +1,13 @@
 ---
 properties:
   filterCond:
+    description: "The record's filter condition in query string format.\nThe request\
+      \ will fail if a deleted User, Group, or Organization is specified in the filter\
+      \ condition.\n"
     format: "query"
     type: "string"
   targets:
+    description: "An array of objects containing the recipients of the Reminder Notification.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTarget"
     type: "array"
@@ -12,6 +16,7 @@ properties:
     - $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingRelative"
     - $ref: "../../openapi.yaml#/components/schemas/AppNotificationsReminderGetTimingAbsolute"
   title:
+    description: "The notification subject that is saved under Summary.\n"
     type: "string"
 type: "object"
 

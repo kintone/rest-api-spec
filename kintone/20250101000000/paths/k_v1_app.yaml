@@ -1,11 +1,15 @@
 ---
 get:
+  description: "Gets general information of an App, including the name, description,\
+    \ related Space, creator and updater information."
   operationId: "getApp"
   parameters:
-  - in: "query"
+  - description: "The App ID"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The App ID"
       format: "long"
       type: "integer"
   responses:
@@ -16,38 +20,68 @@ get:
           schema:
             properties:
               appId:
+                description: "The App ID\n"
                 format: "long"
                 type: "integer"
               code:
+                description: "The App Code of the App.\nAn empty string is returned\
+                  \ if an App Code is not set in the App's settings.\n"
                 type: "string"
               createdAt:
+                description: "The date of when the App was created.\n"
                 format: "date-time"
                 type: "string"
               creator:
+                description: "The information of the user who created the App.\n"
                 properties:
                   code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                   name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                 type: "object"
               description:
+                description: "The description of the App.\nIf Localization settings\
+                  \ are enabled, the localized name will be returned.\nThe localization\
+                  \ language will be dependent on the language settings of the Kintone\
+                  \ user authenticating this API.\n"
                 type: "string"
               modifiedAt:
+                description: "The date of when the App was last modified.\n"
                 format: "date-time"
                 type: "string"
               modifier:
+                description: "The information of the user who last updated the App.\n"
                 properties:
                   code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                   name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
                     type: "string"
                 type: "object"
               name:
+                description: "The name of the App.\nIf Localization settings are enabled,\
+                  \ the localized name will be returned.\nThe localization language\
+                  \ will be dependent on the language settings of the Kintone user\
+                  \ authenticating this API.\n"
                 type: "string"
               spaceId:
+                description: "If the App was created inside a Space,\nit will return\
+                  \ the Space ID. If not, null is returned.\n"
                 format: "long"
                 type: "integer"
               threadId:
+                description: "If the App was created inside a Space,\nit will return\
+                  \ the Thread ID of the Thread of the space it belongs to.\nApps\
+                  \ that are created inside Spaces using the GUI will be automatically\
+                  \ allocated to the default Thread.\nIf the App was not created in\
+                  \ a Space, null is returned.\n"
                 format: "long"
                 type: "integer"
             title: "getAppResponse"

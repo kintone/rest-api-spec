@@ -1,8 +1,17 @@
 ---
 properties:
   code:
+    description: "The field code of the field used to determine the Group by option.\n"
     type: "string"
   per:
+    description: "The time unit used for the Group by option.\n- YEAR: by the year\n\
+      - QUARTER: by the quarter\n- MONTH: by the month\n- WEEK: by the week\n- DAY:\
+      \ by the day\n- HOUR: by the hour\n- MINUTE: by the minute\n\nThis parameter\
+      \ is returned if one of the following fields are specified in reports.{graphname}.groups[].code:\n\
+      - Created datetime\n- Updated datetime\n- Date and time\n- Date (Only YEAR,\
+      \ QUARTER, MONTH, WEEK, or DAY)\n- Time (Only HOUR or MINUTE)\n\nIf no unit\
+      \ was specified (i.e. left as \"--\"), the minimum time unit will be returned:\n\
+      - For DateTime or Time fields: MINUTE\n- For Date fields: DAY\n"
     enum:
     - "YEAR"
     - "QUARTER"

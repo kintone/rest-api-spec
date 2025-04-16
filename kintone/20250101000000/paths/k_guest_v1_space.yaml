@@ -7,6 +7,8 @@ delete:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   - in: "query"
     name: "id"
@@ -22,6 +24,108 @@ delete:
           schema: {}
   tags:
   - "SPACE"
+get:
+  operationId: "getSpaceForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of space/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              attachedApps:
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
+                type: "array"
+              body:
+                type: "string"
+              coverKey:
+                type: "string"
+              coverType:
+                enum:
+                - "BLOB"
+                - "PRESET"
+                type: "string"
+              coverUrl:
+                type: "string"
+              creator:
+                properties:
+                  code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
+                    type: "string"
+                  name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
+                    type: "string"
+                type: "object"
+              defaultThread:
+                format: "long"
+                type: "integer"
+              fixedMember:
+                type: "boolean"
+              id:
+                format: "long"
+                type: "integer"
+              isGuest:
+                type: "boolean"
+              isPrivate:
+                type: "boolean"
+              memberCount:
+                format: "long"
+                type: "integer"
+              modifier:
+                properties:
+                  code:
+                    description: "The log in name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
+                    type: "string"
+                  name:
+                    description: "The display name of the creator.\nAn empty string\
+                      \ is returned for inactive users and deleted users.\n"
+                    type: "string"
+                type: "object"
+              name:
+                type: "string"
+              permissions:
+                properties:
+                  createApp:
+                    enum:
+                    - "EVERYONE"
+                    - "ADMIN"
+                    type: "string"
+                type: "object"
+              showAnnouncement:
+                type: "boolean"
+              showAppList:
+                type: "boolean"
+              showMemberList:
+                type: "boolean"
+              showRelatedLinkList:
+                type: "boolean"
+              showThreadList:
+                type: "boolean"
+              useMultiThread:
+                type: "boolean"
+            title: "getSpaceForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "SPACE"
 put:
   operationId: "putSpaceForGuestSpace"
   parameters:
@@ -30,6 +134,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -86,98 +192,6 @@ put:
       content:
         application/json:
           schema: {}
-  tags:
-  - "SPACE"
-get:
-  operationId: "getSpaceForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      type: "integer"
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of space/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              attachedApps:
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
-                type: "array"
-              body:
-                type: "string"
-              coverKey:
-                type: "string"
-              coverType:
-                enum:
-                - "BLOB"
-                - "PRESET"
-                type: "string"
-              coverUrl:
-                type: "string"
-              creator:
-                properties:
-                  code:
-                    type: "string"
-                  name:
-                    type: "string"
-                type: "object"
-              defaultThread:
-                format: "long"
-                type: "integer"
-              fixedMember:
-                type: "boolean"
-              id:
-                format: "long"
-                type: "integer"
-              isGuest:
-                type: "boolean"
-              isPrivate:
-                type: "boolean"
-              memberCount:
-                format: "long"
-                type: "integer"
-              modifier:
-                properties:
-                  code:
-                    type: "string"
-                  name:
-                    type: "string"
-                type: "object"
-              name:
-                type: "string"
-              permissions:
-                properties:
-                  createApp:
-                    enum:
-                    - "EVERYONE"
-                    - "ADMIN"
-                    type: "string"
-                type: "object"
-              showAnnouncement:
-                type: "boolean"
-              showAppList:
-                type: "boolean"
-              showMemberList:
-                type: "boolean"
-              showRelatedLinkList:
-                type: "boolean"
-              showThreadList:
-                type: "boolean"
-              useMultiThread:
-                type: "boolean"
-            title: "getSpaceForGuestSpaceResponse"
-            type: "object"
   tags:
   - "SPACE"
 

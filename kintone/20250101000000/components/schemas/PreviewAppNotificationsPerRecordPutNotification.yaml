@@ -1,13 +1,20 @@
 ---
 properties:
   filterCond:
+    description: "The record's filter condition in query string format.\nRequired\
+      \ when specifying the notifications parameter.\n"
     format: "query"
     type: "string"
   targets:
+    description: "An array of objects containing the recipients of the Per Record\
+      \ Notification.\nIf the array is empty, the Per Record Notification will not\
+      \ have a recipient.\nRequired when specifying the notifications parameter.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppNotificationsPerRecordPutTarget"
     type: "array"
   title:
+    description: "The notification subject saved under \"Summary\".\nIf ignored, the\
+      \ notification subject will be an empty string.\n"
     maxLength: 100
     type: "string"
 required:

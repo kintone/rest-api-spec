@@ -7,6 +7,8 @@ put:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true
@@ -80,6 +82,8 @@ get:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   - in: "query"
     name: "app"
@@ -141,6 +145,8 @@ post:
     name: "guestSpaceId"
     required: true
     schema:
+      description: "guest space id"
+      title: "guestSpaceId"
       type: "integer"
   requestBody:
     required: true

@@ -1,11 +1,22 @@
 ---
 properties:
   code:
+    description: "The field code of the field used to determine the Reminder notification's\
+      \ timing.\n"
     type: "string"
   daysLater:
+    description: "The number of days after the notifications[].timing.code date/datetime\
+      \ when the Reminder notification is sent.\nA negative value indicates the number\
+      \ of days before the notifications[].timing.code date/datetime.\n"
     format: "long"
     type: "integer"
   hoursLater:
+    description: "The number of hours after the notifications[].timing.code datetime,\
+      \ shifted by daysLater when the Reminder notification is sent.\nA negative value\
+      \ indicates the number of hours before the notifications[].timing.code datetime,\
+      \ shifted by daysLater.\nThe parameter is returned only if the notifications[].timing.code\
+      \ parameter is set to a Date and Time field and the When hours before/after\
+      \ option is configured (instead of the At time option).\n"
     format: "long"
     type: "integer"
 type: "object"

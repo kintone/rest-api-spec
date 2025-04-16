@@ -1,20 +1,4 @@
 ---
-delete:
-  operationId: "deleteRecordsCursor"
-  parameters:
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of records/cursor/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "RECORDS"
 get:
   operationId: "getRecordsCursor"
   parameters:
@@ -107,6 +91,22 @@ post:
                 type: "integer"
             title: "postRecordsCursorResponse"
             type: "object"
+  tags:
+  - "RECORDS"
+delete:
+  operationId: "deleteRecordsCursor"
+  parameters:
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of records/cursor/delete"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "RECORDS"
 

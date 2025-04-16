@@ -1,12 +1,25 @@
 ---
 properties:
   commentAdded:
+    description: "Option to notify the entity when a comment is posted.\n- true: Notify\
+      \ when a comment is posted\n- false: Do not notify when a comment is posted\n"
     type: "boolean"
   entity:
+    description: "An object containing data of the entity the General Notification\
+      \ settings are configured to.\n"
     properties:
       code:
+        description: "The code of the entity the General Notification settings are\
+          \ configured to.\nThe following entities will return the following values:\n\
+          - FIELD_ENTITY: The field code of the field\n- For all other entities: The\
+          \ code of the User, Group, or Department\n\nFor guest users, the login name\
+          \ is preceded by `guest/`.\n"
         type: "string"
       type:
+        description: "The type of the entity the General Notification settings are\
+          \ configured to.\n- USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n\
+          - FIELD_ENTITY: Created By, Updated By, User Selection, Group Selection,\
+          \ and Department Selection Fields\n"
         enum:
         - "USER"
         - "GROUP"
@@ -15,14 +28,27 @@ properties:
         type: "string"
     type: "object"
   fileImported:
+    description: "Option to notify the entity when a file is imported.\n- true: Notify\
+      \ when a file is imported\n- false: Do not notify when a file is imported\n"
     type: "boolean"
   includeSubs:
+    description: "The \"Include affiliated departments\" setting of the Department.\n\
+      Will always return `false` unless the notifications[].entity.type is set to\
+      \ `ORGANIZATION` or `FIELD_ENTITY` for a Department Selection Field.\n- true:\
+      \ Affiliated departments do inherit the General Notification settings\n- false:\
+      \ Affiliated departments do not inherit the General Notification settings\n"
     type: "boolean"
   recordAdded:
+    description: "Option to notify the entity when a record is added.\n- true: Notify\
+      \ when a record is added\n- false: Do not notify when a record is added\n"
     type: "boolean"
   recordEdited:
+    description: "Option to notify the entity when a record is edited.\n- true: Notify\
+      \ when a record is edited\n- false: Do not notify when a record is edited\n"
     type: "boolean"
   statusChanged:
+    description: "Option to notify the entity when a status is changed.\n- true: Notify\
+      \ when a status is changed\n- false: Do not notify when a status is changed\n"
     type: "boolean"
 type: "object"
 

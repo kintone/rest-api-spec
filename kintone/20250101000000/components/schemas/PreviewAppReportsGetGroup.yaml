@@ -1,6 +1,7 @@
 ---
 properties:
   code:
+    description: "The field code of the field used to determine the Group by option.\n"
     type: "string"
 type: "object"
 

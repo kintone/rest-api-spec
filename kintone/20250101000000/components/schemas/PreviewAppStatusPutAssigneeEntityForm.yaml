@@ -1,10 +1,24 @@
 ---
 properties:
   entity:
+    description: "An object containing user data of the Assignees.\nRequired, if setting\
+      \ the entities parameter.\n"
     properties:
       code:
+        description: "The code of the Assignee.\nTo specify guest space users, add\
+          \ the string \"guest/\" before the guest's log in name.\nIf \"FIELD_ENTITY\"\
+          \ is specified for the entity.type, state the field code of the following\
+          \ fields:\n- Created by\n- Updated by\n- User selection\n- Department selection\n\
+          - Group selection\nIf \"CUSTOM_FIELD\" is specified for entity.type, state\
+          \ the field code of the Custom Field.\nIf \"CREATOR\" is specified for entity.type,\
+          \ ignore this parameter.\n"
         type: "string"
       type:
+        description: "The entity type of the Assignee.\n- USER: User\n- GROUP: Group\n\
+          - ORGANIZATION: Department\n- FIELD_ENTITY: User/Group/Department selection\
+          \ field\n- CREATOR: Created by field\n- CUSTOM_FIELD: A Custom Field\n\n\
+          Required, for each entity stated.\nDepartments cannot be specified in guest\
+          \ space Apps.\n"
         enum:
         - "USER"
         - "GROUP"
@@ -17,6 +31,9 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The \"Include affiliated departments\" settings of the department.\n\
+      - true: Affiliated departments are included as Assignees\n- false: Affiliated\
+      \ departments are not included as Assignees\n\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
 required:

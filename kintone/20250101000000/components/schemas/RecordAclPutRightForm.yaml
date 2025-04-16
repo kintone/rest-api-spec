@@ -1,10 +1,15 @@
 ---
 properties:
   entities:
+    description: "An array listing the entities the permissions are granted to. List\
+      \ in order of priority.\nThe \"Everyone\" group will be treated with the lowest\
+      \ priority, wherever it is placed in the list.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/RecordAclPutEntityRightForm"
     type: "array"
   filterCond:
+    description: "The filter condition in a query format.\nIf this parameter is ignored,\
+      \ the filter condition will be \"All records\".\n"
     format: "query"
     type: "string"
 required:

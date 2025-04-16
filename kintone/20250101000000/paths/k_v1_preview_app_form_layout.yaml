@@ -1,5 +1,43 @@
 ---
+get:
+  description: "Gets the field layout info of a form in an App.\n"
+  operationId: "getPreviewAppFormLayout"
+  parameters:
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/form/layout/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              layout:
+                description: "A list of field layouts for each row.\n"
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
+                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
+                type: "array"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppFormLayoutResponse"
+            type: "object"
+  tags:
+  - "APP"
 put:
+  description: "Updates the field layout info of a form in an App.\nThis API updates\
+    \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
+    \ to deploy the settings to the live App.\n"
   operationId: "putPreviewAppFormLayout"
   parameters: []
   requestBody:
@@ -9,9 +47,11 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             layout:
+              description: "A list of field layouts for each row.\n"
               items:
                 anyOf:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutRow"
@@ -19,6 +59,10 @@ put:
                 - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutPutSubtableRow"
               type: "array"
             revision:
+              description: "Specify the revision number of the settings that will\
+                \ be deployed.\nThe request will fail if the revision number is not\
+                \ the latest revision.\nThe revision will not be checked if this parameter\
+                \ is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -34,39 +78,10 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the App settings.\n"
                 format: "long"
                 type: "integer"
             title: "putPreviewAppFormLayoutResponse"
-            type: "object"
-  tags:
-  - "APP"
-get:
-  operationId: "getPreviewAppFormLayout"
-  parameters:
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/app/form/layout/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              layout:
-                items:
-                  anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetGroupRow"
-                  - $ref: "../openapi.yaml#/components/schemas/PreviewAppFormLayoutGetSubtableRow"
-                type: "array"
-              revision:
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppFormLayoutResponse"
             type: "object"
   tags:
   - "APP"

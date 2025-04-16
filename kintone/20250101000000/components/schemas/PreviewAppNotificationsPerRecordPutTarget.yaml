@@ -1,10 +1,21 @@
 ---
 properties:
   entity:
+    description: "An object containing entity details per recipient of the Per Record\
+      \ Notification.\nRequired when specifying the notifications parameter.\n"
     properties:
       code:
+        description: "The code of the entity the Per Record Notification settings\
+          \ are configured to.\nSpecify the field code if the notifications[].targets[].entity.type\
+          \ parameter is specified as FIELD_ENTITY.\nFor guest users, add guest/ before\
+          \ the login name.\nRequired when specifying the entity parameter.\n"
         type: "string"
       type:
+        description: "The type of the entity the Per Record Notification settings\
+          \ are configured to.\n- USER: User\n- GROUP: Group\n- ORGANIZATION: Department\n\
+          - FIELD_ENTITY: Created By, Updated By, User Selection, Group Selection,\
+          \ and Department Selection Fields\n\nRequired when specifying the entity\
+          \ parameter.\n"
         enum:
         - "USER"
         - "GROUP"
@@ -16,6 +27,12 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The \"Include affiliated departments\" setting of the Department.\
+      \ This parameter is available if notifications[].targets[].entity.type parameter\
+      \ is specified to ORGANIZATION or FIELD_ENTITY.\n- true: Affiliated departments\
+      \ do inherit the Per Record Notification settings\n- false: Affiliated departments\
+      \ do not inherit the Per Record Notification settings\n\nIf ignored, this value\
+      \ is false.\n"
     format: "boolean"
     type: "boolean"
 required:

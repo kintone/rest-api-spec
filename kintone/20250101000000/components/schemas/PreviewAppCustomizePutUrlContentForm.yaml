@@ -1,11 +1,14 @@
 ---
 properties:
   type:
+    description: "The end-point type of the file:\n- URL: the file is specified with\
+      \ a URL.\n- FILE: the file is uploaded to the app.\n"
     enum:
     - "URL"
     - "FILE"
     type: "string"
   url:
+    description: "The URL of the file.\n"
     type: "string"
 required:
 - "type"

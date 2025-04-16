@@ -1,30 +1,44 @@
 ---
 properties:
   destApp:
+    description: "An object containing the Target option that specifies the destination\
+      \ app where data is to be copied.\n"
     properties:
       app:
+        description: "The App ID of the copy destination app.\n"
         format: "long"
         type: "integer"
       code:
+        description: "The App Code of the copy destination app.\nAn empty string is\
+          \ returned if an App Code is not set in the destination app's settings.\n"
         type: "string"
     type: "object"
   entities:
+    description: "An array of objects containing the entities the Action is granted\
+      \ to. This reflects the Available To options.\nInactive users and deleted users/departments/groups\
+      \ will not be included in the response.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetEntity"
     type: "array"
   id:
+    description: "The ID of the Action.\n"
     format: "long"
     type: "integer"
   index:
+    description: "The order of the Action, starting from 0.\n"
     format: "long"
     type: "integer"
   mappings:
+    description: "An array of objects containing the Field Mappings options.\nAn empty\
+      \ array is returned if the Field Mappings options are not configured.\n"
     items:
       anyOf:
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetUrlMapping"
       - $ref: "../../openapi.yaml#/components/schemas/PreviewAppActionsGetFieldMapping"
     type: "array"
   name:
+    description: "The name of the Action.\nWhen the lang request parameter is specified,\
+      \ the Action's name in that language will be returned.\n"
     type: "string"
 type: "object"
 
