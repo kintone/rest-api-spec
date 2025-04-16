@@ -1,37 +1,4 @@
 ---
-get:
-  description: "Gets the Field permission settings of an App.\n"
-  operationId: "getPreviewFieldAcl"
-  parameters:
-  - description: "The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "The App ID.\n"
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/field/acl/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-              rights:
-                description: "An array of objects that contain data of permission\
-                  \ settings.\n"
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclGetRight"
-                type: "array"
-            title: "getPreviewFieldAclResponse"
-            type: "object"
-  tags:
-  - "FIELD"
 put:
   description: "Updates the Field permission settings of an App.\nAll settings of\
     \ the pre-live App (not just the permission settings) will be deployed to the\
@@ -84,5 +51,38 @@ put:
             title: "putPreviewFieldAclResponse"
             type: "object"
   tags:
-  - "FIELD"
+  - "FIELDS"
+get:
+  description: "Gets the Field permission settings of an App.\n"
+  operationId: "getPreviewFieldAcl"
+  parameters:
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/field/acl/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+              rights:
+                description: "An array of objects that contain data of permission\
+                  \ settings.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewFieldAclGetRight"
+                type: "array"
+            title: "getPreviewFieldAclResponse"
+            type: "object"
+  tags:
+  - "FIELDS"
 

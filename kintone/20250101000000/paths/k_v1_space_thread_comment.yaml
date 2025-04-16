@@ -47,5 +47,5 @@ post:
             title: "postSpaceThreadCommentResponse"
             type: "object"
   tags:
-  - "SPACE"
+  - "SPACES"
 

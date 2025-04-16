@@ -56,7 +56,7 @@ put:
             title: "putPreviewAppStatusResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the process management settings of an App.\n"
   operationId: "getPreviewAppStatus"
@@ -125,5 +125,5 @@ get:
             title: "getPreviewAppStatusResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

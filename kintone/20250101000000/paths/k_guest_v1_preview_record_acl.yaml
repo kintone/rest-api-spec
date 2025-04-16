@@ -59,7 +59,7 @@ put:
             title: "putPreviewRecordAclForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 get:
   description: "Gets the Record permission settings of an App.\n"
   operationId: "getPreviewRecordAclForGuestSpace"
@@ -123,5 +123,5 @@ get:
             title: "getPreviewRecordAclForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

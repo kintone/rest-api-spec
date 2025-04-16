@@ -110,5 +110,5 @@ get:
             title: "getAppSettingsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

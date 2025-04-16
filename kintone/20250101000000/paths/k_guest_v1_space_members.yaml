@@ -34,7 +34,7 @@ put:
         application/json:
           schema: {}
   tags:
-  - "SPACE"
+  - "SPACES"
 get:
   operationId: "getSpaceMembersForGuestSpace"
   parameters:
@@ -69,5 +69,5 @@ get:
             title: "getSpaceMembersForGuestSpaceResponse"
             type: "object"
   tags:
-  - "SPACE"
+  - "SPACES"
 

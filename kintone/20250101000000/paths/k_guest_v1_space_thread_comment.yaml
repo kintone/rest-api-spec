@@ -55,5 +55,5 @@ post:
             title: "postSpaceThreadCommentForGuestSpaceResponse"
             type: "object"
   tags:
-  - "SPACE"
+  - "SPACES"
 

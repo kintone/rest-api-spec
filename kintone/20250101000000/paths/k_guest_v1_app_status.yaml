@@ -75,5 +75,5 @@ get:
             title: "getAppStatusForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

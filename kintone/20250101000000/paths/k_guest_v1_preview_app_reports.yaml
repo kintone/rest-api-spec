@@ -64,7 +64,7 @@ put:
             title: "putPreviewAppReportsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the Graph settings of the App.\n"
   operationId: "getPreviewAppReportsForGuestSpace"
@@ -133,5 +133,5 @@ get:
             title: "getPreviewAppReportsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

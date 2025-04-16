@@ -47,5 +47,5 @@ get:
             title: "getPreviewFormResponse"
             type: "object"
   tags:
-  - "FORM"
+  - "FORMS"
 

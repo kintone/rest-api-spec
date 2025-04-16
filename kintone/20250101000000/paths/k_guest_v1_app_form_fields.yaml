@@ -88,5 +88,5 @@ get:
             title: "getAppFormFieldsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

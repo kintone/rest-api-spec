@@ -1,4 +1,28 @@
 ---
+delete:
+  operationId: "deletePluginForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "id"
+    required: true
+    schema:
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "PLUGINS"
 put:
   operationId: "putPluginForGuestSpace"
   parameters:
@@ -39,31 +63,7 @@ put:
             title: "putPluginForGuestSpaceResponse"
             type: "object"
   tags:
-  - "PLUGIN"
-delete:
-  operationId: "deletePluginForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      type: "string"
-  responses:
-    "200":
-      description: "success case of plugin/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "PLUGIN"
+  - "PLUGINS"
 post:
   operationId: "postPluginForGuestSpace"
   parameters:
@@ -101,5 +101,5 @@ post:
             title: "postPluginForGuestSpaceResponse"
             type: "object"
   tags:
-  - "PLUGIN"
+  - "PLUGINS"
 

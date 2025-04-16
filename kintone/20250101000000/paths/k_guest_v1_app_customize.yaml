@@ -79,5 +79,5 @@ get:
             title: "getAppCustomizeForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

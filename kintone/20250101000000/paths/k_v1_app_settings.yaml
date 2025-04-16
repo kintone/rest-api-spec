@@ -102,5 +102,5 @@ get:
             title: "getAppSettingsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

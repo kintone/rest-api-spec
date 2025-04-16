@@ -52,5 +52,5 @@ get:
             title: "getRecordCommentsResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

@@ -32,5 +32,5 @@ get:
             title: "getAppAdminNotesResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

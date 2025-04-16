@@ -1,6 +1,6 @@
 ---
-put:
-  operationId: "putRecordsForGuestSpace"
+delete:
+  operationId: "deleteRecordsForGuestSpace"
   parameters:
   - description: "guest space id"
     in: "path"
@@ -10,44 +10,34 @@ put:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  requestBody:
+  - in: "query"
+    name: "app"
     required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              format: "long"
-              type: "integer"
-            records:
-              items:
-                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
-              type: "array"
-            upsert:
-              format: "boolean"
-              type: "boolean"
-          required:
-          - "app"
-          - "records"
-          title: "putRecordsForGuestSpaceRequest"
-          type: "object"
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "ids"
+    required: true
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  - in: "query"
+    name: "revisions"
+    required: false
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
   responses:
     "200":
-      description: "success case of records/put"
+      description: "success case of records/delete"
       content:
         application/json:
-          schema:
-            properties:
-              records:
-                oneOf:
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
-            title: "putRecordsForGuestSpaceResponse"
-            type: "object"
+          schema: {}
   tags:
   - "RECORDS"
 get:
@@ -131,6 +121,57 @@ get:
             type: "object"
   tags:
   - "RECORDS"
+put:
+  operationId: "putRecordsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            records:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
+              type: "array"
+            upsert:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "app"
+          - "records"
+          title: "putRecordsForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of records/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              records:
+                oneOf:
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
+            title: "putRecordsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "RECORDS"
 post:
   operationId: "postRecordsForGuestSpace"
   parameters:
@@ -206,47 +247,6 @@ post:
                 type: "array"
             title: "postRecordsForGuestSpaceResponse"
             type: "object"
-  tags:
-  - "RECORDS"
-delete:
-  operationId: "deleteRecordsForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "ids"
-    required: true
-    schema:
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  - in: "query"
-    name: "revisions"
-    required: false
-    schema:
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of records/delete"
-      content:
-        application/json:
-          schema: {}
   tags:
   - "RECORDS"
 

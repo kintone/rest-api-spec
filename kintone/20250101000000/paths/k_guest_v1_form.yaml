@@ -55,5 +55,5 @@ get:
             title: "getFormForGuestSpaceResponse"
             type: "object"
   tags:
-  - "FORM"
+  - "FORMS"
 

@@ -49,7 +49,7 @@ put:
             title: "putPreviewAppNotificationsPerRecordResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the Per Record Notification settings of the App.\n"
   operationId: "getPreviewAppNotificationsPerRecord"
@@ -109,5 +109,5 @@ get:
             title: "getPreviewAppNotificationsPerRecordResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

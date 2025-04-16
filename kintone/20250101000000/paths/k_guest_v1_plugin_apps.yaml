@@ -39,5 +39,5 @@ get:
             title: "getPluginAppsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "PLUGIN"
+  - "PLUGINS"
 
