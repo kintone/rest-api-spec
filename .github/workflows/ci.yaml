@@ -27,7 +27,7 @@ jobs:
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm bundle
-      - run: git diff --exit-code --quiet
+      - run: git diff --stat --exit-code
 
   lint:
     name: Lint
