@@ -28,8 +28,7 @@ jobs:
           node-version: "lts/*"
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm build
-        working-directory: website
+      - run: pnpm doc:build
       - name: Setup Pages Configuration
         uses: actions/configure-pages@v5
       - name: Upload artifact

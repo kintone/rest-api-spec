@@ -1,27 +1,29 @@
 {
   "name": "@kintone/rest-api-spec",
-  "private": true,
-  "type": "module",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "author": "",
+  "type": "module",
   "exports": {
     "*": "./kintone/*"
   },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "./scripts/bundle.js",
     "doc:build": "pnpm --filter ./website build",
     "doc:dev": "pnpm --filter ./website dev",
-    "doc:preview": "pnpm --filter ./website preview"
+    "doc:preview": "pnpm --filter ./website preview",
+    "fix": "pnpm --filter ./website fix",
+    "lint": "pnpm --filter ./website lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "Apache-2.0",
-  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81",
   "devDependencies": {
     "@redocly/cli": "^1.34.2",
     "glob": "^11.0.1",
     "zx": "^8.5.2"
-  }
+  },
+  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
 }
