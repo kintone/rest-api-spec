@@ -21,26 +21,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
         with:
-          path: main
-      - name: Checkout swagger-api/swagger-ui
-        uses: actions/checkout@v4
-        with:
-          repository: swagger-api/swagger-ui
-          ref: "v5.18.2"
-          path: swagger-ui
-      - name: Inject Swagger static files
-        run: cp -n swagger-ui/dist/* main/swagger-ui/
-      - name: Merge OAD files
-        run: npx @redocly/cli@1.33.1 bundle main/kintone/$(ls main/kintone | sort | tail -n 1)/openapi.yaml -o main/swagger-ui/openapi.yaml
+          node-version: "lts/*"
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm build
+        working-directory: website
       - name: Setup Pages Configuration
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "main/swagger-ui"
+          path: "website/dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
