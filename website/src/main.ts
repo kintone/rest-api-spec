@@ -3,6 +3,7 @@ import swaggerUI from "swagger-ui";
 
 import swaggerUIStandalonePreset from "swagger-ui/dist/swagger-ui-standalone-preset";
 import "swagger-ui/dist/swagger-ui.css";
+import "./style.css";
 
 // @ts-ignore
 // Swagger UI actually has presets property but @types/swagger-ui does not.
