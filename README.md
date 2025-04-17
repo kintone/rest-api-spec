@@ -28,7 +28,7 @@ You can browse the list of kintone REST APIs, API Request and Responses. You can
 
 ## Releases
 
-- The version for the next month will be released half month before.
+- The version for the next month will be released mid-month.
 - Versions that are outdated will be removed.
 
 ## Limitations
