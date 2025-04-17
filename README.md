@@ -20,6 +20,11 @@ We provide our API specification in two formats, OAD files for computers and web
 
 OAD files can be found in the `kintone/${timestamp}` directory. The `${timestamp}` is the date and time of publication.
 
+| file | description                                                                                               |
+|---|-----------------------------------------------------------------------------------------------------------|
+|`kintone/${timestamp}/openapi.yaml`| API description in a multi-file structure using the `$ref` keyword.                                        |
+|`kintone/${timestamp}/bundled/openapi.yaml`| API description bundled in a single file. This is suitable for some tools that do not support the `$ref` keyword. |
+
 ### Website
 
 We host interactive API specification at https://stunning-adventure-6kmjr8r.pages.github.io/ .
