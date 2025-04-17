@@ -8,14 +8,49 @@ on:
 
 jobs:
   validate:
+    name: Validate yaml files
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: pip install openapi-spec-validator
       - run: find ./kintone -name "openapi.yaml" -type f | xargs openapi-spec-validator
-  pages:
+
+  bundle:
+    name: Check that all bundled yaml files are updated
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Merge OAD files
-        run: npx @redocly/cli@1.33.1 bundle ./kintone/$(ls ./kintone | sort | tail -n 1)/openapi.yaml -o /tmp/merged.yaml
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm bundle
+      - run: git diff --stat --exit-code
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm lint
+
+  pages:
+    name: Check website build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm doc:build

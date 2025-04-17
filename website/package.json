@@ -1,0 +1,40 @@
+{
+  "name": "@kintone/rest-api-spec-website",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Cybozu, Inc.",
+    "url": "https://cybozu.co.jp"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "dev": "vite",
+    "fix": "pnpm run \"/^fix:.*/\"",
+    "fix:eslint": "pnpm lint:eslint --fix",
+    "fix:prettier": "pnpm lint:prettier --write",
+    "lint": "pnpm run \"/^lint:.*/\"",
+    "lint:eslint": "eslint . --max-warnings 0",
+    "lint:prettier": "prettier --check '**/*.{json,json5,md,yml,yaml}' --cache",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "swagger-ui": "^5.21.0"
+  },
+  "devDependencies": {
+    "@cybozu/eslint-config": "^24.0.0",
+    "@types/node": "^22.14.1",
+    "@types/swagger-ui": "^3.52.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-package-json": "^0.29.1",
+    "glob": "^11.0.1",
+    "prettier": "^3.5.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
