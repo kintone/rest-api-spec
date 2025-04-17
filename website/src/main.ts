@@ -7,7 +7,7 @@ import "./style.css";
 
 // @ts-ignore
 // Swagger UI actually has presets property but @types/swagger-ui does not.
-// ref. https://github.com/swagger-api/swagger-ui/blob/fceaec605072fbc717a04895bd19814d9a1c8e6d/src/core/index.js#L141
+// ref. https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/72525
 const apisPreset = swaggerUI.presets.apis as SwaggerUIPlugin;
 console.log(import.meta.env.OAS_ENTRY_FILE_PATHS);
 
