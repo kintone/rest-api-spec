@@ -119,7 +119,7 @@ paths:
                 title: getAppForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/acl.json:
     put:
       description: |
@@ -180,7 +180,7 @@ paths:
                 title: putAppAclForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the App permissions of an App.
@@ -225,7 +225,7 @@ paths:
                 title: getAppAclForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/actions.json:
     get:
       description: |
@@ -302,7 +302,7 @@ paths:
                 title: getAppActionsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/adminNotes.json:
     get:
       description: |
@@ -351,7 +351,7 @@ paths:
                 title: getAppAdminNotesForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/customize.json:
     get:
       description: |
@@ -444,7 +444,7 @@ paths:
                 title: getAppCustomizeForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/form/fields.json:
     get:
       description: |
@@ -548,7 +548,7 @@ paths:
                 title: getAppFormFieldsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/form/layout.json:
     get:
       description: |
@@ -597,7 +597,7 @@ paths:
                 title: getAppFormLayoutForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/move.json:
     post:
       description: |
@@ -640,7 +640,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/notifications/general.json:
     get:
       description: |
@@ -694,7 +694,7 @@ paths:
                 title: getAppNotificationsGeneralForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/notifications/perRecord.json:
     get:
       description: |
@@ -769,7 +769,7 @@ paths:
                 title: getAppNotificationsPerRecordForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/notifications/reminder.json:
     get:
       description: |
@@ -855,7 +855,7 @@ paths:
                 title: getAppNotificationsReminderForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/plugins.json:
     get:
       description: |
@@ -927,7 +927,7 @@ paths:
                 title: getAppPluginsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/reports.json:
     get:
       description: |
@@ -1006,7 +1006,7 @@ paths:
                 title: getAppReportsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/settings.json:
     get:
       description: |
@@ -1142,7 +1142,7 @@ paths:
                 title: getAppSettingsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/status.json:
     get:
       description: |
@@ -1231,7 +1231,7 @@ paths:
                 title: getAppStatusForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/app/views.json:
     get:
       description: |
@@ -1311,7 +1311,7 @@ paths:
                 title: getAppViewsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/apps.json:
     get:
       description: |
@@ -1427,11 +1427,11 @@ paths:
                 title: getAppsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/apps/statistics.json:
     get:
       description: |
-        Gets a list of the usage status of Apps.
+        Gets the list of the usage status of Apps.
       operationId: getAppsStatisticsForGuestSpace
       parameters:
         - description: guest space id
@@ -1482,7 +1482,7 @@ paths:
                 title: getAppsStatisticsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/bulkRequest.json:
     post:
       operationId: postBulkRequestForGuestSpace
@@ -1531,53 +1531,8 @@ paths:
                 title: postBulkRequestForGuestSpaceResponse
                 type: object
       tags:
-        - BULKREQUEST
+        - BULKREQUESTS
   /k/guest/{guestSpaceId}/v1/field/acl.json:
-    get:
-      description: |
-        Gets the Field permission settings of an App.
-      operationId: getFieldAclForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of field/acl/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                  rights:
-                    description: |
-                      An array of objects that contain data of permission settings.
-                    items:
-                      $ref: '#/components/schemas/FieldAclGetRight'
-                    type: array
-                title: getFieldAclForGuestSpaceResponse
-                type: object
-      tags:
-        - FIELD
     put:
       description: |
         Updates the Field permission settings of an App.
@@ -1640,8 +1595,74 @@ paths:
                 title: putFieldAclForGuestSpaceResponse
                 type: object
       tags:
-        - FIELD
+        - FIELDS
+    get:
+      description: |
+        Gets the Field permission settings of an App.
+      operationId: getFieldAclForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of field/acl/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                  rights:
+                    description: |
+                      An array of objects that contain data of permission settings.
+                    items:
+                      $ref: '#/components/schemas/FieldAclGetRight'
+                    type: array
+                title: getFieldAclForGuestSpaceResponse
+                type: object
+      tags:
+        - FIELDS
   /k/guest/{guestSpaceId}/v1/file.json:
+    get:
+      operationId: getFileForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: fileKey
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
+      tags:
+        - FILES
     post:
       operationId: postFileForGuestSpace
       parameters:
@@ -1674,28 +1695,7 @@ paths:
                 title: postFileForGuestSpaceResponse
                 type: object
       tags:
-        - FILE
-    get:
-      operationId: getFileForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
-      tags:
-        - FILE
+        - FILES
   /k/guest/{guestSpaceId}/v1/form.json:
     get:
       description: |
@@ -1756,7 +1756,7 @@ paths:
                 title: getFormForGuestSpaceResponse
                 type: object
       tags:
-        - FORM
+        - FORMS
   /k/guest/{guestSpaceId}/v1/guests.json:
     delete:
       operationId: deleteGuestsForGuestSpace
@@ -1819,6 +1819,30 @@ paths:
       tags:
         - GUESTS
   /k/guest/{guestSpaceId}/v1/plugin.json:
+    delete:
+      operationId: deletePluginForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of plugin/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - PLUGINS
     put:
       operationId: putPluginForGuestSpace
       parameters:
@@ -1859,31 +1883,7 @@ paths:
                 title: putPluginForGuestSpaceResponse
                 type: object
       tags:
-        - PLUGIN
-    delete:
-      operationId: deletePluginForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of plugin/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - PLUGIN
+        - PLUGINS
     post:
       operationId: postPluginForGuestSpace
       parameters:
@@ -1921,7 +1921,7 @@ paths:
                 title: postPluginForGuestSpaceResponse
                 type: object
       tags:
-        - PLUGIN
+        - PLUGINS
   /k/guest/{guestSpaceId}/v1/plugin/apps.json:
     get:
       operationId: getPluginAppsForGuestSpace
@@ -1963,7 +1963,7 @@ paths:
                 title: getPluginAppsForGuestSpaceResponse
                 type: object
       tags:
-        - PLUGIN
+        - PLUGINS
   /k/guest/{guestSpaceId}/v1/plugins.json:
     get:
       operationId: getPluginsForGuestSpace
@@ -2110,7 +2110,7 @@ paths:
                 title: postPreviewAppForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/acl.json:
     put:
       description: |
@@ -2171,7 +2171,7 @@ paths:
                 title: putPreviewAppAclForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the App permissions of an App.
@@ -2216,7 +2216,7 @@ paths:
                 title: getPreviewAppAclForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/actions.json:
     put:
       description: |
@@ -2284,7 +2284,7 @@ paths:
                 title: putPreviewAppActionsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Action Settings of the App.
@@ -2360,56 +2360,8 @@ paths:
                 title: getPreviewAppActionsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/adminNotes.json:
-    get:
-      description: |
-        Gets notes for app administrators and their settings.
-      operationId: getPreviewAppAdminNotesForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            type: string
-      responses:
-        '200':
-          description: success case of preview/app/adminNotes/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  content:
-                    description: |
-                      The content of the notes. If not set, an empty string is returned.
-                    type: string
-                  includeInTemplateAndDuplicates:
-                    description: |
-                      The permission settings to include this note in app templates or duplicates
-                      - true: include
-                      - false: do not include
-                    type: boolean
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: getPreviewAppAdminNotesForGuestSpaceResponse
-                type: object
-      tags:
-        - APP
     put:
       description: |
         Updates the notes for App administrators and their settings.
@@ -2475,12 +2427,11 @@ paths:
                 title: putPreviewAppAdminNotesForGuestSpaceResponse
                 type: object
       tags:
-        - APP
-  /k/guest/{guestSpaceId}/v1/preview/app/customize.json:
+        - APPS
     get:
       description: |
-        Gets the JavaScript and CSS Customization settings of an App.
-      operationId: getPreviewAppCustomizeForGuestSpace
+        Gets notes for app administrators and their settings.
+      operationId: getPreviewAppAdminNotesForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -2498,77 +2449,34 @@ paths:
           schema:
             description: |
               The App ID.
-            format: long
-            type: integer
+            type: string
       responses:
         '200':
-          description: success case of preview/app/customize/get
+          description: success case of preview/app/adminNotes/get
           content:
             application/json:
               schema:
                 properties:
-                  desktop:
+                  content:
                     description: |
-                      An object containing data of JavaScript and CSS files for the desktop.
-                    properties:
-                      css:
-                        description: |
-                          An array listing data of CSS files for desktop.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                      js:
-                        description: |
-                          An array listing data of JavaScript files.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                    type: object
-                  mobile:
+                      The content of the notes. If not set, an empty string is returned.
+                    type: string
+                  includeInTemplateAndDuplicates:
                     description: |
-                      An object containing data of JavaScript and CSS files for the mobile.
-                    properties:
-                      css:
-                        description: |
-                          An array listing data of CSS files for mobile.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                      js:
-                        description: |
-                          An array listing data of JavaScript files for mobile.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                    type: object
+                      The permission settings to include this note in app templates or duplicates
+                      - true: include
+                      - false: do not include
+                    type: boolean
                   revision:
                     description: |
-                      The revision number of the app settings.
+                      The revision number of the App settings.
                     format: long
                     type: integer
-                  scope:
-                    description: |
-                      The scope of customization
-                      - ALL: Affect all users
-                      - ADMIN: Affect only app administrators
-                      - NONE: Disable
-                    enum:
-                      - ALL
-                      - ADMIN
-                      - NONE
-                    type: string
-                title: getPreviewAppCustomizeForGuestSpaceResponse
+                title: getPreviewAppAdminNotesForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
+  /k/guest/{guestSpaceId}/v1/preview/app/customize.json:
     put:
       description: |
         Updates the JavaScript and CSS Customization settings of an App.
@@ -2671,8 +2579,148 @@ paths:
                 title: putPreviewAppCustomizeForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    get:
+      description: |
+        Gets the JavaScript and CSS Customization settings of an App.
+      operationId: getPreviewAppCustomizeForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/app/customize/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  desktop:
+                    description: |
+                      An object containing data of JavaScript and CSS files for the desktop.
+                    properties:
+                      css:
+                        description: |
+                          An array listing data of CSS files for desktop.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                      js:
+                        description: |
+                          An array listing data of JavaScript files.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                    type: object
+                  mobile:
+                    description: |
+                      An object containing data of JavaScript and CSS files for the mobile.
+                    properties:
+                      css:
+                        description: |
+                          An array listing data of CSS files for mobile.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                      js:
+                        description: |
+                          An array listing data of JavaScript files for mobile.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                    type: object
+                  revision:
+                    description: |
+                      The revision number of the app settings.
+                    format: long
+                    type: integer
+                  scope:
+                    description: |
+                      The scope of customization
+                      - ALL: Affect all users
+                      - ADMIN: Affect only app administrators
+                      - NONE: Disable
+                    enum:
+                      - ALL
+                      - ADMIN
+                      - NONE
+                    type: string
+                title: getPreviewAppCustomizeForGuestSpaceResponse
+                type: object
+      tags:
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/deploy.json:
+    get:
+      description: |
+        Gets the deployment status of the App settings for multiple Apps.
+      operationId: getPreviewAppDeployForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The list of Apps to check the deploy statuses of.
+            The Maximum limit is 300.
+            If Apps in Guest Spaces are specified,
+            all Apps specified in the request must belong to that Guest Space.
+          in: query
+          name: apps
+          required: true
+          schema:
+            description: |
+              The list of Apps to check the deploy statuses of.
+              The Maximum limit is 300.
+              If Apps in Guest Spaces are specified,
+              all Apps specified in the request must belong to that Guest Space.
+            items:
+              format: long
+              type: integer
+            type: array
+      responses:
+        '200':
+          description: success case of preview/app/deploy/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  apps:
+                    description: |
+                      A list of objects with data of deploy statuses.
+                    items:
+                      $ref: '#/components/schemas/PreviewAppDeployGetAppForm'
+                    type: array
+                title: getPreviewAppDeployForGuestSpaceResponse
+                type: object
+      tags:
+        - APPS
     post:
       description: |
         Updates the settings of a pre-live App to the live App.
@@ -2721,55 +2769,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - APP
-    get:
-      description: |
-        Gets the deployment status of the App settings for multiple Apps.
-      operationId: getPreviewAppDeployForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - description: |
-            The list of Apps to check the deploy statuses of.
-            The Maximum limit is 300.
-            If Apps in Guest Spaces are specified,
-            all Apps specified in the request must belong to that Guest Space.
-          in: query
-          name: apps
-          required: true
-          schema:
-            description: |
-              The list of Apps to check the deploy statuses of.
-              The Maximum limit is 300.
-              If Apps in Guest Spaces are specified,
-              all Apps specified in the request must belong to that Guest Space.
-            items:
-              format: long
-              type: integer
-            type: array
-      responses:
-        '200':
-          description: success case of preview/app/deploy/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  apps:
-                    description: |
-                      A list of objects with data of deploy statuses.
-                    items:
-                      $ref: '#/components/schemas/PreviewAppDeployGetAppForm'
-                    type: array
-                title: getPreviewAppDeployForGuestSpaceResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/form/fields.json:
     delete:
       description: |
@@ -2838,7 +2838,94 @@ paths:
                 title: deletePreviewAppFormFieldsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    put:
+      description: |
+        Updates the field settings of fields in a form of an App.
+        This API updates the pre-live settings.
+        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
+      operationId: putPreviewAppFormFieldsForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  description: |
+                    The App ID.
+                  format: long
+                  type: integer
+                properties:
+                  additionalProperties:
+                    anyOf:
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDateFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutFileFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTableForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm'
+                  description: |
+                    An object with data of the field settings.
+                  type: object
+                revision:
+                  description: |
+                    Specify the revision number of the settings that will be deployed.
+                    The request will fail if the revision number is not the latest revision.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
+                  format: long
+                  type: integer
+              required:
+                - app
+                - properties
+              title: putPreviewAppFormFieldsForGuestSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of preview/app/form/fields/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: putPreviewAppFormFieldsForGuestSpaceResponse
+                type: object
+      tags:
+        - APPS
     get:
       description: |
         Gets the list of fields and field settings of an App.
@@ -2941,7 +3028,7 @@ paths:
                 title: getPreviewAppFormFieldsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     post:
       description: |
         Adds fields to a form of an App.
@@ -3028,143 +3115,8 @@ paths:
                 title: postPreviewAppFormFieldsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
-    put:
-      description: |
-        Updates the field settings of fields in a form of an App.
-        This API updates the pre-live settings.
-        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
-      operationId: putPreviewAppFormFieldsForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  description: |
-                    The App ID.
-                  format: long
-                  type: integer
-                properties:
-                  additionalProperties:
-                    anyOf:
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDateFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutFileFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTableForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm'
-                  description: |
-                    An object with data of the field settings.
-                  type: object
-                revision:
-                  description: |
-                    Specify the revision number of the settings that will be deployed.
-                    The request will fail if the revision number is not the latest revision.
-                    The revision will not be checked if this parameter is ignored, or -1 is specified.
-                  format: long
-                  type: integer
-              required:
-                - app
-                - properties
-              title: putPreviewAppFormFieldsForGuestSpaceRequest
-              type: object
-      responses:
-        '200':
-          description: success case of preview/app/form/fields/put
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: putPreviewAppFormFieldsForGuestSpaceResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/form/layout.json:
-    get:
-      description: |
-        Gets the field layout info of a form in an App.
-      operationId: getPreviewAppFormLayoutForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of preview/app/form/layout/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  layout:
-                    description: |
-                      A list of field layouts for each row.
-                    items:
-                      anyOf:
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetRow'
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetGroupRow'
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetSubtableRow'
-                    type: array
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: getPreviewAppFormLayoutForGuestSpaceResponse
-                type: object
-      tags:
-        - APP
     put:
       description: |
         Updates the field layout info of a form in an App.
@@ -3227,12 +3179,11 @@ paths:
                 title: putPreviewAppFormLayoutForGuestSpaceResponse
                 type: object
       tags:
-        - APP
-  /k/guest/{guestSpaceId}/v1/preview/app/notifications/general.json:
+        - APPS
     get:
       description: |
-        Gets the General Notification settings of the App.
-      operationId: getPreviewAppNotificationsGeneralForGuestSpace
+        Gets the field layout info of a form in an App.
+      operationId: getPreviewAppFormLayoutForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -3254,34 +3205,30 @@ paths:
             type: integer
       responses:
         '200':
-          description: success case of preview/app/notifications/general/get
+          description: success case of preview/app/form/layout/get
           content:
             application/json:
               schema:
                 properties:
-                  notifications:
+                  layout:
                     description: |
-                      An array of objects consisting of "Recipients and Conditions" options.
-                      These options define who will receive the notifications.
+                      A list of field layouts for each row.
                     items:
-                      $ref: '#/components/schemas/PreviewAppNotificationsGeneralGetNotification'
+                      anyOf:
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetRow'
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetGroupRow'
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetSubtableRow'
                     type: array
-                  notifyToCommenter:
-                    description: |
-                      Option to notify all commenters of a record when a comment is posted on that record.
-                      This reflects the "Send updated comment notifications to all commenters" checkbox.
-                      - true: Notify all commenters of the record when a comment is posted
-                      - false: Do not notify all commenters of the record when a comment is posted
-                    type: boolean
                   revision:
                     description: |
                       The revision number of the App settings.
                     format: long
                     type: integer
-                title: getPreviewAppNotificationsGeneralForGuestSpaceResponse
+                title: getPreviewAppFormLayoutForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
+  /k/guest/{guestSpaceId}/v1/preview/app/notifications/general.json:
     put:
       description: |
         Updates the General Notification settings of the App.
@@ -3339,7 +3286,60 @@ paths:
                 title: putPreviewAppNotificationsGeneralForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    get:
+      description: |
+        Gets the General Notification settings of the App.
+      operationId: getPreviewAppNotificationsGeneralForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/app/notifications/general/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  notifications:
+                    description: |
+                      An array of objects consisting of "Recipients and Conditions" options.
+                      These options define who will receive the notifications.
+                    items:
+                      $ref: '#/components/schemas/PreviewAppNotificationsGeneralGetNotification'
+                    type: array
+                  notifyToCommenter:
+                    description: |
+                      Option to notify all commenters of a record when a comment is posted on that record.
+                      This reflects the "Send updated comment notifications to all commenters" checkbox.
+                      - true: Notify all commenters of the record when a comment is posted
+                      - false: Do not notify all commenters of the record when a comment is posted
+                    type: boolean
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: getPreviewAppNotificationsGeneralForGuestSpaceResponse
+                type: object
+      tags:
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/notifications/perRecord.json:
     put:
       description: |
@@ -3403,7 +3403,7 @@ paths:
                 title: putPreviewAppNotificationsPerRecordForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Per Record Notification settings of the App.
@@ -3477,8 +3477,75 @@ paths:
                 title: getPreviewAppNotificationsPerRecordForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/notifications/reminder.json:
+    put:
+      description: |
+        Updates the Reminder Notification settings of the App.
+        This API updates the pre-live settings.
+        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
+      operationId: putPreviewAppNotificationsReminderForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  description: |
+                    The App ID.
+                  format: long
+                  type: integer
+                notifications:
+                  description: |
+                    An array of objects consisting of "Notification Trigger" options. These options define when the notifications will be sent out, under what conditions, and the recipients.
+                    If an empty array is sent, all the recipients will be removed.
+                    If this parameter is ignored, no changes will be made to the "Notification Trigger" options.
+                  items:
+                    $ref: '#/components/schemas/PreviewAppNotificationsReminderPutNotification'
+                  type: array
+                revision:
+                  description: |
+                    Specify the revision number of the settings that will be deployed.
+                    The request will fail if the revision number is not the latest revision.
+                    The revision will not be checked if this parameter is ignored or -1 is specified.
+                  format: long
+                  type: integer
+                timezone:
+                  description: |
+                    The timezone that determines the Reminder notification's timing. This reflects the "Reminder Time Zone" dropdown option.
+                    If the App's Reminder Notification settings have never been configured, the API executing user's timezone will be used.
+                  format: timezone
+                  type: string
+              required:
+                - app
+              title: putPreviewAppNotificationsReminderForGuestSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of preview/app/notifications/reminder/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: putPreviewAppNotificationsReminderForGuestSpaceResponse
+                type: object
+      tags:
+        - APPS
     get:
       description: |
         Gets the Reminder Notification settings of the App.
@@ -3563,74 +3630,7 @@ paths:
                 title: getPreviewAppNotificationsReminderForGuestSpaceResponse
                 type: object
       tags:
-        - APP
-    put:
-      description: |
-        Updates the Reminder Notification settings of the App.
-        This API updates the pre-live settings.
-        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
-      operationId: putPreviewAppNotificationsReminderForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  description: |
-                    The App ID.
-                  format: long
-                  type: integer
-                notifications:
-                  description: |
-                    An array of objects consisting of "Notification Trigger" options. These options define when the notifications will be sent out, under what conditions, and the recipients.
-                    If an empty array is sent, all the recipients will be removed.
-                    If this parameter is ignored, no changes will be made to the "Notification Trigger" options.
-                  items:
-                    $ref: '#/components/schemas/PreviewAppNotificationsReminderPutNotification'
-                  type: array
-                revision:
-                  description: |
-                    Specify the revision number of the settings that will be deployed.
-                    The request will fail if the revision number is not the latest revision.
-                    The revision will not be checked if this parameter is ignored or -1 is specified.
-                  format: long
-                  type: integer
-                timezone:
-                  description: |
-                    The timezone that determines the Reminder notification's timing. This reflects the "Reminder Time Zone" dropdown option.
-                    If the App's Reminder Notification settings have never been configured, the API executing user's timezone will be used.
-                  format: timezone
-                  type: string
-              required:
-                - app
-              title: putPreviewAppNotificationsReminderForGuestSpaceRequest
-              type: object
-      responses:
-        '200':
-          description: success case of preview/app/notifications/reminder/put
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: putPreviewAppNotificationsReminderForGuestSpaceResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/plugins.json:
     get:
       description: |
@@ -3702,7 +3702,7 @@ paths:
                 title: getPreviewAppPluginsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     post:
       description: |
         Adds Plug-ins to an App.
@@ -3760,7 +3760,7 @@ paths:
                 title: postPreviewAppPluginsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/reports.json:
     put:
       description: |
@@ -3833,7 +3833,7 @@ paths:
                 title: putPreviewAppReportsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Graph settings of the App.
@@ -3911,7 +3911,7 @@ paths:
                 title: getPreviewAppReportsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/settings.json:
     put:
       description: |
@@ -4032,7 +4032,7 @@ paths:
                 title: putPreviewAppSettingsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the description, name, icon, revision and color theme of an App.
@@ -4167,7 +4167,7 @@ paths:
                 title: getPreviewAppSettingsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/status.json:
     put:
       description: |
@@ -4241,7 +4241,7 @@ paths:
                 title: putPreviewAppStatusForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the process management settings of an App.
@@ -4329,7 +4329,7 @@ paths:
                 title: getPreviewAppStatusForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/app/views.json:
     put:
       description: |
@@ -4399,7 +4399,7 @@ paths:
                 title: putPreviewAppViewsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the View settings of an App.
@@ -4478,53 +4478,8 @@ paths:
                 title: getPreviewAppViewsForGuestSpaceResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/guest/{guestSpaceId}/v1/preview/field/acl.json:
-    get:
-      description: |
-        Gets the Field permission settings of an App.
-      operationId: getPreviewFieldAclForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of preview/field/acl/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                  rights:
-                    description: |
-                      An array of objects that contain data of permission settings.
-                    items:
-                      $ref: '#/components/schemas/PreviewFieldAclGetRight'
-                    type: array
-                title: getPreviewFieldAclForGuestSpaceResponse
-                type: object
-      tags:
-        - FIELD
     put:
       description: |
         Updates the Field permission settings of an App.
@@ -4587,7 +4542,52 @@ paths:
                 title: putPreviewFieldAclForGuestSpaceResponse
                 type: object
       tags:
-        - FIELD
+        - FIELDS
+    get:
+      description: |
+        Gets the Field permission settings of an App.
+      operationId: getPreviewFieldAclForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/field/acl/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                  rights:
+                    description: |
+                      An array of objects that contain data of permission settings.
+                    items:
+                      $ref: '#/components/schemas/PreviewFieldAclGetRight'
+                    type: array
+                title: getPreviewFieldAclForGuestSpaceResponse
+                type: object
+      tags:
+        - FIELDS
   /k/guest/{guestSpaceId}/v1/preview/form.json:
     get:
       description: |
@@ -4648,7 +4648,7 @@ paths:
                 title: getPreviewFormForGuestSpaceResponse
                 type: object
       tags:
-        - FORM
+        - FORMS
   /k/guest/{guestSpaceId}/v1/preview/record/acl.json:
     put:
       description: |
@@ -4711,7 +4711,7 @@ paths:
                 title: putPreviewRecordAclForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       description: |
         Gets the Record permission settings of an App.
@@ -4785,7 +4785,7 @@ paths:
                 title: getPreviewRecordAclForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record.json:
     put:
       operationId: putRecordForGuestSpace
@@ -4861,7 +4861,7 @@ paths:
                 title: putRecordForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       operationId: getRecordForGuestSpace
       parameters:
@@ -4924,7 +4924,7 @@ paths:
                 title: getRecordForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     post:
       operationId: postRecordForGuestSpace
       parameters:
@@ -4995,7 +4995,7 @@ paths:
                 title: postRecordForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record/acl.json:
     put:
       description: |
@@ -5058,7 +5058,7 @@ paths:
                 title: putRecordAclForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       description: |
         Gets the Record permission settings of an App.
@@ -5132,7 +5132,7 @@ paths:
                 title: getRecordAclForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record/assignees.json:
     put:
       operationId: putRecordAssigneesForGuestSpace
@@ -5183,8 +5183,45 @@ paths:
                 title: putRecordAssigneesForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record/comment.json:
+    delete:
+      operationId: deleteRecordCommentForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: app
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: record
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: comment
+          required: true
+          schema:
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of record/comment/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - RECORDS
     post:
       operationId: postRecordCommentForGuestSpace
       parameters:
@@ -5240,44 +5277,7 @@ paths:
                 title: postRecordCommentForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
-    delete:
-      operationId: deleteRecordCommentForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: app
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: record
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: comment
-          required: true
-          schema:
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of record/comment/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record/comments.json:
     get:
       operationId: getRecordCommentsForGuestSpace
@@ -5340,7 +5340,7 @@ paths:
                 title: getRecordCommentsForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/record/status.json:
     put:
       operationId: putRecordStatusForGuestSpace
@@ -5391,10 +5391,10 @@ paths:
                 title: putRecordStatusForGuestSpaceResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/records.json:
-    put:
-      operationId: putRecordsForGuestSpace
+    delete:
+      operationId: deleteRecordsForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -5404,44 +5404,34 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  format: long
-                  type: integer
-                records:
-                  items:
-                    $ref: '#/components/schemas/RecordsPutRecordForm'
-                  type: array
-                upsert:
-                  format: boolean
-                  type: boolean
-              required:
-                - app
-                - records
-              title: putRecordsForGuestSpaceRequest
-              type: object
+        - in: query
+          name: app
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: ids
+          required: true
+          schema:
+            items:
+              format: long
+              type: integer
+            type: array
+        - in: query
+          name: revisions
+          required: false
+          schema:
+            items:
+              format: long
+              type: integer
+            type: array
       responses:
         '200':
-          description: success case of records/put
+          description: success case of records/delete
           content:
             application/json:
-              schema:
-                properties:
-                  records:
-                    oneOf:
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/RecordsPutRecordBean'
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/RecordsPutUpsertRecordBean'
-                title: putRecordsForGuestSpaceResponse
-                type: object
+              schema: {}
       tags:
         - RECORDS
     get:
@@ -5525,6 +5515,57 @@ paths:
                 type: object
       tags:
         - RECORDS
+    put:
+      operationId: putRecordsForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  format: long
+                  type: integer
+                records:
+                  items:
+                    $ref: '#/components/schemas/RecordsPutRecordForm'
+                  type: array
+                upsert:
+                  format: boolean
+                  type: boolean
+              required:
+                - app
+                - records
+              title: putRecordsForGuestSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of records/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  records:
+                    oneOf:
+                      - type: array
+                        items:
+                          $ref: '#/components/schemas/RecordsPutRecordBean'
+                      - type: array
+                        items:
+                          $ref: '#/components/schemas/RecordsPutUpsertRecordBean'
+                title: putRecordsForGuestSpaceResponse
+                type: object
+      tags:
+        - RECORDS
     post:
       operationId: postRecordsForGuestSpace
       parameters:
@@ -5602,47 +5643,6 @@ paths:
                 type: object
       tags:
         - RECORDS
-    delete:
-      operationId: deleteRecordsForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: app
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: ids
-          required: true
-          schema:
-            items:
-              format: long
-              type: integer
-            type: array
-        - in: query
-          name: revisions
-          required: false
-          schema:
-            items:
-              format: long
-              type: integer
-            type: array
-      responses:
-        '200':
-          description: success case of records/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORDS
   /k/guest/{guestSpaceId}/v1/records/acl/evaluate.json:
     get:
       description: |
@@ -5699,6 +5699,30 @@ paths:
       tags:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/records/cursor.json:
+    delete:
+      operationId: deleteRecordsCursorForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of records/cursor/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - RECORDS
     get:
       operationId: getRecordsCursorForGuestSpace
       parameters:
@@ -5809,30 +5833,6 @@ paths:
                 type: object
       tags:
         - RECORDS
-    delete:
-      operationId: deleteRecordsCursorForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of records/cursor/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORDS
   /k/guest/{guestSpaceId}/v1/records/status.json:
     put:
       operationId: putRecordsStatusForGuestSpace
@@ -5903,7 +5903,75 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
+    put:
+      operationId: putSpaceForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                fixedMember:
+                  format: boolean
+                  type: boolean
+                id:
+                  format: long
+                  type: integer
+                isPrivate:
+                  format: boolean
+                  type: boolean
+                name:
+                  maxLength: 128
+                  minLength: 1
+                  type: string
+                permissions:
+                  properties:
+                    createApp:
+                      enum:
+                        - EVERYONE
+                        - ADMIN
+                      type: string
+                  type: object
+                showAnnouncement:
+                  format: boolean
+                  type: boolean
+                showAppList:
+                  format: boolean
+                  type: boolean
+                showMemberList:
+                  format: boolean
+                  type: boolean
+                showRelatedLinkList:
+                  format: boolean
+                  type: boolean
+                showThreadList:
+                  format: boolean
+                  type: boolean
+                useMultiThread:
+                  format: boolean
+                  type: boolean
+              required:
+                - id
+              title: putSpaceForGuestSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of space/put
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - SPACES
     get:
       operationId: getSpaceForGuestSpace
       parameters:
@@ -6009,75 +6077,7 @@ paths:
                 title: getSpaceForGuestSpaceResponse
                 type: object
       tags:
-        - SPACE
-    put:
-      operationId: putSpaceForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                fixedMember:
-                  format: boolean
-                  type: boolean
-                id:
-                  format: long
-                  type: integer
-                isPrivate:
-                  format: boolean
-                  type: boolean
-                name:
-                  maxLength: 128
-                  minLength: 1
-                  type: string
-                permissions:
-                  properties:
-                    createApp:
-                      enum:
-                        - EVERYONE
-                        - ADMIN
-                      type: string
-                  type: object
-                showAnnouncement:
-                  format: boolean
-                  type: boolean
-                showAppList:
-                  format: boolean
-                  type: boolean
-                showMemberList:
-                  format: boolean
-                  type: boolean
-                showRelatedLinkList:
-                  format: boolean
-                  type: boolean
-                showThreadList:
-                  format: boolean
-                  type: boolean
-                useMultiThread:
-                  format: boolean
-                  type: boolean
-              required:
-                - id
-              title: putSpaceForGuestSpaceRequest
-              type: object
-      responses:
-        '200':
-          description: success case of space/put
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/space/body.json:
     put:
       operationId: putSpaceBodyForGuestSpace
@@ -6114,7 +6114,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/space/guests.json:
     put:
       operationId: putSpaceGuestsForGuestSpace
@@ -6153,7 +6153,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/space/members.json:
     put:
       operationId: putSpaceMembersForGuestSpace
@@ -6190,7 +6190,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
     get:
       operationId: getSpaceMembersForGuestSpace
       parameters:
@@ -6225,8 +6225,47 @@ paths:
                 title: getSpaceMembersForGuestSpaceResponse
                 type: object
       tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/space/thread.json:
+    put:
+      operationId: putSpaceThreadForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                body:
+                  maxLength: 65535
+                  type: string
+                id:
+                  format: long
+                  type: integer
+                name:
+                  maxLength: 128
+                  minLength: 1
+                  type: string
+              required:
+                - id
+              title: putSpaceThreadForGuestSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of space/thread/put
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - SPACES
     post:
       operationId: postSpaceThreadForGuestSpace
       parameters:
@@ -6269,46 +6308,7 @@ paths:
                 title: postSpaceThreadForGuestSpaceResponse
                 type: object
       tags:
-        - SPACE
-    put:
-      operationId: putSpaceThreadForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                body:
-                  maxLength: 65535
-                  type: string
-                id:
-                  format: long
-                  type: integer
-                name:
-                  maxLength: 128
-                  minLength: 1
-                  type: string
-              required:
-                - id
-              title: putSpaceThreadForGuestSpaceRequest
-              type: object
-      responses:
-        '200':
-          description: success case of space/thread/put
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/space/thread/comment.json:
     post:
       operationId: postSpaceThreadCommentForGuestSpace
@@ -6366,7 +6366,7 @@ paths:
                 title: postSpaceThreadCommentForGuestSpaceResponse
                 type: object
       tags:
-        - SPACE
+        - SPACES
   /k/guest/{guestSpaceId}/v1/spaces/statistics.json:
     get:
       operationId: getSpacesStatisticsForGuestSpace
@@ -6460,7 +6460,7 @@ paths:
                 title: postTemplateSpaceForGuestSpaceResponse
                 type: object
       tags:
-        - TEMPLATE
+        - TEMPLATES
   /k/v1/app.json:
     get:
       description: Gets general information of an App, including the name, description, related Space, creator and updater information.
@@ -6560,7 +6560,7 @@ paths:
                 title: getAppResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/acl.json:
     put:
       description: |
@@ -6613,7 +6613,7 @@ paths:
                 title: putAppAclResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the App permissions of an App.
@@ -6650,7 +6650,7 @@ paths:
                 title: getAppAclResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/actions.json:
     get:
       description: |
@@ -6719,7 +6719,7 @@ paths:
                 title: getAppActionsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/adminNotes.json:
     get:
       description: |
@@ -6760,7 +6760,7 @@ paths:
                 title: getAppAdminNotesResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/customize.json:
     get:
       description: |
@@ -6845,7 +6845,7 @@ paths:
                 title: getAppCustomizeResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/form/fields.json:
     get:
       description: |
@@ -6941,7 +6941,7 @@ paths:
                 title: getAppFormFieldsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/form/layout.json:
     get:
       description: |
@@ -6982,7 +6982,7 @@ paths:
                 title: getAppFormLayoutResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/move.json:
     post:
       description: |
@@ -7017,7 +7017,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - APP
+        - APPS
   /k/v1/app/notifications/general.json:
     get:
       description: |
@@ -7063,7 +7063,7 @@ paths:
                 title: getAppNotificationsGeneralResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/notifications/perRecord.json:
     get:
       description: |
@@ -7130,7 +7130,7 @@ paths:
                 title: getAppNotificationsPerRecordResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/notifications/reminder.json:
     get:
       description: |
@@ -7208,7 +7208,7 @@ paths:
                 title: getAppNotificationsReminderResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/plugins.json:
     get:
       description: |
@@ -7272,7 +7272,7 @@ paths:
                 title: getAppPluginsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/reports.json:
     get:
       description: |
@@ -7343,7 +7343,7 @@ paths:
                 title: getAppReportsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/settings.json:
     get:
       description: |
@@ -7471,7 +7471,7 @@ paths:
                 title: getAppSettingsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/status.json:
     get:
       description: |
@@ -7552,7 +7552,7 @@ paths:
                 title: getAppStatusResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/app/views.json:
     get:
       description: |
@@ -7624,7 +7624,7 @@ paths:
                 title: getAppViewsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/apps.json:
     get:
       description: |
@@ -7732,11 +7732,11 @@ paths:
                 title: getAppsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/apps/statistics.json:
     get:
       description: |
-        Gets a list of the usage status of Apps.
+        Gets the list of the usage status of Apps.
       operationId: getAppsStatistics
       parameters:
         - description: |
@@ -7779,7 +7779,7 @@ paths:
                 title: getAppsStatisticsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/bulkRequest.json:
     post:
       operationId: postBulkRequest
@@ -7820,45 +7820,8 @@ paths:
                 title: postBulkRequestResponse
                 type: object
       tags:
-        - BULKREQUEST
+        - BULKREQUESTS
   /k/v1/field/acl.json:
-    get:
-      description: |
-        Gets the Field permission settings of an App.
-      operationId: getFieldAcl
-      parameters:
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of field/acl/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                  rights:
-                    description: |
-                      An array of objects that contain data of permission settings.
-                    items:
-                      $ref: '#/components/schemas/FieldAclGetRight'
-                    type: array
-                title: getFieldAclResponse
-                type: object
-      tags:
-        - FIELD
     put:
       description: |
         Updates the Field permission settings of an App.
@@ -7913,8 +7876,58 @@ paths:
                 title: putFieldAclResponse
                 type: object
       tags:
-        - FIELD
+        - FIELDS
+    get:
+      description: |
+        Gets the Field permission settings of an App.
+      operationId: getFieldAcl
+      parameters:
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of field/acl/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                  rights:
+                    description: |
+                      An array of objects that contain data of permission settings.
+                    items:
+                      $ref: '#/components/schemas/FieldAclGetRight'
+                    type: array
+                title: getFieldAclResponse
+                type: object
+      tags:
+        - FIELDS
   /k/v1/file.json:
+    get:
+      operationId: getFile
+      parameters:
+        - in: query
+          name: fileKey
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
+      tags:
+        - FILES
     post:
       operationId: postFile
       parameters: []
@@ -7939,20 +7952,7 @@ paths:
                 title: postFileResponse
                 type: object
       tags:
-        - FILE
-    get:
-      operationId: getFile
-      parameters:
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
-      tags:
-        - FILE
+        - FILES
   /k/v1/form.json:
     get:
       description: |
@@ -8005,7 +8005,7 @@ paths:
                 title: getFormResponse
                 type: object
       tags:
-        - FORM
+        - FORMS
   /k/v1/guests.json:
     delete:
       operationId: deleteGuests
@@ -8052,6 +8052,22 @@ paths:
       tags:
         - GUESTS
   /k/v1/plugin.json:
+    delete:
+      operationId: deletePlugin
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of plugin/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - PLUGINS
     put:
       operationId: putPlugin
       parameters: []
@@ -8084,23 +8100,7 @@ paths:
                 title: putPluginResponse
                 type: object
       tags:
-        - PLUGIN
-    delete:
-      operationId: deletePlugin
-      parameters:
-        - in: query
-          name: id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of plugin/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - PLUGIN
+        - PLUGINS
     post:
       operationId: postPlugin
       parameters: []
@@ -8130,7 +8130,7 @@ paths:
                 title: postPluginResponse
                 type: object
       tags:
-        - PLUGIN
+        - PLUGINS
   /k/v1/plugin/apps.json:
     get:
       operationId: getPluginApps
@@ -8164,7 +8164,7 @@ paths:
                 title: getPluginAppsResponse
                 type: object
       tags:
-        - PLUGIN
+        - PLUGINS
   /k/v1/plugins.json:
     get:
       operationId: getPlugins
@@ -8287,7 +8287,7 @@ paths:
                 title: postPreviewAppResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/acl.json:
     put:
       description: |
@@ -8340,7 +8340,7 @@ paths:
                 title: putPreviewAppAclResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the App permissions of an App.
@@ -8377,7 +8377,7 @@ paths:
                 title: getPreviewAppAclResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/actions.json:
     put:
       description: |
@@ -8437,7 +8437,7 @@ paths:
                 title: putPreviewAppActionsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Action Settings of the App.
@@ -8505,48 +8505,8 @@ paths:
                 title: getPreviewAppActionsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/adminNotes.json:
-    get:
-      description: |
-        Gets notes for app administrators and their settings.
-      operationId: getPreviewAppAdminNotes
-      parameters:
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            type: string
-      responses:
-        '200':
-          description: success case of preview/app/adminNotes/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  content:
-                    description: |
-                      The content of the notes. If not set, an empty string is returned.
-                    type: string
-                  includeInTemplateAndDuplicates:
-                    description: |
-                      The permission settings to include this note in app templates or duplicates
-                      - true: include
-                      - false: do not include
-                    type: boolean
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: getPreviewAppAdminNotesResponse
-                type: object
-      tags:
-        - APP
     put:
       description: |
         Updates the notes for App administrators and their settings.
@@ -8604,12 +8564,11 @@ paths:
                 title: putPreviewAppAdminNotesResponse
                 type: object
       tags:
-        - APP
-  /k/v1/preview/app/customize.json:
+        - APPS
     get:
       description: |
-        Gets the JavaScript and CSS Customization settings of an App.
-      operationId: getPreviewAppCustomize
+        Gets notes for app administrators and their settings.
+      operationId: getPreviewAppAdminNotes
       parameters:
         - description: |
             The App ID.
@@ -8619,77 +8578,34 @@ paths:
           schema:
             description: |
               The App ID.
-            format: long
-            type: integer
+            type: string
       responses:
         '200':
-          description: success case of preview/app/customize/get
+          description: success case of preview/app/adminNotes/get
           content:
             application/json:
               schema:
                 properties:
-                  desktop:
+                  content:
                     description: |
-                      An object containing data of JavaScript and CSS files for the desktop.
-                    properties:
-                      css:
-                        description: |
-                          An array listing data of CSS files for desktop.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                      js:
-                        description: |
-                          An array listing data of JavaScript files.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                    type: object
-                  mobile:
+                      The content of the notes. If not set, an empty string is returned.
+                    type: string
+                  includeInTemplateAndDuplicates:
                     description: |
-                      An object containing data of JavaScript and CSS files for the mobile.
-                    properties:
-                      css:
-                        description: |
-                          An array listing data of CSS files for mobile.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                      js:
-                        description: |
-                          An array listing data of JavaScript files for mobile.
-                        items:
-                          anyOf:
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
-                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
-                        type: array
-                    type: object
+                      The permission settings to include this note in app templates or duplicates
+                      - true: include
+                      - false: do not include
+                    type: boolean
                   revision:
                     description: |
-                      The revision number of the app settings.
+                      The revision number of the App settings.
                     format: long
                     type: integer
-                  scope:
-                    description: |
-                      The scope of customization
-                      - ALL: Affect all users
-                      - ADMIN: Affect only app administrators
-                      - NONE: Disable
-                    enum:
-                      - ALL
-                      - ADMIN
-                      - NONE
-                    type: string
-                title: getPreviewAppCustomizeResponse
+                title: getPreviewAppAdminNotesResponse
                 type: object
       tags:
-        - APP
+        - APPS
+  /k/v1/preview/app/customize.json:
     put:
       description: |
         Updates the JavaScript and CSS Customization settings of an App.
@@ -8784,8 +8700,132 @@ paths:
                 title: putPreviewAppCustomizeResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    get:
+      description: |
+        Gets the JavaScript and CSS Customization settings of an App.
+      operationId: getPreviewAppCustomize
+      parameters:
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/app/customize/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  desktop:
+                    description: |
+                      An object containing data of JavaScript and CSS files for the desktop.
+                    properties:
+                      css:
+                        description: |
+                          An array listing data of CSS files for desktop.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                      js:
+                        description: |
+                          An array listing data of JavaScript files.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                    type: object
+                  mobile:
+                    description: |
+                      An object containing data of JavaScript and CSS files for the mobile.
+                    properties:
+                      css:
+                        description: |
+                          An array listing data of CSS files for mobile.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                      js:
+                        description: |
+                          An array listing data of JavaScript files for mobile.
+                        items:
+                          anyOf:
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetUrlContentForm'
+                            - $ref: '#/components/schemas/PreviewAppCustomizeGetFileContentForm'
+                        type: array
+                    type: object
+                  revision:
+                    description: |
+                      The revision number of the app settings.
+                    format: long
+                    type: integer
+                  scope:
+                    description: |
+                      The scope of customization
+                      - ALL: Affect all users
+                      - ADMIN: Affect only app administrators
+                      - NONE: Disable
+                    enum:
+                      - ALL
+                      - ADMIN
+                      - NONE
+                    type: string
+                title: getPreviewAppCustomizeResponse
+                type: object
+      tags:
+        - APPS
   /k/v1/preview/app/deploy.json:
+    get:
+      description: |
+        Gets the deployment status of the App settings for multiple Apps.
+      operationId: getPreviewAppDeploy
+      parameters:
+        - description: |
+            The list of Apps to check the deploy statuses of.
+            The Maximum limit is 300.
+            If Apps in Guest Spaces are specified,
+            all Apps specified in the request must belong to that Guest Space.
+          in: query
+          name: apps
+          required: true
+          schema:
+            description: |
+              The list of Apps to check the deploy statuses of.
+              The Maximum limit is 300.
+              If Apps in Guest Spaces are specified,
+              all Apps specified in the request must belong to that Guest Space.
+            items:
+              format: long
+              type: integer
+            type: array
+      responses:
+        '200':
+          description: success case of preview/app/deploy/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  apps:
+                    description: |
+                      A list of objects with data of deploy statuses.
+                    items:
+                      $ref: '#/components/schemas/PreviewAppDeployGetAppForm'
+                    type: array
+                title: getPreviewAppDeployResponse
+                type: object
+      tags:
+        - APPS
     post:
       description: |
         Updates the settings of a pre-live App to the live App.
@@ -8826,47 +8866,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - APP
-    get:
-      description: |
-        Gets the deployment status of the App settings for multiple Apps.
-      operationId: getPreviewAppDeploy
-      parameters:
-        - description: |
-            The list of Apps to check the deploy statuses of.
-            The Maximum limit is 300.
-            If Apps in Guest Spaces are specified,
-            all Apps specified in the request must belong to that Guest Space.
-          in: query
-          name: apps
-          required: true
-          schema:
-            description: |
-              The list of Apps to check the deploy statuses of.
-              The Maximum limit is 300.
-              If Apps in Guest Spaces are specified,
-              all Apps specified in the request must belong to that Guest Space.
-            items:
-              format: long
-              type: integer
-            type: array
-      responses:
-        '200':
-          description: success case of preview/app/deploy/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  apps:
-                    description: |
-                      A list of objects with data of deploy statuses.
-                    items:
-                      $ref: '#/components/schemas/PreviewAppDeployGetAppForm'
-                    type: array
-                title: getPreviewAppDeployResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/v1/preview/app/form/fields.json:
     delete:
       description: |
@@ -8927,7 +8927,86 @@ paths:
                 title: deletePreviewAppFormFieldsResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    put:
+      description: |
+        Updates the field settings of fields in a form of an App.
+        This API updates the pre-live settings.
+        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
+      operationId: putPreviewAppFormFields
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  description: |
+                    The App ID.
+                  format: long
+                  type: integer
+                properties:
+                  additionalProperties:
+                    anyOf:
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDateFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutFileFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTableForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm'
+                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm'
+                  description: |
+                    An object with data of the field settings.
+                  type: object
+                revision:
+                  description: |
+                    Specify the revision number of the settings that will be deployed.
+                    The request will fail if the revision number is not the latest revision.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
+                  format: long
+                  type: integer
+              required:
+                - app
+                - properties
+              title: putPreviewAppFormFieldsRequest
+              type: object
+      responses:
+        '200':
+          description: success case of preview/app/form/fields/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: putPreviewAppFormFieldsResponse
+                type: object
+      tags:
+        - APPS
     get:
       description: |
         Gets the list of fields and field settings of an App.
@@ -9022,7 +9101,7 @@ paths:
                 title: getPreviewAppFormFieldsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     post:
       description: |
         Adds fields to a form of an App.
@@ -9101,127 +9180,8 @@ paths:
                 title: postPreviewAppFormFieldsResponse
                 type: object
       tags:
-        - APP
-    put:
-      description: |
-        Updates the field settings of fields in a form of an App.
-        This API updates the pre-live settings.
-        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
-      operationId: putPreviewAppFormFields
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  description: |
-                    The App ID.
-                  format: long
-                  type: integer
-                properties:
-                  additionalProperties:
-                    anyOf:
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCalcFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutCategoryFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDateFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDatetimeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutDecimalFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutEditorFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutFileFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutGroupSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLinkFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutLookupFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifiedAtFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutModifierFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleCheckFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleLineTextFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutMultipleSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutOrganizationSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutRecordIdFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutReferenceTableFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleCheckFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleLineTextFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutSingleSelectFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusAssigneeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutStatusFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTableForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutTimeFieldForm'
-                      - $ref: '#/components/schemas/PreviewAppFormFieldsPutUserSelectFieldForm'
-                  description: |
-                    An object with data of the field settings.
-                  type: object
-                revision:
-                  description: |
-                    Specify the revision number of the settings that will be deployed.
-                    The request will fail if the revision number is not the latest revision.
-                    The revision will not be checked if this parameter is ignored, or -1 is specified.
-                  format: long
-                  type: integer
-              required:
-                - app
-                - properties
-              title: putPreviewAppFormFieldsRequest
-              type: object
-      responses:
-        '200':
-          description: success case of preview/app/form/fields/put
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: putPreviewAppFormFieldsResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/v1/preview/app/form/layout.json:
-    get:
-      description: |
-        Gets the field layout info of a form in an App.
-      operationId: getPreviewAppFormLayout
-      parameters:
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of preview/app/form/layout/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  layout:
-                    description: |
-                      A list of field layouts for each row.
-                    items:
-                      anyOf:
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetRow'
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetGroupRow'
-                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetSubtableRow'
-                    type: array
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: getPreviewAppFormLayoutResponse
-                type: object
-      tags:
-        - APP
     put:
       description: |
         Updates the field layout info of a form in an App.
@@ -9276,12 +9236,11 @@ paths:
                 title: putPreviewAppFormLayoutResponse
                 type: object
       tags:
-        - APP
-  /k/v1/preview/app/notifications/general.json:
+        - APPS
     get:
       description: |
-        Gets the General Notification settings of the App.
-      operationId: getPreviewAppNotificationsGeneral
+        Gets the field layout info of a form in an App.
+      operationId: getPreviewAppFormLayout
       parameters:
         - description: |
             The App ID.
@@ -9295,34 +9254,30 @@ paths:
             type: integer
       responses:
         '200':
-          description: success case of preview/app/notifications/general/get
+          description: success case of preview/app/form/layout/get
           content:
             application/json:
               schema:
                 properties:
-                  notifications:
+                  layout:
                     description: |
-                      An array of objects consisting of "Recipients and Conditions" options.
-                      These options define who will receive the notifications.
+                      A list of field layouts for each row.
                     items:
-                      $ref: '#/components/schemas/PreviewAppNotificationsGeneralGetNotification'
+                      anyOf:
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetRow'
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetGroupRow'
+                        - $ref: '#/components/schemas/PreviewAppFormLayoutGetSubtableRow'
                     type: array
-                  notifyToCommenter:
-                    description: |
-                      Option to notify all commenters of a record when a comment is posted on that record.
-                      This reflects the "Send updated comment notifications to all commenters" checkbox.
-                      - true: Notify all commenters of the record when a comment is posted
-                      - false: Do not notify all commenters of the record when a comment is posted
-                    type: boolean
                   revision:
                     description: |
                       The revision number of the App settings.
                     format: long
                     type: integer
-                title: getPreviewAppNotificationsGeneralResponse
+                title: getPreviewAppFormLayoutResponse
                 type: object
       tags:
-        - APP
+        - APPS
+  /k/v1/preview/app/notifications/general.json:
     put:
       description: |
         Updates the General Notification settings of the App.
@@ -9372,7 +9327,52 @@ paths:
                 title: putPreviewAppNotificationsGeneralResponse
                 type: object
       tags:
-        - APP
+        - APPS
+    get:
+      description: |
+        Gets the General Notification settings of the App.
+      operationId: getPreviewAppNotificationsGeneral
+      parameters:
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/app/notifications/general/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  notifications:
+                    description: |
+                      An array of objects consisting of "Recipients and Conditions" options.
+                      These options define who will receive the notifications.
+                    items:
+                      $ref: '#/components/schemas/PreviewAppNotificationsGeneralGetNotification'
+                    type: array
+                  notifyToCommenter:
+                    description: |
+                      Option to notify all commenters of a record when a comment is posted on that record.
+                      This reflects the "Send updated comment notifications to all commenters" checkbox.
+                      - true: Notify all commenters of the record when a comment is posted
+                      - false: Do not notify all commenters of the record when a comment is posted
+                    type: boolean
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: getPreviewAppNotificationsGeneralResponse
+                type: object
+      tags:
+        - APPS
   /k/v1/preview/app/notifications/perRecord.json:
     put:
       description: |
@@ -9428,7 +9428,7 @@ paths:
                 title: putPreviewAppNotificationsPerRecordResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Per Record Notification settings of the App.
@@ -9494,8 +9494,67 @@ paths:
                 title: getPreviewAppNotificationsPerRecordResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/notifications/reminder.json:
+    put:
+      description: |
+        Updates the Reminder Notification settings of the App.
+        This API updates the pre-live settings.
+        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
+      operationId: putPreviewAppNotificationsReminder
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  description: |
+                    The App ID.
+                  format: long
+                  type: integer
+                notifications:
+                  description: |
+                    An array of objects consisting of "Notification Trigger" options. These options define when the notifications will be sent out, under what conditions, and the recipients.
+                    If an empty array is sent, all the recipients will be removed.
+                    If this parameter is ignored, no changes will be made to the "Notification Trigger" options.
+                  items:
+                    $ref: '#/components/schemas/PreviewAppNotificationsReminderPutNotification'
+                  type: array
+                revision:
+                  description: |
+                    Specify the revision number of the settings that will be deployed.
+                    The request will fail if the revision number is not the latest revision.
+                    The revision will not be checked if this parameter is ignored or -1 is specified.
+                  format: long
+                  type: integer
+                timezone:
+                  description: |
+                    The timezone that determines the Reminder notification's timing. This reflects the "Reminder Time Zone" dropdown option.
+                    If the App's Reminder Notification settings have never been configured, the API executing user's timezone will be used.
+                  format: timezone
+                  type: string
+              required:
+                - app
+              title: putPreviewAppNotificationsReminderRequest
+              type: object
+      responses:
+        '200':
+          description: success case of preview/app/notifications/reminder/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                title: putPreviewAppNotificationsReminderResponse
+                type: object
+      tags:
+        - APPS
     get:
       description: |
         Gets the Reminder Notification settings of the App.
@@ -9572,66 +9631,7 @@ paths:
                 title: getPreviewAppNotificationsReminderResponse
                 type: object
       tags:
-        - APP
-    put:
-      description: |
-        Updates the Reminder Notification settings of the App.
-        This API updates the pre-live settings.
-        After using this API, use the Deploy App Settings API to deploy the settings to the live App.
-      operationId: putPreviewAppNotificationsReminder
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  description: |
-                    The App ID.
-                  format: long
-                  type: integer
-                notifications:
-                  description: |
-                    An array of objects consisting of "Notification Trigger" options. These options define when the notifications will be sent out, under what conditions, and the recipients.
-                    If an empty array is sent, all the recipients will be removed.
-                    If this parameter is ignored, no changes will be made to the "Notification Trigger" options.
-                  items:
-                    $ref: '#/components/schemas/PreviewAppNotificationsReminderPutNotification'
-                  type: array
-                revision:
-                  description: |
-                    Specify the revision number of the settings that will be deployed.
-                    The request will fail if the revision number is not the latest revision.
-                    The revision will not be checked if this parameter is ignored or -1 is specified.
-                  format: long
-                  type: integer
-                timezone:
-                  description: |
-                    The timezone that determines the Reminder notification's timing. This reflects the "Reminder Time Zone" dropdown option.
-                    If the App's Reminder Notification settings have never been configured, the API executing user's timezone will be used.
-                  format: timezone
-                  type: string
-              required:
-                - app
-              title: putPreviewAppNotificationsReminderRequest
-              type: object
-      responses:
-        '200':
-          description: success case of preview/app/notifications/reminder/put
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                title: putPreviewAppNotificationsReminderResponse
-                type: object
-      tags:
-        - APP
+        - APPS
   /k/v1/preview/app/plugins.json:
     get:
       description: |
@@ -9695,7 +9695,7 @@ paths:
                 title: getPreviewAppPluginsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     post:
       description: |
         Adds Plug-ins to an App.
@@ -9745,7 +9745,7 @@ paths:
                 title: postPreviewAppPluginsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/reports.json:
     put:
       description: |
@@ -9810,7 +9810,7 @@ paths:
                 title: putPreviewAppReportsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the Graph settings of the App.
@@ -9880,7 +9880,7 @@ paths:
                 title: getPreviewAppReportsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/settings.json:
     put:
       description: |
@@ -9993,7 +9993,7 @@ paths:
                 title: putPreviewAppSettingsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the description, name, icon, revision and color theme of an App.
@@ -10120,7 +10120,7 @@ paths:
                 title: getPreviewAppSettingsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/status.json:
     put:
       description: |
@@ -10186,7 +10186,7 @@ paths:
                 title: putPreviewAppStatusResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the process management settings of an App.
@@ -10266,7 +10266,7 @@ paths:
                 title: getPreviewAppStatusResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/app/views.json:
     put:
       description: |
@@ -10328,7 +10328,7 @@ paths:
                 title: putPreviewAppViewsResponse
                 type: object
       tags:
-        - APP
+        - APPS
     get:
       description: |
         Gets the View settings of an App.
@@ -10399,45 +10399,8 @@ paths:
                 title: getPreviewAppViewsResponse
                 type: object
       tags:
-        - APP
+        - APPS
   /k/v1/preview/field/acl.json:
-    get:
-      description: |
-        Gets the Field permission settings of an App.
-      operationId: getPreviewFieldAcl
-      parameters:
-        - description: |
-            The App ID.
-          in: query
-          name: app
-          required: true
-          schema:
-            description: |
-              The App ID.
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of preview/field/acl/get
-          content:
-            application/json:
-              schema:
-                properties:
-                  revision:
-                    description: |
-                      The revision number of the App settings.
-                    format: long
-                    type: integer
-                  rights:
-                    description: |
-                      An array of objects that contain data of permission settings.
-                    items:
-                      $ref: '#/components/schemas/PreviewFieldAclGetRight'
-                    type: array
-                title: getPreviewFieldAclResponse
-                type: object
-      tags:
-        - FIELD
     put:
       description: |
         Updates the Field permission settings of an App.
@@ -10492,7 +10455,44 @@ paths:
                 title: putPreviewFieldAclResponse
                 type: object
       tags:
-        - FIELD
+        - FIELDS
+    get:
+      description: |
+        Gets the Field permission settings of an App.
+      operationId: getPreviewFieldAcl
+      parameters:
+        - description: |
+            The App ID.
+          in: query
+          name: app
+          required: true
+          schema:
+            description: |
+              The App ID.
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of preview/field/acl/get
+          content:
+            application/json:
+              schema:
+                properties:
+                  revision:
+                    description: |
+                      The revision number of the App settings.
+                    format: long
+                    type: integer
+                  rights:
+                    description: |
+                      An array of objects that contain data of permission settings.
+                    items:
+                      $ref: '#/components/schemas/PreviewFieldAclGetRight'
+                    type: array
+                title: getPreviewFieldAclResponse
+                type: object
+      tags:
+        - FIELDS
   /k/v1/preview/form.json:
     get:
       description: |
@@ -10545,7 +10545,7 @@ paths:
                 title: getPreviewFormResponse
                 type: object
       tags:
-        - FORM
+        - FORMS
   /k/v1/preview/record/acl.json:
     put:
       description: |
@@ -10600,7 +10600,7 @@ paths:
                 title: putPreviewRecordAclResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       description: |
         Gets the Record permission settings of an App.
@@ -10666,7 +10666,7 @@ paths:
                 title: getPreviewRecordAclResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/record.json:
     put:
       operationId: putRecord
@@ -10734,7 +10734,7 @@ paths:
                 title: putRecordResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       operationId: getRecord
       parameters:
@@ -10789,7 +10789,7 @@ paths:
                 title: getRecordResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     post:
       operationId: postRecord
       parameters: []
@@ -10852,7 +10852,7 @@ paths:
                 title: postRecordResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/record/acl.json:
     put:
       description: |
@@ -10907,7 +10907,7 @@ paths:
                 title: putRecordAclResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
     get:
       description: |
         Gets the Record permission settings of an App.
@@ -10973,7 +10973,7 @@ paths:
                 title: getRecordAclResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/record/assignees.json:
     put:
       operationId: putRecordAssignees
@@ -11016,8 +11016,37 @@ paths:
                 title: putRecordAssigneesResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/record/comment.json:
+    delete:
+      operationId: deleteRecordComment
+      parameters:
+        - in: query
+          name: app
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: record
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: comment
+          required: true
+          schema:
+            format: long
+            type: integer
+      responses:
+        '200':
+          description: success case of record/comment/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - RECORDS
     post:
       operationId: postRecordComment
       parameters: []
@@ -11065,36 +11094,7 @@ paths:
                 title: postRecordCommentResponse
                 type: object
       tags:
-        - RECORD
-    delete:
-      operationId: deleteRecordComment
-      parameters:
-        - in: query
-          name: app
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: record
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: comment
-          required: true
-          schema:
-            format: long
-            type: integer
-      responses:
-        '200':
-          description: success case of record/comment/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORD
+        - RECORDS
   /k/v1/record/comments.json:
     get:
       operationId: getRecordComments
@@ -11149,7 +11149,7 @@ paths:
                 title: getRecordCommentsResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/record/status.json:
     put:
       operationId: putRecordStatus
@@ -11192,49 +11192,39 @@ paths:
                 title: putRecordStatusResponse
                 type: object
       tags:
-        - RECORD
+        - RECORDS
   /k/v1/records.json:
-    put:
-      operationId: putRecords
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                app:
-                  format: long
-                  type: integer
-                records:
-                  items:
-                    $ref: '#/components/schemas/RecordsPutRecordForm'
-                  type: array
-                upsert:
-                  format: boolean
-                  type: boolean
-              required:
-                - app
-                - records
-              title: putRecordsRequest
-              type: object
+    delete:
+      operationId: deleteRecords
+      parameters:
+        - in: query
+          name: app
+          required: true
+          schema:
+            format: long
+            type: integer
+        - in: query
+          name: ids
+          required: true
+          schema:
+            items:
+              format: long
+              type: integer
+            type: array
+        - in: query
+          name: revisions
+          required: false
+          schema:
+            items:
+              format: long
+              type: integer
+            type: array
       responses:
         '200':
-          description: success case of records/put
+          description: success case of records/delete
           content:
             application/json:
-              schema:
-                properties:
-                  records:
-                    oneOf:
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/RecordsPutRecordBean'
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/RecordsPutUpsertRecordBean'
-                title: putRecordsResponse
-                type: object
+              schema: {}
       tags:
         - RECORDS
     get:
@@ -11310,6 +11300,49 @@ paths:
                 type: object
       tags:
         - RECORDS
+    put:
+      operationId: putRecords
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                app:
+                  format: long
+                  type: integer
+                records:
+                  items:
+                    $ref: '#/components/schemas/RecordsPutRecordForm'
+                  type: array
+                upsert:
+                  format: boolean
+                  type: boolean
+              required:
+                - app
+                - records
+              title: putRecordsRequest
+              type: object
+      responses:
+        '200':
+          description: success case of records/put
+          content:
+            application/json:
+              schema:
+                properties:
+                  records:
+                    oneOf:
+                      - type: array
+                        items:
+                          $ref: '#/components/schemas/RecordsPutRecordBean'
+                      - type: array
+                        items:
+                          $ref: '#/components/schemas/RecordsPutUpsertRecordBean'
+                title: putRecordsResponse
+                type: object
+      tags:
+        - RECORDS
     post:
       operationId: postRecords
       parameters: []
@@ -11379,39 +11412,6 @@ paths:
                 type: object
       tags:
         - RECORDS
-    delete:
-      operationId: deleteRecords
-      parameters:
-        - in: query
-          name: app
-          required: true
-          schema:
-            format: long
-            type: integer
-        - in: query
-          name: ids
-          required: true
-          schema:
-            items:
-              format: long
-              type: integer
-            type: array
-        - in: query
-          name: revisions
-          required: false
-          schema:
-            items:
-              format: long
-              type: integer
-            type: array
-      responses:
-        '200':
-          description: success case of records/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORDS
   /k/v1/records/acl/evaluate.json:
     get:
       description: |
@@ -11460,6 +11460,22 @@ paths:
       tags:
         - RECORDS
   /k/v1/records/cursor.json:
+    delete:
+      operationId: deleteRecordsCursor
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of records/cursor/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - RECORDS
     get:
       operationId: getRecordsCursor
       parameters:
@@ -11554,22 +11570,6 @@ paths:
                 type: object
       tags:
         - RECORDS
-    delete:
-      operationId: deleteRecordsCursor
-      parameters:
-        - in: query
-          name: id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of records/cursor/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - RECORDS
   /k/v1/records/status.json:
     put:
       operationId: putRecordsStatus
@@ -11624,7 +11624,67 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
+    put:
+      operationId: putSpace
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                fixedMember:
+                  format: boolean
+                  type: boolean
+                id:
+                  format: long
+                  type: integer
+                isPrivate:
+                  format: boolean
+                  type: boolean
+                name:
+                  maxLength: 128
+                  minLength: 1
+                  type: string
+                permissions:
+                  properties:
+                    createApp:
+                      enum:
+                        - EVERYONE
+                        - ADMIN
+                      type: string
+                  type: object
+                showAnnouncement:
+                  format: boolean
+                  type: boolean
+                showAppList:
+                  format: boolean
+                  type: boolean
+                showMemberList:
+                  format: boolean
+                  type: boolean
+                showRelatedLinkList:
+                  format: boolean
+                  type: boolean
+                showThreadList:
+                  format: boolean
+                  type: boolean
+                useMultiThread:
+                  format: boolean
+                  type: boolean
+              required:
+                - id
+              title: putSpaceRequest
+              type: object
+      responses:
+        '200':
+          description: success case of space/put
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - SPACES
     get:
       operationId: getSpace
       parameters:
@@ -11722,67 +11782,7 @@ paths:
                 title: getSpaceResponse
                 type: object
       tags:
-        - SPACE
-    put:
-      operationId: putSpace
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                fixedMember:
-                  format: boolean
-                  type: boolean
-                id:
-                  format: long
-                  type: integer
-                isPrivate:
-                  format: boolean
-                  type: boolean
-                name:
-                  maxLength: 128
-                  minLength: 1
-                  type: string
-                permissions:
-                  properties:
-                    createApp:
-                      enum:
-                        - EVERYONE
-                        - ADMIN
-                      type: string
-                  type: object
-                showAnnouncement:
-                  format: boolean
-                  type: boolean
-                showAppList:
-                  format: boolean
-                  type: boolean
-                showMemberList:
-                  format: boolean
-                  type: boolean
-                showRelatedLinkList:
-                  format: boolean
-                  type: boolean
-                showThreadList:
-                  format: boolean
-                  type: boolean
-                useMultiThread:
-                  format: boolean
-                  type: boolean
-              required:
-                - id
-              title: putSpaceRequest
-              type: object
-      responses:
-        '200':
-          description: success case of space/put
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - SPACE
+        - SPACES
   /k/v1/space/body.json:
     put:
       operationId: putSpaceBody
@@ -11811,7 +11811,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
   /k/v1/space/guests.json:
     put:
       operationId: putSpaceGuests
@@ -11842,7 +11842,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
   /k/v1/space/members.json:
     put:
       operationId: putSpaceMembers
@@ -11871,7 +11871,7 @@ paths:
             application/json:
               schema: {}
       tags:
-        - SPACE
+        - SPACES
     get:
       operationId: getSpaceMembers
       parameters:
@@ -11898,8 +11898,39 @@ paths:
                 title: getSpaceMembersResponse
                 type: object
       tags:
-        - SPACE
+        - SPACES
   /k/v1/space/thread.json:
+    put:
+      operationId: putSpaceThread
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                body:
+                  maxLength: 65535
+                  type: string
+                id:
+                  format: long
+                  type: integer
+                name:
+                  maxLength: 128
+                  minLength: 1
+                  type: string
+              required:
+                - id
+              title: putSpaceThreadRequest
+              type: object
+      responses:
+        '200':
+          description: success case of space/thread/put
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - SPACES
     post:
       operationId: postSpaceThread
       parameters: []
@@ -11934,38 +11965,7 @@ paths:
                 title: postSpaceThreadResponse
                 type: object
       tags:
-        - SPACE
-    put:
-      operationId: putSpaceThread
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              properties:
-                body:
-                  maxLength: 65535
-                  type: string
-                id:
-                  format: long
-                  type: integer
-                name:
-                  maxLength: 128
-                  minLength: 1
-                  type: string
-              required:
-                - id
-              title: putSpaceThreadRequest
-              type: object
-      responses:
-        '200':
-          description: success case of space/thread/put
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - SPACE
+        - SPACES
   /k/v1/space/thread/comment.json:
     post:
       operationId: postSpaceThreadComment
@@ -12015,7 +12015,7 @@ paths:
                 title: postSpaceThreadCommentResponse
                 type: object
       tags:
-        - SPACE
+        - SPACES
   /k/v1/spaces/statistics.json:
     get:
       operationId: getSpacesStatistics
@@ -12093,7 +12093,7 @@ paths:
                 title: postTemplateSpaceResponse
                 type: object
       tags:
-        - TEMPLATE
+        - TEMPLATES
 components:
   schemas:
     AppAclGetRight:
