@@ -20,7 +20,7 @@ This repository provides the [OpenAPI](https://www.openapis.org/) Description (O
 
 OpenAPI is a specification for describing REST API interfaces. It is both human- and machine-readable.
 
-It is widely supported by API-related tools and services, enabling tasks such as interacting with the REST API using Postman or automatically generating REST API clients.
+It is widely supported by API-related tools and services, enabling tasks such as inspecting the REST API responses using Postman or automatically generating REST API clients.
 
 ## Usage
 
