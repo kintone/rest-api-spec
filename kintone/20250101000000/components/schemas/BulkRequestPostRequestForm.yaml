@@ -1,8 +1,10 @@
 ---
 properties:
   api:
+    description: "The path of the API for the request.\n"
     type: "string"
   method:
+    description: "The API method for the request.\n"
     type: "string"
   payload:
     anyOf:

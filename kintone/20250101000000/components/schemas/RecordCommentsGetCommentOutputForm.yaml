@@ -1,27 +1,31 @@
 ---
 properties:
   createdAt:
+    description: "The created date and time of the comment.\n"
     format: "date-time"
     type: "string"
   creator:
+    description: "An object including information of the comment creator.\n"
     properties:
       code:
-        description: "The log in name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The log in name of the creator.\n"
         type: "string"
       name:
-        description: "The display name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The display name of the creator.\n"
         type: "string"
     type: "object"
   id:
+    description: "The Comment ID.\n"
     format: "long"
     type: "integer"
   mentions:
+    description: "An array including information of mentioned users.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/RecordCommentsGetMentionOutputForm"
     type: "array"
   text:
+    description: "The comment including the line feed codes.\nIf a user is mentioned\
+      \ within a comment, the \"@\" symbol will be omitted from the String.\n"
     type: "string"
 type: "object"
 

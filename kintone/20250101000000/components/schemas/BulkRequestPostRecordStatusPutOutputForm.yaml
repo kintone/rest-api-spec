@@ -1,6 +1,9 @@
 ---
 properties:
   revision:
+    description: "The revision number of the record after updating the status.\nThe\
+      \ revision number will increase by 2, as two operations are preformed - running\
+      \ the action, and updating the status.\n"
     format: "long"
     type: "integer"
 type: "object"

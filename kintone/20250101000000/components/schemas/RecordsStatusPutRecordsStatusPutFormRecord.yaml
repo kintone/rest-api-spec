@@ -1,13 +1,26 @@
 ---
 properties:
   action:
+    description: "The Action name of the action to run.\nIf the localization feature\
+      \ has been used to apply multiple translations of the Action name,\nspecify\
+      \ the name of the Action in the language settings of the user that will run\
+      \ the API.\nAPI Tokens follow the language settings set in the User & System\
+      \ Administration settings.\n"
     type: "string"
   assignee:
+    description: "The next Assignee. Specify the Assignee's log in name.\nRequired,\
+      \ if the \"Assignee List\" of the current status is set to \"User chooses one\
+      \ assignee from the list to take action\",\nand a selectable assignee exists.\n"
     type: "string"
   id:
+    description: "The record ID.\n"
     format: "long"
     type: "integer"
   revision:
+    description: "The revision number of the record before updating the status.\n\
+      If the specified revision is not the latest revision, the request will result\
+      \ in an error.\nThe revision will not be checked if this parameter is ignored,\
+      \ or -1 is specified.\n"
     format: "long"
     type: "integer"
 required:

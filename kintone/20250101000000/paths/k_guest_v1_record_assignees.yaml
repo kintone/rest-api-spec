@@ -1,5 +1,7 @@
 ---
 put:
+  description: "Updates the Assignees of a Record status, that was set with Process\
+    \ Management.\n"
   operationId: "putRecordAssigneesForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -17,16 +19,25 @@ put:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             assignees:
+              description: "The user code(s) (log in names) of the Assignee(s). If\
+                \ empty, no users will be assigned. The maximum number of Assignees\
+                \ is 100.\n"
               items:
                 type: "string"
               type: "array"
             id:
+              description: "The record ID.\n"
               format: "long"
               type: "integer"
             revision:
+              description: "The revision number of the record before updating the\
+                \ Assignees.\nIf the specified revision is not the latest revision,\
+                \ the request will result in an error.\nThe revision will not be checked\
+                \ if this parameter is ignored, or -1 is specified.\n"
               format: "long"
               type: "integer"
           required:
@@ -43,6 +54,8 @@ put:
           schema:
             properties:
               revision:
+                description: "The revision number of the record after updating the\
+                  \ Assignees.\n"
                 format: "long"
                 type: "integer"
             title: "putRecordAssigneesForGuestSpaceResponse"

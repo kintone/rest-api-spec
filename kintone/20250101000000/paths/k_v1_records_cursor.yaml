@@ -1,11 +1,14 @@
 ---
 delete:
+  description: "Deletes a cursor by specifying the cursor ID.\n"
   operationId: "deleteRecordsCursor"
   parameters:
-  - in: "query"
+  - description: "The cursor ID.\n"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The cursor ID.\n"
       type: "string"
   responses:
     "200":
@@ -16,12 +19,15 @@ delete:
   tags:
   - "RECORDS"
 get:
+  description: "Retrieves multiple records from an App by specifying the cursor ID.\n"
   operationId: "getRecordsCursor"
   parameters:
-  - in: "query"
+  - description: "The cursor ID.\n"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The cursor ID.\n"
       type: "string"
   responses:
     "200":
@@ -31,8 +37,16 @@ get:
           schema:
             properties:
               next:
+                description: "States whether there are more records that can be acquired\
+                  \ from the cursor.\n- true: There are still records to be acquired.\n\
+                  - false: There are no more records to be acquired.\n\nRun this API\
+                  \ again with the same parameters to obtain the next set of records.\n\
+                  The cursor will remain valid until all records have been obtained.\n"
                 type: "boolean"
               records:
+                description: "An array of objects that includes field data of records\
+                  \ that match the query.\nThe response is the same as the response\
+                  \ for the Get Records API.\n"
                 items:
                   additionalProperties:
                     anyOf:
@@ -68,6 +82,8 @@ get:
   tags:
   - "RECORDS"
 post:
+  description: "Adds a cursor so that large amount of records can be obtained from\
+    \ an App.\n"
   operationId: "postRecordsCursor"
   parameters: []
   requestBody:
@@ -77,16 +93,26 @@ post:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             fields:
+              description: "The field codes to be included in the response when using\
+                \ the Get Cursor API.\nIf ignored, all accessible fields in the app\
+                \ will be returned.\n"
               items:
                 type: "string"
               type: "array"
             query:
+              description: "The query string that will specify what records will be\
+                \ responded when using the Get Cursor API.\nIf ignored, all accessible\
+                \ records from the App will be returned.\n"
               format: "query"
               type: "string"
             size:
+              description: "The maximum number of records the Get Cursor API can retrieve\
+                \ from this cursor with one request.\nThe maximum number is 500 records.\
+                \ If ignored, the default number of records to be retrieved is 100.\n"
               format: "long"
               type: "integer"
           required:
@@ -101,8 +127,10 @@ post:
           schema:
             properties:
               id:
+                description: "The cursor ID.\n"
                 type: "string"
               totalCount:
+                description: "The total count of records that match the query conditions.\n"
                 format: "long"
                 type: "integer"
             title: "postRecordsCursorResponse"

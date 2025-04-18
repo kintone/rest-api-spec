@@ -1,6 +1,7 @@
 ---
 properties:
   records:
+    description: "An array including information of the updated records.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutOutputFormRecord"
     type: "array"

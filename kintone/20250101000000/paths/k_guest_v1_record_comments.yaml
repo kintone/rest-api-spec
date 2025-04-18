@@ -1,5 +1,6 @@
 ---
 get:
+  description: "Retrieves multiple comments from a record in an app.\n"
   operationId: "getRecordCommentsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,34 +11,54 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "This skips the retrieval of the first number of comments.\n\"offset\"\
+      : 30 skips the first 30 comments, and retrieves from the 31st comment. There\
+      \ is no maximum for this value.\n"
+    in: "query"
     name: "offset"
     required: false
     schema:
+      description: "This skips the retrieval of the first number of comments.\n\"\
+        offset\": 30 skips the first 30 comments, and retrieves from the 31st comment.\
+        \ There is no maximum for this value.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The Record ID.\n"
+    in: "query"
     name: "record"
     required: true
     schema:
+      description: "The Record ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The number of records to retrieve.\n\"limit\": 5 will retrieve the\
+      \ first 5 comments. The default and maximum is 10 comments.\n"
+    in: "query"
     name: "limit"
     required: false
     schema:
+      description: "The number of records to retrieve.\n\"limit\": 5 will retrieve\
+        \ the first 5 comments. The default and maximum is 10 comments.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The sort order of the Comment ID. Specifying \"asc\" will sort the\
+      \ comments in ascending order, and \"desc\" will sort the comments in descending\
+      \ order.\nIf ignored, \"desc\" will be set.\n"
+    in: "query"
     name: "order"
     required: false
     schema:
+      description: "The sort order of the Comment ID. Specifying \"asc\" will sort\
+        \ the comments in ascending order, and \"desc\" will sort the comments in\
+        \ descending order.\nIf ignored, \"desc\" will be set.\n"
       enum:
       - "ASC"
       - "DESC"
@@ -50,12 +71,18 @@ get:
           schema:
             properties:
               comments:
+                description: "An array of comments. An empty array is returned if\
+                  \ no conditions are met.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/RecordCommentsGetCommentOutputForm"
                 type: "array"
               newer:
+                description: "Information of newer comments:\n- true: Newer comments\
+                  \ exist.\n- false: Newer comments do not exist. (i.e. the last comment)\n"
                 type: "boolean"
               older:
+                description: "Information of older comments:\n- true: Older comments\
+                  \ exist.\n- false: Older comments do not exist (i.e. the first comment)\n"
                 type: "boolean"
             title: "getRecordCommentsForGuestSpaceResponse"
             type: "object"

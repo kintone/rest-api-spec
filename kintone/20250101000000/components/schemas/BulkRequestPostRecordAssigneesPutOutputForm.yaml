@@ -1,6 +1,7 @@
 ---
 properties:
   revision:
+    description: "The revision number of the record after updating the Assignees.\n"
     format: "long"
     type: "integer"
 type: "object"
