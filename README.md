@@ -49,7 +49,7 @@ You can browse the list of kintone REST APIs, view their request and response fo
 
 ## Limitations
 
-- The API interface is based on the kintone REST API in the [Current Channel](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html#new_feature_new_feature_overview_10), with all [Update Options](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html) turned off.
+- The API interface is based on the kintone REST API in the [Current Channel](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html#new_feature_new_feature_overview_10), with all [Update Options](https://jp.cybozu.help/k/en/admin/new_feature/new_feature_overview.html) checkboxes left unchecked.
 
 ## License
 
