@@ -28,5 +28,5 @@ put:
         application/json:
           schema: {}
   tags:
-  - "SPACE"
+  - "SPACES"
 

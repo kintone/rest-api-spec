@@ -80,5 +80,5 @@ get:
             title: "getAppFormFieldsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

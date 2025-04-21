@@ -1,45 +1,35 @@
 ---
-put:
-  operationId: "putRecords"
-  parameters: []
-  requestBody:
+delete:
+  operationId: "deleteRecords"
+  parameters:
+  - in: "query"
+    name: "app"
     required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            app:
-              format: "long"
-              type: "integer"
-            records:
-              items:
-                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
-              type: "array"
-            upsert:
-              format: "boolean"
-              type: "boolean"
-          required:
-          - "app"
-          - "records"
-          title: "putRecordsRequest"
-          type: "object"
+    schema:
+      format: "long"
+      type: "integer"
+  - in: "query"
+    name: "ids"
+    required: true
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
+  - in: "query"
+    name: "revisions"
+    required: false
+    schema:
+      items:
+        format: "long"
+        type: "integer"
+      type: "array"
   responses:
     "200":
-      description: "success case of records/put"
+      description: "success case of records/delete"
       content:
         application/json:
-          schema:
-            properties:
-              records:
-                oneOf:
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
-                - type: "array"
-                  items:
-                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
-            title: "putRecordsResponse"
-            type: "object"
+          schema: {}
   tags:
   - "RECORDS"
 get:
@@ -115,6 +105,49 @@ get:
             type: "object"
   tags:
   - "RECORDS"
+put:
+  operationId: "putRecords"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            app:
+              format: "long"
+              type: "integer"
+            records:
+              items:
+                $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordForm"
+              type: "array"
+            upsert:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "app"
+          - "records"
+          title: "putRecordsRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of records/put"
+      content:
+        application/json:
+          schema:
+            properties:
+              records:
+                oneOf:
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutRecordBean"
+                - type: "array"
+                  items:
+                    $ref: "../openapi.yaml#/components/schemas/RecordsPutUpsertRecordBean"
+            title: "putRecordsResponse"
+            type: "object"
+  tags:
+  - "RECORDS"
 post:
   operationId: "postRecords"
   parameters: []
@@ -182,39 +215,6 @@ post:
                 type: "array"
             title: "postRecordsResponse"
             type: "object"
-  tags:
-  - "RECORDS"
-delete:
-  operationId: "deleteRecords"
-  parameters:
-  - in: "query"
-    name: "app"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  - in: "query"
-    name: "ids"
-    required: true
-    schema:
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  - in: "query"
-    name: "revisions"
-    required: false
-    schema:
-      items:
-        format: "long"
-        type: "integer"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of records/delete"
-      content:
-        application/json:
-          schema: {}
   tags:
   - "RECORDS"
 

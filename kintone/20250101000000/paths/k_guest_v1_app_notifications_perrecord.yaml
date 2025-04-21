@@ -66,5 +66,5 @@ get:
             title: "getAppNotificationsPerRecordForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

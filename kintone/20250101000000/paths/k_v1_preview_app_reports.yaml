@@ -56,7 +56,7 @@ put:
             title: "putPreviewAppReportsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the Graph settings of the App.\n"
   operationId: "getPreviewAppReports"
@@ -117,5 +117,5 @@ get:
             title: "getPreviewAppReportsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

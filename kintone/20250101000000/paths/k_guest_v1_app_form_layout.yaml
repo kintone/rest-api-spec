@@ -41,5 +41,5 @@ get:
             title: "getAppFormLayoutForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

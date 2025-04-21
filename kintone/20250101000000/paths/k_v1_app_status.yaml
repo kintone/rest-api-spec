@@ -67,5 +67,5 @@ get:
             title: "getAppStatusResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

@@ -46,5 +46,5 @@ post:
             title: "postTemplateSpaceResponse"
             type: "object"
   tags:
-  - "TEMPLATE"
+  - "TEMPLATES"
 

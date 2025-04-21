@@ -1,52 +1,4 @@
 ---
-get:
-  description: "Gets the General Notification settings of the App.\n"
-  operationId: "getPreviewAppNotificationsGeneralForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - description: "The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "The App ID.\n"
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of preview/app/notifications/general/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              notifications:
-                description: "An array of objects consisting of \"Recipients and Conditions\"\
-                  \ options.\nThese options define who will receive the notifications.\n"
-                items:
-                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
-                type: "array"
-              notifyToCommenter:
-                description: "Option to notify all commenters of a record when a comment\
-                  \ is posted on that record.\nThis reflects the \"Send updated comment\
-                  \ notifications to all commenters\" checkbox.\n- true: Notify all\
-                  \ commenters of the record when a comment is posted\n- false: Do\
-                  \ not notify all commenters of the record when a comment is posted\n"
-                type: "boolean"
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppNotificationsGeneralForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
 put:
   description: "Updates the General Notification settings of the App.\nThis API updates\
     \ the pre-live settings.\nAfter using this API, use the Deploy App Settings API\
@@ -102,5 +54,53 @@ put:
             title: "putPreviewAppNotificationsGeneralForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
+get:
+  description: "Gets the General Notification settings of the App.\n"
+  operationId: "getPreviewAppNotificationsGeneralForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of preview/app/notifications/general/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              notifications:
+                description: "An array of objects consisting of \"Recipients and Conditions\"\
+                  \ options.\nThese options define who will receive the notifications.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PreviewAppNotificationsGeneralGetNotification"
+                type: "array"
+              notifyToCommenter:
+                description: "Option to notify all commenters of a record when a comment\
+                  \ is posted on that record.\nThis reflects the \"Send updated comment\
+                  \ notifications to all commenters\" checkbox.\n- true: Notify all\
+                  \ commenters of the record when a comment is posted\n- false: Do\
+                  \ not notify all commenters of the record when a comment is posted\n"
+                type: "boolean"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppNotificationsGeneralForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APPS"
 

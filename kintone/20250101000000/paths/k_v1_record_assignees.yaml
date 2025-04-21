@@ -40,5 +40,5 @@ put:
             title: "putRecordAssigneesResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

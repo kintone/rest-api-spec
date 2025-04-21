@@ -40,5 +40,5 @@ get:
             title: "getAppAdminNotesForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

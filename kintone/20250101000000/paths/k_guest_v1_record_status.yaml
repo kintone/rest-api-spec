@@ -48,5 +48,5 @@ put:
             title: "putRecordStatusForGuestSpaceResponse"
             type: "object"
   tags:
-  - "RECORD"
+  - "RECORDS"
 

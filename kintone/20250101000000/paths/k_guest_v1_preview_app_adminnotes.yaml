@@ -1,46 +1,4 @@
 ---
-get:
-  description: "Gets notes for app administrators and their settings.\n"
-  operationId: "getPreviewAppAdminNotesForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - description: "The App ID.\n"
-    in: "query"
-    name: "app"
-    required: true
-    schema:
-      description: "The App ID.\n"
-      type: "string"
-  responses:
-    "200":
-      description: "success case of preview/app/adminNotes/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              content:
-                description: "The content of the notes. If not set, an empty string\
-                  \ is returned.\n"
-                type: "string"
-              includeInTemplateAndDuplicates:
-                description: "The permission settings to include this note in app\
-                  \ templates or duplicates\n- true: include\n- false: do not include\n"
-                type: "boolean"
-              revision:
-                description: "The revision number of the App settings.\n"
-                format: "long"
-                type: "integer"
-            title: "getPreviewAppAdminNotesForGuestSpaceResponse"
-            type: "object"
-  tags:
-  - "APP"
 put:
   description: "Updates the notes for App administrators and their settings.\n"
   operationId: "putPreviewAppAdminNotesForGuestSpace"
@@ -99,5 +57,47 @@ put:
             title: "putPreviewAppAdminNotesForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
+get:
+  description: "Gets notes for app administrators and their settings.\n"
+  operationId: "getPreviewAppAdminNotesForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The App ID.\n"
+    in: "query"
+    name: "app"
+    required: true
+    schema:
+      description: "The App ID.\n"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of preview/app/adminNotes/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              content:
+                description: "The content of the notes. If not set, an empty string\
+                  \ is returned.\n"
+                type: "string"
+              includeInTemplateAndDuplicates:
+                description: "The permission settings to include this note in app\
+                  \ templates or duplicates\n- true: include\n- false: do not include\n"
+                type: "boolean"
+              revision:
+                description: "The revision number of the App settings.\n"
+                format: "long"
+                type: "integer"
+            title: "getPreviewAppAdminNotesForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "APPS"
 

@@ -58,5 +58,5 @@ post:
             title: "postPreviewAppForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

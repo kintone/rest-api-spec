@@ -101,7 +101,7 @@ put:
             title: "putPreviewAppSettingsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the description, name, icon, revision and color theme of an App.\n"
   operationId: "getPreviewAppSettingsForGuestSpace"
@@ -213,5 +213,5 @@ get:
             title: "getPreviewAppSettingsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

@@ -71,5 +71,5 @@ get:
             title: "getAppCustomizeResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

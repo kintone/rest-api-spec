@@ -93,7 +93,7 @@ put:
             title: "putPreviewAppSettingsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the description, name, icon, revision and color theme of an App.\n"
   operationId: "getPreviewAppSettings"
@@ -197,5 +197,5 @@ get:
             title: "getPreviewAppSettingsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

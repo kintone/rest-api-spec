@@ -76,5 +76,5 @@ get:
             title: "getAppNotificationsReminderForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

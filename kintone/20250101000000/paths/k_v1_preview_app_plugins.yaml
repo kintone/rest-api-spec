@@ -48,7 +48,7 @@ get:
             title: "getPreviewAppPluginsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 post:
   description: "Adds Plug-ins to an App.\n"
   operationId: "postPreviewAppPlugins"
@@ -94,5 +94,5 @@ post:
             title: "postPreviewAppPluginsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

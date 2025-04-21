@@ -54,7 +54,7 @@ put:
             title: "putPreviewAppViewsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 get:
   description: "Gets the View settings of an App.\n"
   operationId: "getPreviewAppViews"
@@ -114,5 +114,5 @@ get:
             title: "getPreviewAppViewsResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

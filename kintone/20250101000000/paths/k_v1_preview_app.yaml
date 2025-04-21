@@ -50,5 +50,5 @@ post:
             title: "postPreviewAppResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

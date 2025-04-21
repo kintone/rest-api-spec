@@ -66,5 +66,5 @@ get:
             title: "getAppViewsForGuestSpaceResponse"
             type: "object"
   tags:
-  - "APP"
+  - "APPS"
 

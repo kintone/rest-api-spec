@@ -15,7 +15,67 @@ delete:
         application/json:
           schema: {}
   tags:
-  - "SPACE"
+  - "SPACES"
+put:
+  operationId: "putSpace"
+  parameters: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            fixedMember:
+              format: "boolean"
+              type: "boolean"
+            id:
+              format: "long"
+              type: "integer"
+            isPrivate:
+              format: "boolean"
+              type: "boolean"
+            name:
+              maxLength: 128
+              minLength: 1
+              type: "string"
+            permissions:
+              properties:
+                createApp:
+                  enum:
+                  - "EVERYONE"
+                  - "ADMIN"
+                  type: "string"
+              type: "object"
+            showAnnouncement:
+              format: "boolean"
+              type: "boolean"
+            showAppList:
+              format: "boolean"
+              type: "boolean"
+            showMemberList:
+              format: "boolean"
+              type: "boolean"
+            showRelatedLinkList:
+              format: "boolean"
+              type: "boolean"
+            showThreadList:
+              format: "boolean"
+              type: "boolean"
+            useMultiThread:
+              format: "boolean"
+              type: "boolean"
+          required:
+          - "id"
+          title: "putSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/put"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "SPACES"
 get:
   operationId: "getSpace"
   parameters:
@@ -109,65 +169,5 @@ get:
             title: "getSpaceResponse"
             type: "object"
   tags:
-  - "SPACE"
-put:
-  operationId: "putSpace"
-  parameters: []
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            fixedMember:
-              format: "boolean"
-              type: "boolean"
-            id:
-              format: "long"
-              type: "integer"
-            isPrivate:
-              format: "boolean"
-              type: "boolean"
-            name:
-              maxLength: 128
-              minLength: 1
-              type: "string"
-            permissions:
-              properties:
-                createApp:
-                  enum:
-                  - "EVERYONE"
-                  - "ADMIN"
-                  type: "string"
-              type: "object"
-            showAnnouncement:
-              format: "boolean"
-              type: "boolean"
-            showAppList:
-              format: "boolean"
-              type: "boolean"
-            showMemberList:
-              format: "boolean"
-              type: "boolean"
-            showRelatedLinkList:
-              format: "boolean"
-              type: "boolean"
-            showThreadList:
-              format: "boolean"
-              type: "boolean"
-            useMultiThread:
-              format: "boolean"
-              type: "boolean"
-          required:
-          - "id"
-          title: "putSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of space/put"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "SPACE"
+  - "SPACES"
 
