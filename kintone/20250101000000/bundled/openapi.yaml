@@ -62,12 +62,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   description:
@@ -88,12 +86,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   name:
@@ -1485,6 +1481,8 @@ paths:
         - APPS
   /k/guest/{guestSpaceId}/v1/bulkRequest.json:
     post:
+      description: |
+        Runs multiple API requests sequentially to multiple Apps.
       operationId: postBulkRequestForGuestSpace
       parameters:
         - description: guest space id
@@ -1502,6 +1500,8 @@ paths:
             schema:
               properties:
                 requests:
+                  description: |
+                    An array of requests. The maximum number of requests is 20.
                   items:
                     $ref: '#/components/schemas/BulkRequestPostRequestForm'
                   type: array
@@ -1517,6 +1517,10 @@ paths:
               schema:
                 properties:
                   results:
+                    description: |
+                      The response from each API request. The order of the response is the same as the order of the requests.
+                      If an API request fails, an error will be included in the index of the failed API.
+                      In this case, all other indexes will be responded with {} (empty objects).
                     items:
                       anyOf:
                         - $ref: '#/components/schemas/BulkRequestPostRecordPostOutputForm'
@@ -4788,6 +4792,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/record.json:
     put:
+      description: |
+        Updates details of 1 record in an App by specifying its record number, or a different unique key.
       operationId: putRecordForGuestSpace
       parameters:
         - description: guest space id
@@ -4805,9 +4811,12 @@ paths:
             schema:
               properties:
                 app:
+                  description: |2
+                        The App ID.
                   format: long
                   type: integer
                 id:
+                  description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
                   format: long
                   type: integer
                 record:
@@ -4838,8 +4847,12 @@ paths:
                       - $ref: '#/components/schemas/RecordPutGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRawRecordIdSimpleValue'
+                  description: |2
+                        Field codes and values are specified in this object.
+                        If ignored, the record will not be updated.
                   type: object
                 revision:
+                  description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
                   format: long
                   type: integer
                 updateKey:
@@ -4863,6 +4876,8 @@ paths:
       tags:
         - RECORDS
     get:
+      description: |
+        Retrieves details of 1 record from an App by specifying the App ID and Record ID.
       operationId: getRecordForGuestSpace
       parameters:
         - description: guest space id
@@ -4873,16 +4888,24 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
       responses:
@@ -4920,12 +4943,16 @@ paths:
                         - $ref: '#/components/schemas/RecordGetGroupSelectSimpleValue'
                         - $ref: '#/components/schemas/RecordGetRevisionSimpleValue'
                         - $ref: '#/components/schemas/RecordGetRawRecordIdSimpleValue'
+                    description: |
+                      The type and value of all fields within the record are included in the object.
                     type: object
                 title: getRecordForGuestSpaceResponse
                 type: object
       tags:
         - RECORDS
     post:
+      description: |
+        Adds 1 record to an App.
       operationId: postRecordForGuestSpace
       parameters:
         - description: guest space id
@@ -4943,6 +4970,8 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 record:
@@ -4973,6 +5002,10 @@ paths:
                       - $ref: '#/components/schemas/RecordPostGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPostRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPostRawRecordIdSimpleValue'
+                  description: |
+                    Field codes and values are specified in this object.
+                    If ignored, the record will be added with default field values.
+                    If field codes that don't exist are specified, these will be ignored.
                   type: object
               required:
                 - app
@@ -4987,9 +5020,13 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Record ID of the created Record.
                     format: long
                     type: integer
                   revision:
+                    description: |
+                      The revision number of the Record.
                     format: long
                     type: integer
                 title: postRecordForGuestSpaceResponse
@@ -5135,6 +5172,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/record/assignees.json:
     put:
+      description: |
+        Updates the Assignees of a Record status, that was set with Process Management.
       operationId: putRecordAssigneesForGuestSpace
       parameters:
         - description: guest space id
@@ -5152,16 +5191,26 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 assignees:
+                  description: |
+                    The user code(s) (log in names) of the Assignee(s). If empty, no users will be assigned. The maximum number of Assignees is 100.
                   items:
                     type: string
                   type: array
                 id:
+                  description: |
+                    The record ID.
                   format: long
                   type: integer
                 revision:
+                  description: |
+                    The revision number of the record before updating the Assignees.
+                    If the specified revision is not the latest revision, the request will result in an error.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
                   format: long
                   type: integer
               required:
@@ -5178,6 +5227,8 @@ paths:
               schema:
                 properties:
                   revision:
+                    description: |
+                      The revision number of the record after updating the Assignees.
                     format: long
                     type: integer
                 title: putRecordAssigneesForGuestSpaceResponse
@@ -5186,6 +5237,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/record/comment.json:
     delete:
+      description: |
+        Delete a comment in a record in an app.
       operationId: deleteRecordCommentForGuestSpace
       parameters:
         - description: guest space id
@@ -5196,22 +5249,34 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: record
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Comment ID.
+          in: query
           name: comment
           required: true
           schema:
+            description: |
+              The Comment ID.
             format: long
             type: integer
       responses:
@@ -5223,6 +5288,8 @@ paths:
       tags:
         - RECORDS
     post:
+      description: |
+        Add a comment to a record in an app.
       operationId: postRecordCommentForGuestSpace
       parameters:
         - description: guest space id
@@ -5240,15 +5307,23 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 comment:
+                  description: |
+                    An object including comment details.
                   properties:
                     mentions:
+                      description: |
+                        An array including information to mention other users.
                       items:
                         $ref: '#/components/schemas/RecordCommentPostMentionForm'
                       type: array
                     text:
+                      description: |
+                        The comment text. The maximum characters of the comment is 65535.
                       maxLength: 65535
                       minLength: 1
                       type: string
@@ -5256,6 +5331,8 @@ paths:
                     - text
                   type: object
                 record:
+                  description: |
+                    The Record ID.
                   format: long
                   type: integer
               required:
@@ -5272,6 +5349,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Comment ID.
                     format: long
                     type: integer
                 title: postRecordCommentForGuestSpaceResponse
@@ -5280,6 +5359,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/record/comments.json:
     get:
+      description: |
+        Retrieves multiple comments from a record in an app.
       operationId: getRecordCommentsForGuestSpace
       parameters:
         - description: guest space id
@@ -5290,34 +5371,60 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            This skips the retrieval of the first number of comments.
+            "offset": 30 skips the first 30 comments, and retrieves from the 31st comment. There is no maximum for this value.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              This skips the retrieval of the first number of comments.
+              "offset": 30 skips the first 30 comments, and retrieves from the 31st comment. There is no maximum for this value.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: record
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The number of records to retrieve.
+            "limit": 5 will retrieve the first 5 comments. The default and maximum is 10 comments.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The number of records to retrieve.
+              "limit": 5 will retrieve the first 5 comments. The default and maximum is 10 comments.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The sort order of the Comment ID. Specifying "asc" will sort the comments in ascending order, and "desc" will sort the comments in descending order.
+            If ignored, "desc" will be set.
+          in: query
           name: order
           required: false
           schema:
+            description: |
+              The sort order of the Comment ID. Specifying "asc" will sort the comments in ascending order, and "desc" will sort the comments in descending order.
+              If ignored, "desc" will be set.
             enum:
               - ASC
               - DESC
@@ -5330,12 +5437,22 @@ paths:
               schema:
                 properties:
                   comments:
+                    description: |
+                      An array of comments. An empty array is returned if no conditions are met.
                     items:
                       $ref: '#/components/schemas/RecordCommentsGetCommentOutputForm'
                     type: array
                   newer:
+                    description: |
+                      Information of newer comments:
+                      - true: Newer comments exist.
+                      - false: Newer comments do not exist. (i.e. the last comment)
                     type: boolean
                   older:
+                    description: |
+                      Information of older comments:
+                      - true: Older comments exist.
+                      - false: Older comments do not exist (i.e. the first comment)
                     type: boolean
                 title: getRecordCommentsForGuestSpaceResponse
                 type: object
@@ -5343,6 +5460,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/record/status.json:
     put:
+      description: |
+        Updates the Status of a record of an App, that was set with Process Management.
       operationId: putRecordStatusForGuestSpace
       parameters:
         - description: guest space id
@@ -5360,16 +5479,33 @@ paths:
             schema:
               properties:
                 action:
+                  description: |
+                    The Action name of the action to run.
+                    If the localization feature has been used to apply multiple translations of the Action name,
+                    specify the name of the Action in the language settings of the user that will run the API.
+                    API Tokens follow the language settings set in the User & System Administration settings.
                   type: string
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 assignee:
+                  description: |
+                    The next Assignee. Specify the Assignee's log in name.
+                    Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action",
+                    and a selectable assignee exists.
                   type: string
                 id:
+                  description: |
+                    The record ID.
                   format: long
                   type: integer
                 revision:
+                  description: |
+                    The revision number of the record before updating the status.
+                    If the specified revision is not the latest revision, the request will result in an error.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
                   format: long
                   type: integer
               required:
@@ -5386,6 +5522,9 @@ paths:
               schema:
                 properties:
                   revision:
+                    description: |
+                      The revision number of the record after updating the status.
+                      The revision number will increase by 2, as two operations are preformed - running the action, and updating the status.
                     format: long
                     type: integer
                 title: putRecordStatusForGuestSpaceResponse
@@ -5394,6 +5533,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/records.json:
     delete:
+      description: |
+        Deletes multiple records in an app.
       operationId: deleteRecordsForGuestSpace
       parameters:
         - description: guest space id
@@ -5404,24 +5545,44 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The app ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The app ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            Array of record IDs that will be deleted.
+            Up to 100 records can be specified.
+          in: query
           name: ids
           required: true
           schema:
+            description: |
+              Array of record IDs that will be deleted.
+              Up to 100 records can be specified.
             items:
               format: long
               type: integer
             type: array
-        - in: query
+        - description: |
+            The Expected revision number.
+            The first id number will correspond to the first revision number in the array, the second id to the second revision number, and so on.
+            If the revision number does not match, an error will occur and no records will be deleted.
+            If the revision number is left blank or is -1, the revision number will not be checked for the corresponding record ID.
+          in: query
           name: revisions
           required: false
           schema:
+            description: |
+              The Expected revision number.
+              The first id number will correspond to the first revision number in the array, the second id to the second revision number, and so on.
+              If the revision number does not match, an error will occur and no records will be deleted.
+              If the revision number is left blank or is -1, the revision number will not be checked for the corresponding record ID.
             items:
               format: long
               type: integer
@@ -5433,8 +5594,10 @@ paths:
             application/json:
               schema: {}
       tags:
-        - RECORDS
+        - RECORD
     get:
+      description: |
+        Retrieves details of multiple records from an App by specifying the App ID and a query string.
       operationId: getRecordsForGuestSpace
       parameters:
         - description: guest space id
@@ -5445,29 +5608,51 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The query string that specifies what records to include in the response.
+            Ignoring this parameter will return all accessible records from the App.
+          in: query
           name: query
           required: false
           schema:
+            description: |
+              The query string that specifies what records to include in the response.
+              Ignoring this parameter will return all accessible records from the App.
             format: query
             type: string
-        - in: query
+        - description: |
+            The field codes to be included in the response.
+            Ignoring this parameter will return all accessible fields that exist in the App.
+          in: query
           name: fields
           required: false
           schema:
+            description: |
+              The field codes to be included in the response.
+              Ignoring this parameter will return all accessible fields that exist in the App.
             items:
               type: string
             type: array
-        - in: query
+        - description: |
+            If set to true, the total count of records that match the query conditions will be included in the response.
+            If ignored, null is returned for the totalCount value.
+          in: query
           name: totalCount
           required: false
           schema:
+            description: |
+              If set to true, the total count of records that match the query conditions will be included in the response.
+              If ignored, null is returned for the totalCount value.
             format: boolean
             type: boolean
       responses:
@@ -5478,6 +5663,8 @@ paths:
               schema:
                 properties:
                   records:
+                    description: |
+                      An array of objects, including field types and field values within the matching records.
                     items:
                       additionalProperties:
                         anyOf:
@@ -5509,6 +5696,9 @@ paths:
                       type: object
                     type: array
                   totalCount:
+                    description: |
+                      The total count of records that match the query conditions.
+                      If the totalCount parameter is ignored or is set as `false` in the request, `null` is returned.
                     format: long
                     type: integer
                 title: getRecordsForGuestSpaceResponse
@@ -5516,6 +5706,9 @@ paths:
       tags:
         - RECORDS
     put:
+      description: |
+        Updates details of multiple records in an App, by specifying their record numbers, or their unique keys.
+        If the upsert parameter is set to true, it also adds new records to the App.
       operationId: putRecordsForGuestSpace
       parameters:
         - description: guest space id
@@ -5533,13 +5726,19 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    Holds an array of objects that include id/updateKey, revision and record objects.
                   items:
                     $ref: '#/components/schemas/RecordsPutRecordForm'
                   type: array
                 upsert:
+                  description: |
+                    A mode where adding and updating records can be processed at the same time.
                   format: boolean
                   type: boolean
               required:
@@ -5565,8 +5764,10 @@ paths:
                 title: putRecordsForGuestSpaceResponse
                 type: object
       tags:
-        - RECORDS
+        - RECORD
     post:
+      description: |
+        Adds multiple records to an App.
       operationId: postRecordsForGuestSpace
       parameters:
         - description: guest space id
@@ -5584,9 +5785,16 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    Holds an array of record objects, that contains field codes and their values.
+
+                    Fields that are not included in the objects are added with their default value.
+                    Objects containing field codes that do not exist are ignored.
                   items:
                     additionalProperties:
                       anyOf:
@@ -5630,11 +5838,15 @@ paths:
               schema:
                 properties:
                   ids:
+                    description: |
+                      The Record IDs of the created records.
                     items:
                       format: long
                       type: integer
                     type: array
                   revisions:
+                    description: |
+                      The revision numbers of the records.
                     items:
                       format: long
                       type: integer
@@ -5642,7 +5854,7 @@ paths:
                 title: postRecordsForGuestSpaceResponse
                 type: object
       tags:
-        - RECORDS
+        - RECORD
   /k/guest/{guestSpaceId}/v1/records/acl/evaluate.json:
     get:
       description: |
@@ -5700,6 +5912,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/records/cursor.json:
     delete:
+      description: |
+        Deletes a cursor by specifying the cursor ID.
       operationId: deleteRecordsCursorForGuestSpace
       parameters:
         - description: guest space id
@@ -5710,10 +5924,14 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The cursor ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The cursor ID.
             type: string
       responses:
         '200':
@@ -5724,6 +5942,8 @@ paths:
       tags:
         - RECORDS
     get:
+      description: |
+        Retrieves multiple records from an App by specifying the cursor ID.
       operationId: getRecordsCursorForGuestSpace
       parameters:
         - description: guest space id
@@ -5734,10 +5954,14 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The cursor ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The cursor ID.
             type: string
       responses:
         '200':
@@ -5747,8 +5971,18 @@ paths:
               schema:
                 properties:
                   next:
+                    description: |
+                      States whether there are more records that can be acquired from the cursor.
+                      - true: There are still records to be acquired.
+                      - false: There are no more records to be acquired.
+
+                      Run this API again with the same parameters to obtain the next set of records.
+                      The cursor will remain valid until all records have been obtained.
                     type: boolean
                   records:
+                    description: |
+                      An array of objects that includes field data of records that match the query.
+                      The response is the same as the response for the Get Records API.
                     items:
                       additionalProperties:
                         anyOf:
@@ -5784,6 +6018,8 @@ paths:
       tags:
         - RECORDS
     post:
+      description: |
+        Adds a cursor so that large amount of records can be obtained from an App.
       operationId: postRecordsCursorForGuestSpace
       parameters:
         - description: guest space id
@@ -5801,16 +6037,27 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 fields:
+                  description: |
+                    The field codes to be included in the response when using the Get Cursor API.
+                    If ignored, all accessible fields in the app will be returned.
                   items:
                     type: string
                   type: array
                 query:
+                  description: |
+                    The query string that will specify what records will be responded when using the Get Cursor API.
+                    If ignored, all accessible records from the App will be returned.
                   format: query
                   type: string
                 size:
+                  description: |
+                    The maximum number of records the Get Cursor API can retrieve from this cursor with one request.
+                    The maximum number is 500 records. If ignored, the default number of records to be retrieved is 100.
                   format: long
                   type: integer
               required:
@@ -5825,8 +6072,12 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The cursor ID.
                     type: string
                   totalCount:
+                    description: |
+                      The total count of records that match the query conditions.
                     format: long
                     type: integer
                 title: postRecordsCursorForGuestSpaceResponse
@@ -5835,6 +6086,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/records/status.json:
     put:
+      description: |
+        Updates the Statuses of Multiple records of an App, that was set with Process Management.
       operationId: putRecordsStatusForGuestSpace
       parameters:
         - description: guest space id
@@ -5852,9 +6105,14 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    An array including information of the record to be updated. Up to 100 records can be specified.
+                    Specifying more than 100 records will result in an error.
                   items:
                     $ref: '#/components/schemas/RecordsStatusPutRecordsStatusPutFormRecord'
                   type: array
@@ -5871,6 +6129,8 @@ paths:
               schema:
                 properties:
                   records:
+                    description: |
+                      An array including information of the updated records.
                     items:
                       $ref: '#/components/schemas/RecordsStatusPutRecordsStatusPutOutputFormRecord'
                     type: array
@@ -6016,12 +6276,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   defaultThread:
@@ -6044,12 +6302,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   name:
@@ -6503,12 +6759,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   description:
@@ -6529,12 +6783,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   name:
@@ -7782,6 +8034,8 @@ paths:
         - APPS
   /k/v1/bulkRequest.json:
     post:
+      description: |
+        Runs multiple API requests sequentially to multiple Apps.
       operationId: postBulkRequest
       parameters: []
       requestBody:
@@ -7791,6 +8045,8 @@ paths:
             schema:
               properties:
                 requests:
+                  description: |
+                    An array of requests. The maximum number of requests is 20.
                   items:
                     $ref: '#/components/schemas/BulkRequestPostRequestForm'
                   type: array
@@ -7806,6 +8062,10 @@ paths:
               schema:
                 properties:
                   results:
+                    description: |
+                      The response from each API request. The order of the response is the same as the order of the requests.
+                      If an API request fails, an error will be included in the index of the failed API.
+                      In this case, all other indexes will be responded with {} (empty objects).
                     items:
                       anyOf:
                         - $ref: '#/components/schemas/BulkRequestPostRecordPostOutputForm'
@@ -10669,6 +10929,8 @@ paths:
         - RECORDS
   /k/v1/record.json:
     put:
+      description: |
+        Updates details of 1 record in an App by specifying its record number, or a different unique key.
       operationId: putRecord
       parameters: []
       requestBody:
@@ -10678,9 +10940,12 @@ paths:
             schema:
               properties:
                 app:
+                  description: |2
+                        The App ID.
                   format: long
                   type: integer
                 id:
+                  description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
                   format: long
                   type: integer
                 record:
@@ -10711,8 +10976,12 @@ paths:
                       - $ref: '#/components/schemas/RecordPutGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRawRecordIdSimpleValue'
+                  description: |2
+                        Field codes and values are specified in this object.
+                        If ignored, the record will not be updated.
                   type: object
                 revision:
+                  description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
                   format: long
                   type: integer
                 updateKey:
@@ -10736,18 +11005,28 @@ paths:
       tags:
         - RECORDS
     get:
+      description: |
+        Retrieves details of 1 record from an App by specifying the App ID and Record ID.
       operationId: getRecord
       parameters:
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
       responses:
@@ -10785,12 +11064,16 @@ paths:
                         - $ref: '#/components/schemas/RecordGetGroupSelectSimpleValue'
                         - $ref: '#/components/schemas/RecordGetRevisionSimpleValue'
                         - $ref: '#/components/schemas/RecordGetRawRecordIdSimpleValue'
+                    description: |
+                      The type and value of all fields within the record are included in the object.
                     type: object
                 title: getRecordResponse
                 type: object
       tags:
         - RECORDS
     post:
+      description: |
+        Adds 1 record to an App.
       operationId: postRecord
       parameters: []
       requestBody:
@@ -10800,6 +11083,8 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 record:
@@ -10830,6 +11115,10 @@ paths:
                       - $ref: '#/components/schemas/RecordPostGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPostRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPostRawRecordIdSimpleValue'
+                  description: |
+                    Field codes and values are specified in this object.
+                    If ignored, the record will be added with default field values.
+                    If field codes that don't exist are specified, these will be ignored.
                   type: object
               required:
                 - app
@@ -10844,9 +11133,13 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Record ID of the created Record.
                     format: long
                     type: integer
                   revision:
+                    description: |
+                      The revision number of the Record.
                     format: long
                     type: integer
                 title: postRecordResponse
@@ -10976,6 +11269,8 @@ paths:
         - RECORDS
   /k/v1/record/assignees.json:
     put:
+      description: |
+        Updates the Assignees of a Record status, that was set with Process Management.
       operationId: putRecordAssignees
       parameters: []
       requestBody:
@@ -10985,16 +11280,26 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 assignees:
+                  description: |
+                    The user code(s) (log in names) of the Assignee(s). If empty, no users will be assigned. The maximum number of Assignees is 100.
                   items:
                     type: string
                   type: array
                 id:
+                  description: |
+                    The record ID.
                   format: long
                   type: integer
                 revision:
+                  description: |
+                    The revision number of the record before updating the Assignees.
+                    If the specified revision is not the latest revision, the request will result in an error.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
                   format: long
                   type: integer
               required:
@@ -11011,6 +11316,8 @@ paths:
               schema:
                 properties:
                   revision:
+                    description: |
+                      The revision number of the record after updating the Assignees.
                     format: long
                     type: integer
                 title: putRecordAssigneesResponse
@@ -11019,24 +11326,38 @@ paths:
         - RECORDS
   /k/v1/record/comment.json:
     delete:
+      description: |
+        Delete a comment in a record in an app.
       operationId: deleteRecordComment
       parameters:
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: record
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Comment ID.
+          in: query
           name: comment
           required: true
           schema:
+            description: |
+              The Comment ID.
             format: long
             type: integer
       responses:
@@ -11048,6 +11369,8 @@ paths:
       tags:
         - RECORDS
     post:
+      description: |
+        Add a comment to a record in an app.
       operationId: postRecordComment
       parameters: []
       requestBody:
@@ -11057,15 +11380,23 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 comment:
+                  description: |
+                    An object including comment details.
                   properties:
                     mentions:
+                      description: |
+                        An array including information to mention other users.
                       items:
                         $ref: '#/components/schemas/RecordCommentPostMentionForm'
                       type: array
                     text:
+                      description: |
+                        The comment text. The maximum characters of the comment is 65535.
                       maxLength: 65535
                       minLength: 1
                       type: string
@@ -11073,6 +11404,8 @@ paths:
                     - text
                   type: object
                 record:
+                  description: |
+                    The Record ID.
                   format: long
                   type: integer
               required:
@@ -11089,6 +11422,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Comment ID.
                     format: long
                     type: integer
                 title: postRecordCommentResponse
@@ -11097,36 +11432,64 @@ paths:
         - RECORDS
   /k/v1/record/comments.json:
     get:
+      description: |
+        Retrieves multiple comments from a record in an app.
       operationId: getRecordComments
       parameters:
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            This skips the retrieval of the first number of comments.
+            "offset": 30 skips the first 30 comments, and retrieves from the 31st comment. There is no maximum for this value.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              This skips the retrieval of the first number of comments.
+              "offset": 30 skips the first 30 comments, and retrieves from the 31st comment. There is no maximum for this value.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The Record ID.
+          in: query
           name: record
           required: true
           schema:
+            description: |
+              The Record ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The number of records to retrieve.
+            "limit": 5 will retrieve the first 5 comments. The default and maximum is 10 comments.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The number of records to retrieve.
+              "limit": 5 will retrieve the first 5 comments. The default and maximum is 10 comments.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The sort order of the Comment ID. Specifying "asc" will sort the comments in ascending order, and "desc" will sort the comments in descending order.
+            If ignored, "desc" will be set.
+          in: query
           name: order
           required: false
           schema:
+            description: |
+              The sort order of the Comment ID. Specifying "asc" will sort the comments in ascending order, and "desc" will sort the comments in descending order.
+              If ignored, "desc" will be set.
             enum:
               - ASC
               - DESC
@@ -11139,12 +11502,22 @@ paths:
               schema:
                 properties:
                   comments:
+                    description: |
+                      An array of comments. An empty array is returned if no conditions are met.
                     items:
                       $ref: '#/components/schemas/RecordCommentsGetCommentOutputForm'
                     type: array
                   newer:
+                    description: |
+                      Information of newer comments:
+                      - true: Newer comments exist.
+                      - false: Newer comments do not exist. (i.e. the last comment)
                     type: boolean
                   older:
+                    description: |
+                      Information of older comments:
+                      - true: Older comments exist.
+                      - false: Older comments do not exist (i.e. the first comment)
                     type: boolean
                 title: getRecordCommentsResponse
                 type: object
@@ -11152,6 +11525,8 @@ paths:
         - RECORDS
   /k/v1/record/status.json:
     put:
+      description: |
+        Updates the Status of a record of an App, that was set with Process Management.
       operationId: putRecordStatus
       parameters: []
       requestBody:
@@ -11161,16 +11536,33 @@ paths:
             schema:
               properties:
                 action:
+                  description: |
+                    The Action name of the action to run.
+                    If the localization feature has been used to apply multiple translations of the Action name,
+                    specify the name of the Action in the language settings of the user that will run the API.
+                    API Tokens follow the language settings set in the User & System Administration settings.
                   type: string
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 assignee:
+                  description: |
+                    The next Assignee. Specify the Assignee's log in name.
+                    Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action",
+                    and a selectable assignee exists.
                   type: string
                 id:
+                  description: |
+                    The record ID.
                   format: long
                   type: integer
                 revision:
+                  description: |
+                    The revision number of the record before updating the status.
+                    If the specified revision is not the latest revision, the request will result in an error.
+                    The revision will not be checked if this parameter is ignored, or -1 is specified.
                   format: long
                   type: integer
               required:
@@ -11187,6 +11579,9 @@ paths:
               schema:
                 properties:
                   revision:
+                    description: |
+                      The revision number of the record after updating the status.
+                      The revision number will increase by 2, as two operations are preformed - running the action, and updating the status.
                     format: long
                     type: integer
                 title: putRecordStatusResponse
@@ -11195,26 +11590,48 @@ paths:
         - RECORDS
   /k/v1/records.json:
     delete:
+      description: |
+        Deletes multiple records in an app.
       operationId: deleteRecords
       parameters:
-        - in: query
+        - description: |
+            The app ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The app ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            Array of record IDs that will be deleted.
+            Up to 100 records can be specified.
+          in: query
           name: ids
           required: true
           schema:
+            description: |
+              Array of record IDs that will be deleted.
+              Up to 100 records can be specified.
             items:
               format: long
               type: integer
             type: array
-        - in: query
+        - description: |
+            The Expected revision number.
+            The first id number will correspond to the first revision number in the array, the second id to the second revision number, and so on.
+            If the revision number does not match, an error will occur and no records will be deleted.
+            If the revision number is left blank or is -1, the revision number will not be checked for the corresponding record ID.
+          in: query
           name: revisions
           required: false
           schema:
+            description: |
+              The Expected revision number.
+              The first id number will correspond to the first revision number in the array, the second id to the second revision number, and so on.
+              If the revision number does not match, an error will occur and no records will be deleted.
+              If the revision number is left blank or is -1, the revision number will not be checked for the corresponding record ID.
             items:
               format: long
               type: integer
@@ -11226,33 +11643,57 @@ paths:
             application/json:
               schema: {}
       tags:
-        - RECORDS
+        - RECORD
     get:
+      description: |
+        Retrieves details of multiple records from an App by specifying the App ID and a query string.
       operationId: getRecords
       parameters:
-        - in: query
+        - description: |
+            The App ID.
+          in: query
           name: app
           required: true
           schema:
+            description: |
+              The App ID.
             format: long
             type: integer
-        - in: query
+        - description: |
+            The query string that specifies what records to include in the response.
+            Ignoring this parameter will return all accessible records from the App.
+          in: query
           name: query
           required: false
           schema:
+            description: |
+              The query string that specifies what records to include in the response.
+              Ignoring this parameter will return all accessible records from the App.
             format: query
             type: string
-        - in: query
+        - description: |
+            The field codes to be included in the response.
+            Ignoring this parameter will return all accessible fields that exist in the App.
+          in: query
           name: fields
           required: false
           schema:
+            description: |
+              The field codes to be included in the response.
+              Ignoring this parameter will return all accessible fields that exist in the App.
             items:
               type: string
             type: array
-        - in: query
+        - description: |
+            If set to true, the total count of records that match the query conditions will be included in the response.
+            If ignored, null is returned for the totalCount value.
+          in: query
           name: totalCount
           required: false
           schema:
+            description: |
+              If set to true, the total count of records that match the query conditions will be included in the response.
+              If ignored, null is returned for the totalCount value.
             format: boolean
             type: boolean
       responses:
@@ -11263,6 +11704,8 @@ paths:
               schema:
                 properties:
                   records:
+                    description: |
+                      An array of objects, including field types and field values within the matching records.
                     items:
                       additionalProperties:
                         anyOf:
@@ -11294,6 +11737,9 @@ paths:
                       type: object
                     type: array
                   totalCount:
+                    description: |
+                      The total count of records that match the query conditions.
+                      If the totalCount parameter is ignored or is set as `false` in the request, `null` is returned.
                     format: long
                     type: integer
                 title: getRecordsResponse
@@ -11301,6 +11747,9 @@ paths:
       tags:
         - RECORDS
     put:
+      description: |
+        Updates details of multiple records in an App, by specifying their record numbers, or their unique keys.
+        If the upsert parameter is set to true, it also adds new records to the App.
       operationId: putRecords
       parameters: []
       requestBody:
@@ -11310,13 +11759,19 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    Holds an array of objects that include id/updateKey, revision and record objects.
                   items:
                     $ref: '#/components/schemas/RecordsPutRecordForm'
                   type: array
                 upsert:
+                  description: |
+                    A mode where adding and updating records can be processed at the same time.
                   format: boolean
                   type: boolean
               required:
@@ -11342,8 +11797,10 @@ paths:
                 title: putRecordsResponse
                 type: object
       tags:
-        - RECORDS
+        - RECORD
     post:
+      description: |
+        Adds multiple records to an App.
       operationId: postRecords
       parameters: []
       requestBody:
@@ -11353,9 +11810,16 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    Holds an array of record objects, that contains field codes and their values.
+
+                    Fields that are not included in the objects are added with their default value.
+                    Objects containing field codes that do not exist are ignored.
                   items:
                     additionalProperties:
                       anyOf:
@@ -11399,11 +11863,15 @@ paths:
               schema:
                 properties:
                   ids:
+                    description: |
+                      The Record IDs of the created records.
                     items:
                       format: long
                       type: integer
                     type: array
                   revisions:
+                    description: |
+                      The revision numbers of the records.
                     items:
                       format: long
                       type: integer
@@ -11411,7 +11879,7 @@ paths:
                 title: postRecordsResponse
                 type: object
       tags:
-        - RECORDS
+        - RECORD
   /k/v1/records/acl/evaluate.json:
     get:
       description: |
@@ -11461,12 +11929,18 @@ paths:
         - RECORDS
   /k/v1/records/cursor.json:
     delete:
+      description: |
+        Deletes a cursor by specifying the cursor ID.
       operationId: deleteRecordsCursor
       parameters:
-        - in: query
+        - description: |
+            The cursor ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The cursor ID.
             type: string
       responses:
         '200':
@@ -11477,12 +11951,18 @@ paths:
       tags:
         - RECORDS
     get:
+      description: |
+        Retrieves multiple records from an App by specifying the cursor ID.
       operationId: getRecordsCursor
       parameters:
-        - in: query
+        - description: |
+            The cursor ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The cursor ID.
             type: string
       responses:
         '200':
@@ -11492,8 +11972,18 @@ paths:
               schema:
                 properties:
                   next:
+                    description: |
+                      States whether there are more records that can be acquired from the cursor.
+                      - true: There are still records to be acquired.
+                      - false: There are no more records to be acquired.
+
+                      Run this API again with the same parameters to obtain the next set of records.
+                      The cursor will remain valid until all records have been obtained.
                     type: boolean
                   records:
+                    description: |
+                      An array of objects that includes field data of records that match the query.
+                      The response is the same as the response for the Get Records API.
                     items:
                       additionalProperties:
                         anyOf:
@@ -11529,6 +12019,8 @@ paths:
       tags:
         - RECORDS
     post:
+      description: |
+        Adds a cursor so that large amount of records can be obtained from an App.
       operationId: postRecordsCursor
       parameters: []
       requestBody:
@@ -11538,16 +12030,27 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 fields:
+                  description: |
+                    The field codes to be included in the response when using the Get Cursor API.
+                    If ignored, all accessible fields in the app will be returned.
                   items:
                     type: string
                   type: array
                 query:
+                  description: |
+                    The query string that will specify what records will be responded when using the Get Cursor API.
+                    If ignored, all accessible records from the App will be returned.
                   format: query
                   type: string
                 size:
+                  description: |
+                    The maximum number of records the Get Cursor API can retrieve from this cursor with one request.
+                    The maximum number is 500 records. If ignored, the default number of records to be retrieved is 100.
                   format: long
                   type: integer
               required:
@@ -11562,8 +12065,12 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The cursor ID.
                     type: string
                   totalCount:
+                    description: |
+                      The total count of records that match the query conditions.
                     format: long
                     type: integer
                 title: postRecordsCursorResponse
@@ -11572,6 +12079,8 @@ paths:
         - RECORDS
   /k/v1/records/status.json:
     put:
+      description: |
+        Updates the Statuses of Multiple records of an App, that was set with Process Management.
       operationId: putRecordsStatus
       parameters: []
       requestBody:
@@ -11581,9 +12090,14 @@ paths:
             schema:
               properties:
                 app:
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 records:
+                  description: |
+                    An array including information of the record to be updated. Up to 100 records can be specified.
+                    Specifying more than 100 records will result in an error.
                   items:
                     $ref: '#/components/schemas/RecordsStatusPutRecordsStatusPutFormRecord'
                   type: array
@@ -11600,6 +12114,8 @@ paths:
               schema:
                 properties:
                   records:
+                    description: |
+                      An array including information of the updated records.
                     items:
                       $ref: '#/components/schemas/RecordsStatusPutRecordsStatusPutOutputFormRecord'
                     type: array
@@ -11721,12 +12237,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   defaultThread:
@@ -11749,12 +12263,10 @@ paths:
                       code:
                         description: |
                           The log in name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                       name:
                         description: |
                           The display name of the creator.
-                          An empty string is returned for inactive users and deleted users.
                         type: string
                     type: object
                   name:
@@ -19091,12 +19603,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         description:
@@ -19117,12 +19627,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         name:
@@ -19164,12 +19672,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         customized:
@@ -19207,12 +19713,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         name:
@@ -19890,16 +20394,26 @@ components:
     BulkRequestPostRecordAssigneesPutForm:
       properties:
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         assignees:
+          description: |
+            The user code(s) (log in names) of the Assignee(s). If empty, no users will be assigned. The maximum number of Assignees is 100.
           items:
             type: string
           type: array
         id:
+          description: |
+            The record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record before updating the Assignees.
+            If the specified revision is not the latest revision, the request will result in an error.
+            The revision will not be checked if this parameter is ignored, or -1 is specified.
           format: long
           type: integer
       required:
@@ -19910,21 +20424,33 @@ components:
     BulkRequestPostRecordAssigneesPutOutputForm:
       properties:
         revision:
+          description: |
+            The revision number of the record after updating the Assignees.
           format: long
           type: integer
       type: object
     BulkRequestPostRecordBean:
       properties:
         id:
+          description: |
+            The Record IDs of the updated/created Records.
           format: long
           type: integer
         revision:
+          description: |
+            The revision numbers of the Records.
           format: long
           type: integer
       type: object
     BulkRequestPostRecordForm:
       properties:
         id:
+          description: |
+            The Record ID of the record to be updated. Required, if `updateKey` will not be specified.
+
+            If `upsert` is set to `true`:
+            - If the record exists, the record will be updated
+            - If the record does not exist, it will be added as a new record. The specified ID will be ignored, and a new ID will be set to the new record.
           format: long
           type: integer
         record:
@@ -19955,8 +20481,15 @@ components:
               - $ref: '#/components/schemas/BulkRequestPostGroupSelectSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRevisionSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRawRecordIdSimpleValue'
+          description: |
+            Field codes and values are specified in this object.
+            If ignored, the record will not be updated.
           type: object
         revision:
+          description: |
+            The expected revision number.
+            If the value does not match, an error will occur and all records will not be updated.
+            If the value is not specified or is -1, the revision number will not be checked.
           format: long
           type: integer
         updateKey:
@@ -20001,6 +20534,8 @@ components:
     BulkRequestPostRecordPostForm:
       properties:
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         record:
@@ -20031,6 +20566,10 @@ components:
               - $ref: '#/components/schemas/BulkRequestPostGroupSelectSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRevisionSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRawRecordIdSimpleValue'
+          description: |
+            Field codes and values are specified in this object.
+            If ignored, the record will be added with default field values.
+            If field codes that don't exist are specified, these will be ignored.
           type: object
       required:
         - app
@@ -20039,18 +20578,25 @@ components:
     BulkRequestPostRecordPostOutputForm:
       properties:
         id:
+          description: |
+            The Record ID of the created Record.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the Record.
           format: long
           type: integer
       type: object
     BulkRequestPostRecordPutForm:
       properties:
         app:
+          description: |2
+                The App ID.
           format: long
           type: integer
         id:
+          description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
           format: long
           type: integer
         record:
@@ -20081,8 +20627,12 @@ components:
               - $ref: '#/components/schemas/BulkRequestPostGroupSelectSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRevisionSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRawRecordIdSimpleValue'
+          description: |2
+                Field codes and values are specified in this object.
+                If ignored, the record will not be updated.
           type: object
         revision:
+          description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
           format: long
           type: integer
         updateKey:
@@ -20099,16 +20649,33 @@ components:
     BulkRequestPostRecordStatusPutForm:
       properties:
         action:
+          description: |
+            The Action name of the action to run.
+            If the localization feature has been used to apply multiple translations of the Action name,
+            specify the name of the Action in the language settings of the user that will run the API.
+            API Tokens follow the language settings set in the User & System Administration settings.
           type: string
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         assignee:
+          description: |
+            The next Assignee. Specify the Assignee's log in name.
+            Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action",
+            and a selectable assignee exists.
           type: string
         id:
+          description: |
+            The record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record before updating the status.
+            If the specified revision is not the latest revision, the request will result in an error.
+            The revision will not be checked if this parameter is ignored, or -1 is specified.
           format: long
           type: integer
       required:
@@ -20119,20 +20686,33 @@ components:
     BulkRequestPostRecordStatusPutOutputForm:
       properties:
         revision:
+          description: |
+            The revision number of the record after updating the status.
+            The revision number will increase by 2, as two operations are preformed - running the action, and updating the status.
           format: long
           type: integer
       type: object
     BulkRequestPostRecordsDeleteForm:
       properties:
         app:
+          description: |
+            The app ID.
           format: long
           type: integer
         ids:
+          description: |
+            Array of record IDs that will be deleted.
+            Up to 100 records can be specified.
           items:
             format: long
             type: integer
           type: array
         revisions:
+          description: |
+            The Expected revision number.
+            The first id number will correspond to the first revision number in the array, the second id to the second revision number, and so on.
+            If the revision number does not match, an error will occur and no records will be deleted.
+            If the revision number is left blank or is -1, the revision number will not be checked for the corresponding record ID.
           items:
             format: long
             type: integer
@@ -20145,9 +20725,16 @@ components:
     BulkRequestPostRecordsPostForm:
       properties:
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         records:
+          description: |
+            Holds an array of record objects, that contains field codes and their values.
+
+            Fields that are not included in the objects are added with their default value.
+            Objects containing field codes that do not exist are ignored.
           items:
             additionalProperties:
               anyOf:
@@ -20185,11 +20772,15 @@ components:
     BulkRequestPostRecordsPostOutputForm:
       properties:
         ids:
+          description: |
+            The Record IDs of the created records.
           items:
             format: long
             type: integer
           type: array
         revisions:
+          description: |
+            The revision numbers of the records.
           items:
             format: long
             type: integer
@@ -20198,13 +20789,19 @@ components:
     BulkRequestPostRecordsPutForm:
       properties:
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         records:
+          description: |
+            Holds an array of objects that include id/updateKey, revision and record objects.
           items:
             $ref: '#/components/schemas/BulkRequestPostRecordForm'
           type: array
         upsert:
+          description: |
+            A mode where adding and updating records can be processed at the same time.
           format: boolean
           type: boolean
       required:
@@ -20225,9 +20822,14 @@ components:
     BulkRequestPostRecordsStatusPutForm:
       properties:
         app:
+          description: |
+            The App ID.
           format: long
           type: integer
         records:
+          description: |
+            An array including information of the record to be updated. Up to 100 records can be specified.
+            Specifying more than 100 records will result in an error.
           items:
             $ref: '#/components/schemas/BulkRequestPostRecordsStatusPutFormRecord'
           type: array
@@ -20238,13 +20840,28 @@ components:
     BulkRequestPostRecordsStatusPutFormRecord:
       properties:
         action:
+          description: |
+            The Action name of the action to run.
+            If the localization feature has been used to apply multiple translations of the Action name,
+            specify the name of the Action in the language settings of the user that will run the API.
+            API Tokens follow the language settings set in the User & System Administration settings.
           type: string
         assignee:
+          description: |
+            The next Assignee. Specify the Assignee's log in name.
+            Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action",
+            and a selectable assignee exists.
           type: string
         id:
+          description: |
+            The record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record before updating the status.
+            If the specified revision is not the latest revision, the request will result in an error.
+            The revision will not be checked if this parameter is ignored, or -1 is specified.
           format: long
           type: integer
       required:
@@ -20254,6 +20871,8 @@ components:
     BulkRequestPostRecordsStatusPutOutputForm:
       properties:
         records:
+          description: |
+            An array including information of the updated records.
           items:
             $ref: '#/components/schemas/BulkRequestPostRecordsStatusPutOutputFormRecord'
           type: array
@@ -20261,9 +20880,14 @@ components:
     BulkRequestPostRecordsStatusPutOutputFormRecord:
       properties:
         id:
+          description: |
+            The Record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record after updating the status.
+            The revision number will increase by 2, as two operations are preformed - running the action, and updating the status.
           format: long
           type: integer
       type: object
@@ -20306,8 +20930,12 @@ components:
     BulkRequestPostRequestForm:
       properties:
         api:
+          description: |
+            The path of the API for the request.
           type: string
         method:
+          description: |
+            The API method for the request.
           type: string
         payload:
           anyOf:
@@ -20603,8 +21231,12 @@ components:
     BulkRequestPostUpdateKey:
       properties:
         field:
+          description: |2
+                The field code of the unique key.
           type: string
         value:
+          description: |2
+                The value of the unique key.
           maxLength: 64
           type: string
       required:
@@ -20614,14 +21246,20 @@ components:
     BulkRequestPostUpsertRecordBean:
       properties:
         id:
+          description: |
+            The Record IDs of the updated/created Records.
           format: long
           type: integer
         operation:
+          description: |
+            The revision numbers of the Records.
           enum:
             - INSERT
             - UPDATE
           type: string
         revision:
+          description: |
+            The revision numbers of the Records.
           format: long
           type: integer
       type: object
@@ -40480,8 +41118,17 @@ components:
     RecordCommentPostMentionForm:
       properties:
         code:
+          description: |
+            The code the user, group or organization that will be mentioned.
+            The maximum number of mentions is 10.
+            The mentioned users will be placed in front of the comment text when the API succeeds.
           type: string
         type:
+          description: |
+            The type of the mentioned target.
+            - USER: User
+            - GROUP: Group
+            - ORGANIZATION: Department
           enum:
             - USER
             - ORGANIZATION
@@ -40494,36 +41141,52 @@ components:
     RecordCommentsGetCommentOutputForm:
       properties:
         createdAt:
+          description: |
+            The created date and time of the comment.
           format: date-time
           type: string
         creator:
+          description: |
+            An object including information of the comment creator.
           properties:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         id:
+          description: |
+            The Comment ID.
           format: long
           type: integer
         mentions:
+          description: |
+            An array including information of mentioned users.
           items:
             $ref: '#/components/schemas/RecordCommentsGetMentionOutputForm'
           type: array
         text:
+          description: |
+            The comment including the line feed codes.
+            If a user is mentioned within a comment, the "@" symbol will be omitted from the String.
           type: string
       type: object
     RecordCommentsGetMentionOutputForm:
       properties:
         code:
+          description: |
+            The code of the mentioned user, group or organization.
           type: string
         type:
+          description: |
+            The type of the mention.
+            - USER: User
+            - GROUP: Group
+            - ORGANIZATION: Department
           enum:
             - USER
             - ORGANIZATION
@@ -43547,8 +44210,12 @@ components:
     RecordPutUpdateKey:
       properties:
         field:
+          description: |2
+                The field code of the unique key.
           type: string
         value:
+          description: |2
+                The value of the unique key.
           maxLength: 64
           type: string
       required:
@@ -47348,15 +48015,25 @@ components:
     RecordsPutRecordBean:
       properties:
         id:
+          description: |
+            The Record IDs of the updated/created Records.
           format: long
           type: integer
         revision:
+          description: |
+            The revision numbers of the Records.
           format: long
           type: integer
       type: object
     RecordsPutRecordForm:
       properties:
         id:
+          description: |
+            The Record ID of the record to be updated. Required, if `updateKey` will not be specified.
+
+            If `upsert` is set to `true`:
+            - If the record exists, the record will be updated
+            - If the record does not exist, it will be added as a new record. The specified ID will be ignored, and a new ID will be set to the new record.
           format: long
           type: integer
         record:
@@ -47387,8 +48064,15 @@ components:
               - $ref: '#/components/schemas/RecordsPutGroupSelectSimpleValue'
               - $ref: '#/components/schemas/RecordsPutRevisionSimpleValue'
               - $ref: '#/components/schemas/RecordsPutRawRecordIdSimpleValue'
+          description: |
+            Field codes and values are specified in this object.
+            If ignored, the record will not be updated.
           type: object
         revision:
+          description: |
+            The expected revision number.
+            If the value does not match, an error will occur and all records will not be updated.
+            If the value is not specified or is -1, the revision number will not be checked.
           format: long
           type: integer
         updateKey:
@@ -47745,8 +48429,12 @@ components:
     RecordsPutUpdateKey:
       properties:
         field:
+          description: |2
+                The field code of the unique key.
           type: string
         value:
+          description: |2
+                The value of the unique key.
           maxLength: 64
           type: string
       required:
@@ -47756,14 +48444,20 @@ components:
     RecordsPutUpsertRecordBean:
       properties:
         id:
+          description: |
+            The Record IDs of the updated/created Records.
           format: long
           type: integer
         operation:
+          description: |
+            The revision numbers of the Records.
           enum:
             - INSERT
             - UPDATE
           type: string
         revision:
+          description: |
+            The revision numbers of the Records.
           format: long
           type: integer
       type: object
@@ -47819,13 +48513,28 @@ components:
     RecordsStatusPutRecordsStatusPutFormRecord:
       properties:
         action:
+          description: |
+            The Action name of the action to run.
+            If the localization feature has been used to apply multiple translations of the Action name,
+            specify the name of the Action in the language settings of the user that will run the API.
+            API Tokens follow the language settings set in the User & System Administration settings.
           type: string
         assignee:
+          description: |
+            The next Assignee. Specify the Assignee's log in name.
+            Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action",
+            and a selectable assignee exists.
           type: string
         id:
+          description: |
+            The record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record before updating the status.
+            If the specified revision is not the latest revision, the request will result in an error.
+            The revision will not be checked if this parameter is ignored, or -1 is specified.
           format: long
           type: integer
       required:
@@ -47835,9 +48544,14 @@ components:
     RecordsStatusPutRecordsStatusPutOutputFormRecord:
       properties:
         id:
+          description: |
+            The Record ID.
           format: long
           type: integer
         revision:
+          description: |
+            The revision number of the record after updating the status.
+            The revision number will increase by 2, as two operations are preformed - running the action, and updating the status.
           format: long
           type: integer
       type: object
@@ -47865,12 +48579,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         description:
@@ -47891,12 +48603,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         name:
@@ -47986,8 +48696,17 @@ components:
     SpaceThreadCommentPostMentionForm:
       properties:
         code:
+          description: |
+            The code the user, group or organization that will be mentioned.
+            The maximum number of mentions is 10.
+            The mentioned users will be placed in front of the comment text when the API succeeds.
           type: string
         type:
+          description: |
+            The type of the mentioned target.
+            - USER: User
+            - GROUP: Group
+            - ORGANIZATION: Department
           enum:
             - USER
             - ORGANIZATION
@@ -48010,12 +48729,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         id:
@@ -48036,12 +48753,10 @@ components:
             code:
               description: |
                 The log in name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
             name:
               description: |
                 The display name of the creator.
-                An empty string is returned for inactive users and deleted users.
               type: string
           type: object
         name:
