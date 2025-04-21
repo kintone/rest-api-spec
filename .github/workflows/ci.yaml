@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - run: pnpm install
+      - run: pnpm install --fetch-timeout 900000 --frozen-lockfile
       - run: pnpm bundle
       - run: git diff --stat --exit-code
 
