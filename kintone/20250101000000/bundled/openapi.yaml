@@ -1646,8 +1646,37 @@ paths:
       tags:
         - FIELDS
   /k/guest/{guestSpaceId}/v1/file.json:
+    get:
+      description: |
+        Downloads files from an attachment field in an App.
+      operationId: downloadFileForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - description: |
+            The value that is set on the Attachment field in the response data returned when using the Get Record API.
+          in: query
+          name: fileKey
+          required: true
+          schema:
+            description: |
+              The value that is set on the Attachment field in the response data returned when using the Get Record API.
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
+      tags:
+        - FILES
     post:
-      operationId: postFileForGuestSpace
+      description: |
+        Uploads a file to Kintone.
+      operationId: uploadFileForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -1664,7 +1693,7 @@ paths:
             schema:
               properties:
                 file: {}
-              title: postFileForGuestSpaceRequest
+              title: uploadFileForGuestSpaceRequest
               type: object
       responses:
         '200':
@@ -1674,30 +1703,16 @@ paths:
               schema:
                 properties:
                   fileKey:
+                    description: |
+                      The fileKey representing an uploaded file.
+                      Use this fileKey with the following APIs to attach it to an Attachment field of an app:
+                      - Add Record
+                      - Add Records
+                      - Update Record
+                      - Update Records
                     type: string
-                title: postFileForGuestSpaceResponse
+                title: uploadFileForGuestSpaceResponse
                 type: object
-      tags:
-        - FILES
-    get:
-      operationId: getFileForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
       tags:
         - FILES
   /k/guest/{guestSpaceId}/v1/form.json:
@@ -1762,6 +1777,33 @@ paths:
       tags:
         - FORMS
   /k/guest/{guestSpaceId}/v1/guests.json:
+    delete:
+      operationId: deleteGuestsForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: guests
+          required: true
+          schema:
+            items:
+              format: email
+              type: string
+            type: array
+      responses:
+        '200':
+          description: success case of guests/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - GUESTS
     post:
       operationId: postGuestsForGuestSpace
       parameters:
@@ -1795,36 +1837,11 @@ paths:
               schema: {}
       tags:
         - GUESTS
-    delete:
-      operationId: deleteGuestsForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: guests
-          required: true
-          schema:
-            items:
-              format: email
-              type: string
-            type: array
-      responses:
-        '200':
-          description: success case of guests/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - GUESTS
   /k/guest/{guestSpaceId}/v1/plugin.json:
     delete:
-      operationId: deletePluginForGuestSpace
+      description: |
+        The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
+      operationId: uninstallPluginForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -1834,10 +1851,14 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The ID of the plug-in.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The ID of the plug-in.
             type: string
       responses:
         '200':
@@ -1848,6 +1869,8 @@ paths:
       tags:
         - PLUGINS
     put:
+      description: |
+        Updates an imported plug-in in the Kintone environment.
       operationId: putPluginForGuestSpace
       parameters:
         - description: guest space id
@@ -1865,8 +1888,12 @@ paths:
             schema:
               properties:
                 fileKey:
+                  description: |
+                    The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
                   type: string
                 id:
+                  description: |
+                    The ID of the plug-in to be updated.
                   type: string
               required:
                 - fileKey
@@ -1881,15 +1908,21 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The plug-in ID of the updated plug-in.
                     type: string
                   version:
+                    description: |
+                      The version number of the plug-in.
                     type: string
                 title: putPluginForGuestSpaceResponse
                 type: object
       tags:
         - PLUGINS
     post:
-      operationId: postPluginForGuestSpace
+      description: |
+        Imports a plug-in into Kintone.
+      operationId: installPluginForGuestSpace
       parameters:
         - description: guest space id
           in: path
@@ -1906,10 +1939,12 @@ paths:
             schema:
               properties:
                 fileKey:
+                  description: |
+                    The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
                   type: string
               required:
                 - fileKey
-              title: postPluginForGuestSpaceRequest
+              title: installPluginForGuestSpaceRequest
               type: object
       responses:
         '200':
@@ -1919,15 +1954,21 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The installed plug-in ID.
                     type: string
                   version:
+                    description: |
+                      The version number of the plug-in.
                     type: string
-                title: postPluginForGuestSpaceResponse
+                title: installPluginForGuestSpaceResponse
                 type: object
       tags:
         - PLUGINS
   /k/guest/{guestSpaceId}/v1/plugin/apps.json:
     get:
+      description: |
+        Gets Apps that have the specified plug-in added.
       operationId: getPluginAppsForGuestSpace
       parameters:
         - description: guest space id
@@ -1938,20 +1979,38 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 500.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 500.
+              The default number is 100.
             type: string
-        - in: query
+        - description: |
+            The ID of the plug-in.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The ID of the plug-in.
             type: string
       responses:
         '200':
@@ -1961,6 +2020,9 @@ paths:
               schema:
                 properties:
                   apps:
+                    description: |
+                      A list of objects containing the plug-in ID and name.
+                      Objects are listed in ascending order of their App IDs.
                     items:
                       $ref: '#/components/schemas/PluginAppsGetAppDto'
                     type: array
@@ -1970,6 +2032,8 @@ paths:
         - PLUGINS
   /k/guest/{guestSpaceId}/v1/plugins.json:
     get:
+      description: |
+        Gets the list of plug-ins imported into Kintone.
       operationId: getPluginsForGuestSpace
       parameters:
         - description: guest space id
@@ -1980,20 +2044,40 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of installed plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of installed plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 100.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 100.
+              The default number is 100.
             type: string
-        - in: query
+        - description: |
+            The plug-in ids. The maximum limit of ids that can be specified is 100.
+            If null or an empty array is specified, this parameter will be ignored, and a list of plug-ins will be returned.
+          in: query
           name: ids
           required: false
           schema:
+            description: |
+              The plug-in ids. The maximum limit of ids that can be specified is 100.
+              If null or an empty array is specified, this parameter will be ignored, and a list of plug-ins will be returned.
             items:
               type: string
             type: array
@@ -2005,6 +2089,8 @@ paths:
               schema:
                 properties:
                   plugins:
+                    description: |
+                      A list of plug-ins added to the App.<br>Plug-ins are listed in descending order of the datetime they are added.
                     items:
                       $ref: '#/components/schemas/PluginsGetPluginDto'
                     type: array
@@ -2014,6 +2100,9 @@ paths:
         - PLUGINS
   /k/guest/{guestSpaceId}/v1/plugins/required.json:
     get:
+      description: |
+        Gets the list of plug-ins that have been deleted from Kintone, but have already been added to Apps.
+        This can occur when a plug-in is installed, added to an App, and then proceeded to be uninstalled from the Kintone environment.
       operationId: getPluginsRequiredForGuestSpace
       parameters:
         - description: guest space id
@@ -2024,15 +2113,29 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of required plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of required plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 100.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 100.
+              The default number is 100.
             type: string
       responses:
         '200':
@@ -2042,6 +2145,8 @@ paths:
               schema:
                 properties:
                   plugins:
+                    description: |
+                      A list of Plug-ins that needs to be installed.
                     items:
                       $ref: '#/components/schemas/PluginsRequiredGetPluginDto'
                     type: array
@@ -8180,8 +8285,29 @@ paths:
       tags:
         - FIELDS
   /k/v1/file.json:
+    get:
+      description: |
+        Downloads files from an attachment field in an App.
+      operationId: downloadFile
+      parameters:
+        - description: |
+            The value that is set on the Attachment field in the response data returned when using the Get Record API.
+          in: query
+          name: fileKey
+          required: true
+          schema:
+            description: |
+              The value that is set on the Attachment field in the response data returned when using the Get Record API.
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
+      tags:
+        - FILES
     post:
-      operationId: postFile
+      description: |
+        Uploads a file to Kintone.
+      operationId: uploadFile
       parameters: []
       requestBody:
         required: true
@@ -8190,7 +8316,7 @@ paths:
             schema:
               properties:
                 file: {}
-              title: postFileRequest
+              title: uploadFileRequest
               type: object
       responses:
         '200':
@@ -8200,22 +8326,16 @@ paths:
               schema:
                 properties:
                   fileKey:
+                    description: |
+                      The fileKey representing an uploaded file.
+                      Use this fileKey with the following APIs to attach it to an Attachment field of an app:
+                      - Add Record
+                      - Add Records
+                      - Update Record
+                      - Update Records
                     type: string
-                title: postFileResponse
+                title: uploadFileResponse
                 type: object
-      tags:
-        - FILES
-    get:
-      operationId: getFile
-      parameters:
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
       tags:
         - FILES
   /k/v1/form.json:
@@ -8272,6 +8392,25 @@ paths:
       tags:
         - FORMS
   /k/v1/guests.json:
+    delete:
+      operationId: deleteGuests
+      parameters:
+        - in: query
+          name: guests
+          required: true
+          schema:
+            items:
+              format: email
+              type: string
+            type: array
+      responses:
+        '200':
+          description: success case of guests/delete
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - GUESTS
     post:
       operationId: postGuests
       parameters: []
@@ -8297,33 +8436,20 @@ paths:
               schema: {}
       tags:
         - GUESTS
-    delete:
-      operationId: deleteGuests
-      parameters:
-        - in: query
-          name: guests
-          required: true
-          schema:
-            items:
-              format: email
-              type: string
-            type: array
-      responses:
-        '200':
-          description: success case of guests/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - GUESTS
   /k/v1/plugin.json:
     delete:
-      operationId: deletePlugin
+      description: |
+        The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
+      operationId: uninstallPlugin
       parameters:
-        - in: query
+        - description: |
+            The ID of the plug-in.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The ID of the plug-in.
             type: string
       responses:
         '200':
@@ -8334,6 +8460,8 @@ paths:
       tags:
         - PLUGINS
     put:
+      description: |
+        Updates an imported plug-in in the Kintone environment.
       operationId: putPlugin
       parameters: []
       requestBody:
@@ -8343,8 +8471,12 @@ paths:
             schema:
               properties:
                 fileKey:
+                  description: |
+                    The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
                   type: string
                 id:
+                  description: |
+                    The ID of the plug-in to be updated.
                   type: string
               required:
                 - fileKey
@@ -8359,15 +8491,21 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The plug-in ID of the updated plug-in.
                     type: string
                   version:
+                    description: |
+                      The version number of the plug-in.
                     type: string
                 title: putPluginResponse
                 type: object
       tags:
         - PLUGINS
     post:
-      operationId: postPlugin
+      description: |
+        Imports a plug-in into Kintone.
+      operationId: installPlugin
       parameters: []
       requestBody:
         required: true
@@ -8376,10 +8514,12 @@ paths:
             schema:
               properties:
                 fileKey:
+                  description: |
+                    The fileKey representing an uploaded file. Use the Upload File API to upload the file and retrieve the fileKey.
                   type: string
               required:
                 - fileKey
-              title: postPluginRequest
+              title: installPluginRequest
               type: object
       responses:
         '200':
@@ -8389,31 +8529,55 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The installed plug-in ID.
                     type: string
                   version:
+                    description: |
+                      The version number of the plug-in.
                     type: string
-                title: postPluginResponse
+                title: installPluginResponse
                 type: object
       tags:
         - PLUGINS
   /k/v1/plugin/apps.json:
     get:
+      description: |
+        Gets Apps that have the specified plug-in added.
       operationId: getPluginApps
       parameters:
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 500.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 500.
+              The default number is 100.
             type: string
-        - in: query
+        - description: |
+            The ID of the plug-in.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The ID of the plug-in.
             type: string
       responses:
         '200':
@@ -8423,6 +8587,9 @@ paths:
               schema:
                 properties:
                   apps:
+                    description: |
+                      A list of objects containing the plug-in ID and name.
+                      Objects are listed in ascending order of their App IDs.
                     items:
                       $ref: '#/components/schemas/PluginAppsGetAppDto'
                     type: array
@@ -8432,22 +8599,44 @@ paths:
         - PLUGINS
   /k/v1/plugins.json:
     get:
+      description: |
+        Gets the list of plug-ins imported into Kintone.
       operationId: getPlugins
       parameters:
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of installed plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of installed plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 100.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 100.
+              The default number is 100.
             type: string
-        - in: query
+        - description: |
+            The plug-in ids. The maximum limit of ids that can be specified is 100.
+            If null or an empty array is specified, this parameter will be ignored, and a list of plug-ins will be returned.
+          in: query
           name: ids
           required: false
           schema:
+            description: |
+              The plug-in ids. The maximum limit of ids that can be specified is 100.
+              If null or an empty array is specified, this parameter will be ignored, and a list of plug-ins will be returned.
             items:
               type: string
             type: array
@@ -8459,6 +8648,8 @@ paths:
               schema:
                 properties:
                   plugins:
+                    description: |
+                      A list of plug-ins added to the App.<br>Plug-ins are listed in descending order of the datetime they are added.
                     items:
                       $ref: '#/components/schemas/PluginsGetPluginDto'
                     type: array
@@ -8468,17 +8659,34 @@ paths:
         - PLUGINS
   /k/v1/plugins/required.json:
     get:
+      description: |
+        Gets the list of plug-ins that have been deleted from Kintone, but have already been added to Apps.
+        This can occur when a plug-in is installed, added to an App, and then proceeded to be uninstalled from the Kintone environment.
       operationId: getPluginsRequired
       parameters:
-        - in: query
+        - description: |
+            The number of plug-ins to skip from the list of required plug-ins.
+            If ignored, this value is 0.
+          in: query
           name: offset
           required: false
           schema:
+            description: |
+              The number of plug-ins to skip from the list of required plug-ins.
+              If ignored, this value is 0.
             type: string
-        - in: query
+        - description: |
+            The maximum number of plug-ins to retrieve.
+            Must be between 1 and 100.
+            The default number is 100.
+          in: query
           name: limit
           required: false
           schema:
+            description: |
+              The maximum number of plug-ins to retrieve.
+              Must be between 1 and 100.
+              The default number is 100.
             type: string
       responses:
         '200':
@@ -8488,6 +8696,8 @@ paths:
               schema:
                 properties:
                   plugins:
+                    description: |
+                      A list of Plug-ins that needs to be installed.
                     items:
                       $ref: '#/components/schemas/PluginsRequiredGetPluginDto'
                     type: array
@@ -22555,30 +22765,54 @@ components:
     PluginAppsGetAppDto:
       properties:
         id:
+          description: |
+            The App ID.
           type: string
         name:
+          description: |
+            The name of the App.
           type: string
       type: object
     PluginsGetPluginDto:
       properties:
         description:
+          description: |
+            The Plug-in description. If there is no description, an empty string will be returned.
           type: string
         id:
+          description: |
+            The plug-in ID.
           type: string
         isMarketPlugin:
+          description: |
+            States whether or not the plug-in is a Marketplace plug-in.
+            - `true`: The plug-in is a Marketplace plug-in.
+            - `false`: The plug-in is not a Marketplace plug-in.
           type: boolean
         name:
+          description: |
+            The name of the plug-in.
           type: string
         version:
+          description: |
+            The version number of the plug-in.
           type: string
       type: object
     PluginsRequiredGetPluginDto:
       properties:
         id:
+          description: |
+            The Plugin ID.
           type: string
         isMarketPlugin:
+          description: |
+            States whether or not the plug-in is a Marketplace plug-in.
+            - true: The plug-in is a Marketplace plug-in.
+            - false: The plug-in is not a Marketplace plug-in.
           type: boolean
         name:
+          description: |
+            The name of the Plugin.
           type: string
       type: object
     PreviewAppAclGetRight:

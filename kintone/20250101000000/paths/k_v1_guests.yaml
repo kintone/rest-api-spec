@@ -1,4 +1,23 @@
 ---
+delete:
+  operationId: "deleteGuests"
+  parameters:
+  - in: "query"
+    name: "guests"
+    required: true
+    schema:
+      items:
+        format: "email"
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of guests/delete"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "GUESTS"
 post:
   operationId: "postGuests"
   parameters: []
@@ -19,25 +38,6 @@ post:
   responses:
     "200":
       description: "success case of guests/post"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "GUESTS"
-delete:
-  operationId: "deleteGuests"
-  parameters:
-  - in: "query"
-    name: "guests"
-    required: true
-    schema:
-      items:
-        format: "email"
-        type: "string"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of guests/delete"
       content:
         application/json:
           schema: {}
