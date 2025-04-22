@@ -19,11 +19,11 @@ put:
         schema:
           properties:
             app:
-              description: "    The App ID.\n"
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             id:
-              description: "\tThe Record ID of the record to be updated.\n\tRequired,\
+              description: "The Record ID of the record to be updated.\nRequired,\
                 \ if updateKey will not be specified.\n"
               format: "long"
               type: "integer"
@@ -55,14 +55,14 @@ put:
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutGroupSelectSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutRevisionSimpleValue"
                 - $ref: "../openapi.yaml#/components/schemas/RecordPutRawRecordIdSimpleValue"
-              description: "    Field codes and values are specified in this object.\n\
-                \    If ignored, the record will not be updated.\n"
+              description: "Field codes and values are specified in this object.\n\
+                If ignored, the record will not be updated.\n"
               type: "object"
             revision:
-              description: "\tThe expected revision number.\n\tIf the value does not\
-                \ match, an error will occur and the record will not be updated.\n\
-                \tIf the value is not specified or is -1, the revision number will\
-                \ not be checked.\n"
+              description: "The expected revision number.\nIf the value does not match,\
+                \ an error will occur and the record will not be updated.\nIf the\
+                \ value is not specified or is -1, the revision number will not be\
+                \ checked.\n"
               format: "long"
               type: "integer"
             updateKey:

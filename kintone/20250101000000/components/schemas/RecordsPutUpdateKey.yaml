@@ -1,10 +1,10 @@
 ---
 properties:
   field:
-    description: "    The field code of the unique key.\n"
+    description: "The field code of the unique key.\n"
     type: "string"
   value:
-    description: "    The value of the unique key.\n"
+    description: "The value of the unique key.\n"
     maxLength: 64
     type: "string"
 required:

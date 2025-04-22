@@ -1535,7 +1535,7 @@ paths:
                 title: postBulkRequestForGuestSpaceResponse
                 type: object
       tags:
-        - BULKREQUESTS
+        - RECORDS
   /k/guest/{guestSpaceId}/v1/field/acl.json:
     put:
       description: |
@@ -1646,27 +1646,6 @@ paths:
       tags:
         - FIELDS
   /k/guest/{guestSpaceId}/v1/file.json:
-    get:
-      operationId: getFileForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
-      tags:
-        - FILES
     post:
       operationId: postFileForGuestSpace
       parameters:
@@ -1698,6 +1677,27 @@ paths:
                     type: string
                 title: postFileForGuestSpaceResponse
                 type: object
+      tags:
+        - FILES
+    get:
+      operationId: getFileForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: fileKey
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
       tags:
         - FILES
   /k/guest/{guestSpaceId}/v1/form.json:
@@ -1762,33 +1762,6 @@ paths:
       tags:
         - FORMS
   /k/guest/{guestSpaceId}/v1/guests.json:
-    delete:
-      operationId: deleteGuestsForGuestSpace
-      parameters:
-        - description: guest space id
-          in: path
-          name: guestSpaceId
-          required: true
-          schema:
-            description: guest space id
-            title: guestSpaceId
-            type: integer
-        - in: query
-          name: guests
-          required: true
-          schema:
-            items:
-              format: email
-              type: string
-            type: array
-      responses:
-        '200':
-          description: success case of guests/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - GUESTS
     post:
       operationId: postGuestsForGuestSpace
       parameters:
@@ -1817,6 +1790,33 @@ paths:
       responses:
         '200':
           description: success case of guests/post
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - GUESTS
+    delete:
+      operationId: deleteGuestsForGuestSpace
+      parameters:
+        - description: guest space id
+          in: path
+          name: guestSpaceId
+          required: true
+          schema:
+            description: guest space id
+            title: guestSpaceId
+            type: integer
+        - in: query
+          name: guests
+          required: true
+          schema:
+            items:
+              format: email
+              type: string
+            type: array
+      responses:
+        '200':
+          description: success case of guests/delete
           content:
             application/json:
               schema: {}
@@ -4811,12 +4811,14 @@ paths:
             schema:
               properties:
                 app:
-                  description: |2
-                        The App ID.
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 id:
-                  description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
+                  description: |
+                    The Record ID of the record to be updated.
+                    Required, if updateKey will not be specified.
                   format: long
                   type: integer
                 record:
@@ -4847,12 +4849,15 @@ paths:
                       - $ref: '#/components/schemas/RecordPutGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRawRecordIdSimpleValue'
-                  description: |2
-                        Field codes and values are specified in this object.
-                        If ignored, the record will not be updated.
+                  description: |
+                    Field codes and values are specified in this object.
+                    If ignored, the record will not be updated.
                   type: object
                 revision:
-                  description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
+                  description: |
+                    The expected revision number.
+                    If the value does not match, an error will occur and the record will not be updated.
+                    If the value is not specified or is -1, the revision number will not be checked.
                   format: long
                   type: integer
                 updateKey:
@@ -8080,7 +8085,7 @@ paths:
                 title: postBulkRequestResponse
                 type: object
       tags:
-        - BULKREQUESTS
+        - RECORDS
   /k/v1/field/acl.json:
     put:
       description: |
@@ -8175,19 +8180,6 @@ paths:
       tags:
         - FIELDS
   /k/v1/file.json:
-    get:
-      operationId: getFile
-      parameters:
-        - in: query
-          name: fileKey
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: success case of file/get
-      tags:
-        - FILES
     post:
       operationId: postFile
       parameters: []
@@ -8211,6 +8203,19 @@ paths:
                     type: string
                 title: postFileResponse
                 type: object
+      tags:
+        - FILES
+    get:
+      operationId: getFile
+      parameters:
+        - in: query
+          name: fileKey
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success case of file/get
       tags:
         - FILES
   /k/v1/form.json:
@@ -8267,25 +8272,6 @@ paths:
       tags:
         - FORMS
   /k/v1/guests.json:
-    delete:
-      operationId: deleteGuests
-      parameters:
-        - in: query
-          name: guests
-          required: true
-          schema:
-            items:
-              format: email
-              type: string
-            type: array
-      responses:
-        '200':
-          description: success case of guests/delete
-          content:
-            application/json:
-              schema: {}
-      tags:
-        - GUESTS
     post:
       operationId: postGuests
       parameters: []
@@ -8306,6 +8292,25 @@ paths:
       responses:
         '200':
           description: success case of guests/post
+          content:
+            application/json:
+              schema: {}
+      tags:
+        - GUESTS
+    delete:
+      operationId: deleteGuests
+      parameters:
+        - in: query
+          name: guests
+          required: true
+          schema:
+            items:
+              format: email
+              type: string
+            type: array
+      responses:
+        '200':
+          description: success case of guests/delete
           content:
             application/json:
               schema: {}
@@ -10940,12 +10945,14 @@ paths:
             schema:
               properties:
                 app:
-                  description: |2
-                        The App ID.
+                  description: |
+                    The App ID.
                   format: long
                   type: integer
                 id:
-                  description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
+                  description: |
+                    The Record ID of the record to be updated.
+                    Required, if updateKey will not be specified.
                   format: long
                   type: integer
                 record:
@@ -10976,12 +10983,15 @@ paths:
                       - $ref: '#/components/schemas/RecordPutGroupSelectSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRevisionSimpleValue'
                       - $ref: '#/components/schemas/RecordPutRawRecordIdSimpleValue'
-                  description: |2
-                        Field codes and values are specified in this object.
-                        If ignored, the record will not be updated.
+                  description: |
+                    Field codes and values are specified in this object.
+                    If ignored, the record will not be updated.
                   type: object
                 revision:
-                  description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
+                  description: |
+                    The expected revision number.
+                    If the value does not match, an error will occur and the record will not be updated.
+                    If the value is not specified or is -1, the revision number will not be checked.
                   format: long
                   type: integer
                 updateKey:
@@ -20591,12 +20601,14 @@ components:
     BulkRequestPostRecordPutForm:
       properties:
         app:
-          description: |2
-                The App ID.
+          description: |
+            The App ID.
           format: long
           type: integer
         id:
-          description: "\tThe Record ID of the record to be updated.\n\tRequired, if updateKey will not be specified.\n"
+          description: |
+            The Record ID of the record to be updated.
+            Required, if updateKey will not be specified.
           format: long
           type: integer
         record:
@@ -20627,12 +20639,15 @@ components:
               - $ref: '#/components/schemas/BulkRequestPostGroupSelectSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRevisionSimpleValue'
               - $ref: '#/components/schemas/BulkRequestPostRawRecordIdSimpleValue'
-          description: |2
-                Field codes and values are specified in this object.
-                If ignored, the record will not be updated.
+          description: |
+            Field codes and values are specified in this object.
+            If ignored, the record will not be updated.
           type: object
         revision:
-          description: "\tThe expected revision number.\n\tIf the value does not match, an error will occur and the record will not be updated.\n\tIf the value is not specified or is -1, the revision number will not be checked.\n"
+          description: |
+            The expected revision number.
+            If the value does not match, an error will occur and the record will not be updated.
+            If the value is not specified or is -1, the revision number will not be checked.
           format: long
           type: integer
         updateKey:
@@ -21231,12 +21246,12 @@ components:
     BulkRequestPostUpdateKey:
       properties:
         field:
-          description: |2
-                The field code of the unique key.
+          description: |
+            The field code of the unique key.
           type: string
         value:
-          description: |2
-                The value of the unique key.
+          description: |
+            The value of the unique key.
           maxLength: 64
           type: string
       required:
@@ -44210,12 +44225,12 @@ components:
     RecordPutUpdateKey:
       properties:
         field:
-          description: |2
-                The field code of the unique key.
+          description: |
+            The field code of the unique key.
           type: string
         value:
-          description: |2
-                The value of the unique key.
+          description: |
+            The value of the unique key.
           maxLength: 64
           type: string
       required:
@@ -48429,12 +48444,12 @@ components:
     RecordsPutUpdateKey:
       properties:
         field:
-          description: |2
-                The field code of the unique key.
+          description: |
+            The field code of the unique key.
           type: string
         value:
-          description: |2
-                The value of the unique key.
+          description: |
+            The value of the unique key.
           maxLength: 64
           type: string
       required:

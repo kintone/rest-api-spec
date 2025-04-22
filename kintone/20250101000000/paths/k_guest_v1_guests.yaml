@@ -1,31 +1,4 @@
 ---
-delete:
-  operationId: "deleteGuestsForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  - in: "query"
-    name: "guests"
-    required: true
-    schema:
-      items:
-        format: "email"
-        type: "string"
-      type: "array"
-  responses:
-    "200":
-      description: "success case of guests/delete"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "GUESTS"
 post:
   operationId: "postGuestsForGuestSpace"
   parameters:
@@ -54,6 +27,33 @@ post:
   responses:
     "200":
       description: "success case of guests/post"
+      content:
+        application/json:
+          schema: {}
+  tags:
+  - "GUESTS"
+delete:
+  operationId: "deleteGuestsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - in: "query"
+    name: "guests"
+    required: true
+    schema:
+      items:
+        format: "email"
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of guests/delete"
       content:
         application/json:
           schema: {}

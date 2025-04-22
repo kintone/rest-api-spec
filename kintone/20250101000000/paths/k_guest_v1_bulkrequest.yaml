@@ -54,5 +54,5 @@ post:
             title: "postBulkRequestForGuestSpaceResponse"
             type: "object"
   tags:
-  - "BULKREQUESTS"
+  - "RECORDS"
 
