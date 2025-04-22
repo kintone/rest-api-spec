@@ -15,7 +15,7 @@ importers:
         specifier: ^11.0.1
         version: 11.0.1
       zx:
-        specifier: ^8.5.2
+        specifier: ^8.5.3
         version: 8.5.3
 
   website:
