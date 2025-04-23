@@ -1,8 +1,11 @@
 ---
 properties:
   code:
+    description: "The code of the mentioned user, group or organization.\n"
     type: "string"
   type:
+    description: "The type of the mention.\n- USER: User\n- GROUP: Group\n- ORGANIZATION:\
+      \ Department\n"
     enum:
     - "USER"
     - "ORGANIZATION"

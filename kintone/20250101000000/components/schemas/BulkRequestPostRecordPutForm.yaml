@@ -1,9 +1,12 @@
 ---
 properties:
   app:
+    description: "The App ID.\n"
     format: "long"
     type: "integer"
   id:
+    description: "The Record ID of the record to be updated.\nRequired, if updateKey\
+      \ will not be specified.\n"
     format: "long"
     type: "integer"
   record:
@@ -34,8 +37,13 @@ properties:
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostGroupSelectSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRevisionSimpleValue"
       - $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRawRecordIdSimpleValue"
+    description: "Field codes and values are specified in this object.\nIf ignored,\
+      \ the record will not be updated.\n"
     type: "object"
   revision:
+    description: "The expected revision number.\nIf the value does not match, an error\
+      \ will occur and the record will not be updated.\nIf the value is not specified\
+      \ or is -1, the revision number will not be checked.\n"
     format: "long"
     type: "integer"
   updateKey:

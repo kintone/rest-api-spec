@@ -1,5 +1,6 @@
 ---
 delete:
+  description: "Delete a comment in a record in an app.\n"
   operationId: "deleteRecordCommentForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,22 +11,28 @@ delete:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The App ID.\n"
+    in: "query"
     name: "app"
     required: true
     schema:
+      description: "The App ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The Record ID.\n"
+    in: "query"
     name: "record"
     required: true
     schema:
+      description: "The Record ID.\n"
       format: "long"
       type: "integer"
-  - in: "query"
+  - description: "The Comment ID.\n"
+    in: "query"
     name: "comment"
     required: true
     schema:
+      description: "The Comment ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -37,6 +44,7 @@ delete:
   tags:
   - "RECORDS"
 post:
+  description: "Add a comment to a record in an app.\n"
   operationId: "postRecordCommentForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -54,15 +62,20 @@ post:
         schema:
           properties:
             app:
+              description: "The App ID.\n"
               format: "long"
               type: "integer"
             comment:
+              description: "An object including comment details.\n"
               properties:
                 mentions:
+                  description: "An array including information to mention other users.\n"
                   items:
                     $ref: "../openapi.yaml#/components/schemas/RecordCommentPostMentionForm"
                   type: "array"
                 text:
+                  description: "The comment text. The maximum characters of the comment\
+                    \ is 65535.\n"
                   maxLength: 65535
                   minLength: 1
                   type: "string"
@@ -70,6 +83,7 @@ post:
               - "text"
               type: "object"
             record:
+              description: "The Record ID.\n"
               format: "long"
               type: "integer"
           required:
@@ -86,6 +100,7 @@ post:
           schema:
             properties:
               id:
+                description: "The Comment ID.\n"
                 format: "long"
                 type: "integer"
             title: "postRecordCommentForGuestSpaceResponse"

@@ -1,5 +1,6 @@
 ---
 post:
+  description: "Runs multiple API requests sequentially to multiple Apps.\n"
   operationId: "postBulkRequestForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -17,6 +18,8 @@ post:
         schema:
           properties:
             requests:
+              description: "An array of requests. The maximum number of requests is\
+                \ 20.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRequestForm"
               type: "array"
@@ -32,6 +35,11 @@ post:
           schema:
             properties:
               results:
+                description: "The response from each API request. The order of the\
+                  \ response is the same as the order of the requests.\nIf an API\
+                  \ request fails, an error will be included in the index of the failed\
+                  \ API.\nIn this case, all other indexes will be responded with {}\
+                  \ (empty objects).\n"
                 items:
                   anyOf:
                   - $ref: "../openapi.yaml#/components/schemas/BulkRequestPostRecordPostOutputForm"
@@ -46,5 +54,5 @@ post:
             title: "postBulkRequestForGuestSpaceResponse"
             type: "object"
   tags:
-  - "BULKREQUESTS"
+  - "RECORDS"
 

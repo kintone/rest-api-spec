@@ -1,9 +1,13 @@
 ---
 properties:
   app:
+    description: "The App ID.\n"
     format: "long"
     type: "integer"
   records:
+    description: "An array including information of the record to be updated. Up to\
+      \ 100 records can be specified.\nSpecifying more than 100 records will result\
+      \ in an error.\n"
     items:
       $ref: "../../openapi.yaml#/components/schemas/BulkRequestPostRecordsStatusPutFormRecord"
     type: "array"

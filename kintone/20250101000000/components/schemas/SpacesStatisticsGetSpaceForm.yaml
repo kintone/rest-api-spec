@@ -9,12 +9,10 @@ properties:
   creator:
     properties:
       code:
-        description: "The log in name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The log in name of the creator.\n"
         type: "string"
       name:
-        description: "The display name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The display name of the creator.\n"
         type: "string"
     type: "object"
   id:
@@ -33,12 +31,10 @@ properties:
   modifier:
     properties:
       code:
-        description: "The log in name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The log in name of the creator.\n"
         type: "string"
       name:
-        description: "The display name of the creator.\nAn empty string is returned\
-          \ for inactive users and deleted users.\n"
+        description: "The display name of the creator.\n"
         type: "string"
     type: "object"
   name:
