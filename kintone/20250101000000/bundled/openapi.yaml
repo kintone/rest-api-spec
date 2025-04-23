@@ -1759,6 +1759,9 @@ paths:
         - FORMS
   /k/guest/{guestSpaceId}/v1/guests.json:
     delete:
+      description: |
+        Deletes a Guest user from Kintone. To remove a user from a Guest Space without deleting their account, use the Update Guest Members API. For more information, refer to the following article:
+        https://kintone.dev/en/docs/kintone/rest-api/spaces/update-guest-members/
       operationId: deleteGuestsForGuestSpace
       parameters:
         - description: guest space id
@@ -1769,10 +1772,16 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            A list of email addresses of Guest users.
+            Up to 100 Guests can be deleted.
+          in: query
           name: guests
           required: true
           schema:
+            description: |
+              A list of email addresses of Guest users.
+              Up to 100 Guests can be deleted.
             items:
               format: email
               type: string
@@ -1786,6 +1795,11 @@ paths:
       tags:
         - GUESTS
     post:
+      description: |
+        Adds Guest users to Kintone.
+        This does not affiliate Guest users with any Guest Spaces, and does not send any invitation emails.
+        To affiliate a Guest user with a Guest Space, follow up this API call with the Update Guest Members API. For more information, refer to the following document:
+        https://kintone.dev/en/docs/kintone/rest-api/spaces/update-guest-members/
       operationId: postGuestsForGuestSpace
       parameters:
         - description: guest space id
@@ -1803,6 +1817,8 @@ paths:
             schema:
               properties:
                 guests:
+                  description: |
+                    A list of Guest user data.
                   items:
                     $ref: '#/components/schemas/GuestsPostGuestUserForm'
                   type: array
@@ -5880,6 +5896,8 @@ paths:
         - RECORDS
   /k/guest/{guestSpaceId}/v1/space.json:
     delete:
+      description: |
+        Deletes a Space.
       operationId: deleteSpaceForGuestSpace
       parameters:
         - description: guest space id
@@ -5890,10 +5908,14 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The Space ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
             format: long
             type: integer
       responses:
@@ -5905,6 +5927,8 @@ paths:
       tags:
         - SPACES
     put:
+      description: |
+        Updates the settings of a Space.
       operationId: putSpaceForGuestSpace
       parameters:
         - description: guest space id
@@ -5922,42 +5946,84 @@ paths:
             schema:
               properties:
                 fixedMember:
+                  description: |2
+                        The options set for the Block users from joining or leaving the space and following or unfollowing the threads setting.
+                        - true: Users cannot join/leave the Space or follow/unfollow threads.
+                        - false: Users can join/leave the Space and follow/unfollow threads.
                   format: boolean
                   type: boolean
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 isPrivate:
+                  description: |2
+                        The Private settings of the Space.
+                        - true: The Space is private.
+                        - false: The Space is not private.
                   format: boolean
                   type: boolean
                 name:
+                  description: |
+                    The new name of the Space.
                   maxLength: 128
                   minLength: 1
                   type: string
                 permissions:
+                  description: |
+                    An object containing information of the space's permission settings.
                   properties:
                     createApp:
+                      description: |
+                        The option set for the Only Allow Space Administrators to Create Apps setting
+                        - EVERYONE: all users can create apps.
+                        - ADMIN: only administrators can create apps.
                       enum:
                         - EVERYONE
                         - ADMIN
                       type: string
                   type: object
                 showAnnouncement:
+                  description: |2
+                        The display status for the Announcement widget.
+                        - true: The Announcement widget is displayed.
+                        - false: The Announcement widget is not displayed.
                   format: boolean
                   type: boolean
                 showAppList:
+                  description: |2
+                        The display status for the Apps widget.
+                        - true: The Apps widget is displayed.
+                        - false: The Apps widget is not displayed.
                   format: boolean
                   type: boolean
                 showMemberList:
+                  description: |2
+                        The display status for the People widget.
+                        - true: The People widget is displayed.
+                        - false: The People widget is not displayed.
                   format: boolean
                   type: boolean
                 showRelatedLinkList:
+                  description: |2
+                        The display status for the Related Apps & Spaces widget.
+                        - true: The Related Apps & Spaces widget is displayed.
+                        - false: The Related Apps & Spaces widget is not displayed.
                   format: boolean
                   type: boolean
                 showThreadList:
+                  description: |2
+                        The display status for the Threads widget.
+                        - true: The Threads widget is displayed.
+                        - false: The Threads widget is not displayed.
                   format: boolean
                   type: boolean
                 useMultiThread:
+                  description: |2
+                        The Enable multiple threads setting.
+                        - true: The Space is a Multi-threaded Space.
+                        - false: The setting will not be updated, as a Multi-Threaded Space can not be reverted to a Single-threaded Space.
                   format: boolean
                   type: boolean
               required:
@@ -5973,6 +6039,8 @@ paths:
       tags:
         - SPACES
     get:
+      description: |
+        Gets information of a Space.
       operationId: getSpaceForGuestSpace
       parameters:
         - description: guest space id
@@ -5983,10 +6051,18 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The Space ID.
+            The Space ID can be found in the URL of the Space.
+            A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has a Space ID of 111.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
+              The Space ID can be found in the URL of the Space.
+              A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has a Space ID of 111.
             format: long
             type: integer
       responses:
@@ -5997,21 +6073,38 @@ paths:
               schema:
                 properties:
                   attachedApps:
+                    description: |
+                      A list of Apps that are in the thread.
+                      This does not include Apps that are not live yet.
                     items:
                       $ref: '#/components/schemas/SpaceGetAttachedApp'
                     type: array
                   body:
+                    description: |
+                      The HTML of the Space body.
+                      Null is returned if the HTML in the body is empty.
+                      However, if the body has been set before, the HTML tags may be set even if nothing is displayed on the screen and the string will be returned.
                     type: string
                   coverKey:
+                    description: |
+                      The key of the Cover Photo.
                     type: string
                   coverType:
+                    description: |
+                      The image type of the Cover Photo.
+                      - BLOB: An uploaded image.
+                      - PRESET: A preset image.
                     enum:
                       - BLOB
                       - PRESET
                     type: string
                   coverUrl:
+                    description: |
+                      The URL of the Cover Photo.
                     type: string
                   creator:
+                    description: |
+                      An object containing information of the creator of the Space.
                     properties:
                       code:
                         description: |
@@ -6025,21 +6118,41 @@ paths:
                         type: string
                     type: object
                   defaultThread:
+                    description: |
+                      The Thread ID of the default thread that was created when the Space was made.
                     format: long
                     type: integer
                   fixedMember:
+                    description: |
+                      The options set for the Block users from joining or leaving the space and following or unfollowing the threads setting.
+                      - true: Users cannot join/leave the Space or follow/unfollow threads.
+                      - false: Users can join/leave the Space and follow/unfollow threads.
                     type: boolean
                   id:
+                    description: |
+                      The Space ID.
                     format: long
                     type: integer
                   isGuest:
+                    description: |
+                      The Guest Space setting.
+                      - true: The Space is a Guest Space.
+                      - false: The Space is not a Guest Space.
                     type: boolean
                   isPrivate:
+                    description: |
+                      The "Private" settings of the Space.
+                      - true: The Space is private.
+                      - false: The Space is not private.
                     type: boolean
                   memberCount:
+                    description: |
+                      The number of members of the Space.
                     format: long
                     type: integer
                   modifier:
+                    description: |
+                      An object containing information of the updater of the Space.
                     properties:
                       code:
                         description: |
@@ -6053,26 +6166,63 @@ paths:
                         type: string
                     type: object
                   name:
+                    description: |
+                      The name of the Space
                     type: string
                   permissions:
+                    description: |
+                      An object containing information of the space's permission settings.
                     properties:
                       createApp:
+                        description: |
+                          The option set for the Only Allow Space Administrators to Create Apps setting
+                          - EVERYONE: all users can create Apps.
+                          - ADMIN: only administrators can create Apps.
                         enum:
                           - EVERYONE
                           - ADMIN
                         type: string
                     type: object
                   showAnnouncement:
+                    description: |
+                      The display status for the Announcement widget.
+                      - true: The Announcement widget is displayed.
+                      - false: The Announcement widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showAppList:
+                    description: |
+                      The display status for the Apps widget.
+                      - true: The Apps widget is displayed.
+                      - false: The Apps widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showMemberList:
+                    description: |
+                      The display status for the People widget.
+                      - true: The People widget is displayed.
+                      - false: The People widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showRelatedLinkList:
+                    description: |
+                      The display status for the Related Apps & Spaces widget.
+                      - true: The Related Apps & Spaces widget is displayed.
+                      - false: The Related Apps & Spaces widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showThreadList:
+                    description: |
+                      The display status for the Threads widget.
+                      - true: The Threads widget is displayed.
+                      - false: The Threads widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   useMultiThread:
+                    description: |
+                      The Enable multiple threads setting.
+                      - true: The Space is a Multi-threaded Space.
+                      - false: The Space is a Single-threaded Space.
                     type: boolean
                 title: getSpaceForGuestSpaceResponse
                 type: object
@@ -6080,6 +6230,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/space/body.json:
     put:
+      description: |
+        Updates the body of a Space.
       operationId: putSpaceBodyForGuestSpace
       parameters:
         - description: guest space id
@@ -6097,9 +6249,16 @@ paths:
             schema:
               properties:
                 body:
+                  description: |
+                    The contents of the body as an HTML string.
+                    HTML tags that cannot be used will be automatically removed.
+                    HTML can be used to attach Apps, files and Emoji.
+                    The usage of the @ mark to mention a user will not notify that user.
                   maxLength: 65535
                   type: string
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
               required:
@@ -6117,6 +6276,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/space/guests.json:
     put:
+      description: |
+        Updates the Guest Members of a Space.
       operationId: putSpaceGuestsForGuestSpace
       parameters:
         - description: guest space id
@@ -6134,11 +6295,18 @@ paths:
             schema:
               properties:
                 guests:
+                  description: |
+                    A list of email addresses of Guest users.
+                    Guest users must first be added as a Guest user of Kintone before they can be affiliated with Spaces. To do this, use the Add Guests API. For more information, refer to the following document:
+                    https://kintone.dev/en/docs/kintone/rest-api/spaces/add-guests/
+                    Users who are not Guest users, or are inactive/deleted users cannot be added to the list.
                   items:
                     format: email
                     type: string
                   type: array
                 id:
+                  description: |
+                    The Guest Space ID.
                   format: long
                   type: integer
               required:
@@ -6156,6 +6324,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/space/members.json:
     put:
+      description: |
+        Updates the Members of a Space.
       operationId: putSpaceMembersForGuestSpace
       parameters:
         - description: guest space id
@@ -6173,9 +6343,15 @@ paths:
             schema:
               properties:
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 members:
+                  description: |
+                    A list of members of the Space.
+                    At least one Space Administrator must be specified.
+                    Inactive and deleted users cannot be specified.
                   items:
                     $ref: '#/components/schemas/SpaceMembersPutMemberForm'
                   type: array
@@ -6192,6 +6368,8 @@ paths:
       tags:
         - SPACES
     get:
+      description: |
+        Gets the list of Space Members of a Space.
       operationId: getSpaceMembersForGuestSpace
       parameters:
         - description: guest space id
@@ -6202,10 +6380,14 @@ paths:
             description: guest space id
             title: guestSpaceId
             type: integer
-        - in: query
+        - description: |
+            The Space ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
             format: long
             type: integer
       responses:
@@ -6216,6 +6398,9 @@ paths:
               schema:
                 properties:
                   members:
+                    description: |
+                      A list of Space members.
+                      Guest users, inactive users and deleted users will not be included.
                     items:
                       anyOf:
                         - $ref: '#/components/schemas/SpaceMembersGetUserBean'
@@ -6228,6 +6413,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/space/thread.json:
     put:
+      description: |
+        Updates a Thread of a Space.
       operationId: putSpaceThreadForGuestSpace
       parameters:
         - description: guest space id
@@ -6245,12 +6432,27 @@ paths:
             schema:
               properties:
                 body:
+                  description: |
+                    The contents of the Thread body.
+                    Write the contents as an HTML string, within 65535 characters
+                    HTML tags that cannot be used will be automatically removed.
+                    HTML can be used to attach Apps, files and Emoji.
+                    The usage of the @ mark to mention a user will not notify that user.
                   maxLength: 65535
                   type: string
                 id:
+                  description: |
+                    The Thread ID.
+                    The Thread ID can be found in the URL of the Thread.
+                    A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111/thread/222 has a Space ID of 111 and a Thread ID of 222.
                   format: long
                   type: integer
                 name:
+                  description: |
+                    The new name of the Thread.
+                    Must be between 1 - 128 characters.
+                    The name will not be updated if this parameter is ignored.
+                    The Thread name of single threaded Spaces cannot be updated.
                   maxLength: 128
                   minLength: 1
                   type: string
@@ -6267,6 +6469,8 @@ paths:
       tags:
         - SPACES
     post:
+      description: |
+        Adds a Thread in a Space.
       operationId: postSpaceThreadForGuestSpace
       parameters:
         - description: guest space id
@@ -6284,10 +6488,15 @@ paths:
             schema:
               properties:
                 name:
+                  description: |
+                    The new name of the Thread.
+                    Must be between 1 - 128 characters.
                   maxLength: 128
                   minLength: 1
                   type: string
                 space:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
               required:
@@ -6303,6 +6512,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Thread ID of the created Thread.
                     format: long
                     type: integer
                 title: postSpaceThreadForGuestSpaceResponse
@@ -6311,6 +6522,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/space/thread/comment.json:
     post:
+      description: |
+        Adds a comment to a Thread of a Space.
       operationId: postSpaceThreadCommentForGuestSpace
       parameters:
         - description: guest space id
@@ -6328,23 +6541,39 @@ paths:
             schema:
               properties:
                 comment:
+                  description: |
+                    An object including comment details.
                   properties:
                     files:
+                      description: |
+                        An array including data of attachment files.
+                        The maximum number of the files is 5.
+                        Required, if comment.text is not set.
                       items:
                         $ref: '#/components/schemas/SpaceThreadCommentPostFileForm'
                       type: array
                     mentions:
+                      description: |
+                        An array including mentions, that notify other Kintone users.
                       items:
                         $ref: '#/components/schemas/SpaceThreadCommentPostMentionForm'
                       type: array
                     text:
+                      description: |
+                        The comment contents.
+                        A line break can be specified by LF.
+                        The maximum characters of the comment is 65535. Required, if comment.files is not set.
                       maxLength: 65535
                       type: string
                   type: object
                 space:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 thread:
+                  description: |
+                    The Thread ID.
                   format: long
                   type: integer
               required:
@@ -6361,6 +6590,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The comment ID of the created comment.
                     format: long
                     type: integer
                 title: postSpaceThreadCommentForGuestSpaceResponse
@@ -6406,6 +6637,8 @@ paths:
         - SPACES
   /k/guest/{guestSpaceId}/v1/template/space.json:
     post:
+      description: |
+        Creates a Space from a Space template.
       operationId: postTemplateSpaceForGuestSpace
       parameters:
         - description: guest space id
@@ -6423,22 +6656,48 @@ paths:
             schema:
               properties:
                 fixedMember:
+                  description: |
+                    The "Block users from joining or leaving the space and following or unfollowing the threads." settings of the Space.
+                    - true: Users will not be able to join/leave the Space or follow/unfollow threads.
+                    - false: Users will be able to join/leave the Space and follow/unfollow threads.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 id:
+                  description: |
+                    The Space Template ID.
+                    For instructions on creating Space Templates, refer to the following article: https://get.kintone.help/k/en/id/04075.html
+                    The Space Template ID is listed on the Space Templates list page, found under https://{domainname}.cybozu.com/k/admin/system/spacetemplate/
                   format: long
                   type: integer
                 isGuest:
+                  description: |
+                    The Guest Space settings of the Space.
+                    - true: The Space will be a Guest Space
+                    - false: The Space will be a normal Space.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 isPrivate:
+                  description: |
+                    The "Private" settings of the Space.
+                    - true: The Space will be Private.
+                    - false: The Space will not be Private.
+                    If the isGuest parameter is set to true, this value is also true.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 members:
+                  description: |
+                    A list of members of the Space.
+                    At least one Space Administrator must be specified.
+                    Inactive and deleted users cannot be specified.
                   items:
                     $ref: '#/components/schemas/TemplateSpacePostMemberForm'
                   type: array
                 name:
+                  description: |
+                    The new name of the Space.
                   maxLength: 128
                   minLength: 1
                   type: string
@@ -6455,6 +6714,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Space ID of the created Space.
                     format: long
                     type: integer
                 title: postTemplateSpaceForGuestSpaceResponse
@@ -8008,12 +8269,21 @@ paths:
         - FORMS
   /k/v1/guests.json:
     delete:
+      description: |
+        Deletes a Guest user from Kintone. To remove a user from a Guest Space without deleting their account, use the Update Guest Members API. For more information, refer to the following article:
+        https://kintone.dev/en/docs/kintone/rest-api/spaces/update-guest-members/
       operationId: deleteGuests
       parameters:
-        - in: query
+        - description: |
+            A list of email addresses of Guest users.
+            Up to 100 Guests can be deleted.
+          in: query
           name: guests
           required: true
           schema:
+            description: |
+              A list of email addresses of Guest users.
+              Up to 100 Guests can be deleted.
             items:
               format: email
               type: string
@@ -8027,6 +8297,11 @@ paths:
       tags:
         - GUESTS
     post:
+      description: |
+        Adds Guest users to Kintone.
+        This does not affiliate Guest users with any Guest Spaces, and does not send any invitation emails.
+        To affiliate a Guest user with a Guest Space, follow up this API call with the Update Guest Members API. For more information, refer to the following document:
+        https://kintone.dev/en/docs/kintone/rest-api/spaces/update-guest-members/
       operationId: postGuests
       parameters: []
       requestBody:
@@ -8036,6 +8311,8 @@ paths:
             schema:
               properties:
                 guests:
+                  description: |
+                    A list of Guest user data.
                   items:
                     $ref: '#/components/schemas/GuestsPostGuestUserForm'
                   type: array
@@ -11609,12 +11886,18 @@ paths:
         - RECORDS
   /k/v1/space.json:
     delete:
+      description: |
+        Deletes a Space.
       operationId: deleteSpace
       parameters:
-        - in: query
+        - description: |
+            The Space ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
             format: long
             type: integer
       responses:
@@ -11626,6 +11909,8 @@ paths:
       tags:
         - SPACES
     put:
+      description: |
+        Updates the settings of a Space.
       operationId: putSpace
       parameters: []
       requestBody:
@@ -11635,42 +11920,84 @@ paths:
             schema:
               properties:
                 fixedMember:
+                  description: |2
+                        The options set for the Block users from joining or leaving the space and following or unfollowing the threads setting.
+                        - true: Users cannot join/leave the Space or follow/unfollow threads.
+                        - false: Users can join/leave the Space and follow/unfollow threads.
                   format: boolean
                   type: boolean
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 isPrivate:
+                  description: |2
+                        The Private settings of the Space.
+                        - true: The Space is private.
+                        - false: The Space is not private.
                   format: boolean
                   type: boolean
                 name:
+                  description: |
+                    The new name of the Space.
                   maxLength: 128
                   minLength: 1
                   type: string
                 permissions:
+                  description: |
+                    An object containing information of the space's permission settings.
                   properties:
                     createApp:
+                      description: |
+                        The option set for the Only Allow Space Administrators to Create Apps setting
+                        - EVERYONE: all users can create apps.
+                        - ADMIN: only administrators can create apps.
                       enum:
                         - EVERYONE
                         - ADMIN
                       type: string
                   type: object
                 showAnnouncement:
+                  description: |2
+                        The display status for the Announcement widget.
+                        - true: The Announcement widget is displayed.
+                        - false: The Announcement widget is not displayed.
                   format: boolean
                   type: boolean
                 showAppList:
+                  description: |2
+                        The display status for the Apps widget.
+                        - true: The Apps widget is displayed.
+                        - false: The Apps widget is not displayed.
                   format: boolean
                   type: boolean
                 showMemberList:
+                  description: |2
+                        The display status for the People widget.
+                        - true: The People widget is displayed.
+                        - false: The People widget is not displayed.
                   format: boolean
                   type: boolean
                 showRelatedLinkList:
+                  description: |2
+                        The display status for the Related Apps & Spaces widget.
+                        - true: The Related Apps & Spaces widget is displayed.
+                        - false: The Related Apps & Spaces widget is not displayed.
                   format: boolean
                   type: boolean
                 showThreadList:
+                  description: |2
+                        The display status for the Threads widget.
+                        - true: The Threads widget is displayed.
+                        - false: The Threads widget is not displayed.
                   format: boolean
                   type: boolean
                 useMultiThread:
+                  description: |2
+                        The Enable multiple threads setting.
+                        - true: The Space is a Multi-threaded Space.
+                        - false: The setting will not be updated, as a Multi-Threaded Space can not be reverted to a Single-threaded Space.
                   format: boolean
                   type: boolean
               required:
@@ -11686,12 +12013,22 @@ paths:
       tags:
         - SPACES
     get:
+      description: |
+        Gets information of a Space.
       operationId: getSpace
       parameters:
-        - in: query
+        - description: |
+            The Space ID.
+            The Space ID can be found in the URL of the Space.
+            A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has a Space ID of 111.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
+              The Space ID can be found in the URL of the Space.
+              A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has a Space ID of 111.
             format: long
             type: integer
       responses:
@@ -11702,21 +12039,38 @@ paths:
               schema:
                 properties:
                   attachedApps:
+                    description: |
+                      A list of Apps that are in the thread.
+                      This does not include Apps that are not live yet.
                     items:
                       $ref: '#/components/schemas/SpaceGetAttachedApp'
                     type: array
                   body:
+                    description: |
+                      The HTML of the Space body.
+                      Null is returned if the HTML in the body is empty.
+                      However, if the body has been set before, the HTML tags may be set even if nothing is displayed on the screen and the string will be returned.
                     type: string
                   coverKey:
+                    description: |
+                      The key of the Cover Photo.
                     type: string
                   coverType:
+                    description: |
+                      The image type of the Cover Photo.
+                      - BLOB: An uploaded image.
+                      - PRESET: A preset image.
                     enum:
                       - BLOB
                       - PRESET
                     type: string
                   coverUrl:
+                    description: |
+                      The URL of the Cover Photo.
                     type: string
                   creator:
+                    description: |
+                      An object containing information of the creator of the Space.
                     properties:
                       code:
                         description: |
@@ -11730,21 +12084,41 @@ paths:
                         type: string
                     type: object
                   defaultThread:
+                    description: |
+                      The Thread ID of the default thread that was created when the Space was made.
                     format: long
                     type: integer
                   fixedMember:
+                    description: |
+                      The options set for the Block users from joining or leaving the space and following or unfollowing the threads setting.
+                      - true: Users cannot join/leave the Space or follow/unfollow threads.
+                      - false: Users can join/leave the Space and follow/unfollow threads.
                     type: boolean
                   id:
+                    description: |
+                      The Space ID.
                     format: long
                     type: integer
                   isGuest:
+                    description: |
+                      The Guest Space setting.
+                      - true: The Space is a Guest Space.
+                      - false: The Space is not a Guest Space.
                     type: boolean
                   isPrivate:
+                    description: |
+                      The "Private" settings of the Space.
+                      - true: The Space is private.
+                      - false: The Space is not private.
                     type: boolean
                   memberCount:
+                    description: |
+                      The number of members of the Space.
                     format: long
                     type: integer
                   modifier:
+                    description: |
+                      An object containing information of the updater of the Space.
                     properties:
                       code:
                         description: |
@@ -11758,26 +12132,63 @@ paths:
                         type: string
                     type: object
                   name:
+                    description: |
+                      The name of the Space
                     type: string
                   permissions:
+                    description: |
+                      An object containing information of the space's permission settings.
                     properties:
                       createApp:
+                        description: |
+                          The option set for the Only Allow Space Administrators to Create Apps setting
+                          - EVERYONE: all users can create Apps.
+                          - ADMIN: only administrators can create Apps.
                         enum:
                           - EVERYONE
                           - ADMIN
                         type: string
                     type: object
                   showAnnouncement:
+                    description: |
+                      The display status for the Announcement widget.
+                      - true: The Announcement widget is displayed.
+                      - false: The Announcement widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showAppList:
+                    description: |
+                      The display status for the Apps widget.
+                      - true: The Apps widget is displayed.
+                      - false: The Apps widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showMemberList:
+                    description: |
+                      The display status for the People widget.
+                      - true: The People widget is displayed.
+                      - false: The People widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showRelatedLinkList:
+                    description: |
+                      The display status for the Related Apps & Spaces widget.
+                      - true: The Related Apps & Spaces widget is displayed.
+                      - false: The Related Apps & Spaces widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   showThreadList:
+                    description: |
+                      The display status for the Threads widget.
+                      - true: The Threads widget is displayed.
+                      - false: The Threads widget is not displayed.
+                      - null is returned for Spaces with the Enable multiple threads option turned off.
                     type: boolean
                   useMultiThread:
+                    description: |
+                      The Enable multiple threads setting.
+                      - true: The Space is a Multi-threaded Space.
+                      - false: The Space is a Single-threaded Space.
                     type: boolean
                 title: getSpaceResponse
                 type: object
@@ -11785,6 +12196,8 @@ paths:
         - SPACES
   /k/v1/space/body.json:
     put:
+      description: |
+        Updates the body of a Space.
       operationId: putSpaceBody
       parameters: []
       requestBody:
@@ -11794,9 +12207,16 @@ paths:
             schema:
               properties:
                 body:
+                  description: |
+                    The contents of the body as an HTML string.
+                    HTML tags that cannot be used will be automatically removed.
+                    HTML can be used to attach Apps, files and Emoji.
+                    The usage of the @ mark to mention a user will not notify that user.
                   maxLength: 65535
                   type: string
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
               required:
@@ -11814,6 +12234,8 @@ paths:
         - SPACES
   /k/v1/space/guests.json:
     put:
+      description: |
+        Updates the Guest Members of a Space.
       operationId: putSpaceGuests
       parameters: []
       requestBody:
@@ -11823,11 +12245,18 @@ paths:
             schema:
               properties:
                 guests:
+                  description: |
+                    A list of email addresses of Guest users.
+                    Guest users must first be added as a Guest user of Kintone before they can be affiliated with Spaces. To do this, use the Add Guests API. For more information, refer to the following document:
+                    https://kintone.dev/en/docs/kintone/rest-api/spaces/add-guests/
+                    Users who are not Guest users, or are inactive/deleted users cannot be added to the list.
                   items:
                     format: email
                     type: string
                   type: array
                 id:
+                  description: |
+                    The Guest Space ID.
                   format: long
                   type: integer
               required:
@@ -11845,6 +12274,8 @@ paths:
         - SPACES
   /k/v1/space/members.json:
     put:
+      description: |
+        Updates the Members of a Space.
       operationId: putSpaceMembers
       parameters: []
       requestBody:
@@ -11854,9 +12285,15 @@ paths:
             schema:
               properties:
                 id:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 members:
+                  description: |
+                    A list of members of the Space.
+                    At least one Space Administrator must be specified.
+                    Inactive and deleted users cannot be specified.
                   items:
                     $ref: '#/components/schemas/SpaceMembersPutMemberForm'
                   type: array
@@ -11873,12 +12310,18 @@ paths:
       tags:
         - SPACES
     get:
+      description: |
+        Gets the list of Space Members of a Space.
       operationId: getSpaceMembers
       parameters:
-        - in: query
+        - description: |
+            The Space ID.
+          in: query
           name: id
           required: true
           schema:
+            description: |
+              The Space ID.
             format: long
             type: integer
       responses:
@@ -11889,6 +12332,9 @@ paths:
               schema:
                 properties:
                   members:
+                    description: |
+                      A list of Space members.
+                      Guest users, inactive users and deleted users will not be included.
                     items:
                       anyOf:
                         - $ref: '#/components/schemas/SpaceMembersGetUserBean'
@@ -11901,6 +12347,8 @@ paths:
         - SPACES
   /k/v1/space/thread.json:
     put:
+      description: |
+        Updates a Thread of a Space.
       operationId: putSpaceThread
       parameters: []
       requestBody:
@@ -11910,12 +12358,27 @@ paths:
             schema:
               properties:
                 body:
+                  description: |
+                    The contents of the Thread body.
+                    Write the contents as an HTML string, within 65535 characters
+                    HTML tags that cannot be used will be automatically removed.
+                    HTML can be used to attach Apps, files and Emoji.
+                    The usage of the @ mark to mention a user will not notify that user.
                   maxLength: 65535
                   type: string
                 id:
+                  description: |
+                    The Thread ID.
+                    The Thread ID can be found in the URL of the Thread.
+                    A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111/thread/222 has a Space ID of 111 and a Thread ID of 222.
                   format: long
                   type: integer
                 name:
+                  description: |
+                    The new name of the Thread.
+                    Must be between 1 - 128 characters.
+                    The name will not be updated if this parameter is ignored.
+                    The Thread name of single threaded Spaces cannot be updated.
                   maxLength: 128
                   minLength: 1
                   type: string
@@ -11932,6 +12395,8 @@ paths:
       tags:
         - SPACES
     post:
+      description: |
+        Adds a Thread in a Space.
       operationId: postSpaceThread
       parameters: []
       requestBody:
@@ -11941,10 +12406,15 @@ paths:
             schema:
               properties:
                 name:
+                  description: |
+                    The new name of the Thread.
+                    Must be between 1 - 128 characters.
                   maxLength: 128
                   minLength: 1
                   type: string
                 space:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
               required:
@@ -11960,6 +12430,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Thread ID of the created Thread.
                     format: long
                     type: integer
                 title: postSpaceThreadResponse
@@ -11968,6 +12440,8 @@ paths:
         - SPACES
   /k/v1/space/thread/comment.json:
     post:
+      description: |
+        Adds a comment to a Thread of a Space.
       operationId: postSpaceThreadComment
       parameters: []
       requestBody:
@@ -11977,23 +12451,39 @@ paths:
             schema:
               properties:
                 comment:
+                  description: |
+                    An object including comment details.
                   properties:
                     files:
+                      description: |
+                        An array including data of attachment files.
+                        The maximum number of the files is 5.
+                        Required, if comment.text is not set.
                       items:
                         $ref: '#/components/schemas/SpaceThreadCommentPostFileForm'
                       type: array
                     mentions:
+                      description: |
+                        An array including mentions, that notify other Kintone users.
                       items:
                         $ref: '#/components/schemas/SpaceThreadCommentPostMentionForm'
                       type: array
                     text:
+                      description: |
+                        The comment contents.
+                        A line break can be specified by LF.
+                        The maximum characters of the comment is 65535. Required, if comment.files is not set.
                       maxLength: 65535
                       type: string
                   type: object
                 space:
+                  description: |
+                    The Space ID.
                   format: long
                   type: integer
                 thread:
+                  description: |
+                    The Thread ID.
                   format: long
                   type: integer
               required:
@@ -12010,6 +12500,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The comment ID of the created comment.
                     format: long
                     type: integer
                 title: postSpaceThreadCommentResponse
@@ -12047,6 +12539,8 @@ paths:
         - SPACES
   /k/v1/template/space.json:
     post:
+      description: |
+        Creates a Space from a Space template.
       operationId: postTemplateSpace
       parameters: []
       requestBody:
@@ -12056,22 +12550,48 @@ paths:
             schema:
               properties:
                 fixedMember:
+                  description: |
+                    The "Block users from joining or leaving the space and following or unfollowing the threads." settings of the Space.
+                    - true: Users will not be able to join/leave the Space or follow/unfollow threads.
+                    - false: Users will be able to join/leave the Space and follow/unfollow threads.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 id:
+                  description: |
+                    The Space Template ID.
+                    For instructions on creating Space Templates, refer to the following article: https://get.kintone.help/k/en/id/04075.html
+                    The Space Template ID is listed on the Space Templates list page, found under https://{domainname}.cybozu.com/k/admin/system/spacetemplate/
                   format: long
                   type: integer
                 isGuest:
+                  description: |
+                    The Guest Space settings of the Space.
+                    - true: The Space will be a Guest Space
+                    - false: The Space will be a normal Space.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 isPrivate:
+                  description: |
+                    The "Private" settings of the Space.
+                    - true: The Space will be Private.
+                    - false: The Space will not be Private.
+                    If the isGuest parameter is set to true, this value is also true.
+                    If ignored, this value is false.
                   format: boolean
                   type: boolean
                 members:
+                  description: |
+                    A list of members of the Space.
+                    At least one Space Administrator must be specified.
+                    Inactive and deleted users cannot be specified.
                   items:
                     $ref: '#/components/schemas/TemplateSpacePostMemberForm'
                   type: array
                 name:
+                  description: |
+                    The new name of the Space.
                   maxLength: 128
                   minLength: 1
                   type: string
@@ -12088,6 +12608,8 @@ paths:
               schema:
                 properties:
                   id:
+                    description: |
+                      The Space ID of the created Space.
                     format: long
                     type: integer
                 title: postTemplateSpaceResponse
@@ -21857,40 +22379,77 @@ components:
     GuestsPostGuestUserForm:
       properties:
         callto:
+          description: |
+            The Skype Name of the Guest user.
+            The maximum limit is 256 characters.
           maxLength: 256
           type: string
         code:
+          description: |
+            The email address (log in name) of the Guest user.
           format: email
           type: string
         company:
+          description: |
+            The Company name to display on the Guest User's profile.
+            The maximum limit is 100 characters.
           maxLength: 100
           type: string
         division:
+          description: |
+            The Department name to display on the Guest User's profile.
+            The maximum limit is 100 characters.
           maxLength: 100
           type: string
         givenNameReading:
+          description: |
+            The Phonetic Given Name settings of the Guest User. The maximum limit is 64 characters.
           maxLength: 64
           type: string
         image:
+          description: |
+            The profile image of the Guest user.
+            Specify a fileKey of an uploaded file. fileKeys can be found from the response of the Upload File API. For more information, refer to the following article:
+            https://kintone.dev/en/docs/kintone/rest-api/files/upload-file/
+            If ignored, a default image will be set.
           type: string
         locale:
+          description: |
+            The language settings of the Guest user.
+            - auto: Use web browser settings.
+            - en: English
+            - zh: Chinese
+            - ja: Japanese
+            If ignored, auto will be set.
           format: locale
           type: string
         name:
+          description: |
+            The display name of the user.
+            Must be between 1 - 128 characters.
           maxLength: 128
           minLength: 1
           type: string
         password:
+          description: |
+            The log in password of the Guest user.
           maxLength: 64
           minLength: 3
           type: string
         phone:
+          description: |
+            The Phone number to display on the Guest User's profile.
+            The maximum limit is 100 characters.
           maxLength: 100
           type: string
         surNameReading:
+          description: |
+            The Phonetic Surname settings of the Guest User. The maximum limit is 64 characters.
           maxLength: 64
           type: string
         timezone:
+          description: |
+            The timezone of the Guest user.
           format: timezone
           type: string
       required:
@@ -40480,8 +41039,17 @@ components:
     RecordCommentPostMentionForm:
       properties:
         code:
+          description: |
+            The code of the user, group or department that will be mentioned.
+            The maximum number of mentions is 10.
+            The mentioned users will be placed in front of the comment text in the output.
           type: string
         type:
+          description: |
+            The entity type of the mentioned target.
+            - USER: User
+            - GROUP: Group
+            - ORGANIZATION: Department
           enum:
             - USER
             - ORGANIZATION
@@ -47906,56 +48474,117 @@ components:
             The localization language will be dependent on the language settings of the Kintone user authenticating this API.
           type: string
         threadId:
+          description: |
+            The Thread ID of the thread that the App was created in.
+            Apps that are created inside Spaces using the GUI will be automatically allocated to the default Thread.
           format: long
           type: integer
       type: object
     SpaceMembersGetGroupBean:
       properties:
         entity:
+          description: |
+            The entity information of the Space member.
           properties:
             code:
+              description: |
+                The code of the Space member.
               type: string
             type:
+              description: |
+                The entity type of the Space member.
+                - USER: User
+                - GROUP: Group
+                - ORGANIZATION: Department
               type: string
           type: object
         isAdmin:
+          description: |
+            The Space Admin settings of the Space member
+            - true: The Space Member is the Space Administrator.
+            - false: The Space Member is not the Space Administrator.
           type: boolean
       type: object
     SpaceMembersGetOrganizationBean:
       properties:
         entity:
+          description: |
+            The entity information of the Space member.
           properties:
             code:
+              description: |
+                The code of the Space member.
               type: string
             type:
+              description: |
+                The entity type of the Space member.
+                - USER: User
+                - GROUP: Group
+                - ORGANIZATION: Department
               type: string
           type: object
         includeSubs:
+          description: |
+            The "Include Affiliated Departments" setting of the Department Space Member.
+            - true: Affiliated Departments are included.
+            - false: Affiliated Departments are not included.
           type: boolean
         isAdmin:
+          description: |
+            The Space Admin settings of the Space member
+            - true: The Space Member is the Space Administrator.
+            - false: The Space Member is not the Space Administrator.
           type: boolean
       type: object
     SpaceMembersGetUserBean:
       properties:
         entity:
+          description: |
+            The entity information of the Space member.
           properties:
             code:
+              description: |
+                The code of the Space member.
               type: string
             type:
+              description: |
+                The entity type of the Space member.
+                - USER: User
+                - GROUP: Group
+                - ORGANIZATION: Department
               type: string
           type: object
         isAdmin:
+          description: |
+            The Space Admin settings of the Space member
+            - true: The Space Member is the Space Administrator.
+            - false: The Space Member is not the Space Administrator.
           type: boolean
         isImplicit:
+          description: |
+            If the Space Member is added as a User or not.
+            - true: The Space Member is not added as a user, and is added as part of a Group or Department.
+            - false: The Space Member is added as a User.
+            This is not responded for GROUP and ORGANIZATION entities.
           type: boolean
       type: object
     SpaceMembersPutMemberForm:
       properties:
         entity:
+          description: |
+            The entity information of the Space member.
+            Guest users cannot be specified.
           properties:
             code:
+              description: |
+                The code of the entity.
               type: string
             type:
+              description: |
+                The entity type of the Space member.
+                - USER: User
+                - Group: Group
+                - ORGANIZATION: Department
               enum:
                 - USER
                 - GROUP
@@ -47966,9 +48595,20 @@ components:
             - type
           type: object
         includeSubs:
+          description: |
+            The "Include Affiliated Departments" settings of the department.
+            - true: Affiliated departments will be included.
+            - false: Affiliated departments will not be included.
+            If ignored, this value is false.
           format: boolean
           type: boolean
         isAdmin:
+          description: |
+            The Space Administration settings of the user.
+            - true: The member will be the Administrator of the Space.
+            - false: The member will not be the Administrator of the Space.
+            At least 1 Space Administrator is required to be set in the API call.
+            If ignored, this value is false.
           format: boolean
           type: boolean
       required:
@@ -47977,8 +48617,16 @@ components:
     SpaceThreadCommentPostFileForm:
       properties:
         fileKey:
+          description: |
+            The fileKey of the attachment file.
+            fileKeys can be found from the response of the Upload File API. For more information, refer to the following article:
+            https://kintone.dev/en/docs/kintone/rest-api/files/upload-file/
           type: string
         width:
+          description: |
+            A width can be specified if the attachment file is an image.
+            The minimum is 100, and the maximum is 750.
+            If this parameter is ignored, the original width will be set (this width is the same size as the size when "Original" is chosen when adding an image to a thread via GUI). This parameter is ignored if the file is not an image.
           type: string
       required:
         - fileKey
@@ -47986,8 +48634,17 @@ components:
     SpaceThreadCommentPostMentionForm:
       properties:
         code:
+          description: |
+            The code of the user, group or department that will be mentioned.
+            The maximum number of mentions is 10.
+            The mentioned users will be placed in front of the comment text in the output.
           type: string
         type:
+          description: |
+            The entity type of the mentioned target.
+            - USER: User
+            - GROUP: Group
+            - ORGANIZATION: Department
           enum:
             - USER
             - ORGANIZATION
@@ -48050,10 +48707,20 @@ components:
     TemplateSpacePostMemberForm:
       properties:
         entity:
+          description: |
+            The entity information of the Space member.
+            Guest users cannot be specified.
           properties:
             code:
+              description: |
+                The code of the entity.
               type: string
             type:
+              description: |
+                The entity type of the Space member.
+                - USER: User
+                - Group: Group
+                - ORGANIZATION: Department
               enum:
                 - USER
                 - GROUP
@@ -48064,9 +48731,20 @@ components:
             - type
           type: object
         includeSubs:
+          description: |
+            The "Include Affiliated Departments" settings of the department.
+            - true: Affiliated departments will be included.
+            - false: Affiliated departments will not be included.
+            If ignored, this value is false.
           format: boolean
           type: boolean
         isAdmin:
+          description: |
+            The Space Administration settings of the user.
+            - true: The member will be the Administrator of the Space.
+            - false: The member will not be the Administrator of the Space.
+            At least 1 Space Administrator is required to be set in the API call.
+            If ignored, this value is false.
           format: boolean
           type: boolean
       required:
