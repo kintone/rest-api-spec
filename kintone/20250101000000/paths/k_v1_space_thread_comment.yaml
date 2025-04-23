@@ -1,5 +1,6 @@
 ---
 post:
+  description: "Adds a comment to a Thread of a Space.\n"
   operationId: "postSpaceThreadComment"
   parameters: []
   requestBody:
@@ -9,23 +10,34 @@ post:
         schema:
           properties:
             comment:
+              description: "An object including comment details.\n"
               properties:
                 files:
+                  description: "An array including data of attachment files.\nThe\
+                    \ maximum number of the files is 5.\nRequired, if comment.text\
+                    \ is not set.\n"
                   items:
                     $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostFileForm"
                   type: "array"
                 mentions:
+                  description: "An array including mentions, that notify other Kintone\
+                    \ users.\n"
                   items:
                     $ref: "../openapi.yaml#/components/schemas/SpaceThreadCommentPostMentionForm"
                   type: "array"
                 text:
+                  description: "The comment contents.\nA line break can be specified\
+                    \ by LF.\nThe maximum characters of the comment is 65535. Required,\
+                    \ if comment.files is not set.\n"
                   maxLength: 65535
                   type: "string"
               type: "object"
             space:
+              description: "The Space ID.\n"
               format: "long"
               type: "integer"
             thread:
+              description: "The Thread ID.\n"
               format: "long"
               type: "integer"
           required:
@@ -42,6 +54,7 @@ post:
           schema:
             properties:
               id:
+                description: "The comment ID of the created comment.\n"
                 format: "long"
                 type: "integer"
             title: "postSpaceThreadCommentResponse"

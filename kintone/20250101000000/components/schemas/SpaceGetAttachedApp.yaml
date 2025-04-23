@@ -51,6 +51,9 @@ properties:
       \ on the language settings of the Kintone user authenticating this API.\n"
     type: "string"
   threadId:
+    description: "The Thread ID of the thread that the App was created in.\nApps that\
+      \ are created inside Spaces using the GUI will be automatically allocated to\
+      \ the default Thread.\n"
     format: "long"
     type: "integer"
 type: "object"

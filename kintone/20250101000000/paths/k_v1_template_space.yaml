@@ -1,5 +1,6 @@
 ---
 post:
+  description: "Creates a Space from a Space template.\n"
   operationId: "postTemplateSpace"
   parameters: []
   requestBody:
@@ -9,22 +10,41 @@ post:
         schema:
           properties:
             fixedMember:
+              description: "The \"Block users from joining or leaving the space and\
+                \ following or unfollowing the threads.\" settings of the Space.\n\
+                - true: Users will not be able to join/leave the Space or follow/unfollow\
+                \ threads.\n- false: Users will be able to join/leave the Space and\
+                \ follow/unfollow threads.\nIf ignored, this value is false.\n"
               format: "boolean"
               type: "boolean"
             id:
+              description: "The Space Template ID.\nFor instructions on creating Space\
+                \ Templates, refer to the following article: https://get.kintone.help/k/en/id/04075.html\n\
+                The Space Template ID is listed on the Space Templates list page,\
+                \ found under https://{domainname}.cybozu.com/k/admin/system/spacetemplate/\n"
               format: "long"
               type: "integer"
             isGuest:
+              description: "The Guest Space settings of the Space.\n- true: The Space\
+                \ will be a Guest Space\n- false: The Space will be a normal Space.\n\
+                If ignored, this value is false.\n"
               format: "boolean"
               type: "boolean"
             isPrivate:
+              description: "The \"Private\" settings of the Space.\n- true: The Space\
+                \ will be Private.\n- false: The Space will not be Private.\nIf the\
+                \ isGuest parameter is set to true, this value is also true.\nIf ignored,\
+                \ this value is false.\n"
               format: "boolean"
               type: "boolean"
             members:
+              description: "A list of members of the Space.\nAt least one Space Administrator\
+                \ must be specified.\nInactive and deleted users cannot be specified.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/TemplateSpacePostMemberForm"
               type: "array"
             name:
+              description: "The new name of the Space.\n"
               maxLength: 128
               minLength: 1
               type: "string"
@@ -41,6 +61,7 @@ post:
           schema:
             properties:
               id:
+                description: "The Space ID of the created Space.\n"
                 format: "long"
                 type: "integer"
             title: "postTemplateSpaceResponse"

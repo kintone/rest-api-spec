@@ -1,5 +1,6 @@
 ---
 put:
+  description: "Updates the Guest Members of a Space.\n"
   operationId: "putSpaceGuestsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -17,11 +18,18 @@ put:
         schema:
           properties:
             guests:
+              description: "A list of email addresses of Guest users.\nGuest users\
+                \ must first be added as a Guest user of Kintone before they can be\
+                \ affiliated with Spaces. To do this, use the Add Guests API. For\
+                \ more information, refer to the following document:\nhttps://kintone.dev/en/docs/kintone/rest-api/spaces/add-guests/\n\
+                Users who are not Guest users, or are inactive/deleted users cannot\
+                \ be added to the list.\n"
               items:
                 format: "email"
                 type: "string"
               type: "array"
             id:
+              description: "The Guest Space ID.\n"
               format: "long"
               type: "integer"
           required:

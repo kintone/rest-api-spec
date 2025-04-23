@@ -1,8 +1,13 @@
 ---
 properties:
   code:
+    description: "The code of the user, group or department that will be mentioned.\n\
+      The maximum number of mentions is 10.\nThe mentioned users will be placed in\
+      \ front of the comment text in the output.\n"
     type: "string"
   type:
+    description: "The entity type of the mentioned target.\n- USER: User\n- GROUP:\
+      \ Group\n- ORGANIZATION: Department\n"
     enum:
     - "USER"
     - "ORGANIZATION"

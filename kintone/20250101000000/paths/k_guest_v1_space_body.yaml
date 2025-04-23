@@ -1,5 +1,6 @@
 ---
 put:
+  description: "Updates the body of a Space.\n"
   operationId: "putSpaceBodyForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -17,9 +18,14 @@ put:
         schema:
           properties:
             body:
+              description: "The contents of the body as an HTML string.\nHTML tags\
+                \ that cannot be used will be automatically removed.\nHTML can be\
+                \ used to attach Apps, files and Emoji.\nThe usage of the @ mark to\
+                \ mention a user will not notify that user.\n"
               maxLength: 65535
               type: "string"
             id:
+              description: "The Space ID.\n"
               format: "long"
               type: "integer"
           required:

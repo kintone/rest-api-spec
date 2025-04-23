@@ -1,40 +1,62 @@
 ---
 properties:
   callto:
+    description: "The Skype Name of the Guest user.\nThe maximum limit is 256 characters.\n"
     maxLength: 256
     type: "string"
   code:
+    description: "The email address (log in name) of the Guest user.\n"
     format: "email"
     type: "string"
   company:
+    description: "The Company name to display on the Guest User's profile.\nThe maximum\
+      \ limit is 100 characters.\n"
     maxLength: 100
     type: "string"
   division:
+    description: "The Department name to display on the Guest User's profile.\nThe\
+      \ maximum limit is 100 characters.\n"
     maxLength: 100
     type: "string"
   givenNameReading:
+    description: "The Phonetic Given Name settings of the Guest User. The maximum\
+      \ limit is 64 characters.\n"
     maxLength: 64
     type: "string"
   image:
+    description: "The profile image of the Guest user.\nSpecify a fileKey of an uploaded\
+      \ file. fileKeys can be found from the response of the Upload File API. For\
+      \ more information, refer to the following article:\nhttps://kintone.dev/en/docs/kintone/rest-api/files/upload-file/\n\
+      If ignored, a default image will be set.\n"
     type: "string"
   locale:
+    description: "The language settings of the Guest user.\n- auto: Use web browser\
+      \ settings.\n- en: English\n- zh: Chinese\n- ja: Japanese\nIf ignored, auto\
+      \ will be set.\n"
     format: "locale"
     type: "string"
   name:
+    description: "The display name of the user.\nMust be between 1 - 128 characters.\n"
     maxLength: 128
     minLength: 1
     type: "string"
   password:
+    description: "The log in password of the Guest user.\n"
     maxLength: 64
     minLength: 3
     type: "string"
   phone:
+    description: "The Phone number to display on the Guest User's profile.\nThe maximum\
+      \ limit is 100 characters.\n"
     maxLength: 100
     type: "string"
   surNameReading:
+    description: "The Phonetic Surname settings of the Guest User. The maximum limit\
+      \ is 64 characters.\n"
     maxLength: 64
     type: "string"
   timezone:
+    description: "The timezone of the Guest user.\n"
     format: "timezone"
     type: "string"
 required:

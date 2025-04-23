@@ -1,5 +1,6 @@
 ---
 delete:
+  description: "Deletes a Space.\n"
   operationId: "deleteSpaceForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,10 +11,12 @@ delete:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The Space ID.\n"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The Space ID.\n"
       format: "long"
       type: "integer"
   responses:
@@ -25,6 +28,7 @@ delete:
   tags:
   - "SPACES"
 put:
+  description: "Updates the settings of a Space.\n"
   operationId: "putSpaceForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -42,42 +46,75 @@ put:
         schema:
           properties:
             fixedMember:
+              description: "    The options set for the Block users from joining or\
+                \ leaving the space and following or unfollowing the threads setting.\n\
+                \    - true: Users cannot join/leave the Space or follow/unfollow\
+                \ threads.\n    - false: Users can join/leave the Space and follow/unfollow\
+                \ threads.\n"
               format: "boolean"
               type: "boolean"
             id:
+              description: "The Space ID.\n"
               format: "long"
               type: "integer"
             isPrivate:
+              description: "    The Private settings of the Space.\n    - true: The\
+                \ Space is private.\n    - false: The Space is not private.\n"
               format: "boolean"
               type: "boolean"
             name:
+              description: "The new name of the Space.\n"
               maxLength: 128
               minLength: 1
               type: "string"
             permissions:
+              description: "An object containing information of the space's permission\
+                \ settings.\n"
               properties:
                 createApp:
+                  description: "The option set for the Only Allow Space Administrators\
+                    \ to Create Apps setting\n- EVERYONE: all users can create apps.\n\
+                    - ADMIN: only administrators can create apps.\n"
                   enum:
                   - "EVERYONE"
                   - "ADMIN"
                   type: "string"
               type: "object"
             showAnnouncement:
+              description: "    The display status for the Announcement widget.\n\
+                \    - true: The Announcement widget is displayed.\n    - false: The\
+                \ Announcement widget is not displayed.\n"
               format: "boolean"
               type: "boolean"
             showAppList:
+              description: "    The display status for the Apps widget.\n    - true:\
+                \ The Apps widget is displayed.\n    - false: The Apps widget is not\
+                \ displayed.\n"
               format: "boolean"
               type: "boolean"
             showMemberList:
+              description: "    The display status for the People widget.\n    - true:\
+                \ The People widget is displayed.\n    - false: The People widget\
+                \ is not displayed.\n"
               format: "boolean"
               type: "boolean"
             showRelatedLinkList:
+              description: "    The display status for the Related Apps & Spaces widget.\n\
+                \    - true: The Related Apps & Spaces widget is displayed.\n    -\
+                \ false: The Related Apps & Spaces widget is not displayed.\n"
               format: "boolean"
               type: "boolean"
             showThreadList:
+              description: "    The display status for the Threads widget.\n    -\
+                \ true: The Threads widget is displayed.\n    - false: The Threads\
+                \ widget is not displayed.\n"
               format: "boolean"
               type: "boolean"
             useMultiThread:
+              description: "    The Enable multiple threads setting.\n    - true:\
+                \ The Space is a Multi-threaded Space.\n    - false: The setting will\
+                \ not be updated, as a Multi-Threaded Space can not be reverted to\
+                \ a Single-threaded Space.\n"
               format: "boolean"
               type: "boolean"
           required:
@@ -93,6 +130,7 @@ put:
   tags:
   - "SPACES"
 get:
+  description: "Gets information of a Space.\n"
   operationId: "getSpaceForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -103,10 +141,16 @@ get:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The Space ID.\nThe Space ID can be found in the URL of the Space.\n\
+      A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has a\
+      \ Space ID of 111.\n"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The Space ID.\nThe Space ID can be found in the URL of the Space.\n\
+        A Space with the URL of https://{domainname}.cybozu.com/k/#/space/111 has\
+        \ a Space ID of 111.\n"
       format: "long"
       type: "integer"
   responses:
@@ -117,21 +161,33 @@ get:
           schema:
             properties:
               attachedApps:
+                description: "A list of Apps that are in the thread.\nThis does not\
+                  \ include Apps that are not live yet.\n"
                 items:
                   $ref: "../openapi.yaml#/components/schemas/SpaceGetAttachedApp"
                 type: "array"
               body:
+                description: "The HTML of the Space body.\nNull is returned if the\
+                  \ HTML in the body is empty.\nHowever, if the body has been set\
+                  \ before, the HTML tags may be set even if nothing is displayed\
+                  \ on the screen and the string will be returned.\n"
                 type: "string"
               coverKey:
+                description: "The key of the Cover Photo.\n"
                 type: "string"
               coverType:
+                description: "The image type of the Cover Photo.\n- BLOB: An uploaded\
+                  \ image.\n- PRESET: A preset image.\n"
                 enum:
                 - "BLOB"
                 - "PRESET"
                 type: "string"
               coverUrl:
+                description: "The URL of the Cover Photo.\n"
                 type: "string"
               creator:
+                description: "An object containing information of the creator of the\
+                  \ Space.\n"
                 properties:
                   code:
                     description: "The log in name of the creator.\nAn empty string\
@@ -143,21 +199,35 @@ get:
                     type: "string"
                 type: "object"
               defaultThread:
+                description: "The Thread ID of the default thread that was created\
+                  \ when the Space was made.\n"
                 format: "long"
                 type: "integer"
               fixedMember:
+                description: "The options set for the Block users from joining or\
+                  \ leaving the space and following or unfollowing the threads setting.\n\
+                  - true: Users cannot join/leave the Space or follow/unfollow threads.\n\
+                  - false: Users can join/leave the Space and follow/unfollow threads.\n"
                 type: "boolean"
               id:
+                description: "The Space ID.\n"
                 format: "long"
                 type: "integer"
               isGuest:
+                description: "The Guest Space setting.\n- true: The Space is a Guest\
+                  \ Space.\n- false: The Space is not a Guest Space.\n"
                 type: "boolean"
               isPrivate:
+                description: "The \"Private\" settings of the Space.\n- true: The\
+                  \ Space is private.\n- false: The Space is not private.\n"
                 type: "boolean"
               memberCount:
+                description: "The number of members of the Space.\n"
                 format: "long"
                 type: "integer"
               modifier:
+                description: "An object containing information of the updater of the\
+                  \ Space.\n"
                 properties:
                   code:
                     description: "The log in name of the creator.\nAn empty string\
@@ -169,26 +239,56 @@ get:
                     type: "string"
                 type: "object"
               name:
+                description: "The name of the Space\n"
                 type: "string"
               permissions:
+                description: "An object containing information of the space's permission\
+                  \ settings.\n"
                 properties:
                   createApp:
+                    description: "The option set for the Only Allow Space Administrators\
+                      \ to Create Apps setting\n- EVERYONE: all users can create Apps.\n\
+                      - ADMIN: only administrators can create Apps.\n"
                     enum:
                     - "EVERYONE"
                     - "ADMIN"
                     type: "string"
                 type: "object"
               showAnnouncement:
+                description: "The display status for the Announcement widget.\n- true:\
+                  \ The Announcement widget is displayed.\n- false: The Announcement\
+                  \ widget is not displayed.\n- null is returned for Spaces with the\
+                  \ Enable multiple threads option turned off.\n"
                 type: "boolean"
               showAppList:
+                description: "The display status for the Apps widget.\n- true: The\
+                  \ Apps widget is displayed.\n- false: The Apps widget is not displayed.\n\
+                  - null is returned for Spaces with the Enable multiple threads option\
+                  \ turned off.\n"
                 type: "boolean"
               showMemberList:
+                description: "The display status for the People widget.\n- true: The\
+                  \ People widget is displayed.\n- false: The People widget is not\
+                  \ displayed.\n- null is returned for Spaces with the Enable multiple\
+                  \ threads option turned off.\n"
                 type: "boolean"
               showRelatedLinkList:
+                description: "The display status for the Related Apps & Spaces widget.\n\
+                  - true: The Related Apps & Spaces widget is displayed.\n- false:\
+                  \ The Related Apps & Spaces widget is not displayed.\n- null is\
+                  \ returned for Spaces with the Enable multiple threads option turned\
+                  \ off.\n"
                 type: "boolean"
               showThreadList:
+                description: "The display status for the Threads widget.\n- true:\
+                  \ The Threads widget is displayed.\n- false: The Threads widget\
+                  \ is not displayed.\n- null is returned for Spaces with the Enable\
+                  \ multiple threads option turned off.\n"
                 type: "boolean"
               useMultiThread:
+                description: "The Enable multiple threads setting.\n- true: The Space\
+                  \ is a Multi-threaded Space.\n- false: The Space is a Single-threaded\
+                  \ Space.\n"
                 type: "boolean"
             title: "getSpaceForGuestSpaceResponse"
             type: "object"

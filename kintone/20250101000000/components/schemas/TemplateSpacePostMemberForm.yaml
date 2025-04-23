@@ -1,10 +1,15 @@
 ---
 properties:
   entity:
+    description: "The entity information of the Space member.\nGuest users cannot\
+      \ be specified.\n"
     properties:
       code:
+        description: "The code of the entity.\n"
         type: "string"
       type:
+        description: "The entity type of the Space member.\n- USER: User\n- Group:\
+          \ Group\n- ORGANIZATION: Department\n"
         enum:
         - "USER"
         - "GROUP"
@@ -15,9 +20,16 @@ properties:
     - "type"
     type: "object"
   includeSubs:
+    description: "The \"Include Affiliated Departments\" settings of the department.\n\
+      - true: Affiliated departments will be included.\n- false: Affiliated departments\
+      \ will not be included.\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
   isAdmin:
+    description: "The Space Administration settings of the user.\n- true: The member\
+      \ will be the Administrator of the Space.\n- false: The member will not be the\
+      \ Administrator of the Space.\nAt least 1 Space Administrator is required to\
+      \ be set in the API call.\nIf ignored, this value is false.\n"
     format: "boolean"
     type: "boolean"
 required:
