@@ -1,0 +1,22 @@
+---
+properties:
+  description:
+    description: "The Plug-in description. If there is no description, an empty string\
+      \ will be returned.\n"
+    type: "string"
+  id:
+    description: "The plug-in ID.\n"
+    type: "string"
+  isMarketPlugin:
+    description: "States whether or not the plug-in is a Marketplace plug-in.\n- `true`:\
+      \ The plug-in is a Marketplace plug-in.\n- `false`: The plug-in is not a Marketplace\
+      \ plug-in.\n"
+    type: "boolean"
+  name:
+    description: "The name of the plug-in.\n"
+    type: "string"
+  version:
+    description: "The version number of the plug-in.\n"
+    type: "string"
+type: "object"
+

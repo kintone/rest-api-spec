@@ -1,0 +1,66 @@
+---
+get:
+  description: "Downloads files from an attachment field in an App.\n"
+  operationId: "downloadFileForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The value that is set on the Attachment field in the response data\
+      \ returned when using the Get Record API.\n"
+    in: "query"
+    name: "fileKey"
+    required: true
+    schema:
+      description: "The value that is set on the Attachment field in the response\
+        \ data returned when using the Get Record API.\n"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of file/get"
+  tags:
+  - "FILES"
+post:
+  description: "Uploads a file to Kintone.\n"
+  operationId: "uploadFileForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          properties:
+            file: {}
+          title: "uploadFileForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of file/post"
+      content:
+        application/json:
+          schema:
+            properties:
+              fileKey:
+                description: "The fileKey representing an uploaded file.\nUse this\
+                  \ fileKey with the following APIs to attach it to an Attachment\
+                  \ field of an app:\n- Add Record\n- Add Records\n- Update Record\n\
+                  - Update Records\n"
+                type: "string"
+            title: "uploadFileForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "FILES"
+

@@ -1,0 +1,62 @@
+---
+get:
+  description: "Gets the list of plug-ins imported into Kintone.\n"
+  operationId: "getPluginsForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  - description: "The number of plug-ins to skip from the list of installed plug-ins.\n\
+      If ignored, this value is 0.\n"
+    in: "query"
+    name: "offset"
+    required: false
+    schema:
+      description: "The number of plug-ins to skip from the list of installed plug-ins.\n\
+        If ignored, this value is 0.\n"
+      type: "string"
+  - description: "The maximum number of plug-ins to retrieve.\nMust be between 1 and\
+      \ 100.\nThe default number is 100.\n"
+    in: "query"
+    name: "limit"
+    required: false
+    schema:
+      description: "The maximum number of plug-ins to retrieve.\nMust be between 1\
+        \ and 100.\nThe default number is 100.\n"
+      type: "string"
+  - description: "The plug-in ids. The maximum limit of ids that can be specified\
+      \ is 100.\nIf null or an empty array is specified, this parameter will be ignored,\
+      \ and a list of plug-ins will be returned.\n"
+    in: "query"
+    name: "ids"
+    required: false
+    schema:
+      description: "The plug-in ids. The maximum limit of ids that can be specified\
+        \ is 100.\nIf null or an empty array is specified, this parameter will be\
+        \ ignored, and a list of plug-ins will be returned.\n"
+      items:
+        type: "string"
+      type: "array"
+  responses:
+    "200":
+      description: "success case of plugins/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              plugins:
+                description: "A list of plug-ins added to the App.<br>Plug-ins are\
+                  \ listed in descending order of the datetime they are added.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PluginsGetPluginDto"
+                type: "array"
+            title: "getPluginsForGuestSpaceResponse"
+            type: "object"
+  tags:
+  - "PLUGINS"
+

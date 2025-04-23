@@ -1,0 +1,42 @@
+---
+get:
+  description: "Gets the list of plug-ins that have been deleted from Kintone, but\
+    \ have already been added to Apps.\nThis can occur when a plug-in is installed,\
+    \ added to an App, and then proceeded to be uninstalled from the Kintone environment.\n"
+  operationId: "getPluginsRequired"
+  parameters:
+  - description: "The number of plug-ins to skip from the list of required plug-ins.\n\
+      If ignored, this value is 0.\n"
+    in: "query"
+    name: "offset"
+    required: false
+    schema:
+      description: "The number of plug-ins to skip from the list of required plug-ins.\n\
+        If ignored, this value is 0.\n"
+      type: "string"
+  - description: "The maximum number of plug-ins to retrieve.\nMust be between 1 and\
+      \ 100.\nThe default number is 100.\n"
+    in: "query"
+    name: "limit"
+    required: false
+    schema:
+      description: "The maximum number of plug-ins to retrieve.\nMust be between 1\
+        \ and 100.\nThe default number is 100.\n"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugins/required/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              plugins:
+                description: "A list of Plug-ins that needs to be installed.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PluginsRequiredGetPluginDto"
+                type: "array"
+            title: "getPluginsRequiredResponse"
+            type: "object"
+  tags:
+  - "PLUGINS"
+

@@ -1,0 +1,48 @@
+---
+get:
+  description: "Gets Apps that have the specified plug-in added.\n"
+  operationId: "getPluginApps"
+  parameters:
+  - description: "The number of plug-ins to skip from the list of plug-ins.\nIf ignored,\
+      \ this value is 0.\n"
+    in: "query"
+    name: "offset"
+    required: false
+    schema:
+      description: "The number of plug-ins to skip from the list of plug-ins.\nIf\
+        \ ignored, this value is 0.\n"
+      type: "string"
+  - description: "The maximum number of plug-ins to retrieve.\nMust be between 1 and\
+      \ 500.\nThe default number is 100.\n"
+    in: "query"
+    name: "limit"
+    required: false
+    schema:
+      description: "The maximum number of plug-ins to retrieve.\nMust be between 1\
+        \ and 500.\nThe default number is 100.\n"
+      type: "string"
+  - description: "The ID of the plug-in.\n"
+    in: "query"
+    name: "id"
+    required: true
+    schema:
+      description: "The ID of the plug-in.\n"
+      type: "string"
+  responses:
+    "200":
+      description: "success case of plugin/apps/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              apps:
+                description: "A list of objects containing the plug-in ID and name.\n\
+                  Objects are listed in ascending order of their App IDs.\n"
+                items:
+                  $ref: "../openapi.yaml#/components/schemas/PluginAppsGetAppDto"
+                type: "array"
+            title: "getPluginAppsResponse"
+            type: "object"
+  tags:
+  - "PLUGINS"
+

@@ -1,6 +1,8 @@
 ---
 delete:
-  operationId: "deletePluginForGuestSpace"
+  description: "The fileKey representing an uploaded file. Use the Upload File API\
+    \ to upload the file and retrieve the fileKey.\n"
+  operationId: "uninstallPluginForGuestSpace"
   parameters:
   - description: "guest space id"
     in: "path"
@@ -10,10 +12,12 @@ delete:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "The ID of the plug-in.\n"
+    in: "query"
     name: "id"
     required: true
     schema:
+      description: "The ID of the plug-in.\n"
       type: "string"
   responses:
     "200":
@@ -24,6 +28,7 @@ delete:
   tags:
   - "PLUGINS"
 put:
+  description: "Updates an imported plug-in in the Kintone environment.\n"
   operationId: "putPluginForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -41,8 +46,11 @@ put:
         schema:
           properties:
             fileKey:
+              description: "The fileKey representing an uploaded file. Use the Upload\
+                \ File API to upload the file and retrieve the fileKey.\n"
               type: "string"
             id:
+              description: "The ID of the plug-in to be updated.\n"
               type: "string"
           required:
           - "fileKey"
@@ -57,15 +65,18 @@ put:
           schema:
             properties:
               id:
+                description: "The plug-in ID of the updated plug-in.\n"
                 type: "string"
               version:
+                description: "The version number of the plug-in.\n"
                 type: "string"
             title: "putPluginForGuestSpaceResponse"
             type: "object"
   tags:
   - "PLUGINS"
 post:
-  operationId: "postPluginForGuestSpace"
+  description: "Imports a plug-in into Kintone.\n"
+  operationId: "installPluginForGuestSpace"
   parameters:
   - description: "guest space id"
     in: "path"
@@ -82,10 +93,12 @@ post:
         schema:
           properties:
             fileKey:
+              description: "The fileKey representing an uploaded file. Use the Upload\
+                \ File API to upload the file and retrieve the fileKey.\n"
               type: "string"
           required:
           - "fileKey"
-          title: "postPluginForGuestSpaceRequest"
+          title: "installPluginForGuestSpaceRequest"
           type: "object"
   responses:
     "200":
@@ -95,10 +108,12 @@ post:
           schema:
             properties:
               id:
+                description: "The installed plug-in ID.\n"
                 type: "string"
               version:
+                description: "The version number of the plug-in.\n"
                 type: "string"
-            title: "postPluginForGuestSpaceResponse"
+            title: "installPluginForGuestSpaceResponse"
             type: "object"
   tags:
   - "PLUGINS"
