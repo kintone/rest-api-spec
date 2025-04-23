@@ -4,6 +4,9 @@
 
 [OpenAPI](https://www.openapis.org/) Description for the kintone REST API.
 
+> [!WARNING]
+> Experimental: This repository is still under early development.
+
 - [Concept](#concept)
 - [Usage](#usage)
   - [OpenAPI Description (OAD)](#openapi-description-oad)
