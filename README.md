@@ -39,7 +39,7 @@ OAD files are located in the `kintone/${timestamp}` directory, where `${timestam
 ### Website
 
 We host an interactive website that provides the API specification at:
-**https://stunning-adventure-6kmjr8r.pages.github.io/**
+**https://kintone.github.io/rest-api-spec/**
 
 You can browse the list of kintone REST APIs, view their request and response formats, and try out API calls by setting an authorization header.
 
