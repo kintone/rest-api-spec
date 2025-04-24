@@ -13,6 +13,7 @@ const files = (
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/rest-api-spec/",
   define: {
     "import.meta.env.OAS_ENTRY_FILE_PATHS":
       files satisfies ImportMetaEnv["OAS_ENTRY_FILE_PATHS"],
