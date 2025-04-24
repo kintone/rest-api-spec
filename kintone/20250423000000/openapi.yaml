@@ -2,7 +2,7 @@
 openapi: "3.1.0"
 info:
   title: "REST API SPEC"
-  version: "20250101000000"
+  version: "20250423000000"
 servers:
   #  - url: https://sample.cybozu.com
   - url: https://{domainId}.cybozu.com

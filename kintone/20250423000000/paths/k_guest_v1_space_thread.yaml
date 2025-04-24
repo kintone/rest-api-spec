@@ -1,44 +1,6 @@
 ---
-put:
-  operationId: "putSpaceThreadForGuestSpace"
-  parameters:
-  - description: "guest space id"
-    in: "path"
-    name: "guestSpaceId"
-    required: true
-    schema:
-      description: "guest space id"
-      title: "guestSpaceId"
-      type: "integer"
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          properties:
-            body:
-              maxLength: 65535
-              type: "string"
-            id:
-              format: "long"
-              type: "integer"
-            name:
-              maxLength: 128
-              minLength: 1
-              type: "string"
-          required:
-          - "id"
-          title: "putSpaceThreadForGuestSpaceRequest"
-          type: "object"
-  responses:
-    "200":
-      description: "success case of space/thread/put"
-      content:
-        application/json:
-          schema: {}
-  tags:
-  - "SPACES"
 post:
+  description: "Adds a Thread in a Space.\n"
   operationId: "postSpaceThreadForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -56,10 +18,12 @@ post:
         schema:
           properties:
             name:
+              description: "The new name of the Thread.\nMust be between 1 - 128 characters.\n"
               maxLength: 128
               minLength: 1
               type: "string"
             space:
+              description: "The Space ID.\n"
               format: "long"
               type: "integer"
           required:
@@ -75,10 +39,62 @@ post:
           schema:
             properties:
               id:
+                description: "The Thread ID of the created Thread.\n"
                 format: "long"
                 type: "integer"
             title: "postSpaceThreadForGuestSpaceResponse"
             type: "object"
+  tags:
+  - "SPACES"
+put:
+  description: "Updates a Thread of a Space.\n"
+  operationId: "putSpaceThreadForGuestSpace"
+  parameters:
+  - description: "guest space id"
+    in: "path"
+    name: "guestSpaceId"
+    required: true
+    schema:
+      description: "guest space id"
+      title: "guestSpaceId"
+      type: "integer"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              description: "The contents of the Thread body.\nWrite the contents as\
+                \ an HTML string, within 65535 characters\nHTML tags that cannot be\
+                \ used will be automatically removed.\nHTML can be used to attach\
+                \ Apps, files and Emoji.\nThe usage of the @ mark to mention a user\
+                \ will not notify that user.\n"
+              maxLength: 65535
+              type: "string"
+            id:
+              description: "The Thread ID.\nThe Thread ID can be found in the URL\
+                \ of the Thread.\nA Space with the URL of https://{domainname}.cybozu.com/k/#/space/111/thread/222\
+                \ has a Space ID of 111 and a Thread ID of 222.\n"
+              format: "long"
+              type: "integer"
+            name:
+              description: "The new name of the Thread.\nMust be between 1 - 128 characters.\n\
+                The name will not be updated if this parameter is ignored.\nThe Thread\
+                \ name of single threaded Spaces cannot be updated.\n"
+              maxLength: 128
+              minLength: 1
+              type: "string"
+          required:
+          - "id"
+          title: "putSpaceThreadForGuestSpaceRequest"
+          type: "object"
+  responses:
+    "200":
+      description: "success case of space/thread/put"
+      content:
+        application/json:
+          schema: {}
   tags:
   - "SPACES"
 
