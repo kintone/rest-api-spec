@@ -1,5 +1,38 @@
 ---
+get:
+  description: "Gets the list of Space Members of a Space.\n"
+  operationId: "getSpaceMembers"
+  parameters:
+  - description: "The Space ID.\n"
+    in: "query"
+    name: "id"
+    required: true
+    schema:
+      description: "The Space ID.\n"
+      format: "long"
+      type: "integer"
+  responses:
+    "200":
+      description: "success case of space/members/get"
+      content:
+        application/json:
+          schema:
+            properties:
+              members:
+                description: "A list of Space members.\nGuest users, inactive users\
+                  \ and deleted users will not be included.\n"
+                items:
+                  anyOf:
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetUserBean"
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetOrganizationBean"
+                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetGroupBean"
+                type: "array"
+            title: "getSpaceMembersResponse"
+            type: "object"
+  tags:
+  - "SPACES"
 put:
+  description: "Updates the Members of a Space.\n"
   operationId: "putSpaceMembers"
   parameters: []
   requestBody:
@@ -9,9 +42,12 @@ put:
         schema:
           properties:
             id:
+              description: "The Space ID.\n"
               format: "long"
               type: "integer"
             members:
+              description: "A list of members of the Space.\nAt least one Space Administrator\
+                \ must be specified.\nInactive and deleted users cannot be specified.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/SpaceMembersPutMemberForm"
               type: "array"
@@ -25,33 +61,6 @@ put:
       content:
         application/json:
           schema: {}
-  tags:
-  - "SPACES"
-get:
-  operationId: "getSpaceMembers"
-  parameters:
-  - in: "query"
-    name: "id"
-    required: true
-    schema:
-      format: "long"
-      type: "integer"
-  responses:
-    "200":
-      description: "success case of space/members/get"
-      content:
-        application/json:
-          schema:
-            properties:
-              members:
-                items:
-                  anyOf:
-                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetUserBean"
-                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetOrganizationBean"
-                  - $ref: "../openapi.yaml#/components/schemas/SpaceMembersGetGroupBean"
-                type: "array"
-            title: "getSpaceMembersResponse"
-            type: "object"
   tags:
   - "SPACES"
 

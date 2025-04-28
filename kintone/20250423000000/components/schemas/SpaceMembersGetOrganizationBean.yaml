@@ -1,15 +1,25 @@
 ---
 properties:
   entity:
+    description: "The entity information of the Space member.\n"
     properties:
       code:
+        description: "The code of the Space member.\n"
         type: "string"
       type:
+        description: "The entity type of the Space member.\n- USER: User\n- GROUP:\
+          \ Group\n- ORGANIZATION: Department\n"
         type: "string"
     type: "object"
   includeSubs:
+    description: "The \"Include Affiliated Departments\" setting of the Department\
+      \ Space Member.\n- true: Affiliated Departments are included.\n- false: Affiliated\
+      \ Departments are not included.\n"
     type: "boolean"
   isAdmin:
+    description: "The Space Admin settings of the Space member\n- true: The Space\
+      \ Member is the Space Administrator.\n- false: The Space Member is not the Space\
+      \ Administrator.\n"
     type: "boolean"
 type: "object"
 

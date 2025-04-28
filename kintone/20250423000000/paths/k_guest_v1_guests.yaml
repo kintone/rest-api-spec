@@ -1,5 +1,7 @@
 ---
 delete:
+  description: "Deletes a Guest user from Kintone. To remove a user from a Guest Space\
+    \ without deleting their account, use the Update Guest Members API.\n"
   operationId: "deleteGuestsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -10,10 +12,14 @@ delete:
       description: "guest space id"
       title: "guestSpaceId"
       type: "integer"
-  - in: "query"
+  - description: "A list of email addresses of Guest users.\nUp to 100 Guests can\
+      \ be deleted.\n"
+    in: "query"
     name: "guests"
     required: true
     schema:
+      description: "A list of email addresses of Guest users.\nUp to 100 Guests can\
+        \ be deleted.\n"
       items:
         format: "email"
         type: "string"
@@ -25,8 +31,12 @@ delete:
         application/json:
           schema: {}
   tags:
-  - "GUESTS"
+  - "SPACES"
 post:
+  description: "Adds Guest users to Kintone.\nThis does not affiliate Guest users\
+    \ with any Guest Spaces, and does not send any invitation emails.\nTo affiliate\
+    \ a Guest user with a Guest Space, follow up this API call with the Update Guest\
+    \ Members API.\n"
   operationId: "postGuestsForGuestSpace"
   parameters:
   - description: "guest space id"
@@ -44,6 +54,7 @@ post:
         schema:
           properties:
             guests:
+              description: "A list of Guest user data.\n"
               items:
                 $ref: "../openapi.yaml#/components/schemas/GuestsPostGuestUserForm"
               type: "array"
@@ -58,5 +69,5 @@ post:
         application/json:
           schema: {}
   tags:
-  - "GUESTS"
+  - "SPACES"
 

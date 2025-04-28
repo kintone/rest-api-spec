@@ -1,15 +1,26 @@
 ---
 properties:
   entity:
+    description: "The entity information of the Space member.\n"
     properties:
       code:
+        description: "The code of the Space member.\n"
         type: "string"
       type:
+        description: "The entity type of the Space member.\n- USER: User\n- GROUP:\
+          \ Group\n- ORGANIZATION: Department\n"
         type: "string"
     type: "object"
   isAdmin:
+    description: "The Space Admin settings of the Space member\n- true: The Space\
+      \ Member is the Space Administrator.\n- false: The Space Member is not the Space\
+      \ Administrator.\n"
     type: "boolean"
   isImplicit:
+    description: "If the Space Member is added as a User or not.\n- true: The Space\
+      \ Member is not added as a user, and is added as part of a Group or Department.\n\
+      - false: The Space Member is added as a User.\nThis is not responded for GROUP\
+      \ and ORGANIZATION entities.\n"
     type: "boolean"
 type: "object"
 

@@ -1,8 +1,15 @@
 ---
 properties:
   fileKey:
+    description: "The fileKey of the attachment file.\nfileKeys can be found from\
+      \ the response of the Upload File API.\n"
     type: "string"
   width:
+    description: "A width can be specified if the attachment file is an image.\nThe\
+      \ minimum is 100, and the maximum is 750.\nIf this parameter is ignored, the\
+      \ original width will be set (this width is the same size as the size when \"\
+      Original\" is chosen when adding an image to a thread via GUI). This parameter\
+      \ is ignored if the file is not an image.\n"
     type: "string"
 required:
 - "fileKey"
