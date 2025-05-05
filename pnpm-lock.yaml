@@ -52,8 +52,8 @@ importers:
         specifier: ^8.26.1
         version: 8.30.1(eslint@9.25.1)(typescript@5.7.3)
       vite:
-        specifier: ^6.3.4
-        version: 6.3.4(@types/node@22.14.1)
+        specifier: ^6.3.5
+        version: 6.3.5(@types/node@22.14.1)
 
 packages:
 
@@ -1111,6 +1111,7 @@ packages:
 
   /@swagger-api/apidom-error@1.0.0-beta.33:
     resolution: {integrity: sha512-T5iQD8zBhM/tDIhpbpVAWMoDsFGYqa65Jpv7EsW/tpFgjPb58Zxv0+tL2R5uTk/N7wT/rRAwQSIQF0rHwsvYaQ==}
+    requiresBuild: true
     dependencies:
       '@babel/runtime-corejs3': 7.27.0
     dev: false
@@ -5765,8 +5766,8 @@ packages:
     engines: {node: ^18.17.0 || >=20.5.0}
     dev: true
 
-  /vite@6.3.4(@types/node@22.14.1):
-    resolution: {integrity: sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==}
+  /vite@6.3.5(@types/node@22.14.1):
+    resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
