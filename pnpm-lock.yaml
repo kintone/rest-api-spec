@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@redocly/cli':
-        specifier: ^1.34.2
-        version: 1.34.2(ajv@8.17.1)
+        specifier: ^1.34.3
+        version: 1.34.3(ajv@8.17.1)
       glob:
         specifier: ^11.0.2
         version: 11.0.2
@@ -778,8 +778,8 @@ packages:
       uri-js-replace: 1.0.1
     dev: true
 
-  /@redocly/cli@1.34.2(ajv@8.17.1):
-    resolution: {integrity: sha512-XnKG7yrr0GUZ7MyqHk9hRt//HGUSnLDwwEXI8HDQdyDFp+YFbddqcQPOWc/sDeDBTEiBXqwPOb3/VKA+8NtSMw==}
+  /@redocly/cli@1.34.3(ajv@8.17.1):
+    resolution: {integrity: sha512-GJNBTMfm5wTCtH6K+RtPQZuGbqflMclXqAZ5My12tfux6xFDMW1l0MNd5RMpnIS1aeFcDX++P1gnnROWlesj4w==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     hasBin: true
     dependencies:
@@ -789,8 +789,8 @@ packages:
       '@opentelemetry/sdk-trace-node': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/config': 0.22.2
-      '@redocly/openapi-core': 1.34.2
-      '@redocly/respect-core': 1.34.2(ajv@8.17.1)
+      '@redocly/openapi-core': 1.34.3
+      '@redocly/respect-core': 1.34.3(ajv@8.17.1)
       abort-controller: 3.0.0
       chokidar: 3.6.0
       colorette: 1.4.0
@@ -804,7 +804,7 @@ packages:
       pluralize: 8.0.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      redoc: 2.4.0(core-js@3.41.0)(mobx@6.13.7)(react-dom@19.1.0)(react@19.1.0)(styled-components@6.1.17)
+      redoc: 2.5.0(core-js@3.41.0)(mobx@6.13.7)(react-dom@19.1.0)(react@19.1.0)(styled-components@6.1.17)
       semver: 7.7.1
       simple-websocket: 9.1.0
       styled-components: 6.1.17(react-dom@19.1.0)(react@19.1.0)
@@ -822,8 +822,8 @@ packages:
     resolution: {integrity: sha512-roRDai8/zr2S9YfmzUfNhKjOF0NdcOIqF7bhf4MVC5UxpjIysDjyudvlAiVbpPHp3eDRWbdzUgtkK1a7YiDNyQ==}
     dev: true
 
-  /@redocly/openapi-core@1.34.2:
-    resolution: {integrity: sha512-glfkQFJizLdq2fBkNvc2FJW0sxDb5exd0wIXhFk+WHaFLMREBC3CxRo2Zq7uJIdfV9U3YTceMbXJklpDfmmwFQ==}
+  /@redocly/openapi-core@1.34.3:
+    resolution: {integrity: sha512-3arRdUp1fNx55itnjKiUhO6t4Mf91TsrTIYINDNLAZPS0TPd5YpiXRctwjel0qqWoOOhjA34cZ3m4dksLDFUYg==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     dependencies:
       '@redocly/ajv': 8.11.2
@@ -839,13 +839,13 @@ packages:
       - supports-color
     dev: true
 
-  /@redocly/respect-core@1.34.2(ajv@8.17.1):
-    resolution: {integrity: sha512-X6VR9bbHXrI01Wh5t6TIHxFCVHcP4Iy42micKLIk/Cg6EmHVbaSDGOD6mxChXtEIrwnY+bqyUbjlXr9+YM7B9A==}
+  /@redocly/respect-core@1.34.3(ajv@8.17.1):
+    resolution: {integrity: sha512-vo/gu7dRGwTVsRueVSjVk04jOQuL0w22RBJRdRUWkfyse791tYXgMCOx35ijKekL83Q/7Okxf/YX6UY1v5CAug==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     dependencies:
       '@faker-js/faker': 7.6.0
       '@redocly/ajv': 8.11.2
-      '@redocly/openapi-core': 1.34.2
+      '@redocly/openapi-core': 1.34.3
       better-ajv-errors: 1.2.0(ajv@8.17.1)
       colorette: 2.0.20
       concat-stream: 2.0.0
@@ -4242,7 +4242,7 @@ packages:
       oas-kit-common: 1.0.8
       reftools: 1.1.9
       yaml: 1.10.2
-      yargs: 17.0.1
+      yargs: 17.7.2
     dev: true
 
   /oas-schema-walker@1.1.5:
@@ -4774,8 +4774,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /redoc@2.4.0(core-js@3.41.0)(mobx@6.13.7)(react-dom@19.1.0)(react@19.1.0)(styled-components@6.1.17):
-    resolution: {integrity: sha512-rFlfzFVWS9XJ6aYAs/bHnLhHP5FQEhwAHDBVgwb9L2FqDQ8Hu8rQ1G84iwaWXxZfPP9UWn7JdWkxI6MXr2ZDjw==}
+  /redoc@2.5.0(core-js@3.41.0)(mobx@6.13.7)(react-dom@19.1.0)(react@19.1.0)(styled-components@6.1.17):
+    resolution: {integrity: sha512-NpYsOZ1PD9qFdjbLVBZJWptqE+4Y6TkUuvEOqPUmoH7AKOmPcE+hYjotLxQNTqVoWL4z0T2uxILmcc8JGDci+Q==}
     engines: {node: '>=6.9', npm: '>=3.0.0'}
     peerDependencies:
       core-js: ^3.1.4
@@ -4784,7 +4784,7 @@ packages:
       react-dom: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
       styled-components: ^4.1.1 || ^5.1.1 || ^6.0.5
     dependencies:
-      '@redocly/openapi-core': 1.34.2
+      '@redocly/openapi-core': 1.34.3
       classnames: 2.5.1
       core-js: 3.41.0
       decko: 1.2.0
@@ -5487,7 +5487,7 @@ packages:
       oas-validator: 5.0.8
       reftools: 1.1.9
       yaml: 1.10.2
-      yargs: 17.0.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - encoding
     dev: true
