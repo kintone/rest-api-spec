@@ -3,3 +3,6 @@
 .vscode
 
 node_modules
+
+# mise
+mise.local.toml

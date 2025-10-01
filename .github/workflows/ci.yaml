@@ -23,7 +23,7 @@ jobs:
       - uses: pnpm/action-setup@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install --fetch-timeout 900000 --frozen-lockfile
       - run: pnpm bundle
@@ -37,7 +37,7 @@ jobs:
       - uses: pnpm/action-setup@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm lint
@@ -50,7 +50,7 @@ jobs:
       - uses: pnpm/action-setup@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm doc:build
