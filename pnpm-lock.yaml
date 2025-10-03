@@ -34,7 +34,7 @@ importers:
         specifier: ^3.52.4
         version: 3.52.4
       eslint:
-        specifier: ^9.35.0
+        specifier: ^9.36.0
         version: 9.36.0
       eslint-plugin-package-json:
         specifier: ^0.29.1
