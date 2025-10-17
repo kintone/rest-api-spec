@@ -32,7 +32,7 @@
     "prettier": "^3.6.2",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.44.1",
-    "vite": "^6.3.6"
+    "vite": "^7.1.9"
   },
   "publishConfig": {
     "access": "restricted"
