@@ -21,7 +21,7 @@ importers:
   website:
     dependencies:
       swagger-ui:
-        specifier: ^5.29.3
+        specifier: ^5.29.4
         version: 5.29.4
     devDependencies:
       '@cybozu/eslint-config':
