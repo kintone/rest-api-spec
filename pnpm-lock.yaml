@@ -31,8 +31,8 @@ importers:
         specifier: ^22.18.10
         version: 22.18.10
       '@types/swagger-ui':
-        specifier: ^3.52.4
-        version: 3.52.4
+        specifier: ^5.21.1
+        version: 5.21.1
       eslint:
         specifier: ^9.36.0
         version: 9.36.0
@@ -777,8 +777,8 @@ packages:
   '@types/stylis@4.2.5':
     resolution: {integrity: sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==}
 
-  '@types/swagger-ui@3.52.4':
-    resolution: {integrity: sha512-7NV7q8BfupqdQxr26OkM0g0YEPB9uXnKGzXadgcearvI9MoCHt3F72lPTX3fZZIlrr21DC0IK26wcDMZ37oFDA==}
+  '@types/swagger-ui@5.21.1':
+    resolution: {integrity: sha512-DUmUH59eeOtvAqcWwBduH2ws0cc5i95KHsXCS4FsOfbUq/clW8TN+HqRBj7q5p9MSsSNK43RziIGItNbrAGLxg==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -4060,7 +4060,7 @@ snapshots:
 
   '@types/stylis@4.2.5': {}
 
-  '@types/swagger-ui@3.52.4': {}
+  '@types/swagger-ui@5.21.1': {}
 
   '@types/trusted-types@2.0.7':
     optional: true
