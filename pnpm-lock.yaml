@@ -28,8 +28,8 @@ importers:
         specifier: ^24.3.0
         version: 24.3.0(@typescript-eslint/utils@8.44.1(eslint@9.36.0)(typescript@5.7.3))(eslint@9.36.0)(prettier@3.6.2)(typescript@5.7.3)
       '@types/node':
-        specifier: ^22.18.10
-        version: 22.18.10
+        specifier: ^22.18.11
+        version: 22.18.13
       '@types/swagger-ui':
         specifier: ^3.52.4
         version: 3.52.4
@@ -53,7 +53,7 @@ importers:
         version: 8.44.1(eslint@9.36.0)(typescript@5.7.3)
       vite:
         specifier: ^6.3.6
-        version: 6.3.6(@types/node@22.18.10)
+        version: 6.3.6(@types/node@22.18.13)
 
 packages:
 
@@ -768,8 +768,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@22.18.10':
-    resolution: {integrity: sha512-anNG/V/Efn/YZY4pRzbACnKxNKoBng2VTFydVu8RRs5hQjikP8CQfaeAV59VFSCzKNp90mXiVXW2QzV56rwMrg==}
+  '@types/node@22.18.13':
+    resolution: {integrity: sha512-Bo45YKIjnmFtv6I1TuC8AaHBbqXtIo+Om5fE4QiU1Tj8QR/qt+8O3BAtOimG5IFmwaWiPmB3Mv3jtYzBA4Us2A==}
 
   '@types/ramda@0.30.2':
     resolution: {integrity: sha512-PyzHvjCalm2BRYjAU6nIB3TprYwMNOUY/7P/N8bSzp9W/yM2YrtGtAnnVtaCNSeOZ8DzKyFDvaqQs7LnWwwmBA==}
@@ -4050,7 +4050,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@22.18.10':
+  '@types/node@22.18.13':
     dependencies:
       undici-types: 6.21.0
 
@@ -5798,7 +5798,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.18.10
+      '@types/node': 22.18.13
       long: 5.3.2
 
   proxy-from-env@1.1.0: {}
@@ -6558,7 +6558,7 @@ snapshots:
 
   validate-npm-package-name@6.0.2: {}
 
-  vite@6.3.6(@types/node@22.18.10):
+  vite@6.3.6(@types/node@22.18.13):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
@@ -6567,7 +6567,7 @@ snapshots:
       rollup: 4.52.3
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.18.13
       fsevents: 2.3.3
 
   web-streams-polyfill@3.3.3: {}
