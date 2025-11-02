@@ -24,7 +24,7 @@
   "devDependencies": {
     "@redocly/cli": "^1.34.5",
     "glob": "^11.0.3",
-    "zx": "^8.8.4"
+    "zx": "^8.8.5"
   },
   "publishConfig": {
     "access": "restricted"
