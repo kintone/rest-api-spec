@@ -20,7 +20,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "swagger-ui": "^5.29.5"
+    "swagger-ui": "^5.30.0"
   },
   "devDependencies": {
     "@cybozu/eslint-config": "^24.3.0",
