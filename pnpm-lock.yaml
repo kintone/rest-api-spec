@@ -21,8 +21,8 @@ importers:
   website:
     dependencies:
       swagger-ui:
-        specifier: ^5.30.2
-        version: 5.30.2
+        specifier: ^5.30.3
+        version: 5.30.3
     devDependencies:
       '@cybozu/eslint-config':
         specifier: ^24.3.0
@@ -1977,6 +1977,10 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
+  js-yaml@4.1.1:
+    resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
+    hasBin: true
+
   jsep@1.4.0:
     resolution: {integrity: sha512-B7qPcEVE3NVkmSJbaYxvv4cHkVW7DQsZz13pUMrfS8z8Q/BuShN+gcTXrUlPiGqM2/t/EEaI030bpxMqY8gMlw==}
     engines: {node: '>= 10.16.0'}
@@ -2811,8 +2815,8 @@ packages:
   swagger-client@3.36.0:
     resolution: {integrity: sha512-9fkjxGHXuKy20jj8zwE6RwgFSOGKAyOD5U7aKgW/+/futtHZHOdZeqiEkb97sptk2rdBv7FEiUQDNlWZR186RA==}
 
-  swagger-ui@5.30.2:
-    resolution: {integrity: sha512-OkwikucMJv8RdaLamQE2gEr0tShDIio5aPCvTGVOeSAor5MOJgMG1La8EcQYnCMJ84UznPF2a+Ro5PrDZptOdQ==}
+  swagger-ui@5.30.3:
+    resolution: {integrity: sha512-mENlFP0YTkvrkTeS8fWDQI9DFQBg1172hNSL68dKozWts5Iy/j1euERveSfeDJBj+tLB0hCVw9VHZ9CJlk+Cnw==}
 
   swagger2openapi@7.0.8:
     resolution: {integrity: sha512-upi/0ZGkYgEcLeGieoz8gT74oWHA0E7JivX7aN9mAf+Tc7BQoRBvnIGHoPDw+f9TXTW4s6kGYCZJtauP6OYp7g==}
@@ -5401,6 +5405,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
+  js-yaml@4.1.1:
+    dependencies:
+      argparse: 2.0.1
+
   jsep@1.4.0: {}
 
   json-buffer@3.0.1: {}
@@ -6320,7 +6328,7 @@ snapshots:
       '@swaggerexpert/cookie': 2.0.2
       deepmerge: 4.3.1
       fast-json-patch: 3.1.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       neotraverse: 0.6.18
       node-abort-controller: 3.1.1
       node-fetch-commonjs: 3.3.2
@@ -6331,7 +6339,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  swagger-ui@5.30.2:
+  swagger-ui@5.30.3:
     dependencies:
       '@babel/runtime-corejs3': 7.28.4
       '@scarf/scarf': 1.4.0
@@ -6344,7 +6352,7 @@ snapshots:
       ieee754: 1.2.1
       immutable: 3.8.2
       js-file-download: 0.4.12
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       lodash: 4.17.21
       prop-types: 15.8.1
       randexp: 0.5.3
