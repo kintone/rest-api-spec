@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@redocly/cli':
-        specifier: ^1.34.5
-        version: 1.34.5(ajv@6.12.6)
+        specifier: ^1.34.6
+        version: 1.34.6(ajv@6.12.6)
       glob:
         specifier: ^11.1.0
         version: 11.1.0
@@ -501,20 +501,20 @@ packages:
   '@redocly/ajv@8.11.3':
     resolution: {integrity: sha512-4P3iZse91TkBiY+Dx5DUgxQ9GXkVJf++cmI0MOyLDxV9b5MUBI4II6ES8zA5JCbO72nKAJxWrw4PUPW+YP3ZDQ==}
 
-  '@redocly/cli@1.34.5':
-    resolution: {integrity: sha512-5IEwxs7SGP5KEXjBKLU8Ffdz9by/KqNSeBk6YUVQaGxMXK//uYlTJIPntgUXbo1KAGG2d2q2XF8y4iFz6qNeiw==}
+  '@redocly/cli@1.34.6':
+    resolution: {integrity: sha512-V03jtLOXLm6+wpTuFNw9+eLHE6R3wywZo4Clt9XMPnulafbJcpCFz+J0e5/4Cw4zZB087xjU7WvRdI/bZ+pHtA==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     hasBin: true
 
   '@redocly/config@0.22.2':
     resolution: {integrity: sha512-roRDai8/zr2S9YfmzUfNhKjOF0NdcOIqF7bhf4MVC5UxpjIysDjyudvlAiVbpPHp3eDRWbdzUgtkK1a7YiDNyQ==}
 
-  '@redocly/openapi-core@1.34.5':
-    resolution: {integrity: sha512-0EbE8LRbkogtcCXU7liAyC00n9uNG9hJ+eMyHFdUsy9lB/WGqnEBgwjA9q2cyzAVcdTkQqTBBU1XePNnN3OijA==}
+  '@redocly/openapi-core@1.34.6':
+    resolution: {integrity: sha512-2+O+riuIUgVSuLl3Lyh5AplWZyVMNuG2F98/o6NrutKJfW4/GTZdPpZlIphS0HGgcOHgmWcCSHj+dWFlZaGSHw==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
-  '@redocly/respect-core@1.34.5':
-    resolution: {integrity: sha512-GheC/g/QFztPe9UA9LamooSplQuy9pe0Yr8XGTqkz0ahivLDl7svoy/LSQNn1QH3XGtLKwFYMfTwFR2TAYyh5Q==}
+  '@redocly/respect-core@1.34.6':
+    resolution: {integrity: sha512-nXFBRctoB4CPCLR2it2WxDsuAE/nLd4EnW9mQ+IUKrIFAjMv1O6rgggxkgdlyKUyenYkajJIHSKwVbRS6FwlEQ==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@rollup/rollup-android-arm-eabi@4.52.3':
@@ -2452,6 +2452,11 @@ packages:
     peerDependencies:
       react: ^19.1.1
 
+  react-dom@19.2.2:
+    resolution: {integrity: sha512-fhyD2BLrew6qYf4NNtHff1rLXvzR25rq49p+FeqByOazc6TcSi2n8EYulo5C1PbH+1uBW++5S1SG7FcUU6mlDg==}
+    peerDependencies:
+      react: ^19.2.2
+
   react-immutable-proptypes@2.2.0:
     resolution: {integrity: sha512-Vf4gBsePlwdGvSZoLSBfd4HAP93HDauMY4fDjXhreg/vg6F3Fj/MXDNyTbltPC/xZKmZc+cjLu3598DdYK6sgQ==}
     peerDependencies:
@@ -2500,6 +2505,10 @@ packages:
 
   react@19.1.1:
     resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
+    engines: {node: '>=0.10.0'}
+
+  react@19.2.2:
+    resolution: {integrity: sha512-BdOGOY8OKRBcgoDkwqA8Q5XvOIhoNx/Sh6BnGJlet2Abt0X5BK0BDrqGyQgLhAVjD2nAg5f6o01u/OPUhG022Q==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@3.6.2:
@@ -2613,6 +2622,9 @@ packages:
 
   scheduler@0.26.0:
     resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+
+  scheduler@0.27.0:
+    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -3478,7 +3490,7 @@ snapshots:
       '@opentelemetry/propagator-b3': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/propagator-jaeger': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 1.26.0(@opentelemetry/api@1.9.0)
-      semver: 7.7.2
+      semver: 7.7.3
 
   '@opentelemetry/semantic-conventions@1.27.0': {}
 
@@ -3521,7 +3533,7 @@ snapshots:
       require-from-string: 2.0.2
       uri-js-replace: 1.0.1
 
-  '@redocly/cli@1.34.5(ajv@6.12.6)':
+  '@redocly/cli@1.34.6(ajv@6.12.6)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/exporter-trace-otlp-http': 0.53.0(@opentelemetry/api@1.9.0)
@@ -3529,8 +3541,8 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/config': 0.22.2
-      '@redocly/openapi-core': 1.34.5
-      '@redocly/respect-core': 1.34.5(ajv@6.12.6)
+      '@redocly/openapi-core': 1.34.6
+      '@redocly/respect-core': 1.34.6(ajv@6.12.6)
       abort-controller: 3.0.0
       chokidar: 3.6.0
       colorette: 1.4.0
@@ -3542,12 +3554,12 @@ snapshots:
       handlebars: 4.7.8
       mobx: 6.15.0
       pluralize: 8.0.0
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
-      redoc: 2.5.0(core-js@3.45.1)(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
-      semver: 7.7.2
+      react: 19.2.2
+      react-dom: 19.2.2(react@19.2.2)
+      redoc: 2.5.0(core-js@3.45.1)(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.1.19(react-dom@19.2.2(react@19.2.2))(react@19.2.2))
+      semver: 7.7.3
       simple-websocket: 9.1.0
-      styled-components: 6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      styled-components: 6.1.19(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
       yargs: 17.0.1
     transitivePeerDependencies:
       - ajv
@@ -3559,25 +3571,25 @@ snapshots:
 
   '@redocly/config@0.22.2': {}
 
-  '@redocly/openapi-core@1.34.5':
+  '@redocly/openapi-core@1.34.6':
     dependencies:
       '@redocly/ajv': 8.11.3
       '@redocly/config': 0.22.2
       colorette: 1.4.0
       https-proxy-agent: 7.0.6
       js-levenshtein: 1.1.6
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       minimatch: 5.1.6
       pluralize: 8.0.0
       yaml-ast-parser: 0.0.43
     transitivePeerDependencies:
       - supports-color
 
-  '@redocly/respect-core@1.34.5(ajv@6.12.6)':
+  '@redocly/respect-core@1.34.6(ajv@6.12.6)':
     dependencies:
       '@faker-js/faker': 7.6.0
       '@redocly/ajv': 8.11.2
-      '@redocly/openapi-core': 1.34.5
+      '@redocly/openapi-core': 1.34.6
       better-ajv-errors: 1.2.0(ajv@6.12.6)
       colorette: 2.0.20
       concat-stream: 2.0.0
@@ -4150,7 +4162,7 @@ snapshots:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.7.2
+      semver: 7.7.3
       ts-api-utils: 2.1.0(typescript@5.7.3)
       typescript: 5.7.3
     transitivePeerDependencies:
@@ -4757,7 +4769,7 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@9.36.0):
     dependencies:
       eslint: 9.36.0
-      semver: 7.7.2
+      semver: 7.7.3
 
   eslint-config-prettier@10.1.8(eslint@9.36.0):
     dependencies:
@@ -4792,7 +4804,7 @@ snapshots:
       eslint-import-context: 0.1.9(unrs-resolver@1.11.1)
       is-glob: 4.0.3
       minimatch: 10.1.1
-      semver: 7.7.2
+      semver: 7.7.3
       stable-hash-x: 0.2.0
       unrs-resolver: 1.11.1
     optionalDependencies:
@@ -4829,7 +4841,7 @@ snapshots:
       globals: 15.15.0
       globrex: 0.1.2
       ignore: 5.3.2
-      semver: 7.7.2
+      semver: 7.7.3
       ts-declaration-location: 1.0.7(typescript@5.7.3)
     transitivePeerDependencies:
       - typescript
@@ -5536,21 +5548,21 @@ snapshots:
 
   minipass@7.1.2: {}
 
-  mobx-react-lite@4.1.1(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  mobx-react-lite@4.1.1(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2):
     dependencies:
       mobx: 6.15.0
-      react: 19.1.1
-      use-sync-external-store: 1.5.0(react@19.1.1)
+      react: 19.2.2
+      use-sync-external-store: 1.5.0(react@19.2.2)
     optionalDependencies:
-      react-dom: 19.1.1(react@19.1.1)
+      react-dom: 19.2.2(react@19.2.2)
 
-  mobx-react@9.2.1(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  mobx-react@9.2.1(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2):
     dependencies:
       mobx: 6.15.0
-      mobx-react-lite: 4.1.1(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      react: 19.1.1
+      mobx-react-lite: 4.1.1(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
+      react: 19.2.2
     optionalDependencies:
-      react-dom: 19.1.1(react@19.1.1)
+      react-dom: 19.2.2(react@19.2.2)
 
   mobx@6.15.0: {}
 
@@ -5611,7 +5623,7 @@ snapshots:
       oas-kit-common: 1.0.8
       reftools: 1.1.9
       yaml: 1.10.2
-      yargs: 17.0.1
+      yargs: 17.7.2
 
   oas-schema-walker@1.1.5: {}
 
@@ -5858,6 +5870,11 @@ snapshots:
       react: 19.1.1
       scheduler: 0.26.0
 
+  react-dom@19.2.2(react@19.2.2):
+    dependencies:
+      react: 19.2.2
+      scheduler: 0.27.0
+
   react-immutable-proptypes@2.2.0(immutable@3.8.2):
     dependencies:
       immutable: 3.8.2
@@ -5895,13 +5912,15 @@ snapshots:
       react: 19.1.1
       refractor: 5.0.0
 
-  react-tabs@6.1.0(react@19.1.1):
+  react-tabs@6.1.0(react@19.2.2):
     dependencies:
       clsx: 2.1.1
       prop-types: 15.8.1
-      react: 19.1.1
+      react: 19.2.2
 
   react@19.1.1: {}
+
+  react@19.2.2: {}
 
   readable-stream@3.6.2:
     dependencies:
@@ -5913,9 +5932,9 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  redoc@2.5.0(core-js@3.45.1)(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1)):
+  redoc@2.5.0(core-js@3.45.1)(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.1.19(react-dom@19.2.2(react@19.2.2))(react@19.2.2)):
     dependencies:
-      '@redocly/openapi-core': 1.34.5
+      '@redocly/openapi-core': 1.34.6
       classnames: 2.5.1
       core-js: 3.45.1
       decko: 1.2.0
@@ -5926,19 +5945,19 @@ snapshots:
       mark.js: 8.11.1
       marked: 4.3.0
       mobx: 6.15.0
-      mobx-react: 9.2.1(mobx@6.15.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      mobx-react: 9.2.1(mobx@6.15.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
       openapi-sampler: 1.6.1
       path-browserify: 1.0.1
       perfect-scrollbar: 1.5.6
       polished: 4.3.1
       prismjs: 1.30.0
       prop-types: 15.8.1
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
-      react-tabs: 6.1.0(react@19.1.1)
+      react: 19.2.2
+      react-dom: 19.2.2(react@19.2.2)
+      react-tabs: 6.1.0(react@19.2.2)
       slugify: 1.4.7
       stickyfill: 1.1.1
-      styled-components: 6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      styled-components: 6.1.19(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
       swagger2openapi: 7.0.8
       url-template: 2.0.8
     transitivePeerDependencies:
@@ -6066,6 +6085,8 @@ snapshots:
       is-regex: 1.2.1
 
   scheduler@0.26.0: {}
+
+  scheduler@0.27.0: {}
 
   semver@6.3.1: {}
 
@@ -6294,7 +6315,7 @@ snapshots:
 
   strnum@1.1.2: {}
 
-  styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  styled-components@6.1.19(react-dom@19.2.2(react@19.2.2))(react@19.2.2):
     dependencies:
       '@emotion/is-prop-valid': 1.2.2
       '@emotion/unitless': 0.8.1
@@ -6302,8 +6323,8 @@ snapshots:
       css-to-react-native: 3.2.0
       csstype: 3.1.3
       postcss: 8.4.49
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
+      react: 19.2.2
+      react-dom: 19.2.2(react@19.2.2)
       shallowequal: 1.1.0
       stylis: 4.3.2
       tslib: 2.6.2
@@ -6393,7 +6414,7 @@ snapshots:
       oas-validator: 5.0.8
       reftools: 1.1.9
       yaml: 1.10.2
-      yargs: 17.0.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - encoding
 
@@ -6573,6 +6594,10 @@ snapshots:
   use-sync-external-store@1.5.0(react@19.1.1):
     dependencies:
       react: 19.1.1
+
+  use-sync-external-store@1.5.0(react@19.2.2):
+    dependencies:
+      react: 19.2.2
 
   util-deprecate@1.0.2: {}
 

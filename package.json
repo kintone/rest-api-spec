@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@redocly/cli": "^1.34.5",
+    "@redocly/cli": "^1.34.6",
     "glob": "^11.1.0",
     "zx": "^8.8.5"
   },
