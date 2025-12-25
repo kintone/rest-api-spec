@@ -13,7 +13,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "bundle": "./scripts/bundle.js",
+    "bundle": "node scripts/bundle.ts",
     "doc:build": "pnpm --filter ./website build",
     "doc:dev": "pnpm --filter ./website dev",
     "doc:preview": "pnpm --filter ./website preview",
@@ -24,7 +24,9 @@
   "devDependencies": {
     "@redocly/cli": "^1.34.6",
     "glob": "^11.1.0",
-    "zx": "^8.8.5"
+    "zx": "^8.8.5",
+    "@types/node": "^22.15.32",
+    "typescript": "^5.8.3"
   },
   "publishConfig": {
     "access": "restricted"
