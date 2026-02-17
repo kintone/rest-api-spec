@@ -23,7 +23,7 @@
     "swagger-ui": "^5.30.3"
   },
   "devDependencies": {
-    "@cybozu/eslint-config": "^24.3.0",
+    "@cybozu/eslint-config": "^25.0.0",
     "@types/node": "^22.18.13",
     "@types/swagger-ui": "^3.52.4",
     "eslint": "^9.36.0",
