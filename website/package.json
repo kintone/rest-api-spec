@@ -26,7 +26,7 @@
     "@cybozu/eslint-config": "^24.3.0",
     "@types/node": "^22.18.13",
     "@types/swagger-ui": "^3.52.4",
-    "eslint": "^9.36.0",
+    "eslint": "^10.0.2",
     "eslint-plugin-package-json": "^0.29.1",
     "glob": "^11.1.0",
     "prettier": "^3.6.2",
