@@ -58,8 +58,8 @@ importers:
         specifier: ^8.44.1
         version: 8.44.1(eslint@9.36.0)(typescript@5.7.3)
       vite:
-        specifier: ^6.3.6
-        version: 6.3.6(@types/node@22.18.13)(tsx@4.21.0)
+        specifier: ^6.4.1
+        version: 6.4.1(@types/node@22.18.13)(tsx@4.21.0)
 
 packages:
 
@@ -3163,8 +3163,8 @@ packages:
     resolution: {integrity: sha512-IUoow1YUtvoBBC06dXs8bR8B9vuA3aJfmQNKMoaPG/OFsPmoQvw8xh+6Ye25Gx9DQhoEom3Pcu9MKHerm/NpUQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
-  vite@6.3.6:
-    resolution: {integrity: sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA==}
+  vite@6.4.1:
+    resolution: {integrity: sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -6890,7 +6890,7 @@ snapshots:
 
   validate-npm-package-name@6.0.2: {}
 
-  vite@6.3.6(@types/node@22.18.13)(tsx@4.21.0):
+  vite@6.4.1(@types/node@22.18.13)(tsx@4.21.0):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
