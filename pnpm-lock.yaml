@@ -58,7 +58,7 @@ importers:
         specifier: ^8.44.1
         version: 8.44.1(eslint@9.36.0)(typescript@5.7.3)
       vite:
-        specifier: ^6.4.1
+        specifier: ^6.4.2
         version: 6.4.2(@types/node@22.18.13)(tsx@4.21.0)
 
 packages:
