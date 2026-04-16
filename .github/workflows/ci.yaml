@@ -10,8 +10,14 @@ jobs:
   validate:
     name: Validate yaml files
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
+      - uses: flatt-security/setup-takumi-guard-pypi@7d825811bb293b9e0230477165442580a0074280 # v1.0.0
+        with:
+          bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pip install openapi-spec-validator
       - run: find ./kintone -name "openapi.yaml" -type f | xargs openapi-spec-validator
 
