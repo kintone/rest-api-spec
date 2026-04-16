@@ -18,6 +18,9 @@ jobs:
   bundle:
     name: Check that all bundled yaml files are updated
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -25,6 +28,9 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@v1
+        with:
+          bot-id: ${{ secrets.TAKUMI_GUARD_BOT_ID }}
       - run: pnpm install --fetch-timeout 900000 --frozen-lockfile
       - run: pnpm bundle
       - run: git diff --stat --exit-code
@@ -32,6 +38,9 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -39,12 +48,18 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@v1
+        with:
+          bot-id: ${{ secrets.TAKUMI_GUARD_BOT_ID }}
       - run: pnpm install
       - run: pnpm lint
 
   pages:
     name: Check website build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -52,5 +67,8 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@v1
+        with:
+          bot-id: ${{ secrets.TAKUMI_GUARD_BOT_ID }}
       - run: pnpm install
       - run: pnpm doc:build

@@ -27,6 +27,9 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@v1
+        with:
+          bot-id: ${{ secrets.TAKUMI_GUARD_BOT_ID }}
       - run: pnpm install
       - run: pnpm doc:build
       - name: Setup Pages Configuration
