@@ -39,6 +39,7 @@ jobs:
           bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pnpm install --fetch-timeout 900000 --frozen-lockfile
       - run: pnpm bundle
+      - run: git checkout -- .npmrc 2>/dev/null || true
       - run: git diff --stat --exit-code
 
   lint:
