@@ -10,14 +10,23 @@ jobs:
   validate:
     name: Validate yaml files
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
+      - uses: flatt-security/setup-takumi-guard-pypi@7d825811bb293b9e0230477165442580a0074280 # v1.0.0
+        with:
+          bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pip install openapi-spec-validator
       - run: find ./kintone -name "openapi.yaml" -type f | xargs openapi-spec-validator
 
   bundle:
     name: Check that all bundled yaml files are updated
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -25,13 +34,20 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@9a5d797c2085b6326d3a2985c08e3a114b9b88c1 # v1.1.1
+        with:
+          bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pnpm install --fetch-timeout 900000 --frozen-lockfile
       - run: pnpm bundle
+      - run: git checkout -- .npmrc 2>/dev/null || true
       - run: git diff --stat --exit-code
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -39,12 +55,18 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@9a5d797c2085b6326d3a2985c08e3a114b9b88c1 # v1.1.1
+        with:
+          bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pnpm install
       - run: pnpm lint
 
   pages:
     name: Check website build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
@@ -52,5 +74,8 @@ jobs:
         with:
           node-version-file: .node-version
           cache: "pnpm"
+      - uses: flatt-security/setup-takumi-guard-npm@9a5d797c2085b6326d3a2985c08e3a114b9b88c1 # v1.1.1
+        with:
+          bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pnpm install
       - run: pnpm doc:build
