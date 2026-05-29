@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@redocly/cli':
-        specifier: ^1.34.14
-        version: 1.34.14(ajv@6.12.6)
+        specifier: ^1.34.15
+        version: 1.34.15(ajv@6.12.6)(css-to-react-native@3.2.0)
       '@types/node':
         specifier: ^22.15.35
         version: 22.18.13
@@ -103,9 +103,6 @@ packages:
 
   '@emotion/memoize@0.9.0':
     resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
-
-  '@emotion/unitless@0.10.0':
-    resolution: {integrity: sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg==}
 
   '@esbuild/aix-ppc64@0.25.12':
     resolution: {integrity: sha512-Hhmwd6CInZ3dwpuGTF8fJG6yoWmsToE+vYgD4nytZVxcu1ulHpUQRAB1UJ8+N1Am3Mz4+xOByoQoSZf4D+CpkA==}
@@ -660,20 +657,20 @@ packages:
   '@redocly/ajv@8.11.2':
     resolution: {integrity: sha512-io1JpnwtIcvojV7QKDUSIuMN/ikdOUd1ReEnUnMKGfDVridQZ31J0MmIuqwuRjWDZfmvr+Q0MqCcfHM2gTivOg==}
 
-  '@redocly/cli@1.34.14':
-    resolution: {integrity: sha512-KDHPQW8JaqZVRwmnLAoqa4c7LpYSjzGD/hverRsktsq2QkbaKNawkSAVZ3kn331+SFnlVJ78c6DQNYPnUPd9AQ==}
+  '@redocly/cli@1.34.15':
+    resolution: {integrity: sha512-jAf9LgZUUKuheOLgFIayZloY6nn/0vhuW/0Ofi3FPT9Qtxvmpg3KHxfLHFi9wM6MWwyX59rwhi7ccQe1gTzKUw==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     hasBin: true
 
   '@redocly/config@0.22.0':
     resolution: {integrity: sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==}
 
-  '@redocly/openapi-core@1.34.14':
-    resolution: {integrity: sha512-y+xFx+Zz54Xhr8jUdnLENYnt7Y7GEDL6Q03ga7rTtX8DVwefX9H+hQEPgJp1nda7vdH+wJ9/HBVvyfBuW9x6rA==}
+  '@redocly/openapi-core@1.34.15':
+    resolution: {integrity: sha512-HAwCnNyKcs5XGQqms+9t7OdAPM/5TDstmhF+0i7tdCFato2QKuYIlyWETwkXd8c5zbltr1oB+6y9NTeQLr2d6Q==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
-  '@redocly/respect-core@1.34.14':
-    resolution: {integrity: sha512-Omh1uUBiFrmwXNNipWdUZpQEFlxFVYut1pZDu/QhOHg8BLljUaWCY6nkw4QVtNyUxKd0FOyzm72ZllJIZT9qag==}
+  '@redocly/respect-core@1.34.15':
+    resolution: {integrity: sha512-0jUdtGpweO3OgegyFTuMKs0iEHdMpkUYo9TgAc1gr/JOwPo5wB8kqhHueVVRhkabuiN1KjwZgs3FCctLndowxQ==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@rollup/rollup-android-arm-eabi@4.60.1':
@@ -952,9 +949,6 @@ packages:
 
   '@types/ramda@0.30.2':
     resolution: {integrity: sha512-PyzHvjCalm2BRYjAU6nIB3TprYwMNOUY/7P/N8bSzp9W/yM2YrtGtAnnVtaCNSeOZ8DzKyFDvaqQs7LnWwwmBA==}
-
-  '@types/stylis@4.2.7':
-    resolution: {integrity: sha512-VgDNokpBoKF+wrdvhAAfS55OMQpL6QRglwTwNC3kIgBrzZxA4WsFj+2eLfEA/uMUDzBcEhYmjSbwQakn/i3ajA==}
 
   '@types/swagger-ui@3.52.4':
     resolution: {integrity: sha512-7NV7q8BfupqdQxr26OkM0g0YEPB9uXnKGzXadgcearvI9MoCHt3F72lPTX3fZZIlrr21DC0IK26wcDMZ37oFDA==}
@@ -2558,10 +2552,6 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.4.49:
-    resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.8:
     resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -2857,9 +2847,6 @@ packages:
     engines: {node: '>= 0.10'}
     hasBin: true
 
-  shallowequal@1.1.0:
-    resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
-
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
     engines: {node: '>=8'}
@@ -2999,14 +2986,20 @@ packages:
   strnum@2.1.2:
     resolution: {integrity: sha512-l63NF9y/cLROq/yqKXSLtcMeeyOfnSQlfMSlzFt/K73oIaD8DGaQWd7Z34X9GPiKqP5rbSh84Hl4bOlLcjiSrQ==}
 
-  styled-components@6.3.9:
-    resolution: {integrity: sha512-J72R4ltw0UBVUlEjTzI0gg2STOqlI9JBhQOL4Dxt7aJOnnSesy0qJDn4PYfMCafk9cWOaVg129Pesl5o+DIh0Q==}
+  styled-components@6.4.1:
+    resolution: {integrity: sha512-ADu2dF53esUzzM4I0ewxhxFtsDd6v4V6dNkg3vG0iFKhnt06sJneTZnRvujAosZwW0XD58IKgGMQoqri4wHRqg==}
     engines: {node: '>= 16'}
     peerDependencies:
+      css-to-react-native: '>= 3.2.0'
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
+      react-native: '>= 0.68.0'
     peerDependenciesMeta:
+      css-to-react-native:
+        optional: true
       react-dom:
+        optional: true
+      react-native:
         optional: true
 
   stylis@4.3.6:
@@ -3401,8 +3394,6 @@ snapshots:
       '@emotion/memoize': 0.9.0
 
   '@emotion/memoize@0.9.0': {}
-
-  '@emotion/unitless@0.10.0': {}
 
   '@esbuild/aix-ppc64@0.25.12':
     optional: true
@@ -3803,7 +3794,7 @@ snapshots:
       require-from-string: 2.0.2
       uri-js-replace: 1.0.1
 
-  '@redocly/cli@1.34.14(ajv@6.12.6)':
+  '@redocly/cli@1.34.15(ajv@6.12.6)(css-to-react-native@3.2.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/exporter-trace-otlp-http': 0.53.0(@opentelemetry/api@1.9.0)
@@ -3811,8 +3802,8 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/config': 0.22.0
-      '@redocly/openapi-core': 1.34.14
-      '@redocly/respect-core': 1.34.14(ajv@6.12.6)
+      '@redocly/openapi-core': 1.34.15
+      '@redocly/respect-core': 1.34.15(ajv@6.12.6)
       abort-controller: 3.0.0
       chokidar: 3.5.3
       colorette: 1.4.0
@@ -3822,18 +3813,20 @@ snapshots:
       get-port-please: 3.0.1
       glob: 7.2.3
       handlebars: 4.7.9
+      js-yaml: 4.1.1
       mobx: 6.12.3
       pluralize: 8.0.0
       react: 19.2.2
       react-dom: 19.2.2(react@19.2.2)
-      redoc: 2.5.0(core-js@3.32.1)(mobx@6.12.3)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.3.9(react-dom@19.2.2(react@19.2.2))(react@19.2.2))
+      redoc: 2.5.0(core-js@3.32.1)(mobx@6.12.3)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2))
       semver: 7.7.4
       simple-websocket: 9.1.0
-      styled-components: 6.3.9(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
+      styled-components: 6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
       yargs: 17.0.1
     transitivePeerDependencies:
       - ajv
       - bufferutil
+      - css-to-react-native
       - encoding
       - react-native
       - supports-color
@@ -3841,7 +3834,7 @@ snapshots:
 
   '@redocly/config@0.22.0': {}
 
-  '@redocly/openapi-core@1.34.14':
+  '@redocly/openapi-core@1.34.15':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.22.0
@@ -3855,11 +3848,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@redocly/respect-core@1.34.14(ajv@6.12.6)':
+  '@redocly/respect-core@1.34.15(ajv@6.12.6)':
     dependencies:
       '@faker-js/faker': 7.6.0
       '@redocly/ajv': 8.11.2
-      '@redocly/openapi-core': 1.34.14
+      '@redocly/openapi-core': 1.34.15
       better-ajv-errors: 1.2.0(ajv@6.12.6)
       colorette: 2.0.20
       concat-stream: 2.0.0
@@ -3868,7 +3861,7 @@ snapshots:
       form-data: 4.0.4
       jest-diff: 29.7.0
       jest-matcher-utils: 29.7.0
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       json-pointer: 0.6.2
       jsonpath-plus: 10.3.0
       open: 10.1.0
@@ -4359,8 +4352,6 @@ snapshots:
     dependencies:
       types-ramda: 0.30.1
 
-  '@types/stylis@4.2.7': {}
-
   '@types/swagger-ui@3.52.4': {}
 
   '@types/trusted-types@2.0.7':
@@ -4717,7 +4708,8 @@ snapshots:
 
   callsites@3.1.0: {}
 
-  camelize@1.0.1: {}
+  camelize@1.0.1:
+    optional: true
 
   chalk@4.1.2:
     dependencies:
@@ -4801,13 +4793,15 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-color-keywords@1.0.0: {}
+  css-color-keywords@1.0.0:
+    optional: true
 
   css-to-react-native@3.2.0:
     dependencies:
       camelize: 1.0.1
       css-color-keywords: 1.0.0
       postcss-value-parser: 4.2.0
+    optional: true
 
   css.escape@1.5.1: {}
 
@@ -6098,13 +6092,8 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-value-parser@4.2.0: {}
-
-  postcss@8.4.49:
-    dependencies:
-      nanoid: 3.3.11
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
+  postcss-value-parser@4.2.0:
+    optional: true
 
   postcss@8.5.8:
     dependencies:
@@ -6255,9 +6244,9 @@ snapshots:
     dependencies:
       picomatch: 2.3.2
 
-  redoc@2.5.0(core-js@3.32.1)(mobx@6.12.3)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.3.9(react-dom@19.2.2(react@19.2.2))(react@19.2.2)):
+  redoc@2.5.0(core-js@3.32.1)(mobx@6.12.3)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)):
     dependencies:
-      '@redocly/openapi-core': 1.34.14
+      '@redocly/openapi-core': 1.34.15
       classnames: 2.5.1
       core-js: 3.32.1
       decko: 1.2.0
@@ -6280,7 +6269,7 @@ snapshots:
       react-tabs: 6.1.0(react@19.2.2)
       slugify: 1.4.7
       stickyfill: 1.1.1
-      styled-components: 6.3.9(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
+      styled-components: 6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)
       swagger2openapi: 7.0.8
       url-template: 2.0.8
     transitivePeerDependencies:
@@ -6453,8 +6442,6 @@ snapshots:
       inherits: 2.0.4
       safe-buffer: 5.2.1
       to-buffer: 1.2.2
-
-  shallowequal@1.1.0: {}
 
   shebang-command@2.0.0:
     dependencies:
@@ -6641,19 +6628,14 @@ snapshots:
 
   strnum@2.1.2: {}
 
-  styled-components@6.3.9(react-dom@19.2.2(react@19.2.2))(react@19.2.2):
+  styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
-      '@emotion/unitless': 0.10.0
-      '@types/stylis': 4.2.7
-      css-to-react-native: 3.2.0
       csstype: 3.2.3
-      postcss: 8.4.49
       react: 19.2.2
-      shallowequal: 1.1.0
       stylis: 4.3.6
-      tslib: 2.8.1
     optionalDependencies:
+      css-to-react-native: 3.2.0
       react-dom: 19.2.2(react@19.2.2)
 
   stylis@4.3.6: {}
