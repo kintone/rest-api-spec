@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@redocly/cli':
-        specifier: ^1.34.18
-        version: 1.34.18(ajv@6.12.6)(css-to-react-native@3.2.0)
+        specifier: ^1.34.19
+        version: 1.34.19(ajv@6.12.6)(css-to-react-native@3.2.0)
       '@types/node':
         specifier: ^22.15.35
         version: 22.18.13
@@ -657,20 +657,20 @@ packages:
   '@redocly/ajv@8.11.2':
     resolution: {integrity: sha512-io1JpnwtIcvojV7QKDUSIuMN/ikdOUd1ReEnUnMKGfDVridQZ31J0MmIuqwuRjWDZfmvr+Q0MqCcfHM2gTivOg==}
 
-  '@redocly/cli@1.34.18':
-    resolution: {integrity: sha512-xYt83IDBsQiw+eK0tSYMSjEsOdKpfP4jX1evma6nlsZdW+pYX0VUZDI1GdxngDDAH1gkpruJXSsPdUnIghtV9A==}
+  '@redocly/cli@1.34.19':
+    resolution: {integrity: sha512-0vDi8En54RlH2m1yV0EEo0T+57I+sfBFYjb1Ihtgck6qUj6qkOcpvFJGk7+fpseKodDONXadjLvPGcHRXoAJlg==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
     hasBin: true
 
   '@redocly/config@0.22.0':
     resolution: {integrity: sha512-gAy93Ddo01Z3bHuVdPWfCwzgfaYgMdaZPcfL7JZ7hWJoK9V0lXDbigTWkhiPFAaLWzbOJ+kbUQG1+XwIm0KRGQ==}
 
-  '@redocly/openapi-core@1.34.18':
-    resolution: {integrity: sha512-UyKIm0wTPw5BcY7Z2PkbK1Ma260um96LSBWXHrdSMe+ZV0EPMyDfAcUcjjm3qEiGST9OK/1TriekdPCZkn4Q3A==}
+  '@redocly/openapi-core@1.34.19':
+    resolution: {integrity: sha512-o/0VgsBXgwcY1lyeqcVtSGdTQAPnVggo0fbFVPlxl5XVDKUcVH0OLRqt3CbkwByT5FU305E0iE0O7MzThjDblw==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
-  '@redocly/respect-core@1.34.18':
-    resolution: {integrity: sha512-gMF4o3oscRFUcHtPTT3YP52sSMDyFYiMexOV/tZGvoJSZlh7h1G6SBveDpfHCYBk9iaUdhCEFWve3YHJk3LlRA==}
+  '@redocly/respect-core@1.34.19':
+    resolution: {integrity: sha512-gnOuy68glblpTGppmdFc94WhvutZTpMtfz9YhHR54n/pSzh0qL3mkzLP7UKwImbBhVKHCgGW6W7OpfCM6iBjaQ==}
     engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@rollup/rollup-android-arm-eabi@4.60.1':
@@ -2168,12 +2168,12 @@ packages:
     resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
     hasBin: true
 
-  js-yaml@4.2.0:
-    resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
-    hasBin: true
-
   js-yaml@4.3.0:
     resolution: {integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==}
+    hasBin: true
+
+  js-yaml@4.3.1:
+    resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
     hasBin: true
 
   jsep@1.4.0:
@@ -3802,7 +3802,7 @@ snapshots:
       require-from-string: 2.0.2
       uri-js-replace: 1.0.1
 
-  '@redocly/cli@1.34.18(ajv@6.12.6)(css-to-react-native@3.2.0)':
+  '@redocly/cli@1.34.19(ajv@6.12.6)(css-to-react-native@3.2.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/exporter-trace-otlp-http': 0.53.0(@opentelemetry/api@1.9.0)
@@ -3810,8 +3810,8 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.27.0
       '@redocly/config': 0.22.0
-      '@redocly/openapi-core': 1.34.18
-      '@redocly/respect-core': 1.34.18(ajv@6.12.6)
+      '@redocly/openapi-core': 1.34.19
+      '@redocly/respect-core': 1.34.19(ajv@6.12.6)
       abort-controller: 3.0.0
       chokidar: 3.5.3
       colorette: 1.4.0
@@ -3821,7 +3821,7 @@ snapshots:
       get-port-please: 3.0.1
       glob: 7.2.3
       handlebars: 4.7.9
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
       mobx: 6.12.3
       pluralize: 8.0.0
       react: 19.2.2
@@ -3842,25 +3842,25 @@ snapshots:
 
   '@redocly/config@0.22.0': {}
 
-  '@redocly/openapi-core@1.34.18':
+  '@redocly/openapi-core@1.34.19':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.22.0
       colorette: 1.4.0
       https-proxy-agent: 7.0.6
       js-levenshtein: 1.1.6
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
       minimatch: 5.1.9
       pluralize: 8.0.0
       yaml-ast-parser: 0.0.43
     transitivePeerDependencies:
       - supports-color
 
-  '@redocly/respect-core@1.34.18(ajv@6.12.6)':
+  '@redocly/respect-core@1.34.19(ajv@6.12.6)':
     dependencies:
       '@faker-js/faker': 7.6.0
       '@redocly/ajv': 8.11.2
-      '@redocly/openapi-core': 1.34.18
+      '@redocly/openapi-core': 1.34.19
       better-ajv-errors: 1.2.0(ajv@6.12.6)
       colorette: 2.0.20
       concat-stream: 2.0.0
@@ -3869,7 +3869,7 @@ snapshots:
       form-data: 4.0.6
       jest-diff: 29.7.0
       jest-matcher-utils: 29.7.0
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
       json-pointer: 0.6.2
       jsonpath-plus: 10.3.0
       open: 10.1.0
@@ -5746,11 +5746,11 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  js-yaml@4.2.0:
+  js-yaml@4.3.0:
     dependencies:
       argparse: 2.0.1
 
-  js-yaml@4.3.0:
+  js-yaml@4.3.1:
     dependencies:
       argparse: 2.0.1
 
@@ -6262,7 +6262,7 @@ snapshots:
 
   redoc@2.5.0(core-js@3.32.1)(mobx@6.12.3)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.2(react@19.2.2))(react@19.2.2)):
     dependencies:
-      '@redocly/openapi-core': 1.34.18
+      '@redocly/openapi-core': 1.34.19
       classnames: 2.5.1
       core-js: 3.32.1
       decko: 1.2.0
@@ -6674,7 +6674,7 @@ snapshots:
       '@swaggerexpert/cookie': 2.0.2
       deepmerge: 4.3.1
       fast-json-patch: 3.1.1
-      js-yaml: 4.2.0
+      js-yaml: 4.3.0
       neotraverse: 0.6.18
       node-abort-controller: 3.1.1
       node-fetch-commonjs: 3.3.2
