@@ -15,7 +15,7 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: flatt-security/setup-takumi-guard-pypi@7d825811bb293b9e0230477165442580a0074280 # v1.0.0
+      - uses: flatt-security/setup-takumi-guard-pypi@bac24f8a97255d96a277f60de6906154ce0be096 # v1.1.0
         with:
           bot-id: ${{ !github.event.pull_request.head.repo.fork && secrets.TAKUMI_GUARD_BOT_ID || '' }}
       - run: pip install openapi-spec-validator
